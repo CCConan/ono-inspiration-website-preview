@@ -1,0 +1,1246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ONO Inspiration · Sourced End-to-End. Worn Proudly.</title>
+<link rel="icon" type="image/png" href="assets/source/logo_icon.png">
+<meta name="description" content="Scroll-driven product storytelling for ONO Inspiration Company Limited — promotional merchandise curated in Hong Kong since 2006.">
+
+<!-- ─── GSAP + ScrollTrigger (pinned scrubbed scroll animation engine) ─── -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+<!-- ─── Brand fonts ─── -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<style>
+/* ═══════════════════════════════════════════════════════════════════════
+   TOKENS — Single source of truth. Modify here to update site-wide.
+   ═══════════════════════════════════════════════════════════════════════ */
+:root {
+  /* Brand palette */
+  --bg:           #f7f4ee;   /* warm paper */
+  --bg-deep:      #0e1a2b;   /* dark navy (scene 5 CTA) */
+  --surface:      #ffffff;
+  --ink:          #0e1a2b;
+  --ink-2:        #2a3344;
+  --muted:        #6b7484;
+  --hair:         #d8d2c5;
+  --brand:        #0a6cb4;   /* ONO logo blue */
+  --brand-deep:   #064f87;
+  --brand-soft:   #e6f0fa;
+  --brand-tint:   #f3f8fd;
+
+  /* Type stack */
+  --font-display: 'Space Grotesk', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+  --font-body:    'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+  --font-mono:    'JetBrains Mono', ui-monospace, Menlo, monospace;
+
+  /* Type scale */
+  --t-xs:   11px;
+  --t-sm:   14px;
+  --t-base: 16px;
+  --t-lg:   18px;
+  --t-xl:   22px;
+  --t-2xl:  32px;
+  --t-3xl:  48px;
+  --t-4xl:  72px;
+  --t-5xl:  clamp(48px, 8vw, 112px);
+  --t-mega: clamp(64px, 12vw, 180px);
+
+  /* Spacing */
+  --s-1: 4px;   --s-2: 8px;   --s-3: 12px;  --s-4: 16px;
+  --s-5: 20px;  --s-6: 24px;  --s-8: 32px;  --s-10: 40px;
+  --s-12: 56px; --s-16: 80px; --s-20: 112px; --s-24: 144px;
+
+  /* Motion */
+  --ease:       cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-out:   cubic-bezier(0.22, 1, 0.36, 1);
+  --t-fast:     140ms;
+  --t-base:     280ms;
+  --t-slow:     520ms;
+
+  /* 3D product stage */
+  --stage-persp:  1400px;
+  --stage-radius: 12px;
+
+  /* Scroll narrative length per scene */
+  --scene-height: 600vh;
+  --scene-intro:  120vh;
+  --scene-cta:    260vh;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════
+   RESET + BASE
+   ═══════════════════════════════════════════════════════════════════════ */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: auto; }  /* GSAP handles smoothing */
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: var(--t-base);
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  overflow-x: hidden;
+}
+img, svg { display: block; max-width: 100%; }
+a { color: inherit; text-decoration: none; }
+button { font: inherit; cursor: pointer; border: none; background: none; padding: 0; color: inherit; }
+p { text-wrap: pretty; }
+h1, h2, h3, h4 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  line-height: 1.0;
+  letter-spacing: -0.025em;
+  text-wrap: balance;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════
+   TOPNAV — minimal, doesn't interrupt scroll narrative
+   ═══════════════════════════════════════════════════════════════════════ */
+.topnav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  padding: 18px 32px;
+  display: flex; align-items: center; justify-content: space-between;
+  mix-blend-mode: difference;
+  color: var(--surface);
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  pointer-events: none;
+}
+.topnav a, .topnav .progress-rail { pointer-events: auto; }
+.topnav .brand { display: flex; align-items: center; gap: 12px; font-family: var(--font-display); font-weight: 700; letter-spacing: 0; font-size: 13px; text-transform: none; }
+.topnav .brand-dot { width: 8px; height: 8px; background: var(--surface); border-radius: 50%; }
+.topnav nav { display: flex; gap: 24px; }
+.topnav nav a:hover { opacity: 0.7; }
+.topnav .progress-rail {
+  width: 140px; height: 2px;
+  background: rgba(255,255,255,0.25);
+  position: relative;
+}
+.topnav .progress-rail::after {
+  content: '';
+  position: absolute; left: 0; top: 0; bottom: 0;
+  width: var(--scroll-progress, 0%);
+  background: var(--surface);
+  transition: width 80ms linear;
+}
+@media (max-width: 768px) {
+  .topnav nav { display: none; }
+  .topnav { padding: 14px 20px; }
+}
+
+/* ═══════════════════════════════════════════════════════════════════════
+   SCENE BASE — pinned full-viewport stage + 3D product container
+   ═══════════════════════════════════════════════════════════════════════ */
+.scroll-track { position: relative; }
+
+.scene {
+  position: relative;
+  height: var(--scene-height);
+}
+
+.scene-intro {
+  position: relative;
+  height: var(--scene-intro);
+  display: flex; align-items: center; justify-content: center;
+  text-align: center;
+  background: var(--bg);
+}
+.scene-intro-inner {
+  max-width: 1100px;
+  padding: 0 32px;
+}
+.scene-intro .eyebrow {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: var(--brand);
+  margin-bottom: 32px;
+  display: inline-block;
+}
+.scene-intro h1 {
+  font-size: var(--t-mega);
+  font-weight: 700;
+  line-height: 0.95;
+  letter-spacing: -0.04em;
+  margin-bottom: 24px;
+}
+.scene-intro h1 .accent { color: var(--brand); font-style: italic; }
+.scene-intro .lede {
+  font-family: var(--font-display);
+  font-size: clamp(20px, 2.4vw, 32px);
+  font-weight: 500;
+  line-height: 1.35;
+  color: var(--ink-2);
+  max-width: 22ch;
+  margin: 0 auto 48px;
+}
+.scene-intro .scroll-hint {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--muted);
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+.scene-intro .scroll-hint .arrow {
+  width: 1px; height: 48px;
+  background: linear-gradient(to bottom, transparent, var(--ink));
+  animation: scroll-hint-bob 2.2s ease-in-out infinite;
+}
+@keyframes scroll-hint-bob {
+  0%, 100% { transform: translateY(0); opacity: 0.4; }
+  50%      { transform: translateY(8px); opacity: 1; }
+}
+
+/* Pinned stage (the part that stays in viewport during scrub) */
+.stage {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.stage-bg {
+  position: absolute; inset: 0;
+  z-index: 0;
+}
+
+/* Per-scene background moods */
+.stage-bg.scene-1 {
+  background:
+    radial-gradient(ellipse 70% 60% at 50% 50%, rgba(10, 108, 180, 0.10), transparent 70%),
+    radial-gradient(ellipse 80% 60% at 50% 80%, rgba(10, 108, 180, 0.06), transparent 60%),
+    var(--bg);
+}
+.stage-bg.scene-2 {
+  background:
+    radial-gradient(ellipse 60% 60% at 30% 30%, rgba(196, 152, 76, 0.18), transparent 70%),
+    radial-gradient(ellipse 60% 60% at 70% 70%, rgba(196, 152, 76, 0.10), transparent 60%),
+    var(--bg);
+}
+.stage-bg.scene-3 {
+  background:
+    radial-gradient(ellipse 60% 60% at 50% 50%, rgba(15, 23, 42, 0.08), transparent 70%),
+    radial-gradient(ellipse 80% 60% at 50% 90%, rgba(15, 23, 42, 0.04), transparent 60%),
+    var(--bg);
+}
+.stage-bg.scene-4 {
+  background:
+    radial-gradient(ellipse 70% 70% at 50% 50%, rgba(10, 108, 180, 0.08), transparent 70%),
+    var(--bg);
+}
+.stage-bg.scene-5 {
+  background: var(--bg-deep);
+  color: var(--surface);
+}
+
+/* Grid overlay — subtle texture */
+.stage-grid {
+  position: absolute; inset: 0;
+  background-image:
+    linear-gradient(to right, rgba(14, 26, 43, 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(14, 26, 43, 0.04) 1px, transparent 1px);
+  background-size: 80px 80px;
+  z-index: 1;
+  opacity: 0.6;
+  pointer-events: none;
+}
+.stage-bg.scene-5 .stage-grid {
+  background-image:
+    linear-gradient(to right, rgba(255,255,255,0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255,255,255,0.05) 1px, transparent 1px);
+}
+
+/* 3D product container — the magic that makes it feel like a real 3D scene */
+.product-stage {
+  position: relative;
+  z-index: 2;
+  width: min(560px, 70vw);
+  height: min(560px, 70vw);
+  perspective: var(--stage-persp);
+  perspective-origin: 50% 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.product-3d {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  will-change: transform;
+  /* Floating idle animation, JS overrides when scrubbing */
+  animation: product-float 6s ease-in-out infinite;
+}
+@keyframes product-float {
+  0%, 100% { transform: translateY(0) rotateX(0deg); }
+  50%      { transform: translateY(-12px) rotateX(2deg); }
+}
+
+.product-3d img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  filter: drop-shadow(0 32px 48px rgba(14, 26, 43, 0.18))
+          drop-shadow(0 16px 24px rgba(14, 26, 43, 0.12));
+  will-change: transform;
+}
+
+/* Reflection / ground shadow */
+.product-stage::after {
+  content: '';
+  position: absolute;
+  left: 50%; bottom: 8%;
+  width: 60%; height: 24px;
+  background: radial-gradient(ellipse 60% 100% at center, rgba(14, 26, 43, 0.30), transparent 70%);
+  transform: translateX(-50%);
+  z-index: 1;
+  filter: blur(6px);
+}
+
+/* Floating particles for ambient motion (scene 1, 4) */
+.particles {
+  position: absolute; inset: 0;
+  z-index: 1;
+  pointer-events: none;
+}
+.particle {
+  position: absolute;
+  width: 4px; height: 4px;
+  background: var(--brand);
+  border-radius: 50%;
+  opacity: 0;
+}
+
+
+/* ═══════════════════════════════════════════════════════════════════════
+   IMAGE-SEQUENCE FRAME STACK — replaces single <img> in scenes 1-4.
+   24 playback steps stacked absolutely, only current frame is visible.
+   GSAP timeline toggles .is-active class on each frame.
+   ═══════════════════════════════════════════════════════════════════════ */
+.frame-stack {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  will-change: transform;
+}
+.frame-stack img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  filter: drop-shadow(0 32px 48px rgba(14, 26, 43, 0.18))
+          drop-shadow(0 16px 24px rgba(14, 26, 43, 0.12));
+  opacity: 0;
+  transition: opacity 140ms linear;
+  pointer-events: none;
+  will-change: opacity;
+}
+.frame-stack img.is-active {
+  opacity: 1;
+}
+
+/* Loading placeholder shown until first frame is decoded */
+.frame-stack.is-loading::before {
+  content: '';
+  position: absolute;
+  inset: 25%;
+  border-radius: 50%;
+  background: radial-gradient(ellipse at center, rgba(14,26,43,0.06), transparent 70%);
+  animation: stack-pulse 1.6s ease-in-out infinite;
+}
+@keyframes stack-pulse {
+  0%, 100% { opacity: 0.4; transform: scale(0.96); }
+  50%      { opacity: 0.9; transform: scale(1.04); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .frame-stack img { transition: opacity 140ms linear; }
+}
+
+/* Legacy single-img fallback (kept for reduced-motion desktop path) */
+.product-3d.single-img img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  filter: drop-shadow(0 32px 48px rgba(14, 26, 43, 0.18))
+          drop-shadow(0 16px 24px rgba(14, 26, 43, 0.12));
+  will-change: transform;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════
+   TEXT CARDS — fade in / out at scrub points
+   ═══════════════════════════════════════════════════════════════════════ */
+.text-layer {
+  position: absolute; inset: 0;
+  z-index: 3;
+  pointer-events: none;
+  display: flex;
+  align-items: center;
+}
+
+.text-card {
+  position: absolute;
+  max-width: 480px;
+  padding: 0 32px;
+  pointer-events: auto;
+  opacity: 0;
+}
+.text-card.left  { left: 6%; top: 50%; transform: translateY(-50%); }
+.text-card.right { right: 6%; top: 50%; transform: translateY(-50%); text-align: right; }
+.text-card.top   { left: 50%; top: 8%; transform: translateX(-50%); text-align: center; }
+.text-card.bottom{ left: 50%; bottom: 8%; transform: translateX(-50%); text-align: center; }
+
+.text-card .eyebrow {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--brand);
+  margin-bottom: 16px;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+.text-card.right .eyebrow { justify-content: flex-end; }
+.text-card .eyebrow::before {
+  content: '';
+  width: 28px; height: 1px;
+  background: currentColor;
+}
+.text-card .eyebrow.no-line::before { display: none; }
+
+.text-card h2 {
+  font-family: var(--font-display);
+  font-size: clamp(32px, 4vw, 56px);
+  font-weight: 700;
+  line-height: 1.05;
+  letter-spacing: -0.025em;
+  margin-bottom: 18px;
+  color: var(--ink);
+}
+.text-card .body {
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.55;
+  color: var(--ink-2);
+  margin-bottom: 16px;
+}
+
+.text-card .spec-list {
+  list-style: none;
+  display: grid;
+  gap: 8px;
+  margin-top: 8px;
+}
+.text-card .spec-list li {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: 0.04em;
+  color: var(--ink-2);
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 8px 0;
+  border-bottom: 1px solid rgba(14, 26, 43, 0.08);
+}
+.text-card .spec-list li:last-child { border-bottom: none; }
+.text-card .spec-list .k { color: var(--muted); text-transform: uppercase; letter-spacing: 0.12em; }
+.text-card .spec-list .v { font-weight: 500; color: var(--ink); }
+
+/* Scene 5 dark — invert text colors */
+.scene-cta .text-card h2 { color: var(--surface); }
+.scene-cta .text-card .body { color: rgba(255,255,255,0.7); }
+.scene-cta .text-card .eyebrow { color: var(--brand); }
+.scene-cta .text-card .spec-list .k { color: rgba(255,255,255,0.5); }
+.scene-cta .text-card .spec-list .v { color: var(--surface); }
+.scene-cta .text-card .spec-list li { border-color: rgba(255,255,255,0.12); }
+
+/* ═══════════════════════════════════════════════════════════════════════
+   SCENE NUMBER / PROGRESS INDICATORS
+   ═══════════════════════════════════════════════════════════════════════ */
+.scene-marker {
+  position: absolute;
+  top: 96px; left: 32px;
+  z-index: 10;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--muted);
+  display: flex; align-items: center; gap: 10px;
+}
+.scene-marker::before {
+  content: '';
+  width: 24px; height: 1px;
+  background: currentColor;
+}
+.scene-marker .num { color: var(--brand); font-weight: 500; }
+
+@media (max-width: 768px) {
+  .product-stage {
+    width: min(360px, 92vw);
+    height: min(360px, 92vw);
+    transform: translateY(-72px);
+  }
+  .text-card,
+  .text-card.left,
+  .text-card.right,
+  .text-card.bottom {
+    left: 4%; right: 4%;
+    top: auto; bottom: 4%;
+    max-width: none;
+    padding: 16px 18px;
+    transform: none;
+    text-align: center;
+    background: rgba(247, 244, 238, 0.94);
+    border: 1px solid rgba(10, 108, 180, 0.18);
+    border-radius: 16px;
+    backdrop-filter: blur(12px);
+  }
+  .text-card h2 { font-size: clamp(28px, 9vw, 38px); margin-bottom: 10px; }
+  .text-card .body { font-size: 14px; line-height: 1.45; }
+  .text-card .spec-list { gap: 2px; }
+  .text-card .spec-list li { font-size: 10px; padding: 5px 0; }
+  .text-card.right .eyebrow { justify-content: center; }
+  .scene-marker { top: 64px; left: 20px; }
+}
+
+/* ═══════════════════════════════════════════════════════════════════════
+   FINAL CTA — the two selected hero products
+   ═══════════════════════════════════════════════════════════════════════ */
+.product-lineup {
+  position: absolute; inset: 0;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 380px));
+  justify-content: center;
+  gap: 48px;
+  padding: 180px 48px 230px;
+  z-index: 2;
+  align-items: center;
+  justify-items: center;
+}
+.product-lineup .lineup-item {
+  display: flex; flex-direction: column; align-items: center; gap: 16px;
+  opacity: 0;
+  transform: translateY(40px);
+}
+.product-lineup .lineup-item[hidden] { display: none !important; }
+.product-lineup .lineup-item .frame {
+  width: 360px; height: 360px;
+  background: transparent;
+  border: 0;
+  display: flex; align-items: center; justify-content: center;
+  border-radius: 8px;
+}
+.product-lineup .lineup-item img {
+  width: 92%; height: 92%;
+  object-fit: contain;
+  filter: drop-shadow(0 12px 24px rgba(0,0,0,0.4));
+}
+.product-lineup .lineup-item .name {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.7);
+  text-align: center;
+}
+@media (max-width: 1024px) {
+  .product-lineup { grid-template-columns: repeat(2, 1fr); padding: 170px 28px 250px; gap: 24px; }
+  .product-lineup .lineup-item .frame { width: min(34vw, 300px); height: min(34vw, 300px); }
+}
+@media (max-width: 640px) {
+  .product-lineup { grid-template-columns: repeat(2, 1fr); padding: 150px 12px 260px; gap: 10px; }
+  .product-lineup .lineup-item .frame { width: min(42vw, 168px); height: min(42vw, 168px); }
+  .product-lineup .lineup-item .name { font-size: 9px; letter-spacing: 0.1em; }
+}
+
+.scene-cta .text-card.top {
+  width: min(960px, 92vw);
+  max-width: 960px;
+  padding-inline: 24px;
+}
+.scene-cta .text-card.top h2 {
+  font-size: clamp(44px, 6.2vw, 78px);
+  line-height: 0.98;
+}
+.scene-cta .text-card.top .eyebrow {
+  font-size: 13px;
+}
+
+.cta-row {
+  display: flex; gap: 16px; flex-wrap: wrap; margin-top: 24px;
+}
+.btn {
+  display: inline-flex; align-items: center; gap: 10px;
+  padding: 16px 28px;
+  font-family: var(--font-display);
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  border-radius: 999px;
+  border: 1px solid transparent;
+  transition: transform var(--t-fast) var(--ease), background var(--t-fast) var(--ease), box-shadow var(--t-fast) var(--ease);
+}
+.btn-primary {
+  background: var(--surface);
+  color: var(--bg-deep);
+}
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 32px -8px rgba(255,255,255,0.4);
+}
+.btn-ghost {
+  background: transparent;
+  color: var(--surface);
+  border-color: rgba(255,255,255,0.25);
+}
+.btn-ghost:hover {
+  border-color: var(--brand);
+  color: var(--brand);
+  background: rgba(10, 108, 180, 0.1);
+}
+
+/* ═══════════════════════════════════════════════════════════════════════
+   REDUCED MOTION FALLBACK
+   ═══════════════════════════════════════════════════════════════════════ */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  .product-3d { animation: none !important; }
+  /* Replace 3D transforms with static positioning */
+  .product-3d img { transform: none !important; }
+}
+
+/* Mobile: skip 3D transforms (perf + touch UX), use simpler vertical scroll */
+@media (max-width: 768px) {
+  :root {
+    --scene-height: 420vh;
+    --scene-intro: 100vh;
+    --scene-cta: 220vh;
+  }
+  .product-stage {
+    width: min(380px, 90vw);
+    height: min(380px, 90vw);
+  }
+  .scene-cta .text-card.top {
+    top: 8% !important;
+    bottom: auto;
+    background: transparent;
+    border: 0;
+    color: var(--surface);
+  }
+  .scene-cta .text-card.top h2 { font-size: clamp(38px, 11vw, 52px); }
+  .scene-cta .text-card.bottom {
+    bottom: 6% !important;
+    background: transparent;
+    border: 0;
+  }
+}
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════════════════════════════════════
+   TOPNAV — sticky, doesn't interrupt scroll
+   ═══════════════════════════════════════════════════════════════════════ -->
+<header class="topnav">
+  <a href="#" class="brand">
+    <span class="brand-dot"></span>
+    ONO Inspiration · HK · Since 2006
+  </a>
+  <nav>
+    <a href="#scene-1">Power</a>
+    <a href="#scene-3">3-in-1 Charging</a>
+  </nav>
+  <div class="progress-rail"></div>
+</header>
+
+<!-- ═══════════════════════════════════════════════════════════════════════
+   SCROLL TRACK — all scenes stacked
+   ═══════════════════════════════════════════════════════════════════════ -->
+<div class="scroll-track">
+
+  <!-- ─── SCENE 0: BRAND INTRO ───────────────────────────────────────── -->
+  <section class="scene-intro" id="intro" data-od-id="intro">
+    <div class="scene-intro-inner">
+      <div class="eyebrow">— Your Need, Our Passion —</div>
+      <h1>Sourced<br><span class="accent">end-to-end.</span><br>Worn proudly.</h1>
+      <p class="lede">Promotional merchandise, curated in Hong Kong since 2006.</p>
+      <div class="scroll-hint">
+        <span>Scroll to explore</span>
+        <span class="arrow"></span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── SCENE 1: POWER & CHARGING ─────────────────────────────────── -->
+  <section class="scene" id="scene-1" data-od-id="power-story">
+    <div class="stage">
+      <div class="stage-bg scene-1">
+        <div class="stage-grid"></div>
+        <div class="particles" id="particles-1"></div>
+      </div>
+
+      <div class="scene-marker">
+        <span class="num">01</span> Power &amp; Charging
+      </div>
+
+      <!-- 3D Product stage -->
+      <div class="product-stage">
+        <div class="product-3d" data-product-3d="1">
+        <div class="frame-stack is-loading" data-frame-stack="1" data-frame-count="36">
+        <img src="assets/hero-frames/01-powerbank-36/frame-00.webp" alt="Powerbank playback step 01 of 36" loading="eager" decoding="async" class="is-active">
+        <img src="assets/hero-frames/01-powerbank-36/frame-01.webp" alt="Powerbank playback step 02 of 36" loading="eager" decoding="async">
+        <img src="assets/hero-frames/01-powerbank-36/frame-02.webp" alt="Powerbank playback step 03 of 36" loading="lazy" decoding="async">
+        <img src="assets/hero-frames/01-powerbank-36/frame-03.webp" alt="Powerbank playback step 04 of 36" loading="lazy" decoding="async">
+        <img src="assets/hero-frames/01-powerbank-36/frame-04.webp" alt="Powerbank playback step 05 of 36" loading="lazy" decoding="async">
+        <img src="assets/hero-frames/01-powerbank-36/frame-05.webp" alt="Powerbank playback step 06 of 36" loading="lazy" decoding="async">
+        <img src="assets/hero-frames/01-powerbank-36/frame-06.webp" alt="Powerbank playback step 07 of 36" loading="lazy" decoding="async">
+        <img src="assets/hero-frames/01-powerbank-36/frame-07.webp" alt="Powerbank playback step 08 of 36" loading="lazy" decoding="async">
+        <img src="assets/hero-frames/01-powerbank-36/frame-08.webp" alt="Powerbank playback step 09 of 36" loading="lazy" decoding="async">
+        <img src="assets/hero-frames/01-powerbank-36/frame-09.webp" alt="Powerbank playback step 10 of 36" loading="lazy" decoding="async">
+        <img src="assets/hero-frames/01-powerbank-36/frame-10.webp" alt="Powerbank playback step 11 of 36" loading="lazy" decoding="async">
+        <img src="assets/hero-frames/01-powerbank-36/frame-11.webp" alt="Powerbank playback step 12 of 36" loading="lazy" decoding="async">
+        <img src="assets/hero-frames/01-powerbank-36/frame-12.webp" alt="Powerbank playback step 13 of 36" loading="lazy" decoding="async">
+        <img src="assets/hero-frames/01-powerbank-36/frame-13.webp" alt="Powerbank playback step 14 of 36" loading="lazy" decoding="async">
+        <img src="assets/hero-frames/01-powerbank-36/frame-14.webp" alt="Powerbank playback step 15 of 36" loading="lazy" decoding="async">
+        <img src="assets/hero-frames/01-powerbank-36/frame-15.webp" alt="Powerbank playback step 16 of 36" loading="lazy" decoding="async">
+        <img src="assets/hero-frames/01-powerbank-36/frame-16.webp" alt="Powerbank playback step 17 of 36" loading="lazy" decoding="async">
+        <img src="assets/hero-frames/01-powerbank-36/frame-17.webp" alt="Powerbank playback step 18 of 36" loading="lazy" decoding="async">
+        <img src="assets/hero-frames/01-powerbank-36/frame-18.webp" alt="Powerbank playback step 19 of 36" loading="lazy" decoding="async">
+        <img src="assets/hero-frames/01-powerbank-36/frame-19.webp" alt="Powerbank playback step 20 of 36" loading="lazy" decoding="async">
+        <img src="assets/hero-frames/01-powerbank-36/frame-20.webp" alt="Powerbank playback step 21 of 36" loading="lazy" decoding="async">
+        <img src="assets/hero-frames/01-powerbank-36/frame-21.webp" alt="Powerbank playback step 22 of 36" loading="lazy" decoding="async">
+        <img src="assets/hero-frames/01-powerbank-36/frame-22.webp" alt="Powerbank playback step 23 of 36" loading="lazy" decoding="async">
+        <img src="assets/hero-frames/01-powerbank-36/frame-23.webp" alt="Powerbank playback step 24 of 36" loading="lazy" decoding="async">
+        <img src="assets/hero-frames/01-powerbank-36/frame-24.webp" alt="Powerbank playback step 25 of 36" loading="lazy" decoding="async">
+        <img src="assets/hero-frames/01-powerbank-36/frame-25.webp" alt="Powerbank playback step 26 of 36" loading="lazy" decoding="async">
+        <img src="assets/hero-frames/01-powerbank-36/frame-26.webp" alt="Powerbank playback step 27 of 36" loading="lazy" decoding="async">
+        <img src="assets/hero-frames/01-powerbank-36/frame-27.webp" alt="Powerbank playback step 28 of 36" loading="lazy" decoding="async">
+        <img src="assets/hero-frames/01-powerbank-36/frame-28.webp" alt="Powerbank playback step 29 of 36" loading="lazy" decoding="async">
+        <img src="assets/hero-frames/01-powerbank-36/frame-29.webp" alt="Powerbank playback step 30 of 36" loading="lazy" decoding="async">
+        <img src="assets/hero-frames/01-powerbank-36/frame-30.webp" alt="Powerbank playback step 31 of 36" loading="lazy" decoding="async">
+        <img src="assets/hero-frames/01-powerbank-36/frame-31.webp" alt="Powerbank playback step 32 of 36" loading="lazy" decoding="async">
+        <img src="assets/hero-frames/01-powerbank-36/frame-32.webp" alt="Powerbank playback step 33 of 36" loading="lazy" decoding="async">
+        <img src="assets/hero-frames/01-powerbank-36/frame-33.webp" alt="Powerbank playback step 34 of 36" loading="lazy" decoding="async">
+        <img src="assets/hero-frames/01-powerbank-36/frame-34.webp" alt="Powerbank playback step 35 of 36" loading="lazy" decoding="async">
+        <img src="assets/hero-frames/01-powerbank-36/frame-35.webp" alt="Powerbank playback step 36 of 36" loading="lazy" decoding="async">
+        </div>
+      </div>
+      </div>
+
+      <!-- Text layers — fade in/out at scrub points -->
+      <div class="text-layer">
+        <div class="text-card left" data-card="1-1">
+          <div class="eyebrow">DSPBCK02 · Catalogue P04</div>
+          <h2>5,000 / 10,000 mAh.<br>Magnetic.</h2>
+          <p class="body">Luminous logo · 104 × 66 × 14 mm. Product wording and dimensions are taken directly from the 2026 catalogue.</p>
+        </div>
+        <div class="text-card right" data-card="1-2">
+          <ul class="spec-list">
+            <li><span class="k">SKU</span><span class="v">DSPBCK02</span></li>
+            <li><span class="k">Capacity</span><span class="v">5,000 / 10,000 mAh</span></li>
+            <li><span class="k">Size</span><span class="v">104 × 66 × 14 mm</span></li>
+            <li><span class="k">Feature</span><span class="v">Magnetic</span></li>
+            <li><span class="k">Branding</span><span class="v">Luminous Logo</span></li>
+          </ul>
+        </div>
+        <div class="text-card bottom" data-card="1-3">
+          <div class="eyebrow no-line">Source · ONO Catalogue 2026 · Page 04</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── SCENE 2: ECO ENERGY ──────────────────────────────────────── -->
+  <section class="scene" id="scene-2" data-od-id="eco-story-disabled" hidden aria-hidden="true">
+    <div class="stage">
+      <div class="stage-bg scene-2">
+        <div class="stage-grid"></div>
+      </div>
+
+      <div class="scene-marker">
+        <span class="num">02</span> Eco Energy
+      </div>
+
+      <div class="product-stage">
+        <div class="product-3d" data-product-3d="2">
+        <div class="frame-stack is-loading" data-frame-stack="2" data-frame-count="12">
+        <img src="assets/hero-frames/02-eco/frame-00.webp" alt="Hero product angle 0°" loading="lazy" decoding="async" class="is-active">
+        <img src="assets/hero-frames/02-eco/frame-01.webp" alt="Hero product angle 30°" loading="lazy" decoding="async">
+        <img src="assets/hero-frames/02-eco/frame-02.webp" alt="Hero product angle 60°" loading="lazy" decoding="async">
+        <img src="assets/hero-frames/02-eco/frame-03.webp" alt="Hero product angle 90°" loading="lazy" decoding="async">
+        <img src="assets/hero-frames/02-eco/frame-04.webp" alt="Hero product angle 120°" loading="lazy" decoding="async">
+        <img src="assets/hero-frames/02-eco/frame-05.webp" alt="Hero product angle 150°" loading="lazy" decoding="async">
+        <img src="assets/hero-frames/02-eco/frame-06.webp" alt="Hero product angle 180°" loading="lazy" decoding="async">
+        <img src="assets/hero-frames/02-eco/frame-07.webp" alt="Hero product angle 210°" loading="lazy" decoding="async">
+        <img src="assets/hero-frames/02-eco/frame-08.webp" alt="Hero product angle 240°" loading="lazy" decoding="async">
+        <img src="assets/hero-frames/02-eco/frame-09.webp" alt="Hero product angle 270°" loading="lazy" decoding="async">
+        <img src="assets/hero-frames/02-eco/frame-10.webp" alt="Hero product angle 300°" loading="lazy" decoding="async">
+        <img src="assets/hero-frames/02-eco/frame-11.webp" alt="Hero product angle 330°" loading="lazy" decoding="async">
+        </div>
+      </div>
+      </div>
+
+      <div class="text-layer">
+        <div class="text-card left" data-card="2-1">
+          <div class="eyebrow">Energy, reconsidered</div>
+          <h2>Better materials. Built for daily use.</h2>
+          <p class="body">Bamboo and wheat-straw composites, finished to a tactile grain that ages with your brand.</p>
+        </div>
+        <div class="text-card right" data-card="2-2">
+          <ul class="spec-list">
+            <li><span class="k">Materials</span><span class="v">Bamboo · Wheat straw</span></li>
+            <li><span class="k">Function</span><span class="v">3-in-1 cable</span></li>
+            <li><span class="k">Length</span><span class="v">13 cm keychain</span></li>
+            <li><span class="k">Branding</span><span class="v">Coca-Cola · Huawei case study</span></li>
+            <li><span class="k">Compliance</span><span class="v">RoHS · CE</span></li>
+          </ul>
+        </div>
+        <div class="text-card bottom" data-card="2-3">
+          <div class="eyebrow no-line">Natural textures, every batch</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── SCENE 3: WIRELESS CHARGING ────────────────────────────────── -->
+  <section class="scene" id="scene-3" data-od-id="wireless-story">
+    <div class="stage">
+      <div class="stage-bg scene-3">
+        <div class="stage-grid"></div>
+      </div>
+
+      <div class="scene-marker">
+        <span class="num">02</span> 3-in-1 Charging
+      </div>
+
+      <div class="product-stage">
+        <div class="product-3d" data-product-3d="3">
+        <div class="frame-stack is-loading" data-frame-stack="3" data-frame-count="24">
+        <img src="assets/hero-frames/03-wireless-transparent/frame-00.webp" alt="3-in-1 charger playback step 01 of 24" loading="eager" decoding="async" class="is-active">
+        <img src="assets/hero-frames/03-wireless-transparent/frame-01.webp" alt="3-in-1 charger playback step 02 of 24" loading="eager" decoding="async">
+        <img src="assets/hero-frames/03-wireless-transparent/frame-02.webp" alt="3-in-1 charger playback step 03 of 24" loading="lazy" decoding="async">
+        <img src="assets/hero-frames/03-wireless-transparent/frame-03.webp" alt="3-in-1 charger playback step 04 of 24" loading="lazy" decoding="async">
+        <img src="assets/hero-frames/03-wireless-transparent/frame-04.webp" alt="3-in-1 charger playback step 05 of 24" loading="lazy" decoding="async">
+        <img src="assets/hero-frames/03-wireless-transparent/frame-05.webp" alt="3-in-1 charger playback step 06 of 24" loading="lazy" decoding="async">
+        <img src="assets/hero-frames/03-wireless-transparent/frame-06.webp" alt="3-in-1 charger playback step 07 of 24" loading="lazy" decoding="async">
+        <img src="assets/hero-frames/03-wireless-transparent/frame-07.webp" alt="3-in-1 charger playback step 08 of 24" loading="lazy" decoding="async">
+        <img src="assets/hero-frames/03-wireless-transparent/frame-08.webp" alt="3-in-1 charger playback step 09 of 24" loading="lazy" decoding="async">
+        <img src="assets/hero-frames/03-wireless-transparent/frame-09.webp" alt="3-in-1 charger playback step 10 of 24" loading="lazy" decoding="async">
+        <img src="assets/hero-frames/03-wireless-transparent/frame-10.webp" alt="3-in-1 charger playback step 11 of 24" loading="lazy" decoding="async">
+        <img src="assets/hero-frames/03-wireless-transparent/frame-11.webp" alt="3-in-1 charger playback step 12 of 24" loading="lazy" decoding="async">
+        <img src="assets/hero-frames/03-wireless-transparent/frame-12.webp" alt="3-in-1 charger playback step 13 of 24" loading="lazy" decoding="async">
+        <img src="assets/hero-frames/03-wireless-transparent/frame-13.webp" alt="3-in-1 charger playback step 14 of 24" loading="lazy" decoding="async">
+        <img src="assets/hero-frames/03-wireless-transparent/frame-14.webp" alt="3-in-1 charger playback step 15 of 24" loading="lazy" decoding="async">
+        <img src="assets/hero-frames/03-wireless-transparent/frame-15.webp" alt="3-in-1 charger playback step 16 of 24" loading="lazy" decoding="async">
+        <img src="assets/hero-frames/03-wireless-transparent/frame-16.webp" alt="3-in-1 charger playback step 17 of 24" loading="lazy" decoding="async">
+        <img src="assets/hero-frames/03-wireless-transparent/frame-17.webp" alt="3-in-1 charger playback step 18 of 24" loading="lazy" decoding="async">
+        <img src="assets/hero-frames/03-wireless-transparent/frame-18.webp" alt="3-in-1 charger playback step 19 of 24" loading="lazy" decoding="async">
+        <img src="assets/hero-frames/03-wireless-transparent/frame-19.webp" alt="3-in-1 charger playback step 20 of 24" loading="lazy" decoding="async">
+        <img src="assets/hero-frames/03-wireless-transparent/frame-20.webp" alt="3-in-1 charger playback step 21 of 24" loading="lazy" decoding="async">
+        <img src="assets/hero-frames/03-wireless-transparent/frame-21.webp" alt="3-in-1 charger playback step 22 of 24" loading="lazy" decoding="async">
+        <img src="assets/hero-frames/03-wireless-transparent/frame-22.webp" alt="3-in-1 charger playback step 23 of 24" loading="lazy" decoding="async">
+        <img src="assets/hero-frames/03-wireless-transparent/frame-23.webp" alt="3-in-1 charger playback step 24 of 24" loading="lazy" decoding="async">
+        </div>
+      </div>
+      </div>
+
+      <div class="text-layer">
+        <div class="text-card left" data-card="3-1">
+          <div class="eyebrow">Catalogue P16 · Foldable wireless charger</div>
+          <h2>Fold. Open.<br>Charge three.</h2>
+          <p class="body">For cellphone, AirPods and iWatch. Folded size 70 × 70 × 26.8 mm — wording and dimensions taken directly from the 2026 catalogue.</p>
+        </div>
+        <div class="text-card right" data-card="3-2">
+          <ul class="spec-list">
+            <li><span class="k">Product</span><span class="v">Foldable wireless charger</span></li>
+            <li><span class="k">Device 01</span><span class="v">Cellphone</span></li>
+            <li><span class="k">Device 02</span><span class="v">AirPods</span></li>
+            <li><span class="k">Device 03</span><span class="v">iWatch</span></li>
+            <li><span class="k">Folded size</span><span class="v">70 × 70 × 26.8 mm</span></li>
+          </ul>
+        </div>
+        <div class="text-card bottom" data-card="3-3">
+          <div class="eyebrow no-line">Source · ONO Catalogue 2026 · Page 16</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── SCENE 4: CONNECT ANYWHERE ─────────────────────────────────── -->
+  <section class="scene" id="scene-4" data-od-id="connect-story-disabled" hidden aria-hidden="true">
+    <div class="stage">
+      <div class="stage-bg scene-4">
+        <div class="stage-grid"></div>
+      </div>
+
+      <div class="scene-marker">
+        <span class="num">04</span> Connect Anywhere
+      </div>
+
+      <div class="product-stage">
+        <div class="product-3d" data-product-3d="4">
+        <div class="frame-stack is-loading" data-frame-stack="4" data-frame-count="12">
+        <img src="assets/hero-frames/04-connect/frame-00.webp" alt="Hero product angle 0°" loading="lazy" decoding="async" class="is-active">
+        <img src="assets/hero-frames/04-connect/frame-01.webp" alt="Hero product angle 30°" loading="lazy" decoding="async">
+        <img src="assets/hero-frames/04-connect/frame-02.webp" alt="Hero product angle 60°" loading="lazy" decoding="async">
+        <img src="assets/hero-frames/04-connect/frame-03.webp" alt="Hero product angle 90°" loading="lazy" decoding="async">
+        <img src="assets/hero-frames/04-connect/frame-04.webp" alt="Hero product angle 120°" loading="lazy" decoding="async">
+        <img src="assets/hero-frames/04-connect/frame-05.webp" alt="Hero product angle 150°" loading="lazy" decoding="async">
+        <img src="assets/hero-frames/04-connect/frame-06.webp" alt="Hero product angle 180°" loading="lazy" decoding="async">
+        <img src="assets/hero-frames/04-connect/frame-07.webp" alt="Hero product angle 210°" loading="lazy" decoding="async">
+        <img src="assets/hero-frames/04-connect/frame-08.webp" alt="Hero product angle 240°" loading="lazy" decoding="async">
+        <img src="assets/hero-frames/04-connect/frame-09.webp" alt="Hero product angle 270°" loading="lazy" decoding="async">
+        <img src="assets/hero-frames/04-connect/frame-10.webp" alt="Hero product angle 300°" loading="lazy" decoding="async">
+        <img src="assets/hero-frames/04-connect/frame-11.webp" alt="Hero product angle 330°" loading="lazy" decoding="async">
+        </div>
+      </div>
+      </div>
+
+      <div class="text-layer">
+        <div class="text-card left" data-card="4-1">
+          <div class="eyebrow">Ready for anywhere</div>
+          <h2>Designed to move with business.</h2>
+          <p class="body">GaN-powered dual Type-C with PPS — 35 W in a 50 × 50 × 26 mm footprint.</p>
+        </div>
+        <div class="text-card right" data-card="4-2">
+          <ul class="spec-list">
+            <li><span class="k">Output</span><span class="v">35 W × 2 (Type-C)</span></li>
+            <li><span class="k">Protocols</span><span class="v">PD 3.0 · PPS · QC</span></li>
+            <li><span class="k">Voltage</span><span class="v">100 – 240 V universal</span></li>
+            <li><span class="k">Size</span><span class="v">50 × 50 × 26 mm</span></li>
+            <li><span class="k">Material</span><span class="v">PC · GaN chipset</span></li>
+          </ul>
+        </div>
+        <div class="text-card bottom" data-card="4-3">
+          <div class="eyebrow no-line">Universal input · CE · RoHS</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── FINAL CTA — two validated hero products ───────────────────── -->
+  <section class="scene scene-cta" id="scene-5" data-od-id="final-cta" style="--scene-height: var(--scene-cta);">
+    <div class="stage">
+      <div class="stage-bg scene-5">
+        <div class="stage-grid"></div>
+      </div>
+
+      <div class="scene-marker" style="color: rgba(255,255,255,0.5);">
+        <span class="num" style="color: var(--brand);">03</span> End
+      </div>
+
+      <div class="product-lineup">
+        <div class="lineup-item" data-lineup="1">
+          <div class="frame"><img src="assets/hero-frames/01-powerbank-36/frame-08.webp" alt="Magnetic powerbank hero view"></div>
+          <span class="name">MagSafe Powerbank</span>
+        </div>
+        <div class="lineup-item" data-lineup="2" hidden aria-hidden="true">
+          <div class="frame"><img src="assets/products-grid/eco-bamboo-3-in-1-keychain-cable-p22.webp" alt=""></div>
+          <span class="name">Bamboo Eco Cable</span>
+        </div>
+        <div class="lineup-item" data-lineup="3">
+          <div class="frame"><img src="assets/hero-frames/03-wireless-transparent/frame-14.webp" alt="Foldable 3-in-1 wireless charger hero view"></div>
+          <span class="name">3-in-1 Wireless</span>
+        </div>
+        <div class="lineup-item" data-lineup="4" hidden aria-hidden="true">
+          <div class="frame"><img src="assets/products-grid/dsjy307-p40.webp" alt=""></div>
+          <span class="name">35W GaN Charger</span>
+        </div>
+      </div>
+
+      <div class="text-layer">
+        <div class="text-card top" data-card="5-1" style="top: 12%;">
+          <div class="eyebrow">— Make every connection memorable —</div>
+          <h2>Two products.<br>One controlled<br>scroll story.</h2>
+        </div>
+        <div class="text-card bottom" data-card="5-2" style="bottom: 10%;">
+          <div class="cta-row">
+            <a href="index.html" class="btn btn-primary">Explore the catalogue →</a>
+            <a href="mailto:admin@ono-i.com" class="btn btn-ghost">Start a custom project</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════════════════
+   FOOTER
+   ═══════════════════════════════════════════════════════════════════════ -->
+<footer style="background: var(--bg-deep); color: rgba(255,255,255,0.7); padding: 48px 32px; text-align: center; font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase;">
+  <div>ONO Inspiration Company Limited · Hong Kong · Since 2006</div>
+  <div style="margin-top: 12px; opacity: 0.6;">© 2026 · Brand: Ono Inspiration Co. Ltd. · <a href="index.html" style="color: inherit;">back to catalogue →</a></div>
+</footer>
+
+<!-- ═══════════════════════════════════════════════════════════════════════
+   GSAP + SCROLLTRIGGER SETUP
+   ═══════════════════════════════════════════════════════════════════════ -->
+<script>
+if (!window.gsap || !window.ScrollTrigger) {
+  document.documentElement.classList.add('static-fallback');
+  document.querySelectorAll('.frame-stack').forEach(stack => {
+    stack.classList.remove('is-loading');
+    const first = stack.querySelector('img');
+    if (first) first.classList.add('is-active');
+  });
+  document.querySelectorAll('.scene:not([hidden]) .text-card:first-child, .scene-cta .text-card').forEach(card => {
+    card.style.opacity = '1';
+  });
+  document.querySelectorAll('.scene-cta .lineup-item:not([hidden])').forEach(item => {
+    item.style.opacity = '1';
+    item.style.transform = 'none';
+  });
+} else {
+gsap.registerPlugin(ScrollTrigger);
+
+// Reduce-motion check
+const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+const isMobile = window.matchMedia('(max-width: 768px)').matches;
+
+// ─── Top scroll progress ───
+const rail = document.querySelector('.topnav .progress-rail');
+window.addEventListener('scroll', () => {
+  const h = document.documentElement;
+  const progress = (h.scrollTop / (h.scrollHeight - h.clientHeight)) * 100;
+  rail.style.setProperty('--scroll-progress', progress + '%');
+}, { passive: true });
+
+// ─── Particle generator for scene 1 ───
+const particles = document.getElementById('particles-1');
+if (particles && !prefersReducedMotion) {
+  for (let i = 0; i < 24; i++) {
+    const p = document.createElement('div');
+    p.className = 'particle';
+    p.style.left = (Math.random() * 100) + '%';
+    p.style.top = (Math.random() * 100) + '%';
+    p.style.width = p.style.height = (2 + Math.random() * 4) + 'px';
+    particles.appendChild(p);
+    // GSAP loop
+    gsap.to(p, {
+      y: '-=' + (80 + Math.random() * 120),
+      x: '+=' + (Math.random() * 80 - 40),
+      opacity: 0.6,
+      duration: 3 + Math.random() * 4,
+      ease: 'sine.inOut',
+      repeat: -1,
+      yoyo: true,
+      delay: Math.random() * 3
+    });
+  }
+}
+
+// ─── Scene-by-scene timeline factory (image-sequence version) ───
+// Uses frame-swap on .frame-stack instead of 3D CSS rotation.
+// Each sequence has 24 transparent playback steps. The approved 12 source
+// angles are held for two steps each to extend scrub timing without shape drift.
+function makeSceneTimeline(sceneId, opts) {
+  const scene = document.getElementById(sceneId);
+  if (!scene) return null;
+
+  const stack = scene.querySelector('.frame-stack');
+  const cards = scene.querySelectorAll('[data-card]');
+  const marker = scene.querySelector('.scene-marker');
+  const frames = stack ? Array.from(stack.querySelectorAll('img')) : [];
+  const renderFrame = progress => {
+    if (!frames.length || prefersReducedMotion) return;
+    const index = Math.max(0, Math.min(frames.length - 1, Math.round(progress * (frames.length - 1))));
+    frames.forEach((frame, frameIndex) => frame.classList.toggle('is-active', frameIndex === index));
+  };
+
+  const tl = gsap.timeline({
+    scrollTrigger: {
+      trigger: scene,
+      start: 'top top',
+      end: 'bottom bottom',
+      scrub: 0.5,
+      pin: false,
+      pinSpacing: false,
+      anticipatePin: 1,
+      invalidateOnRefresh: true,
+      onUpdate: self => renderFrame(self.progress),
+    }
+  });
+
+  // Preload all frames in stack
+  if (stack) {
+    let loadedCount = 0;
+    frames.forEach((f, i) => {
+      if (f.complete && f.naturalWidth > 0) {
+        loadedCount++;
+      } else {
+        f.addEventListener('load', () => {
+          loadedCount++;
+          if (loadedCount === 1) stack.classList.remove('is-loading');
+        });
+        f.addEventListener('error', () => {
+          console.warn(`[scroll-story] frame ${sceneId}-${i} failed to load`);
+          loadedCount++;
+          if (loadedCount === 1) stack.classList.remove('is-loading');
+        });
+      }
+    });
+    if (loadedCount > 0) stack.classList.remove('is-loading');
+  }
+
+  if (prefersReducedMotion) {
+    // Reduced-motion path: keep the authoritative first frame static.
+    if (stack) {
+      frames.forEach((frame, index) => frame.classList.toggle('is-active', index === 0));
+      tl.fromTo(stack, { opacity: 0 }, { opacity: 1, duration: 0.3 }, 0)
+        .to(stack, { opacity: 1, duration: 4 });
+    }
+    cards.forEach((c, i) => {
+      tl.fromTo(c, { opacity: 0, y: 20 }, { opacity: 1, duration: 0.5 }, 0.2 + i * 1.5)
+        .to(c, { opacity: 1, duration: 1 })
+        .to(c, { opacity: 0, duration: 0.5 }, 0.2 + i * 1.5 + 1.5);
+    });
+    return tl;
+  }
+
+  // Full image-sequence scrub timeline
+  // Approach: scrub progress 0 → 1 maps to frame index 0 → N-1
+  // Plus subtle scale/y parallax on the stack container for added drama
+  if (stack) {
+    // Frame selection is driven directly by ScrollTrigger progress above.
+    // This stays exact when users reverse direction or stop between frames.
+    tl.fromTo(stack,
+      { scale: opts.scale[0], y: opts.y[0] },
+      { scale: opts.scale[1], y: opts.y[1], duration: 1, ease: 'none' },
+      0
+    );
+  }
+
+  // Text cards: desktop can layer around the product; mobile shows one card at a time.
+  // Each card lingers longer so reading time matches the extended 36-frame sequence.
+  const Ncards = cards.length;
+  cards.forEach((c, i) => {
+    const mobileSegment = 1 / Ncards;
+    const startIn = isMobile ? (i * mobileSegment + 0.02) : (i * (1 / (Ncards + 1)));
+    const startOut = isMobile ? Math.min((i + 1) * mobileSegment - 0.04, 0.96) : Math.min(startIn + 1.4, 0.96);
+    const fade = isMobile ? 0.06 : 0.22;
+    tl.fromTo(c,
+      { opacity: 0, y: isMobile ? 16 : (i % 2 === 0 ? 30 : -30) },
+      { opacity: 1, y: 0, duration: fade, ease: 'power2.out' },
+      startIn
+    );
+    tl.to(c,
+      { opacity: 0, y: isMobile ? -12 : (i % 2 === 0 ? -20 : 20), duration: fade, ease: 'power2.in' },
+      startOut
+    );
+  });
+
+  return tl;
+}
+
+// ─── Build the two validated hero timelines ───
+makeSceneTimeline('scene-1', {
+  scale:   [0.85, 1.15],
+  y:       [40,   -40]
+});
+
+makeSceneTimeline('scene-3', {
+  scale:   [0.85, 1.15],
+  y:       [40,   -40]
+});
+
+// ─── Scene 5 — Final CTA ───
+const scene5 = document.getElementById('scene-5');
+if (scene5) {
+  const lineupItems = scene5.querySelectorAll('[data-lineup]:not([hidden])');
+  const cards5 = scene5.querySelectorAll('[data-card]');
+  const tl5 = gsap.timeline({
+    scrollTrigger: {
+      trigger: scene5,
+      start: 'top top',
+      end: 'bottom bottom',
+      scrub: 0.5,
+      pin: false,
+      pinSpacing: false,
+      anticipatePin: 1
+    }
+  });
+
+  if (prefersReducedMotion || isMobile) {
+    tl5.fromTo(lineupItems, { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 1, stagger: 0.1 }, 0);
+    tl5.fromTo(cards5, { opacity: 0 }, { opacity: 1, duration: 0.5, stagger: 0.2 }, 0.3);
+  } else {
+    // Products enter early, then remain visible through most of the ending.
+    lineupItems.forEach((item, i) => {
+      const fromX = i % 2 === 0 ? -200 : 200;
+      tl5.fromTo(item,
+        { opacity: 0, x: fromX, y: 60, scale: 0.6 },
+        { opacity: 1, x: 0, y: 0, scale: 1, duration: 0.18, ease: 'power2.out' },
+        0.04 + i * 0.06
+      );
+    });
+    tl5.to(lineupItems, { scale: 1.04, duration: 0.62, ease: 'none' }, 0.24);
+
+    // Headline stays readable from roughly 25% to 82% of the scrub.
+    tl5.fromTo(cards5[0], { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.12 }, 0.22);
+    tl5.to(cards5[0], { opacity: 1, y: 0, duration: 0.46 }, 0.34);
+    tl5.to(cards5[0], { opacity: 0, y: -20, duration: 0.12 }, 0.82);
+
+    // CTA buttons arrive late and remain available through the final frame.
+    tl5.fromTo(cards5[1], { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.16 }, 0.72);
+    tl5.to(cards5[1], { opacity: 1, duration: 0.12 }, 0.88);
+  }
+}
+
+// ─── Smooth scroll on nav anchor clicks ───
+document.querySelectorAll('.topnav nav a, .scroll-hint a').forEach(a => {
+  a.addEventListener('click', e => {
+    const href = a.getAttribute('href');
+    if (href && href.startsWith('#')) {
+      e.preventDefault();
+      const target = document.querySelector(href);
+      if (target) {
+        const top = target.getBoundingClientRect().top + window.scrollY;
+        gsap.to(window, { scrollTo: top, duration: 0.8, ease: 'power2.inOut' });
+      }
+    }
+  });
+});
+
+// ─── Refresh on resize ───
+ScrollTrigger.refresh();
+window.addEventListener('load', () => ScrollTrigger.refresh());
+}
+</script>
+
+<!-- ScrollToPlugin for smooth anchor scroll -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollToPlugin.min.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,19 @@
+{
+  "version": 1,
+  "kind": "html",
+  "title": "deploy-preview/products-03-lifestyle-office.html",
+  "entry": "deploy-preview/products-03-lifestyle-office.html",
+  "renderer": "html",
+  "status": "complete",
+  "exports": [
+    "html",
+    "pdf",
+    "zip"
+  ],
+  "createdAt": "2026-07-22T21:24:00.401Z",
+  "updatedAt": "2026-07-22T21:24:00.401Z",
+  "metadata": {
+    "inferred": true,
+    "reconciled": true
+  }
+}
