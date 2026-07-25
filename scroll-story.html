@@ -153,8 +153,17 @@ h1, h2, h3, h4 {
   transition: width 80ms linear;
 }
 @media (max-width: 768px) {
+  /* iOS 26 regression: position:fixed + mix-blend-mode on topnav pushes
+     content offscreen after ~1-2s of scroll. Strip both on mobile. */
   .topnav nav { display: none; }
-  .topnav { padding: 14px 20px; }
+  .topnav {
+    padding: 14px 20px;
+    position: relative;
+    mix-blend-mode: normal;
+    color: var(--ink);
+    background: var(--bg);
+    border-bottom: 1px solid var(--hair);
+  }
 }
 
 /* ═══════════════════════════════════════════════════════════════════════
@@ -383,6 +392,12 @@ h1, h2, h3, h4 {
 .frame-stack img.is-active {
   opacity: 1;
 }
+/* Mobile-scroll blank defense: when JS toggles .is-active onto an image that
+   has not yet decoded (slow mobile networks, fast scroll), the page would
+   otherwise go blank. Keep the first frame permanently visible underneath
+   so the scene always shows at least one product frame. Specificity beats
+   the base opacity: 0 without needing !important. */
+.frame-stack img:first-child { opacity: 1; }
 
 /* Loading placeholder shown until first frame is decoded */
 .frame-stack.is-loading::before {
@@ -549,6 +564,98 @@ h1, h2, h3, h4 {
   .text-card .spec-list li { font-size: 10px; padding: 5px 0; }
   .text-card.right .eyebrow { justify-content: center; }
   .scene-marker { top: 64px; left: 20px; }
+
+  /* Mobile Safari/Chrome can drop sticky + transformed compositor layers
+     during touch scrolling, leaving only the page background visible.
+     Mobile therefore uses a native in-flow story: no sticky stage and no
+     long empty scroll track. JS still advances frames from viewport progress. */
+  :root {
+    --scene-height: auto;
+    --scene-intro: auto;
+    --scene-cta: auto;
+  }
+  .scene,
+  .scene-intro,
+  .scene-cta {
+    height: auto !important;
+    min-height: 100svh;
+  }
+  .scene-intro { padding: 112px 0 72px; }
+  .stage {
+    position: relative;
+    top: auto;
+    width: 100%;
+    height: auto;
+    min-height: 100svh;
+    overflow: visible;
+    padding: 96px 0 28px;
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+  .stage-bg { position: absolute; }
+  .product-stage {
+    flex: 0 0 auto;
+    transform: none;
+    margin: 28px auto 10px;
+  }
+  .product-3d,
+  .frame-stack {
+    animation: none;
+    transform: none !important;
+    will-change: auto;
+  }
+  .frame-stack img { will-change: auto; }
+  /* Mobile: drop filter (huge GPU win) and switch to single-frame visibility.
+     JS sets .is-shown on the active frame and display:none on the rest via
+     inline style so the compositor only has to keep one image layer alive. */
+  .frame-stack img,
+  .product-3d img {
+    filter: none !important;
+  }
+  .frame-stack img.is-shown {
+    opacity: 1 !important;
+    display: block;
+  }
+  .frame-stack img:not(.is-shown) {
+    opacity: 0 !important;
+    display: none;
+  }
+  .frame-stack img:first-child {
+    opacity: 1 !important;
+    display: block;
+  }
+  .text-layer {
+    position: relative;
+    inset: auto;
+    width: 100%;
+    display: grid;
+    gap: 12px;
+    padding: 0 16px 28px;
+  }
+  .text-card,
+  .text-card.left,
+  .text-card.right,
+  .text-card.top,
+  .text-card.bottom {
+    position: relative;
+    inset: auto !important;
+    left: auto; right: auto; top: auto; bottom: auto;
+    opacity: 1;
+    transform: none !important;
+    margin: 0;
+  }
+  .product-lineup {
+    position: relative;
+    inset: auto;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+    width: 100%;
+    padding: 80px 14px 20px;
+  }
+  .product-lineup .lineup-item {
+    opacity: 1;
+    transform: none;
+  }
 }
 
 /* ═══════════════════════════════════════════════════════════════════════
@@ -1086,8 +1193,10 @@ window.addEventListener('scroll', () => {
 }, { passive: true });
 
 // ─── Particle generator for scene 1 ───
+// Skip on mobile: particles each spin up a perpetual GSAP tween, which on
+// iOS Safari competes with the frame stack for the compositor. Lose them.
 const particles = document.getElementById('particles-1');
-if (particles && !prefersReducedMotion) {
+if (particles && !prefersReducedMotion && !isMobile) {
   for (let i = 0; i < 24; i++) {
     const p = document.createElement('div');
     p.className = 'particle';
@@ -1126,6 +1235,63 @@ function makeSceneTimeline(sceneId, opts) {
     const index = Math.max(0, Math.min(frames.length - 1, Math.round(progress * (frames.length - 1))));
     frames.forEach((frame, frameIndex) => frame.classList.toggle('is-active', frameIndex === index));
   };
+
+  /* Mobile uses the native in-flow layout. A lightweight listener advances
+     frames without ScrollTrigger pin/sticky compositor layers. */
+  if (isMobile) {
+    // Lite-mode setup: swap to lite frames so iOS Safari's GPU compositor
+    // doesn't run out of memory trying to keep N full-size frames alive.
+    // Powerbank: 36→18 frames, Wireless: 24→12 frames. liteCount limits the
+    // active range so the rest of the <img> tags never get a src.
+    const liteMap = {
+      '01-powerbank-36/':         { dir: '01-powerbank-lite/', count: 18 },
+      '03-wireless-transparent/': { dir: '03-wireless-lite/',  count: 12 },
+    };
+    let liteCount = frames.length;
+    if (stack && frames[0]) {
+      const firstSrc = frames[0].getAttribute('src') || '';
+      const matchedKey = Object.keys(liteMap).find(k => firstSrc.indexOf(k) !== -1);
+      if (matchedKey) {
+        const { dir, count } = liteMap[matchedKey];
+        liteCount = count;
+        frames.forEach((frame, i) => {
+          if (i < count) {
+            const liteIdx = String(i).padStart(2, '0');
+            frame.setAttribute('src', `assets/hero-frames/${dir}frame-${liteIdx}.webp`);
+            frame.setAttribute('loading', 'eager');
+          } else {
+            frame.removeAttribute('src');
+          }
+        });
+        stack.setAttribute('data-frame-count', String(count));
+      }
+    }
+
+    const renderMobile = () => {
+      const rect = scene.getBoundingClientRect();
+      const travel = Math.max(1, rect.height + window.innerHeight);
+      const progress = Math.max(0, Math.min(1, (window.innerHeight - rect.top) / travel));
+      if (!frames.length || prefersReducedMotion) return;
+      const index = Math.max(0, Math.min(liteCount - 1, Math.round(progress * (liteCount - 1))));
+      // Use display: none/block toggle (.is-shown) so the compositor only
+      // keeps one image layer alive per scene — the white screen on iOS
+      // Safari is the GPU running out of layers.
+      frames.forEach((frame, frameIndex) => {
+        frame.classList.toggle('is-shown', frameIndex === index);
+      });
+    };
+    renderMobile();
+    window.addEventListener('scroll', renderMobile, { passive: true });
+    window.addEventListener('resize', renderMobile, { passive: true });
+    if (stack) {
+      stack.classList.remove('is-loading');
+      frames.forEach((frame, index) => frame.classList.toggle('is-shown', index === 0));
+    }
+    cards.forEach(card => {
+      gsap.set(card, { clearProps: 'all', opacity: 1, x: 0, y: 0 });
+    });
+    return null;
+  }
 
   const tl = gsap.timeline({
     scrollTrigger: {
@@ -1228,6 +1394,11 @@ const scene5 = document.getElementById('scene-5');
 if (scene5) {
   const lineupItems = scene5.querySelectorAll('[data-lineup]:not([hidden])');
   const cards5 = scene5.querySelectorAll('[data-card]');
+
+  if (isMobile) {
+    gsap.set(lineupItems, { clearProps: 'all', opacity: 1, x: 0, y: 0, scale: 1 });
+    gsap.set(cards5, { clearProps: 'all', opacity: 1, x: 0, y: 0 });
+  } else {
   const tl5 = gsap.timeline({
     scrollTrigger: {
       trigger: scene5,
@@ -1263,6 +1434,7 @@ if (scene5) {
     // CTA buttons arrive late and remain available through the final frame.
     tl5.fromTo(cards5[1], { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.16 }, 0.72);
     tl5.to(cards5[1], { opacity: 1, duration: 0.12 }, 0.88);
+  }
   }
 }
 
