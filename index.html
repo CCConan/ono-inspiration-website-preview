@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <meta name="description" content="ONO INSPIRATION COMPANY LIMITED — Hong Kong procurement centre for promotional merchandise since 2006. Browse 256 source-verified products across four curated series." />
 <title>ONO INSPIRATION COMPANY LIMITED · Promotional Merchandise Catalogue 2026</title>
+<script>document.documentElement.classList.add('js-loaded');</script>
 <link rel="icon" type="image/png" href="assets/source/logo_icon.png" />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -879,12 +880,19 @@ footer .footer-meta {
   color: rgba(247, 244, 238, 0.4);
 }
 
+/* Default-visible: content is visible by default.
+   Only when .js-loaded is set on <html> does the .reveal opacity:0 effect kick in.
+   This prevents a blank-screen on slow mobile networks where JS/IntersectionObserver lags. */
 .reveal {
-  opacity: 0;
-  transform: translateY(16px);
+  opacity: 1;
+  transform: none;
   transition: opacity 700ms var(--ease), transform 700ms var(--ease);
 }
-.reveal.in { opacity: 1; transform: translateY(0); }
+.js-loaded .reveal {
+  opacity: 0;
+  transform: translateY(16px);
+}
+.js-loaded .reveal.in { opacity: 1; transform: translateY(0); }
 
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {

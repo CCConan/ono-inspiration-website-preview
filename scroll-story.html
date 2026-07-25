@@ -2,14 +2,33 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#f7f4ee">
 <title>ONO Inspiration · Sourced End-to-End. Worn Proudly.</title>
+<script>document.documentElement.classList.add('js-loaded');</script>
 <link rel="icon" type="image/png" href="assets/source/logo_icon.png">
 <meta name="description" content="Scroll-driven product storytelling for ONO Inspiration Company Limited — promotional merchandise curated in Hong Kong since 2006.">
 
 <!-- ─── GSAP + ScrollTrigger (pinned scrubbed scroll animation engine) ─── -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+<script>
+  // Backup CDN check: if jsdelivr fails to load GSAP within 1.2s, try cdnjs
+  setTimeout(function() {
+    if (!window.gsap) {
+      var s1 = document.createElement('script');
+      s1.src = 'https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js';
+      s1.onload = function() {
+        if (!window.ScrollTrigger) {
+          var s2 = document.createElement('script');
+          s2.src = 'https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js';
+          document.head.appendChild(s2);
+        }
+      };
+      document.head.appendChild(s1);
+    }
+  }, 1200);
+</script>
 
 <!-- ─── Brand fonts ─── -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -358,6 +377,9 @@ h1, h2, h3, h4 {
   pointer-events: none;
   will-change: opacity;
 }
+/* Default-visible fallback: if no JS runs, first frame is visible (no white screen).
+   JS will explicitly manage .is-active for the scrub-controlled version. */
+.no-js .frame-stack img:first-child { opacity: 1; }
 .frame-stack img.is-active {
   opacity: 1;
 }
@@ -643,9 +665,9 @@ h1, h2, h3, h4 {
 /* Mobile: skip 3D transforms (perf + touch UX), use simpler vertical scroll */
 @media (max-width: 768px) {
   :root {
-    --scene-height: 420vh;
-    --scene-intro: 100vh;
-    --scene-cta: 220vh;
+    --scene-height: 320vh;
+    --scene-intro: 90vh;
+    --scene-cta: 200vh;
   }
   .product-stage {
     width: min(380px, 90vw);
@@ -718,7 +740,7 @@ h1, h2, h3, h4 {
       <div class="product-stage">
         <div class="product-3d" data-product-3d="1">
         <div class="frame-stack is-loading" data-frame-stack="1" data-frame-count="36">
-        <img src="assets/hero-frames/01-powerbank-36/frame-00.webp" alt="Powerbank playback step 01 of 36" loading="eager" decoding="async" class="is-active">
+        <img src="assets/hero-frames/01-powerbank-36/frame-00.webp" alt="Powerbank playback step 01 of 36" loading="eager" decoding="async" fetchpriority="high" class="is-active">
         <img src="assets/hero-frames/01-powerbank-36/frame-01.webp" alt="Powerbank playback step 02 of 36" loading="eager" decoding="async">
         <img src="assets/hero-frames/01-powerbank-36/frame-02.webp" alt="Powerbank playback step 03 of 36" loading="lazy" decoding="async">
         <img src="assets/hero-frames/01-powerbank-36/frame-03.webp" alt="Powerbank playback step 04 of 36" loading="lazy" decoding="async">
@@ -847,7 +869,7 @@ h1, h2, h3, h4 {
       <div class="product-stage">
         <div class="product-3d" data-product-3d="3">
         <div class="frame-stack is-loading" data-frame-stack="3" data-frame-count="24">
-        <img src="assets/hero-frames/03-wireless-transparent/frame-00.webp" alt="3-in-1 charger playback step 01 of 24" loading="eager" decoding="async" class="is-active">
+        <img src="assets/hero-frames/03-wireless-transparent/frame-00.webp" alt="3-in-1 charger playback step 01 of 24" loading="eager" decoding="async" fetchpriority="high" class="is-active">
         <img src="assets/hero-frames/03-wireless-transparent/frame-01.webp" alt="3-in-1 charger playback step 02 of 24" loading="eager" decoding="async">
         <img src="assets/hero-frames/03-wireless-transparent/frame-02.webp" alt="3-in-1 charger playback step 03 of 24" loading="lazy" decoding="async">
         <img src="assets/hero-frames/03-wireless-transparent/frame-03.webp" alt="3-in-1 charger playback step 04 of 24" loading="lazy" decoding="async">
@@ -1008,21 +1030,47 @@ h1, h2, h3, h4 {
    GSAP + SCROLLTRIGGER SETUP
    ═══════════════════════════════════════════════════════════════════════ -->
 <script>
-if (!window.gsap || !window.ScrollTrigger) {
-  document.documentElement.classList.add('static-fallback');
-  document.querySelectorAll('.frame-stack').forEach(stack => {
-    stack.classList.remove('is-loading');
-    const first = stack.querySelector('img');
-    if (first) first.classList.add('is-active');
-  });
-  document.querySelectorAll('.scene:not([hidden]) .text-card:first-child, .scene-cta .text-card').forEach(card => {
-    card.style.opacity = '1';
-  });
-  document.querySelectorAll('.scene-cta .lineup-item:not([hidden])').forEach(item => {
-    item.style.opacity = '1';
-    item.style.transform = 'none';
-  });
-} else {
+(function bootstrap() {
+  // Aggressive fallback: if GSAP isn't ready in 2.5s, force render first frame + text-cards visible.
+  // Without this, slow mobile networks leave the page blank until GSAP loads.
+  var forcedFallback = setTimeout(function() {
+    if (!window.gsap || !window.ScrollTrigger) {
+      activateStaticFallback();
+    }
+  }, 2500);
+
+  // Also listen for explicit failure
+  window.addEventListener('error', function(e) {
+    if (e.target && (e.target.src || '').indexOf('gsap') !== -1) {
+      activateStaticFallback();
+    }
+  }, true);
+
+  function activateStaticFallback() {
+    document.documentElement.classList.add('static-fallback');
+    document.documentElement.classList.remove('no-js');
+    document.querySelectorAll('.frame-stack').forEach(stack => {
+      stack.classList.remove('is-loading');
+      const first = stack.querySelector('img');
+      if (first) first.classList.add('is-active');
+    });
+    document.querySelectorAll('.scene:not([hidden]) .text-card').forEach(card => {
+      card.style.opacity = '1';
+      card.style.transform = 'none';
+    });
+    document.querySelectorAll('.scene-cta .lineup-item:not([hidden])').forEach(item => {
+      item.style.opacity = '1';
+      item.style.transform = 'none';
+    });
+    clearTimeout(forcedFallback);
+  }
+
+  if (!window.gsap || !window.ScrollTrigger) {
+    activateStaticFallback();
+    return;
+  }
+
+  clearTimeout(forcedFallback);
 gsap.registerPlugin(ScrollTrigger);
 
 // Reduce-motion check
@@ -1236,7 +1284,7 @@ document.querySelectorAll('.topnav nav a, .scroll-hint a').forEach(a => {
 // ─── Refresh on resize ───
 ScrollTrigger.refresh();
 window.addEventListener('load', () => ScrollTrigger.refresh());
-}
+})();
 </script>
 
 <!-- ScrollToPlugin for smooth anchor scroll -->
