@@ -764,6 +764,109 @@ ul { margin: 0; padding: 0; list-style: none; }
 /* kill old page-strip */
 .page-strip { display: none !important; }
 
+
+/* ── PDF CATALOGUE ENTRY (added 2026-07-26) ───────────────────── */
+.pdf-entry {
+  background: var(--night);
+  color: var(--night-fg);
+  padding-block: 96px;
+  position: relative;
+}
+.pdf-entry::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(800px 400px at 20% 0%, rgba(10, 108, 180, 0.18), transparent 70%);
+  pointer-events: none;
+}
+.pdf-entry .container { position: relative; z-index: 1; }
+.pdf-entry-inner {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 64px;
+  align-items: center;
+}
+@media (max-width: 1024px) { .pdf-entry-inner { grid-template-columns: 1fr; gap: 40px; } }
+.pdf-entry-text .eyebrow { color: var(--brand); margin-bottom: 18px; }
+.pdf-entry-title {
+  font-family: var(--font-display);
+  font-size: clamp(32px, 4vw, 52px);
+  font-weight: 700;
+  line-height: 1.08;
+  letter-spacing: -0.02em;
+  color: var(--night-fg);
+  margin-bottom: 18px;
+  max-width: 16ch;
+}
+.pdf-entry-sub {
+  font-size: 16px;
+  line-height: 1.6;
+  color: rgba(243, 238, 229, 0.7);
+  max-width: 52ch;
+}
+.pdf-entry-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  align-items: flex-start;
+}
+@media (max-width: 1024px) { .pdf-entry-actions { width: 100%; } }
+.pdf-entry-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  padding: 18px 28px;
+  background: var(--brand);
+  color: var(--bg);
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 17px;
+  letter-spacing: -0.01em;
+  text-decoration: none;
+  border-radius: 14px;
+  border: 2px solid var(--brand);
+  transition: transform 240ms var(--ease), box-shadow 240ms var(--ease), background 200ms var(--ease);
+  box-shadow: 0 12px 36px -16px rgba(10, 108, 180, 0.6);
+}
+.pdf-entry-btn:hover {
+  transform: translateY(-2px);
+  background: var(--night-fg);
+  color: var(--night);
+  border-color: var(--night-fg);
+  box-shadow: 0 16px 44px -16px rgba(10, 108, 180, 0.7);
+}
+.pdf-entry-btn:active { transform: translateY(0); }
+.pdf-entry-btn svg { flex-shrink: 0; }
+.pdf-entry-btn-arrow { transition: transform 240ms var(--ease); }
+.pdf-entry-btn:hover .pdf-entry-btn-arrow { transform: translate(2px, -2px); }
+.pdf-entry-meta {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(243, 238, 229, 0.55);
+  margin: 0;
+}
+@media (max-width: 640px) {
+  .pdf-entry { padding-block: 72px; }
+  .pdf-entry-btn { width: 100%; justify-content: center; }
+}
+
+
+/* ── Subcategory Description (added 2026-07-26) ──────────────── */
+.subcat-desc {
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.55;
+  color: var(--ink-2);
+  max-width: 64ch;
+  margin-top: 14px;
+}
+.subcat-desc strong {
+  color: var(--brand);
+  font-weight: 600;
+}
+
 </style>
 </head>
 <body>
@@ -852,6 +955,7 @@ ul { margin: 0; padding: 0; list-style: none; }
       <div>
         <span class="eyebrow">Sub-series 1</span>
         <h2>Backpack & Laptop Bag</h2>
+        <p class="subcat-desc">Backpacks and laptop bags: classic business, fabric laptop sleeves, and fingerprint-lock anti-theft bags. Up to 17″ laptop fit.</p>
       </div>
     </header>
     <div class="subcat-summary">
@@ -911,6 +1015,7 @@ ul { margin: 0; padding: 0; list-style: none; }
       <div>
         <span class="eyebrow">Sub-series 2</span>
         <h2>Felt & Burlap Bag</h2>
+        <p class="subcat-desc">Felt totes, bucket bags, laptop sleeves, and burlap pencil pouches. Natural-fibre carry for daily and conference use.</p>
       </div>
     </header>
     <div class="subcat-summary">
@@ -1012,6 +1117,7 @@ ul { margin: 0; padding: 0; list-style: none; }
       <div>
         <span class="eyebrow">Sub-series 3</span>
         <h2>Apparel, Umbrella & Promo</h2>
+        <p class="subcat-desc">Polo shirts, jackets, golf and folding umbrellas, lanyards, and tote bags. Worn apparel and corporate promo essentials.</p>
       </div>
     </header>
     <div class="subcat-summary">
@@ -1166,6 +1272,7 @@ ul { margin: 0; padding: 0; list-style: none; }
       <div>
         <span class="eyebrow">Sub-series 4</span>
         <h2>Custom Box & Container</h2>
+        <p class="subcat-desc">Custom packaging — acrylic, metal tin, and frame boxes. Moulded inserts and printed lid solutions for premium gifts.</p>
       </div>
     </header>
     <div class="subcat-summary">
@@ -1225,6 +1332,7 @@ ul { margin: 0; padding: 0; list-style: none; }
       <div>
         <span class="eyebrow">Sub-series 5</span>
         <h2>Custom Gift & Award</h2>
+        <p class="subcat-desc">Custom gifts and awards: medals, badges, keychains, pins, buckles, mugs, thermoses, and lanyards. Anodised metal and printed fabric.</p>
       </div>
     </header>
     <div class="subcat-summary">
@@ -1424,6 +1532,7 @@ ul { margin: 0; padding: 0; list-style: none; }
       <div>
         <span class="eyebrow">Sub-series 6</span>
         <h2>OerForest — Eco Line</h2>
+        <p class="subcat-desc">OerForest eco-collection: cork, canvas, bamboo, and recycled polyester notebooks, bags, and bamboo bottle sets. SLH-series eco line.</p>
       </div>
     </header>
     <div class="subcat-summary">
@@ -1562,6 +1671,34 @@ ul { margin: 0; padding: 0; list-style: none; }
   </div>
 </section>
 </main>
+<!-- ════════════════ PDF CATALOGUE ENTRY ════════════════ -->
+<section class="pdf-entry" data-od-id="pdf-catalogue-entry" id="pdf-catalogue-entry">
+  <div class="container">
+    <div class="pdf-entry-inner">
+      <div class="pdf-entry-text">
+        <span class="eyebrow">Full catalogue · 59 pages · PDF</span>
+        <h2 class="pdf-entry-title">Open the complete 2026 catalogue in your browser.</h2>
+        <p class="pdf-entry-sub">Every product on this page traces back to a real page in our 2026 print run. The full PDF is the source of truth — open it in a new tab to compare dimensions, branding areas and full spec tables side by side.</p>
+      </div>
+      <div class="pdf-entry-actions">
+        <a class="pdf-entry-btn" href="assets/source/ono-catalogue-2026.pdf" target="_blank" rel="noopener">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/>
+            <path d="M14 3v5h5"/>
+            <path d="M9 13h6"/>
+            <path d="M9 17h6"/>
+          </svg>
+          <span>Open full PDF catalogue</span>
+          <svg class="pdf-entry-btn-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M7 17L17 7"/>
+            <path d="M8 7h9v9"/>
+          </svg>
+        </a>
+        <p class="pdf-entry-meta">PDF · 10.4 MB · 59 pages · opens in new tab</p>
+      </div>
+    </div>
+  </div>
+</section>
 
 <footer class="site-footer">
   <div class="container">
