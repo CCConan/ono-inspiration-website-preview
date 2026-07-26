@@ -1119,6 +1119,36 @@ footer .footer-meta {
   }
 }
 
+
+/* ── 8-category mega grid (height ×3 of standard subcard) ── */
+.cat-mega-section {{ padding-block: var(--section-y-desktop); background: var(--bg); }}
+@media (max-width: 1024px) {{ .cat-mega-section {{ padding-block: var(--section-y-tablet); }} }}
+@media (max-width: 640px) {{ .cat-mega-section {{ padding-block: var(--section-y-phone); }} }}
+.cat-mega-head {{ max-width: 760px; margin-bottom: 64px; }}
+.cat-mega-heading {{ font-size: clamp(40px, 5vw, 72px); margin-top: 16px; }}
+.cat-mega-heading .hl {{ color: var(--brand); font-style: italic; }}
+.cat-mega-sub {{ font-family: var(--font-display); font-style: italic; font-size: clamp(16px, 1.3vw, 20px); color: var(--ink-2); margin-top: 20px; line-height: 1.45; }}
+.cat-mega-grid {{ display: grid; grid-template-columns: repeat(4, 1fr); gap: 28px; }}
+@media (max-width: 1280px) {{ .cat-mega-grid {{ grid-template-columns: repeat(2, 1fr); }} }}
+@media (max-width: 640px) {{ .cat-mega-grid {{ grid-template-columns: 1fr; }} }}
+.cat-mega-card {{ display: flex; flex-direction: column; background: var(--surface); border: 1px solid var(--hair-soft); border-radius: var(--r-xl); overflow: hidden; min-height: 480px; transition: transform var(--t-base) var(--ease), box-shadow var(--t-base) var(--ease), border-color var(--t-fast) var(--ease); position: relative; }}
+.cat-mega-card:hover {{ transform: translateY(-6px); box-shadow: var(--elev-3); border-color: var(--brand); }}
+.cat-mega-img {{ position: relative; aspect-ratio: 4/3; overflow: hidden; background: var(--surface-2); }}
+.cat-mega-img img {{ width: 100%; height: 100%; object-fit: cover; transition: transform 800ms var(--ease); }}
+.cat-mega-card:hover .cat-mega-img img {{ transform: scale(1.06); }}
+.cat-mega-num {{ position: absolute; top: 16px; left: 16px; background: var(--ink); color: var(--bg); font-family: var(--font-mono); font-size: 12px; font-weight: 700; padding: 6px 12px; border-radius: 3px; letter-spacing: 0.06em; }}
+.cat-mega-body {{ padding: 28px 28px 32px; display: flex; flex-direction: column; gap: 14px; flex: 1; }}
+.cat-mega-title {{ font-size: clamp(22px, 2vw, 28px); font-weight: 500; color: var(--ink); }}
+.cat-mega-tagline {{ font-family: var(--font-display); font-style: italic; font-size: 15px; color: var(--ink-2); line-height: 1.4; flex: 1; }}
+.cat-mega-meta {{ display: flex; gap: 16px; padding: 16px 0; border-top: 1px solid var(--hair); border-bottom: 1px solid var(--hair); }}
+.cat-mega-cell {{ display: flex; flex-direction: column; gap: 2px; flex: 1; }}
+.cat-mega-cell .v {{ font-family: var(--font-mono); font-size: 14px; font-weight: 600; color: var(--ink); }}
+.cat-mega-cell .l {{ font-family: var(--font-mono); font-size: 9px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted); }}
+.cat-mega-cta {{ display: inline-flex; align-items: center; gap: 8px; font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--brand); font-weight: 500; margin-top: auto; transition: gap var(--t-fast) var(--ease); }}
+.cat-mega-card:hover .cat-mega-cta {{ gap: 14px; }}
+.cat-mega-cta svg {{ width: 14px; height: 14px; transition: transform var(--t-fast) var(--ease); }}
+.cat-mega-card:hover .cat-mega-cta svg {{ transform: translateX(3px); }}
+
 </style>
 </head>
 <body id="top">
@@ -1347,6 +1377,162 @@ footer .footer-meta {
 </section>
 
 <!-- ════════════════ SUBCATEGORY OVERVIEW ════════════════ -->
+  <section class="cat-mega-section" id="catalogue">
+    <div class="container">
+      <header class="cat-mega-head">
+        <span class="eyebrow">Browse the catalogue</span>
+        <h2 class="cat-mega-heading">Eight categories. <span class="hl">256 source-verified SKUs.</span></h2>
+        <p class="cat-mega-sub">Every product on this site is extracted from the 2026 ONO Inspiration print catalogue. Pick a category to dive in, or scroll down for a quick-glance index of all 25 sub-series.</p>
+      </header>
+      <div class="cat-mega-grid">
+        <a href="category-01-power-energy.html" class="cat-mega-card" data-cat="01">
+          <div class="cat-mega-img">
+            <img src="assets/products-grid/dspbc1025-p04.webp" alt="Power & Energy" loading="lazy" decoding="async" />
+            <span class="cat-mega-num">01</span>
+          </div>
+          <div class="cat-mega-body">
+            <h3 class="cat-mega-title">Power & Energy</h3>
+            <p class="cat-mega-tagline">Plug in. Charge up. Stay moving.</p>
+            <div class="cat-mega-meta">
+              <span class="cat-mega-cell"><span class="v">31</span><span class="l">SKUs</span></span>
+              <span class="cat-mega-cell"><span class="v">2</span><span class="l">subs</span></span>
+              <span class="cat-mega-cell"><span class="v">P04–P41</span><span class="l">PDF pages</span></span>
+            </div>
+            <span class="cat-mega-cta">Browse category →
+              <svg viewBox="0 0 14 14" aria-hidden="true"><path d="M2 7h10m-4-4 4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
+          </div>
+        </a>
+        <a href="category-02-wireless-cables.html" class="cat-mega-card" data-cat="02">
+          <div class="cat-mega-img">
+            <img src="assets/products-grid/dsw28-p13.webp" alt="Wireless & Cables" loading="lazy" decoding="async" />
+            <span class="cat-mega-num">02</span>
+          </div>
+          <div class="cat-mega-body">
+            <h3 class="cat-mega-title">Wireless & Cables</h3>
+            <p class="cat-mega-tagline">Connect. Carry. Charge any way.</p>
+            <div class="cat-mega-meta">
+              <span class="cat-mega-cell"><span class="v">29</span><span class="l">SKUs</span></span>
+              <span class="cat-mega-cell"><span class="v">2</span><span class="l">subs</span></span>
+              <span class="cat-mega-cell"><span class="v">P13–P26</span><span class="l">PDF pages</span></span>
+            </div>
+            <span class="cat-mega-cta">Browse category →
+              <svg viewBox="0 0 14 14" aria-hidden="true"><path d="M2 7h10m-4-4 4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
+          </div>
+        </a>
+        <a href="category-03-audio.html" class="cat-mega-card" data-cat="03">
+          <div class="cat-mega-img">
+            <img src="assets/products-grid/ds001-p28.webp" alt="Audio" loading="lazy" decoding="async" />
+            <span class="cat-mega-num">03</span>
+          </div>
+          <div class="cat-mega-body">
+            <h3 class="cat-mega-title">Audio</h3>
+            <p class="cat-mega-tagline">Sound that travels with you.</p>
+            <div class="cat-mega-meta">
+              <span class="cat-mega-cell"><span class="v">41</span><span class="l">SKUs</span></span>
+              <span class="cat-mega-cell"><span class="v">2</span><span class="l">subs</span></span>
+              <span class="cat-mega-cell"><span class="v">P28–P33</span><span class="l">PDF pages</span></span>
+            </div>
+            <span class="cat-mega-cta">Browse category →
+              <svg viewBox="0 0 14 14" aria-hidden="true"><path d="M2 7h10m-4-4 4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
+          </div>
+        </a>
+        <a href="category-04-mobile-tech.html" class="cat-mega-card" data-cat="04">
+          <div class="cat-mega-img">
+            <img src="assets/products-grid/dsh01-p34.webp" alt="Mobile & Tech Accessories" loading="lazy" decoding="async" />
+            <span class="cat-mega-num">04</span>
+          </div>
+          <div class="cat-mega-body">
+            <h3 class="cat-mega-title">Mobile & Tech Accessories</h3>
+            <p class="cat-mega-tagline">Round out every device.</p>
+            <div class="cat-mega-meta">
+              <span class="cat-mega-cell"><span class="v">49</span><span class="l">SKUs</span></span>
+              <span class="cat-mega-cell"><span class="v">5</span><span class="l">subs</span></span>
+              <span class="cat-mega-cell"><span class="v">P34–P52</span><span class="l">PDF pages</span></span>
+            </div>
+            <span class="cat-mega-cta">Browse category →
+              <svg viewBox="0 0 14 14" aria-hidden="true"><path d="M2 7h10m-4-4 4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
+          </div>
+        </a>
+        <a href="category-05-home-personal.html" class="cat-mega-card" data-cat="05">
+          <div class="cat-mega-img">
+            <img src="assets/products-grid/wood-led-p37.webp" alt="Home & Personal Care" loading="lazy" decoding="async" />
+            <span class="cat-mega-num">05</span>
+          </div>
+          <div class="cat-mega-body">
+            <h3 class="cat-mega-title">Home & Personal Care</h3>
+            <p class="cat-mega-tagline">Daily comforts, built for the brand.</p>
+            <div class="cat-mega-meta">
+              <span class="cat-mega-cell"><span class="v">36</span><span class="l">SKUs</span></span>
+              <span class="cat-mega-cell"><span class="v">5</span><span class="l">subs</span></span>
+              <span class="cat-mega-cell"><span class="v">P37–P51</span><span class="l">PDF pages</span></span>
+            </div>
+            <span class="cat-mega-cta">Browse category →
+              <svg viewBox="0 0 14 14" aria-hidden="true"><path d="M2 7h10m-4-4 4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
+          </div>
+        </a>
+        <a href="category-06-travel-office.html" class="cat-mega-card" data-cat="06">
+          <div class="cat-mega-img">
+            <img src="assets/products-grid/dsj167-p39.webp" alt="Travel & Office" loading="lazy" decoding="async" />
+            <span class="cat-mega-num">06</span>
+          </div>
+          <div class="cat-mega-body">
+            <h3 class="cat-mega-title">Travel & Office</h3>
+            <p class="cat-mega-tagline">Wherever business goes.</p>
+            <div class="cat-mega-meta">
+              <span class="cat-mega-cell"><span class="v">27</span><span class="l">SKUs</span></span>
+              <span class="cat-mega-cell"><span class="v">3</span><span class="l">subs</span></span>
+              <span class="cat-mega-cell"><span class="v">P39–P49</span><span class="l">PDF pages</span></span>
+            </div>
+            <span class="cat-mega-cta">Browse category →
+              <svg viewBox="0 0 14 14" aria-hidden="true"><path d="M2 7h10m-4-4 4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
+          </div>
+        </a>
+        <a href="category-07-bags-apparel.html" class="cat-mega-card" data-cat="07">
+          <div class="cat-mega-img">
+            <img src="assets/products-grid/bag-bp-black-p54.webp" alt="Bags & Apparel" loading="lazy" decoding="async" />
+            <span class="cat-mega-num">07</span>
+          </div>
+          <div class="cat-mega-body">
+            <h3 class="cat-mega-title">Bags & Apparel</h3>
+            <p class="cat-mega-tagline">Carry. Wear. Promote.</p>
+            <div class="cat-mega-meta">
+              <span class="cat-mega-cell"><span class="v">18</span><span class="l">SKUs</span></span>
+              <span class="cat-mega-cell"><span class="v">3</span><span class="l">subs</span></span>
+              <span class="cat-mega-cell"><span class="v">P54–P56</span><span class="l">PDF pages</span></span>
+            </div>
+            <span class="cat-mega-cta">Browse category →
+              <svg viewBox="0 0 14 14" aria-hidden="true"><path d="M2 7h10m-4-4 4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
+          </div>
+        </a>
+        <a href="category-08-gifts-eco.html" class="cat-mega-card" data-cat="08">
+          <div class="cat-mega-img">
+            <img src="assets/products-grid/box-frame-p53.webp" alt="Gifts, Boxes & Eco" loading="lazy" decoding="async" />
+            <span class="cat-mega-num">08</span>
+          </div>
+          <div class="cat-mega-body">
+            <h3 class="cat-mega-title">Gifts, Boxes & Eco</h3>
+            <p class="cat-mega-tagline">Make it theirs. Make it green.</p>
+            <div class="cat-mega-meta">
+              <span class="cat-mega-cell"><span class="v">25</span><span class="l">SKUs</span></span>
+              <span class="cat-mega-cell"><span class="v">3</span><span class="l">subs</span></span>
+              <span class="cat-mega-cell"><span class="v">P53–P58</span><span class="l">PDF pages</span></span>
+            </div>
+            <span class="cat-mega-cta">Browse category →
+              <svg viewBox="0 0 14 14" aria-hidden="true"><path d="M2 7h10m-4-4 4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
 <section class="subcat-overview-section" data-od-id="subcategory-index" id="subcategory-index">
   <div class="container">
     <div class="subcat-head">
