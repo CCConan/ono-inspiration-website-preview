@@ -1144,10 +1144,11 @@ footer .footer-meta {
 .cat-mega-cell {{ display: flex; flex-direction: column; gap: 2px; flex: 1; }}
 .cat-mega-cell .v {{ font-family: var(--font-mono); font-size: 14px; font-weight: 600; color: var(--ink); }}
 .cat-mega-cell .l {{ font-family: var(--font-mono); font-size: 9px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted); }}
-.cat-mega-cta {{ display: inline-flex; align-items: center; gap: 8px; font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--brand); font-weight: 500; margin-top: auto; transition: gap var(--t-fast) var(--ease); }}
-.cat-mega-card:hover .cat-mega-cta {{ gap: 14px; }}
-.cat-mega-cta svg {{ width: 14px; height: 14px; transition: transform var(--t-fast) var(--ease); }}
-.cat-mega-card:hover .cat-mega-cta svg {{ transform: translateX(3px); }}
+/* CTA: small decorative icon-only chip, not a same-class text element */
+.cat-mega-cta { display: inline-flex; align-items: center; justify-content: center; width: 32px; height: 32px; margin-top: auto; border-radius: 999px; border: 1px solid var(--hair); background: var(--surface); color: var(--ink); transition: background var(--t-fast) var(--ease), border-color var(--t-fast) var(--ease); }
+.cat-mega-cta svg { width: 14px; height: 14px; transition: transform var(--t-fast) var(--ease); }
+.cat-mega-card:hover .cat-mega-cta { background: var(--brand); border-color: var(--brand); color: var(--bg); }
+.cat-mega-card:hover .cat-mega-cta svg { transform: translateX(2px); }
 
 </style>
 </head>
@@ -1398,8 +1399,7 @@ footer .footer-meta {
               <span class="cat-mega-cell"><span class="v">2</span><span class="l">subs</span></span>
               <span class="cat-mega-cell"><span class="v">P04–P41</span><span class="l">PDF pages</span></span>
             </div>
-            <span class="cat-mega-cta">Browse category →
-              <svg viewBox="0 0 14 14" aria-hidden="true"><path d="M2 7h10m-4-4 4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span class="cat-mega-cta"><svg viewBox="0 0 14 14" aria-hidden="true" aria-label="Open category"><path d="M2 7h10m-4-4 4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
             </span>
           </div>
         </a>
@@ -1416,8 +1416,7 @@ footer .footer-meta {
               <span class="cat-mega-cell"><span class="v">2</span><span class="l">subs</span></span>
               <span class="cat-mega-cell"><span class="v">P13–P26</span><span class="l">PDF pages</span></span>
             </div>
-            <span class="cat-mega-cta">Browse category →
-              <svg viewBox="0 0 14 14" aria-hidden="true"><path d="M2 7h10m-4-4 4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span class="cat-mega-cta"><svg viewBox="0 0 14 14" aria-hidden="true" aria-label="Open category"><path d="M2 7h10m-4-4 4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
             </span>
           </div>
         </a>
@@ -1434,8 +1433,7 @@ footer .footer-meta {
               <span class="cat-mega-cell"><span class="v">2</span><span class="l">subs</span></span>
               <span class="cat-mega-cell"><span class="v">P28–P33</span><span class="l">PDF pages</span></span>
             </div>
-            <span class="cat-mega-cta">Browse category →
-              <svg viewBox="0 0 14 14" aria-hidden="true"><path d="M2 7h10m-4-4 4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span class="cat-mega-cta"><svg viewBox="0 0 14 14" aria-hidden="true" aria-label="Open category"><path d="M2 7h10m-4-4 4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
             </span>
           </div>
         </a>
@@ -1452,8 +1450,7 @@ footer .footer-meta {
               <span class="cat-mega-cell"><span class="v">5</span><span class="l">subs</span></span>
               <span class="cat-mega-cell"><span class="v">P34–P52</span><span class="l">PDF pages</span></span>
             </div>
-            <span class="cat-mega-cta">Browse category →
-              <svg viewBox="0 0 14 14" aria-hidden="true"><path d="M2 7h10m-4-4 4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span class="cat-mega-cta"><svg viewBox="0 0 14 14" aria-hidden="true" aria-label="Open category"><path d="M2 7h10m-4-4 4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
             </span>
           </div>
         </a>
@@ -1470,8 +1467,7 @@ footer .footer-meta {
               <span class="cat-mega-cell"><span class="v">5</span><span class="l">subs</span></span>
               <span class="cat-mega-cell"><span class="v">P37–P51</span><span class="l">PDF pages</span></span>
             </div>
-            <span class="cat-mega-cta">Browse category →
-              <svg viewBox="0 0 14 14" aria-hidden="true"><path d="M2 7h10m-4-4 4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span class="cat-mega-cta"><svg viewBox="0 0 14 14" aria-hidden="true" aria-label="Open category"><path d="M2 7h10m-4-4 4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
             </span>
           </div>
         </a>
@@ -1488,8 +1484,7 @@ footer .footer-meta {
               <span class="cat-mega-cell"><span class="v">3</span><span class="l">subs</span></span>
               <span class="cat-mega-cell"><span class="v">P39–P49</span><span class="l">PDF pages</span></span>
             </div>
-            <span class="cat-mega-cta">Browse category →
-              <svg viewBox="0 0 14 14" aria-hidden="true"><path d="M2 7h10m-4-4 4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span class="cat-mega-cta"><svg viewBox="0 0 14 14" aria-hidden="true" aria-label="Open category"><path d="M2 7h10m-4-4 4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
             </span>
           </div>
         </a>
@@ -1506,8 +1501,7 @@ footer .footer-meta {
               <span class="cat-mega-cell"><span class="v">3</span><span class="l">subs</span></span>
               <span class="cat-mega-cell"><span class="v">P54–P56</span><span class="l">PDF pages</span></span>
             </div>
-            <span class="cat-mega-cta">Browse category →
-              <svg viewBox="0 0 14 14" aria-hidden="true"><path d="M2 7h10m-4-4 4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span class="cat-mega-cta"><svg viewBox="0 0 14 14" aria-hidden="true" aria-label="Open category"><path d="M2 7h10m-4-4 4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
             </span>
           </div>
         </a>
@@ -1524,8 +1518,7 @@ footer .footer-meta {
               <span class="cat-mega-cell"><span class="v">3</span><span class="l">subs</span></span>
               <span class="cat-mega-cell"><span class="v">P53–P58</span><span class="l">PDF pages</span></span>
             </div>
-            <span class="cat-mega-cta">Browse category →
-              <svg viewBox="0 0 14 14" aria-hidden="true"><path d="M2 7h10m-4-4 4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span class="cat-mega-cta"><svg viewBox="0 0 14 14" aria-hidden="true" aria-label="Open category"><path d="M2 7h10m-4-4 4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
             </span>
           </div>
         </a>
