@@ -3,8 +3,9 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<meta name="description" content="Audio &amp; Smart Mobile curated by ONO INSPIRATION COMPANY LIMITED. TWS Earphones · Bluetooth Speaker · USB Hub · Phone Holder · AirTag. Source-verified SKUs from the Ono Inspiration 2026 catalogue." />
-<title>Audio &amp; Smart Mobile · ONO INSPIRATION COMPANY LIMITED</title>
+<meta name="description" content="Power &amp; Charging curated by ONO INSPIRATION COMPANY LIMITED. Powerbank · Wireless Charger · Charging Cable · Wall Charger. Source-verified SKUs from the Ono Inspiration 2026 catalogue." />
+<title>Audio & Mobile Tech · Ono Inspiration</title>
+<script>document.documentElement.classList.add('js-loaded');</script>
 <link rel="icon" type="image/png" href="assets/source/logo_icon.png" />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -75,6 +76,15 @@ ul { margin: 0; padding: 0; list-style: none; }
 
 .topnav { position: sticky; top: 0; z-index: 50; background: rgba(247, 244, 238, 0.82); backdrop-filter: saturate(180%) blur(20px); -webkit-backdrop-filter: saturate(180%) blur(20px); border-bottom: 1px solid transparent; transition: border-color var(--t-base) var(--ease), background var(--t-base) var(--ease); }
 .topnav.scrolled { border-bottom-color: var(--hair); background: rgba(247, 244, 238, 0.94); }
+@media (max-width: 1024px) {
+  /* Avoid mobile Safari compositor dropout from sticky + backdrop-filter. */
+  .topnav {
+    position: relative;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    background: var(--bg);
+  }
+}
 .topnav-inner { display: flex; align-items: center; justify-content: space-between; padding-block: 22px; gap: 32px; }
 .topnav .brand { display: flex; align-items: center; gap: 14px; white-space: nowrap; }
 .topnav .brand img { display: block; height: 54px; width: auto; transition: transform var(--t-base) var(--ease); }
@@ -415,8 +425,6 @@ ul { margin: 0; padding: 0; list-style: none; }
   border: 1px solid var(--hair);
   border-radius: var(--r-md);
   overflow: hidden;
-  opacity: 0;
-  transform: translateY(28px) scale(0.985);
   transition:
     opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
     transform 0.7s cubic-bezier(0.16, 1, 0.3, 1),
@@ -424,6 +432,10 @@ ul { margin: 0; padding: 0; list-style: none; }
     border-color var(--t-fast) var(--ease);
   transition-delay: calc(var(--i, 0) * 70ms);
   will-change: opacity, transform;
+}
+.js-loaded .product-grid > .product-card {
+  opacity: 0;
+  transform: translateY(28px) scale(0.985);
 }
 .product-grid > .product-card.is-visible {
   opacity: 1;
@@ -771,11 +783,11 @@ ul { margin: 0; padding: 0; list-style: none; }
           <svg class="caret" width="10" height="6" viewBox="0 0 10 6" aria-hidden="true"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </button>
         <div class="dropdown-menu" id="products-menu" role="menu">
-          <a href="products-01-power-charging.html" role="menuitem">
+          <a href="products-01-power-charging.html" class="active" role="menuitem">
             <span class="dd-num">01</span>
             <span class="dd-body"><span class="dd-title">Power & Charging</span><span class="dd-sub">60 SKUs · Powerbank · Wireless · Cable · Wall</span></span>
           </a>
-          <a href="products-02-audio-mobile.html" class="active" role="menuitem">
+          <a href="products-02-audio-mobile.html" role="menuitem">
             <span class="dd-num">02</span>
             <span class="dd-body"><span class="dd-title">Audio & Mobile</span><span class="dd-sub">60 SKUs · TWS · Speaker · Hub · AirTag</span></span>
           </a>
@@ -801,30 +813,40 @@ ul { margin: 0; padding: 0; list-style: none; }
     <div class="menu-drawer-panel" role="dialog" aria-modal="true" aria-label="Site navigation">
       <a class="md-link" href="index.html#series">Catalogue<span aria-hidden="true">→</span></a>
       <div class="md-label">Products</div>
-      <a href="products-01-power-charging.html" class="md-sub-link">01 · Power & Charging</a>
-      <a href="products-02-audio-mobile.html" class="md-sub-link active">02 · Audio & Mobile</a>
+      <a href="products-01-power-charging.html" class="md-sub-link active">01 · Power & Charging</a>
+      <a href="products-02-audio-mobile.html" class="md-sub-link">02 · Audio & Mobile</a>
       <a href="products-03-lifestyle-office.html" class="md-sub-link">03 · Lifestyle & Office</a>
       <a href="products-04-carry-customize.html" class="md-sub-link">04 · Carry & Customize</a>
       <a class="md-link" href="index.html#contact">Contact<span aria-hidden="true">→</span></a>
     </div>
   </div>
 
-<main>
-<section class="hero-series" data-od-id="catalog-hero">
+<main id="content">
+<section class="catalog-hero" data-od-id="catalog-hero">
   <div class="container">
-    <a class="back" href="index.html">← Back to launcher</a>
-    <span class="eyebrow">2026 Catalogue · Laptop / Personal Accessories</span>
-    <h1>Audio & Smart Mobile</h1>
-    <p class="lede">USB / HUB / earphone / phone holder.</p>
-    <p class="lead">Product names and parameters below are transcribed from their printed catalogue pages.</p>
-    <div class="meta">
-      <span>60 catalogue cards</span>
-      <span class="dot">·</span>
-      <span>Pages P28–P36</span>
+    <div class="breadcrumb">
+      <a href="index.html">← Back to launcher</a>
+      <span class="breadcrumb-sep">/</span>
+      <span>2026 CATALOGUE</span>
+      <span class="breadcrumb-sep">/</span>
+      <span class="current">Audio & Mobile Tech</span>
+    </div>
+    <h1 class="catalog-title">Audio & Mobile Tech</h1>
+    <p class="catalog-sub">Audio devices and the mobile & tech accessories that surround them.</p>
+  </div>
+</section>
+<section class="cat-divider" data-od-id="catalog-category" id="cat-03-audio">
+  <div class="container">
+    <div class="cat-head">
+      <span class="eyebrow">Category 01</span>
+      <h2 class="cat-title">Audio</h2>
+      <p class="cat-tagline">Sound that travels with you.</p>
+      <p class="cat-subtitle">TWS earphones and Bluetooth speakers for work, travel and play.</p>
+      <div class="cat-subs"><a href="#sub-tws-earphones">TWS Earphones</a> · <a href="#sub-bluetooth-speaker">Bluetooth Speaker</a></div>
     </div>
   </div>
 </section>
-<section class="subcat" data-od-id="catalog-subcategory" id="subcat-tws-earphones">
+<section class="subcat" data-od-id="catalog-subcategory" id="sub-tws-earphones">
   <div class="container">
     <header class="subcat-head">
       <div>
@@ -840,7 +862,7 @@ ul { margin: 0; padding: 0; list-style: none; }
     <div class="product-grid">
         <div class="product-card" style="--i: 0">
           <div class="card-image">
-            <img src="assets/products-grid/ds001-p28.webp" alt="BT 5.3 ANC+ECN" loading="lazy"  style="aspect-ratio: 0.665;" />
+            <img src="assets/products-grid/ds001-p28.webp" alt="BT 5.3 ANC+ECN" loading="lazy" style="aspect-ratio: 1.507;" />
             <span class="page-pill">P28</span>
           </div>
           <div class="card-body">
@@ -848,29 +870,27 @@ ul { margin: 0; padding: 0; list-style: none; }
             <h3 class="name">BT 5.3 ANC+ECN</h3>
             <ul class="spec spec-list"><li>charging box 400mah,</li><li>earhpone 30mah</li></ul>
             <div class="meta-row">
-              
               <span class="source">PDF · P28</span>
             </div>
           </div>
         </div>
         <div class="product-card" style="--i: 1">
           <div class="card-image">
-            <img src="assets/products-grid/ds002-p28.webp" alt="Catalogue item · P28–02" loading="lazy"  style="aspect-ratio: 0.494;" />
+            <img src="assets/products-grid/ds002-p28.webp" alt="—" loading="lazy" style="aspect-ratio: 1.479;" />
             <span class="page-pill">P28</span>
           </div>
           <div class="card-body">
-            <span class="sku">P28 · ITEM 02</span>
-            <h3 class="name">Catalogue item · P28–02</h3>
+            <span class="sku">—</span>
+            <h3 class="name">—</h3>
             <ul class="spec spec-list"><li>e=AШe</li><li>-- 1IlIG</li></ul>
             <div class="meta-row">
-              
               <span class="source">PDF · P28</span>
             </div>
           </div>
         </div>
         <div class="product-card" style="--i: 2">
           <div class="card-image">
-            <img src="assets/products-grid/ds003-p28.webp" alt="ВT 5.1" loading="lazy"  style="aspect-ratio: 0.297;" />
+            <img src="assets/products-grid/ds003-p28.webp" alt="ВT 5.1" loading="lazy" style="aspect-ratio: 1.479;" />
             <span class="page-pill">P28</span>
           </div>
           <div class="card-body">
@@ -878,217 +898,202 @@ ul { margin: 0; padding: 0; list-style: none; }
             <h3 class="name">ВT 5.1</h3>
             <ul class="spec spec-list"><li>charging box 350mah</li><li>earphone 30mah</li><li>white, black color</li></ul>
             <div class="meta-row">
-              
               <span class="source">PDF · P28</span>
             </div>
           </div>
         </div>
         <div class="product-card" style="--i: 3">
           <div class="card-image">
-            <img src="assets/products-grid/ds004-p28.webp" alt="TWS earphone +Powerbank function" loading="lazy"  style="aspect-ratio: 0.746;" />
+            <img src="assets/products-grid/ds004-p28.webp" alt="TWS earphone +Powerbank function" loading="lazy" style="aspect-ratio: 1.507;" />
             <span class="page-pill">P28</span>
           </div>
           <div class="card-body">
-            <span class="sku">P28 · ITEM 04</span>
+            <span class="sku">—</span>
             <h3 class="name">TWS earphone +Powerbank function</h3>
             <ul class="spec spec-list"><li>BT V5.1+EDR</li><li>Charging box 2000mah</li><li>Earphone 40mah</li><li>Charging port TYPE C</li><li>Color: white, black</li></ul>
             <div class="meta-row">
-              
               <span class="source">PDF · P28</span>
             </div>
           </div>
         </div>
         <div class="product-card" style="--i: 4">
           <div class="card-image">
-            <img src="assets/products-grid/ds005-p28.webp" alt="Catalogue item · P28–05" loading="lazy"  style="aspect-ratio: 0.462;" />
+            <img src="assets/products-grid/ds005-p28.webp" alt="—" loading="lazy" style="aspect-ratio: 1.479;" />
             <span class="page-pill">P28</span>
           </div>
           <div class="card-body">
-            <span class="sku">P28 · ITEM 05</span>
-            <h3 class="name">Catalogue item · P28–05</h3>
+            <span class="sku">—</span>
+            <h3 class="name">—</h3>
             <ul class="spec spec-list"><li>PDF does not provide a separately readable product description.</li></ul>
             <div class="meta-row">
-              
               <span class="source">PDF · P28</span>
             </div>
           </div>
         </div>
         <div class="product-card" style="--i: 5">
           <div class="card-image">
-            <img src="assets/products-grid/ds006-p28.webp" alt="BT 5.1 TWS earphone" loading="lazy"  style="aspect-ratio: 0.238;" />
+            <img src="assets/products-grid/ds006-p28.webp" alt="BT 5.1 TWS earphone" loading="lazy" style="aspect-ratio: 1.479;" />
             <span class="page-pill">P28</span>
           </div>
           <div class="card-body">
-            <span class="sku">P28 · ITEM 06</span>
+            <span class="sku">—</span>
             <h3 class="name">BT 5.1 TWS earphone</h3>
-            <ul class="spec spec-list"><li>charging box 350mah</li><li>earphone 30mah</li><li>water proof IPX5</li><li>charging 1 hour</li><li>playing time 24 hours</li><li>TYPE C charging port</li><li>white/black/pink</li></ul>
+            <ul class="spec spec-list"><li>charging box 350mah</li><li>earphone 30mah</li><li>water proof IPX5</li><li>charging 1 hour</li><li>playing time 24 hours</li></ul>
             <div class="meta-row">
-              
               <span class="source">PDF · P28</span>
             </div>
           </div>
         </div>
         <div class="product-card" style="--i: 6">
           <div class="card-image">
-            <img src="assets/products-grid/ds007-p28.webp" alt="TWS earphone for GAME" loading="lazy"  style="aspect-ratio: 0.629;" />
+            <img src="assets/products-grid/ds007-p28.webp" alt="TWS earphone for GAME" loading="lazy" style="aspect-ratio: 1.507;" />
             <span class="page-pill">P28</span>
           </div>
           <div class="card-body">
-            <span class="sku">P28 · ITEM 07</span>
+            <span class="sku">—</span>
             <h3 class="name">TWS earphone for GAME</h3>
             <ul class="spec spec-list"><li>frequency 20Hz-20KHz</li><li>charging box 400mah</li><li>earonone ssman</li><li>no delay in games and movies</li></ul>
             <div class="meta-row">
-              
               <span class="source">PDF · P28</span>
             </div>
           </div>
         </div>
         <div class="product-card" style="--i: 7">
           <div class="card-image">
-            <img src="assets/products-grid/ds008-p28.webp" alt="Catalogue item · P28–08" loading="lazy"  style="aspect-ratio: 0.400;" />
+            <img src="assets/products-grid/ds008-p28.webp" alt="—" loading="lazy" style="aspect-ratio: 1.479;" />
             <span class="page-pill">P28</span>
           </div>
           <div class="card-body">
-            <span class="sku">P28 · ITEM 08</span>
-            <h3 class="name">Catalogue item · P28–08</h3>
+            <span class="sku">—</span>
+            <h3 class="name">—</h3>
             <ul class="spec spec-list"><li>PDF does not provide a separately readable product description.</li></ul>
             <div class="meta-row">
-              
               <span class="source">PDF · P28</span>
             </div>
           </div>
         </div>
         <div class="product-card" style="--i: 8">
           <div class="card-image">
-            <img src="assets/products-grid/ds009-p28.webp" alt="TWS EARPHONE BT 5.2" loading="lazy"  style="aspect-ratio: 0.160;" />
+            <img src="assets/products-grid/ds009-p28.webp" alt="TWS EARPHONE BT 5.2" loading="lazy" style="aspect-ratio: 1.479;" />
             <span class="page-pill">P28</span>
           </div>
           <div class="card-body">
-            <span class="sku">P28 · ITEM 09</span>
+            <span class="sku">—</span>
             <h3 class="name">TWS EARPHONE BT 5.2</h3>
             <ul class="spec spec-list"><li>charging box 400mAh</li><li>earphonen 40mAh</li><li>music choose/volume change/pause/play</li><li>white/black/pink/green</li></ul>
             <div class="meta-row">
-              
               <span class="source">PDF · P28</span>
             </div>
           </div>
         </div>
         <div class="product-card" style="--i: 9">
           <div class="card-image">
-            <img src="assets/products-grid/ds010-p29.webp" alt="ВT 5.3" loading="lazy"  style="aspect-ratio: 0.820;" />
+            <img src="assets/products-grid/ds010-p29.webp" alt="ВT 5.3" loading="lazy" style="aspect-ratio: 1.507;" />
             <span class="page-pill">P29</span>
           </div>
           <div class="card-body">
-            <span class="sku">P29 · ITEM 01</span>
+            <span class="sku">—</span>
             <h3 class="name">ВT 5.3</h3>
             <ul class="spec spec-list"><li>chargingn box 300mah</li><li>earphone 40mah</li><li>touch button</li></ul>
             <div class="meta-row">
-              
               <span class="source">PDF · P29</span>
             </div>
           </div>
         </div>
         <div class="product-card" style="--i: 10">
           <div class="card-image">
-            <img src="assets/products-grid/ds011-p29.webp" alt="ВT 5.4" loading="lazy"  style="aspect-ratio: 0.600;" />
+            <img src="assets/products-grid/ds011-p29.webp" alt="ВT 5.4" loading="lazy" style="aspect-ratio: 1.507;" />
             <span class="page-pill">P29</span>
           </div>
           <div class="card-body">
-            <span class="sku">P29 · ITEM 02</span>
+            <span class="sku">—</span>
             <h3 class="name">ВT 5.4</h3>
             <ul class="spec spec-list"><li>ANC+ENC noise reduction</li><li>charging box 320mah</li><li>earphone 40mah</li><li>colorful display</li></ul>
             <div class="meta-row">
-              
               <span class="source">PDF · P29</span>
             </div>
           </div>
         </div>
         <div class="product-card" style="--i: 11">
           <div class="card-image">
-            <img src="assets/products-grid/ds012-p29.webp" alt="BT 5.3" loading="lazy"  style="aspect-ratio: 0.627;" />
+            <img src="assets/products-grid/ds012-p29.webp" alt="BT 5.3" loading="lazy" style="aspect-ratio: 1.479;" />
             <span class="page-pill">P29</span>
           </div>
           <div class="card-body">
-            <span class="sku">P29 · ITEM 03</span>
+            <span class="sku">—</span>
             <h3 class="name">BT 5.3</h3>
             <ul class="spec spec-list"><li>mini TWS earphone</li><li>white or black color</li></ul>
             <div class="meta-row">
-              
               <span class="source">PDF · P29</span>
             </div>
           </div>
         </div>
-        <div class="product-card" style="--i: 0">
+        <div class="product-card" style="--i: 12">
           <div class="card-image">
-            <img src="assets/products-grid/dsxy19-p29.webp" alt="BT 5.3" loading="lazy"  style="aspect-ratio: 0.371;" />
+            <img src="assets/products-grid/dsxy19-p29.webp" alt="BT 5.3" loading="lazy" style="aspect-ratio: 1.479;" />
             <span class="page-pill">P29</span>
           </div>
           <div class="card-body">
-            <span class="sku">P29 · ITEM 04</span>
+            <span class="sku">—</span>
             <h3 class="name">BT 5.3</h3>
             <ul class="spec spec-list"><li>charging box 300mah</li><li>earphone 30mah</li><li>white or black color</li></ul>
             <div class="meta-row">
-              
               <span class="source">PDF · P29</span>
             </div>
           </div>
         </div>
-        <div class="product-card" style="--i: 1">
+        <div class="product-card" style="--i: 13">
           <div class="card-image">
-            <img src="assets/products-grid/dsxy30-p29.webp" alt="Catalogue item · P29–05" loading="lazy"  style="aspect-ratio: 0.533;" />
+            <img src="assets/products-grid/dsxy30-p29.webp" alt="—" loading="lazy" style="aspect-ratio: 1.507;" />
             <span class="page-pill">P29</span>
           </div>
           <div class="card-body">
-            <span class="sku">P29 · ITEM 05</span>
-            <h3 class="name">Catalogue item · P29–05</h3>
+            <span class="sku">—</span>
+            <h3 class="name">—</h3>
             <ul class="spec spec-list"><li>PDF does not provide a separately readable product description.</li></ul>
             <div class="meta-row">
-              
               <span class="source">PDF · P29</span>
             </div>
           </div>
         </div>
-        <div class="product-card" style="--i: 2">
+        <div class="product-card" style="--i: 14">
           <div class="card-image">
-            <img src="assets/products-grid/dsxy11-p29.webp" alt="BT 5.4" loading="lazy"  style="aspect-ratio: 0.394;" />
+            <img src="assets/products-grid/dsxy11-p29.webp" alt="BT 5.4" loading="lazy" style="aspect-ratio: 1.507;" />
             <span class="page-pill">P29</span>
           </div>
           <div class="card-body">
-            <span class="sku">P29 · ITEM 06</span>
+            <span class="sku">—</span>
             <h3 class="name">BT 5.4</h3>
-            <ul class="spec spec-list"><li>ANC+ENC</li><li>touchable display screen</li><li>white or black color</li><li>charging box 300mah</li><li>earphone 30mah</li><li>type c charging port</li></ul>
+            <ul class="spec spec-list"><li>ANC+ENC</li><li>touchable display screen</li><li>white or black color</li><li>charging box 300mah</li><li>earphone 30mah</li></ul>
             <div class="meta-row">
-              
               <span class="source">PDF · P29</span>
             </div>
           </div>
         </div>
-        <div class="product-card" style="--i: 3">
+        <div class="product-card" style="--i: 15">
           <div class="card-image">
-            <img src="assets/products-grid/dsxy80-p29.webp" alt="Catalogue item · P29–07" loading="lazy"  style="aspect-ratio: 1.431;" />
+            <img src="assets/products-grid/dsxy80-p29.webp" alt="—" loading="lazy" style="aspect-ratio: 1.479;" />
             <span class="page-pill">P29</span>
           </div>
           <div class="card-body">
-            <span class="sku">P29 · ITEM 07</span>
-            <h3 class="name">Catalogue item · P29–07</h3>
+            <span class="sku">—</span>
+            <h3 class="name">—</h3>
             <ul class="spec spec-list"><li>PDF does not provide a separately readable product description.</li></ul>
             <div class="meta-row">
-              
               <span class="source">PDF · P29</span>
             </div>
           </div>
         </div>
-        <div class="product-card" style="--i: 4">
+        <div class="product-card" style="--i: 16">
           <div class="card-image">
-            <img src="assets/products-grid/dsxy81-p29.webp" alt="BT 5.4" loading="lazy"  style="aspect-ratio: 0.329;" />
+            <img src="assets/products-grid/dsxy81-p29.webp" alt="BT 5.4" loading="lazy" style="aspect-ratio: 1.479;" />
             <span class="page-pill">P29</span>
           </div>
           <div class="card-body">
-            <span class="sku">P29 · ITEM 08</span>
+            <span class="sku">—</span>
             <h3 class="name">BT 5.4</h3>
             <ul class="spec spec-list"><li>inear TWS earphone</li><li>touch button</li></ul>
             <div class="meta-row">
-              
               <span class="source">PDF · P29</span>
             </div>
           </div>
@@ -1096,7 +1101,7 @@ ul { margin: 0; padding: 0; list-style: none; }
     </div>
   </div>
 </section>
-<section class="subcat" data-od-id="catalog-subcategory" id="subcat-bluetooth-speaker">
+<section class="subcat" data-od-id="catalog-subcategory" id="sub-bluetooth-speaker">
   <div class="container">
     <header class="subcat-head">
       <div>
@@ -1110,54 +1115,51 @@ ul { margin: 0; padding: 0; list-style: none; }
       <span class="count">24 products</span>
     </div>
     <div class="product-grid">
-        <div class="product-card" style="--i: 5">
+        <div class="product-card" style="--i: 0">
           <div class="card-image">
-            <img src="assets/products-grid/dsb17-p30.webp" alt="Technical specification" loading="lazy"  style="aspect-ratio: 0.951;" />
+            <img src="assets/products-grid/dsb17-p30.webp" alt="Technical specification" loading="lazy" style="aspect-ratio: 1.507;" />
             <span class="page-pill">P30</span>
           </div>
           <div class="card-body">
-            <span class="sku">P30 · ITEM 01</span>
+            <span class="sku">—</span>
             <h3 class="name">Technical specification</h3>
             <ul class="spec spec-list"><li>1) Bluetooth Version:V42 + EDF</li></ul>
             <div class="meta-row">
-              
               <span class="source">PDF · P30</span>
             </div>
           </div>
         </div>
-        <div class="product-card" style="--i: 6">
+        <div class="product-card" style="--i: 1">
           <div class="card-image">
-            <img src="assets/products-grid/dsb18-p30.webp" alt="Catalogue item · P30–02" loading="lazy"  style="aspect-ratio: 0.566;" />
+            <img src="assets/products-grid/dsb18-p30.webp" alt="—" loading="lazy" style="aspect-ratio: 1.479;" />
             <span class="page-pill">P30</span>
           </div>
           <div class="card-body">
-            <span class="sku">P30 · ITEM 02</span>
-            <h3 class="name">Catalogue item · P30–02</h3>
+            <span class="sku">—</span>
+            <h3 class="name">—</h3>
             <ul class="spec spec-list"><li>PDF does not provide a separately readable product description.</li></ul>
             <div class="meta-row">
-              
               <span class="source">PDF · P30</span>
             </div>
           </div>
         </div>
-        <div class="product-card" style="--i: 7">
+        <div class="product-card" style="--i: 2">
           <div class="card-image">
-            <img src="assets/products-grid/dsb19-p30.webp" alt="Magnetic BT speaker" loading="lazy"  style="aspect-ratio: 1.086;" />
+            <img src="assets/products-grid/dsb19-p30.webp" alt="Magnetic BT speaker" loading="lazy" style="aspect-ratio: 1.479;" />
             <span class="page-pill">P30</span>
           </div>
           <div class="card-body">
-            <span class="sku">P30 · ITEM 03</span>
+            <span class="sku">—</span>
             <h3 class="name">Magnetic BT speaker</h3>
             <ul class="spec spec-list"><li>BT 5.3, battery 600mAh</li><li>support TF card, TWS pair</li><li>size 61*51mm</li></ul>
             <div class="meta-row">
-              
               <span class="source">PDF · P30</span>
             </div>
           </div>
         </div>
-        <div class="product-card" style="--i: 8">
+        <div class="product-card" style="--i: 3">
           <div class="card-image">
-            <img src="assets/products-grid/dsb20-p30.webp" alt="Bluetooth 3.0" loading="lazy"  style="aspect-ratio: 0.598;" />
+            <img src="assets/products-grid/dsb20-p30.webp" alt="Bluetooth 3.0" loading="lazy" style="aspect-ratio: 1.507;" />
             <span class="page-pill">P30</span>
           </div>
           <div class="card-body">
@@ -1165,179 +1167,167 @@ ul { margin: 0; padding: 0; list-style: none; }
             <h3 class="name">Bluetooth 3.0</h3>
             <ul class="spec spec-list"><li>Aluminum material</li><li>size 36.8*43mm</li></ul>
             <div class="meta-row">
-              
               <span class="source">PDF · P30</span>
-            </div>
-          </div>
-        </div>
-        <div class="product-card" style="--i: 9">
-          <div class="card-image">
-            <img src="assets/products-grid/dsb21-p30.webp" alt="Catalogue item · P30–05" loading="lazy"  style="aspect-ratio: 0.736;" />
-            <span class="page-pill">P30</span>
-          </div>
-          <div class="card-body">
-            <span class="sku">P30 · ITEM 05</span>
-            <h3 class="name">Catalogue item · P30–05</h3>
-            <ul class="spec spec-list"><li>PDF does not provide a separately readable product description.</li></ul>
-            <div class="meta-row">
-              
-              <span class="source">PDF · P30</span>
-            </div>
-          </div>
-        </div>
-        <div class="product-card" style="--i: 10">
-          <div class="card-image">
-            <img src="assets/products-grid/dsb22-p30.webp" alt="Magnetic BT speaker" loading="lazy"  style="aspect-ratio: 0.653;" />
-            <span class="page-pill">P30</span>
-          </div>
-          <div class="card-body">
-            <span class="sku">P30 · ITEM 06</span>
-            <h3 class="name">Magnetic BT speaker</h3>
-            <ul class="spec spec-list"><li>size 60*40mm</li><li>frequency 100HZ-20KHZ</li><li>battery 300mah</li><li>BT 5.3</li></ul>
-            <div class="meta-row">
-              
-              <span class="source">PDF · P30</span>
-            </div>
-          </div>
-        </div>
-        <div class="product-card" style="--i: 11">
-          <div class="card-image">
-            <img src="assets/products-grid/dsb23-p31.webp" alt="MFD material with wood line outside" loading="lazy"  style="aspect-ratio: 0.784;" />
-            <span class="page-pill">P31</span>
-          </div>
-          <div class="card-body">
-            <span class="sku">P31 · ITEM 01</span>
-            <h3 class="name">MFD material with wood line outside</h3>
-            <ul class="spec spec-list"><li>ВТ 5.0</li><li>Battery 800mah</li><li>Speaker 3W</li><li>Product size 77*77*60mm</li><li>Product weight: 238g</li></ul>
-            <div class="meta-row">
-              
-              <span class="source">PDF · P31</span>
-            </div>
-          </div>
-        </div>
-        <div class="product-card" style="--i: 0">
-          <div class="card-image">
-            <img src="assets/products-grid/dsb24-p31.webp" alt="MFD material with wood line outside" loading="lazy"  style="aspect-ratio: 0.373;" />
-            <span class="page-pill">P31</span>
-          </div>
-          <div class="card-body">
-            <span class="sku">P31 · ITEM 02</span>
-            <h3 class="name">MFD material with wood line outside</h3>
-            <ul class="spec spec-list"><li>BT 5.0</li><li>Battery 1200mah</li><li>Speaker 3W</li><li>Product size 105*78*105mm</li><li>Product weight: 536g</li><li>Support TF card, AUX</li><li>Not support phone call</li></ul>
-            <div class="meta-row">
-              
-              <span class="source">PDF · P31</span>
-            </div>
-          </div>
-        </div>
-        <div class="product-card" style="--i: 1">
-          <div class="card-image">
-            <img src="assets/products-grid/dsb25-p31.webp" alt="BТ 5.2" loading="lazy"  style="aspect-ratio: 0.362;" />
-            <span class="page-pill">P31</span>
-          </div>
-          <div class="card-body">
-            <span class="sku">P31 · ITEM 03</span>
-            <h3 class="name">BТ 5.2</h3>
-            <ul class="spec spec-list"><li>battery 1800mah</li><li>speaker 5W</li><li>product size 80*100mm</li></ul>
-            <div class="meta-row">
-              
-              <span class="source">PDF · P31</span>
-            </div>
-          </div>
-        </div>
-        <div class="product-card" style="--i: 2">
-          <div class="card-image">
-            <img src="assets/products-grid/dsb26-p31.webp" alt="BT 5.0" loading="lazy"  style="aspect-ratio: 0.703;" />
-            <span class="page-pill">P31</span>
-          </div>
-          <div class="card-body">
-            <span class="sku">P31 · ITEM 04</span>
-            <h3 class="name">BT 5.0</h3>
-            <ul class="spec spec-list"><li>Bamboo material</li><li>battery 300mah</li><li>size 60*60*50mm</li><li>support TF card</li></ul>
-            <div class="meta-row">
-              
-              <span class="source">PDF · P31</span>
-            </div>
-          </div>
-        </div>
-        <div class="product-card" style="--i: 3">
-          <div class="card-image">
-            <img src="assets/products-grid/dsb27-p31.webp" alt="Catalogue item · P31–05" loading="lazy"  style="aspect-ratio: 0.317;" />
-            <span class="page-pill">P31</span>
-          </div>
-          <div class="card-body">
-            <span class="sku">P31 · ITEM 05</span>
-            <h3 class="name">Catalogue item · P31–05</h3>
-            <ul class="spec spec-list"><li>PDF does not provide a separately readable product description.</li></ul>
-            <div class="meta-row">
-              
-              <span class="source">PDF · P31</span>
             </div>
           </div>
         </div>
         <div class="product-card" style="--i: 4">
           <div class="card-image">
-            <img src="assets/products-grid/dsb28-p31.webp" alt="BT 5.0" loading="lazy"  style="aspect-ratio: 0.265;" />
-            <span class="page-pill">P31</span>
+            <img src="assets/products-grid/dsb21-p30.webp" alt="—" loading="lazy" style="aspect-ratio: 1.479;" />
+            <span class="page-pill">P30</span>
           </div>
           <div class="card-body">
-            <span class="sku">P31 · ITEM 06</span>
-            <h3 class="name">BT 5.0</h3>
-            <ul class="spec spec-list"><li>battery 1200mah</li><li>product size 83*83*99mm</li><li>speaker 5W</li><li>frequency 120Hz-15KHz</li><li>weight 280g</li><li>color black blue or red</li></ul>
+            <span class="sku">—</span>
+            <h3 class="name">—</h3>
+            <ul class="spec spec-list"><li>PDF does not provide a separately readable product description.</li></ul>
             <div class="meta-row">
-              
-              <span class="source">PDF · P31</span>
+              <span class="source">PDF · P30</span>
             </div>
           </div>
         </div>
         <div class="product-card" style="--i: 5">
           <div class="card-image">
-            <img src="assets/products-grid/dsb29-p32.webp" alt="MFD material with wood line outside" loading="lazy"  style="aspect-ratio: 1.155;" />
-            <span class="page-pill">P32</span>
+            <img src="assets/products-grid/dsb22-p30.webp" alt="Magnetic BT speaker" loading="lazy" style="aspect-ratio: 1.479;" />
+            <span class="page-pill">P30</span>
           </div>
           <div class="card-body">
-            <span class="sku">P32 · ITEM 01</span>
-            <h3 class="name">MFD material with wood line outside</h3>
-            <ul class="spec spec-list"><li>Wireless charger 10W</li><li>ВТ 5.0</li><li>Battery 1200mah</li><li>Speaker 6W</li><li>Product size 235*110*78MM</li><li>Product weight: 760g</li><li>Charging 2-3 hours</li><li>Paing t, US.AUX.FM.</li><li>alarm clock, time function</li></ul>
+            <span class="sku">—</span>
+            <h3 class="name">Magnetic BT speaker</h3>
+            <ul class="spec spec-list"><li>size 60*40mm</li><li>frequency 100HZ-20KHZ</li><li>battery 300mah</li><li>BT 5.3</li></ul>
             <div class="meta-row">
-              
-              <span class="source">PDF · P32</span>
+              <span class="source">PDF · P30</span>
             </div>
           </div>
         </div>
         <div class="product-card" style="--i: 6">
           <div class="card-image">
-            <img src="assets/products-grid/dsb30-p32.webp" alt="MFD material with wood line outside" loading="lazy"  style="aspect-ratio: 0.637;" />
-            <span class="page-pill">P32</span>
+            <img src="assets/products-grid/dsb23-p31.webp" alt="MFD material with wood line outside" loading="lazy" style="aspect-ratio: 1.507;" />
+            <span class="page-pill">P31</span>
           </div>
           <div class="card-body">
-            <span class="sku">P32 · ITEM 02</span>
+            <span class="sku">—</span>
             <h3 class="name">MFD material with wood line outside</h3>
-            <ul class="spec spec-list"><li>ВT 5.0</li><li>Battery 1500mah</li><li>Speaker 3W*2</li><li>Product size 150*85*75mm</li><li>Product weight: 560g</li><li>Charging 2 hours</li><li>Playing time 5-8 hours</li><li>Support TF card, AUX,</li></ul>
+            <ul class="spec spec-list"><li>ВТ 5.0</li><li>Battery 800mah</li><li>Speaker 3W</li><li>Product size 77*77*60mm</li><li>Product weight: 238g</li></ul>
             <div class="meta-row">
-              
-              <span class="source">PDF · P32</span>
+              <span class="source">PDF · P31</span>
             </div>
           </div>
         </div>
         <div class="product-card" style="--i: 7">
           <div class="card-image">
-            <img src="assets/products-grid/dsb31-p32.webp" alt="BT 5.0" loading="lazy"  style="aspect-ratio: 0.703;" />
-            <span class="page-pill">P32</span>
+            <img src="assets/products-grid/dsb24-p31.webp" alt="MFD material with wood line outside" loading="lazy" style="aspect-ratio: 1.479;" />
+            <span class="page-pill">P31</span>
           </div>
           <div class="card-body">
-            <span class="sku">P32 · ITEM 03</span>
-            <h3 class="name">BT 5.0</h3>
-            <ul class="spec spec-list"><li>12W speaker</li><li>Battery 3600mah</li><li>product size 208*208*76mm</li><li>support TF card, USB, line in, time, clock,</li><li>wireless charging</li><li>MDF material with touch button</li></ul>
+            <span class="sku">—</span>
+            <h3 class="name">MFD material with wood line outside</h3>
+            <ul class="spec spec-list"><li>BT 5.0</li><li>Battery 1200mah</li><li>Speaker 3W</li><li>Product size 105*78*105mm</li><li>Product weight: 536g</li></ul>
             <div class="meta-row">
-              
-              <span class="source">PDF · P32</span>
+              <span class="source">PDF · P31</span>
             </div>
           </div>
         </div>
         <div class="product-card" style="--i: 8">
           <div class="card-image">
-            <img src="assets/products-grid/dsb32-p32.webp" alt="BT 4.1" loading="lazy"  style="aspect-ratio: 0.887;" />
+            <img src="assets/products-grid/dsb25-p31.webp" alt="BТ 5.2" loading="lazy" style="aspect-ratio: 1.479;" />
+            <span class="page-pill">P31</span>
+          </div>
+          <div class="card-body">
+            <span class="sku">—</span>
+            <h3 class="name">BТ 5.2</h3>
+            <ul class="spec spec-list"><li>battery 1800mah</li><li>speaker 5W</li><li>product size 80*100mm</li></ul>
+            <div class="meta-row">
+              <span class="source">PDF · P31</span>
+            </div>
+          </div>
+        </div>
+        <div class="product-card" style="--i: 9">
+          <div class="card-image">
+            <img src="assets/products-grid/dsb26-p31.webp" alt="BT 5.0" loading="lazy" style="aspect-ratio: 1.507;" />
+            <span class="page-pill">P31</span>
+          </div>
+          <div class="card-body">
+            <span class="sku">—</span>
+            <h3 class="name">BT 5.0</h3>
+            <ul class="spec spec-list"><li>Bamboo material</li><li>battery 300mah</li><li>size 60*60*50mm</li><li>support TF card</li></ul>
+            <div class="meta-row">
+              <span class="source">PDF · P31</span>
+            </div>
+          </div>
+        </div>
+        <div class="product-card" style="--i: 10">
+          <div class="card-image">
+            <img src="assets/products-grid/dsb27-p31.webp" alt="—" loading="lazy" style="aspect-ratio: 1.479;" />
+            <span class="page-pill">P31</span>
+          </div>
+          <div class="card-body">
+            <span class="sku">—</span>
+            <h3 class="name">—</h3>
+            <ul class="spec spec-list"><li>PDF does not provide a separately readable product description.</li></ul>
+            <div class="meta-row">
+              <span class="source">PDF · P31</span>
+            </div>
+          </div>
+        </div>
+        <div class="product-card" style="--i: 11">
+          <div class="card-image">
+            <img src="assets/products-grid/dsb28-p31.webp" alt="BT 5.0" loading="lazy" style="aspect-ratio: 1.479;" />
+            <span class="page-pill">P31</span>
+          </div>
+          <div class="card-body">
+            <span class="sku">—</span>
+            <h3 class="name">BT 5.0</h3>
+            <ul class="spec spec-list"><li>battery 1200mah</li><li>product size 83*83*99mm</li><li>speaker 5W</li><li>frequency 120Hz-15KHz</li><li>weight 280g</li></ul>
+            <div class="meta-row">
+              <span class="source">PDF · P31</span>
+            </div>
+          </div>
+        </div>
+        <div class="product-card" style="--i: 12">
+          <div class="card-image">
+            <img src="assets/products-grid/dsb29-p32.webp" alt="MFD material with wood line outside" loading="lazy" style="aspect-ratio: 1.507;" />
+            <span class="page-pill">P32</span>
+          </div>
+          <div class="card-body">
+            <span class="sku">—</span>
+            <h3 class="name">MFD material with wood line outside</h3>
+            <ul class="spec spec-list"><li>Wireless charger 10W</li><li>ВТ 5.0</li><li>Battery 1200mah</li><li>Speaker 6W</li><li>Product size 235*110*78MM</li></ul>
+            <div class="meta-row">
+              <span class="source">PDF · P32</span>
+            </div>
+          </div>
+        </div>
+        <div class="product-card" style="--i: 13">
+          <div class="card-image">
+            <img src="assets/products-grid/dsb30-p32.webp" alt="MFD material with wood line outside" loading="lazy" style="aspect-ratio: 1.479;" />
+            <span class="page-pill">P32</span>
+          </div>
+          <div class="card-body">
+            <span class="sku">—</span>
+            <h3 class="name">MFD material with wood line outside</h3>
+            <ul class="spec spec-list"><li>ВT 5.0</li><li>Battery 1500mah</li><li>Speaker 3W*2</li><li>Product size 150*85*75mm</li><li>Product weight: 560g</li></ul>
+            <div class="meta-row">
+              <span class="source">PDF · P32</span>
+            </div>
+          </div>
+        </div>
+        <div class="product-card" style="--i: 14">
+          <div class="card-image">
+            <img src="assets/products-grid/dsb31-p32.webp" alt="BT 5.0" loading="lazy" style="aspect-ratio: 1.479;" />
+            <span class="page-pill">P32</span>
+          </div>
+          <div class="card-body">
+            <span class="sku">—</span>
+            <h3 class="name">BT 5.0</h3>
+            <ul class="spec spec-list"><li>12W speaker</li><li>Battery 3600mah</li><li>product size 208*208*76mm</li><li>support TF card, USB, line in, time, clock,</li><li>wireless charging</li></ul>
+            <div class="meta-row">
+              <span class="source">PDF · P32</span>
+            </div>
+          </div>
+        </div>
+        <div class="product-card" style="--i: 15">
+          <div class="card-image">
+            <img src="assets/products-grid/dsb32-p32.webp" alt="BT 4.1" loading="lazy" style="aspect-ratio: 1.507;" />
             <span class="page-pill">P32</span>
           </div>
           <div class="card-body">
@@ -1345,119 +1335,111 @@ ul { margin: 0; padding: 0; list-style: none; }
             <h3 class="name">BT 4.1</h3>
             <ul class="spec spec-list"><li>MDF+PVC material</li><li>size 155*95*70mm</li></ul>
             <div class="meta-row">
-              
               <span class="source">PDF · P32</span>
             </div>
           </div>
         </div>
-        <div class="product-card" style="--i: 9">
+        <div class="product-card" style="--i: 16">
           <div class="card-image">
-            <img src="assets/products-grid/dsb33-p32.webp" alt="MFD material with wood line outside +Fabric" loading="lazy"  style="aspect-ratio: 1.129;" />
+            <img src="assets/products-grid/dsb33-p32.webp" alt="MFD material with wood line outside +Fabric" loading="lazy" style="aspect-ratio: 1.479;" />
             <span class="page-pill">P32</span>
           </div>
           <div class="card-body">
-            <span class="sku">P32 · ITEM 05</span>
+            <span class="sku">—</span>
             <h3 class="name">MFD material with wood line outside +Fabric</h3>
-            <ul class="spec spec-list"><li>BT 5.0</li><li>Battery 1200mah</li><li>Speaker 5W</li><li>Product size 105*105*64MM</li><li>Product weight: 450g</li><li>Charging 2 hours</li><li>Playing time 5-8 hours</li><li>Support TF card, AUX,</li></ul>
+            <ul class="spec spec-list"><li>BT 5.0</li><li>Battery 1200mah</li><li>Speaker 5W</li><li>Product size 105*105*64MM</li><li>Product weight: 450g</li></ul>
             <div class="meta-row">
-              
               <span class="source">PDF · P32</span>
             </div>
           </div>
         </div>
-        <div class="product-card" style="--i: 10">
+        <div class="product-card" style="--i: 17">
           <div class="card-image">
-            <img src="assets/products-grid/dsb34-p32.webp" alt="MFD material with wood line outside" loading="lazy"  style="aspect-ratio: 1.584;" />
+            <img src="assets/products-grid/dsb34-p32.webp" alt="MFD material with wood line outside" loading="lazy" style="aspect-ratio: 1.479;" />
             <span class="page-pill">P32</span>
           </div>
           <div class="card-body">
-            <span class="sku">P32 · ITEM 06</span>
+            <span class="sku">—</span>
             <h3 class="name">MFD material with wood line outside</h3>
-            <ul class="spec spec-list"><li>ВТ 4.2</li><li>Battery 1500mah</li><li>Speaker 3W*2</li><li>Product size 150*85*75mm</li><li>Product weight: 620g</li><li>Charging 2 hours</li><li>Playing time 5-8 hours</li><li>Support TF card, AUX,FM, alarm clock</li><li>and time display function</li></ul>
+            <ul class="spec spec-list"><li>ВТ 4.2</li><li>Battery 1500mah</li><li>Speaker 3W*2</li><li>Product size 150*85*75mm</li><li>Product weight: 620g</li></ul>
             <div class="meta-row">
-              
               <span class="source">PDF · P32</span>
             </div>
           </div>
         </div>
-        <div class="product-card" style="--i: 11">
+        <div class="product-card" style="--i: 18">
           <div class="card-image">
-            <img src="assets/products-grid/dsb35-p33.webp" alt="BT speaker+wireless charger" loading="lazy"  style="aspect-ratio: 0.360;" />
+            <img src="assets/products-grid/dsb35-p33.webp" alt="BT speaker+wireless charger" loading="lazy" style="aspect-ratio: 1.507;" />
             <span class="page-pill">P33</span>
           </div>
           <div class="card-body">
-            <span class="sku">P33 · ITEM 01</span>
+            <span class="sku">—</span>
             <h3 class="name">BT speaker+wireless charger</h3>
-            <ul class="spec spec-list"><li>ВТ 5.0</li><li>wireless output 15W max for celphone</li><li>support wireless charger for airpod</li><li>build in battery 1800mah</li><li>product sizse 172*85mm</li><li>speaker 5W</li><li>input 5V 2.1A 9V 2A</li></ul>
+            <ul class="spec spec-list"><li>ВТ 5.0</li><li>wireless output 15W max for celphone</li><li>support wireless charger for airpod</li><li>build in battery 1800mah</li><li>product sizse 172*85mm</li></ul>
             <div class="meta-row">
-              
               <span class="source">PDF · P33</span>
             </div>
           </div>
         </div>
-        <div class="product-card" style="--i: 0">
+        <div class="product-card" style="--i: 19">
           <div class="card-image">
-            <img src="assets/products-grid/dsb36-p33.webp" alt="Catalogue item · P33–02" loading="lazy"  style="aspect-ratio: 1.334;" />
+            <img src="assets/products-grid/dsb36-p33.webp" alt="—" loading="lazy" style="aspect-ratio: 1.507;" />
             <span class="page-pill">P33</span>
           </div>
           <div class="card-body">
-            <span class="sku">P33 · ITEM 02</span>
-            <h3 class="name">Catalogue item · P33–02</h3>
+            <span class="sku">—</span>
+            <h3 class="name">—</h3>
             <ul class="spec spec-list"><li>PDF does not provide a separately readable product description.</li></ul>
             <div class="meta-row">
-              
               <span class="source">PDF · P33</span>
             </div>
           </div>
         </div>
-        <div class="product-card" style="--i: 1">
+        <div class="product-card" style="--i: 20">
           <div class="card-image">
-            <img src="assets/products-grid/dsb37-p33.webp" alt="BT speaker+wireless charger" loading="lazy"  style="aspect-ratio: 0.110;" />
+            <img src="assets/products-grid/dsb37-p33.webp" alt="BT speaker+wireless charger" loading="lazy" style="aspect-ratio: 1.479;" />
             <span class="page-pill">P33</span>
           </div>
           <div class="card-body">
-            <span class="sku">P33 · ITEM 03</span>
+            <span class="sku">—</span>
             <h3 class="name">BT speaker+wireless charger</h3>
-            <ul class="spec spec-list"><li>BT 5.0</li><li>wireless charger 10W max</li><li>support TF card, USB and line in</li><li>with led light which is suitable for outdoor use</li><li>product size 27.8*11.5+8.7cm</li><li>battery 3600mah</li></ul>
+            <ul class="spec spec-list"><li>BT 5.0</li><li>wireless charger 10W max</li><li>support TF card, USB and line in</li><li>with led light which is suitable for outdoor use</li><li>product size 27.8*11.5+8.7cm</li></ul>
             <div class="meta-row">
-              
               <span class="source">PDF · P33</span>
             </div>
           </div>
         </div>
-        <div class="product-card" style="--i: 2">
+        <div class="product-card" style="--i: 21">
           <div class="card-image">
-            <img src="assets/products-grid/dsb38-p33.webp" alt="BT 5.0, wireless charger 10W" loading="lazy"  style="aspect-ratio: 0.877;" />
+            <img src="assets/products-grid/dsb38-p33.webp" alt="BT 5.0, wireless charger 10W" loading="lazy" style="aspect-ratio: 1.507;" />
             <span class="page-pill">P33</span>
           </div>
           <div class="card-body">
-            <span class="sku">P33 · ITEM 04</span>
+            <span class="sku">—</span>
             <h3 class="name">BT 5.0, wireless charger 10W</h3>
-            <ul class="spec spec-list"><li>Battery 1800mah</li><li>Charging 3 hours support TF card</li><li>Output 5W Playing Ghours Hands free phone call</li><li>Product size 130*90*68.5MM ABSmaterial</li><li>Frequency 50HZ-20KHZ</li><li>support USB AUX FM</li></ul>
+            <ul class="spec spec-list"><li>Battery 1800mah</li><li>Charging 3 hours support TF card</li><li>Output 5W Playing Ghours Hands free phone call</li><li>Product size 130*90*68.5MM ABSmaterial</li><li>Frequency 50HZ-20KHZ</li></ul>
             <div class="meta-row">
-              
               <span class="source">PDF · P33</span>
             </div>
           </div>
         </div>
-        <div class="product-card" style="--i: 3">
+        <div class="product-card" style="--i: 22">
           <div class="card-image">
-            <img src="assets/products-grid/dsb39-p33.webp" alt="BT speaker+wireless charger" loading="lazy"  style="aspect-ratio: 0.886;" />
+            <img src="assets/products-grid/dsb39-p33.webp" alt="BT speaker+wireless charger" loading="lazy" style="aspect-ratio: 1.507;" />
             <span class="page-pill">P33</span>
           </div>
           <div class="card-body">
             <span class="sku">MAX10w</span>
             <h3 class="name">BT speaker+wireless charger</h3>
-            <ul class="spec spec-list"><li>BT 5.1</li><li>Wireless charger MAX10w</li><li>battery 300mah</li><li>function of clock, answer phone call</li><li>support TF card</li><li>TYPE C input</li><li>20 lighting modes</li></ul>
+            <ul class="spec spec-list"><li>BT 5.1</li><li>Wireless charger MAX10w</li><li>battery 300mah</li><li>function of clock, answer phone call</li><li>support TF card</li></ul>
             <div class="meta-row">
-              
               <span class="source">PDF · P33</span>
             </div>
           </div>
         </div>
-        <div class="product-card" style="--i: 4">
+        <div class="product-card" style="--i: 23">
           <div class="card-image">
-            <img src="assets/products-grid/dsb40-p33.webp" alt="BT5.0" loading="lazy"  style="aspect-ratio: 0.653;" />
+            <img src="assets/products-grid/dsb40-p33.webp" alt="BT5.0" loading="lazy" style="aspect-ratio: 1.479;" />
             <span class="page-pill">P33</span>
           </div>
           <div class="card-body">
@@ -1465,7 +1447,6 @@ ul { margin: 0; padding: 0; list-style: none; }
             <h3 class="name">BT5.0</h3>
             <ul class="spec spec-list"><li>output 3W</li><li>frequency 150Hz-20KHz</li><li>size 142*45*60mm</li><li>LED time show, clock function</li><li>night light support TF card</li></ul>
             <div class="meta-row">
-              
               <span class="source">PDF · P33</span>
             </div>
           </div>
@@ -1473,7 +1454,18 @@ ul { margin: 0; padding: 0; list-style: none; }
     </div>
   </div>
 </section>
-<section class="subcat" data-od-id="catalog-subcategory" id="subcat-usb-hub">
+<section class="cat-divider" data-od-id="catalog-category" id="cat-04-mobile-tech">
+  <div class="container">
+    <div class="cat-head">
+      <span class="eyebrow">Category 02</span>
+      <h2 class="cat-title">Mobile & Tech Accessories</h2>
+      <p class="cat-tagline">Round out every device.</p>
+      <p class="cat-subtitle">USB hubs, phone holders, phone cases, flash drives — all the small things that make tech work.</p>
+      <div class="cat-subs"><a href="#sub-usb-hub">USB Hub</a> · <a href="#sub-phone-holder-and-airtag">Phone Holder & AirTag</a> · <a href="#sub-phone-holder-and-stand">Phone Holder & Stand</a> · <a href="#sub-phone-case-and-mini-fan">Phone Case & Mini Fan</a> · <a href="#sub-usb-flash-drive">USB Flash Drive</a></div>
+    </div>
+  </div>
+</section>
+<section class="subcat" data-od-id="catalog-subcategory" id="sub-usb-hub">
   <div class="container">
     <header class="subcat-head">
       <div>
@@ -1487,137 +1479,128 @@ ul { margin: 0; padding: 0; list-style: none; }
       <span class="count">9 products</span>
     </div>
     <div class="product-grid">
-        <div class="product-card" style="--i: 5">
-          <div class="card-image">
-            <img src="assets/products-grid/dsh01-p34.webp" alt="Material:Recycled Aluminium" loading="lazy"  style="aspect-ratio: 1.003;" />
-            <span class="page-pill">P34</span>
-          </div>
-          <div class="card-body">
-            <span class="sku">P34 · ITEM 01</span>
-            <h3 class="name">Material:Recycled Aluminium</h3>
-            <ul class="spec spec-list"><li>HDMI 4k30hz+1*USB3.0+2*USB2.0+1*TF</li><li>card port+1*SD card port</li><li>Size:11.5*1.1*3cm</li><li>Net weight:42.6g</li><li>Cable length: 125mm</li><li>transmission speed:5Gbps</li><li>support:Windows;Android,MacOS;UOS....</li></ul>
-            <div class="meta-row">
-              
-              <span class="source">PDF · P34</span>
-            </div>
-          </div>
-        </div>
-        <div class="product-card" style="--i: 6">
-          <div class="card-image">
-            <img src="assets/products-grid/dsh02-p34.webp" alt="Material:Recycled Aluminium" loading="lazy"  style="aspect-ratio: 0.962;" />
-            <span class="page-pill">P34</span>
-          </div>
-          <div class="card-body">
-            <span class="sku">PD100W</span>
-            <h3 class="name">Material:Recycled Aluminium</h3>
-            <ul class="spec spec-list"><li>HDMI 4k30hz+1°USB3.0+1</li><li>*USB 2.0 1&#x27;USB C</li><li>Size:95x29*10mm</li><li>Cable length:145mm</li><li>Weight:35g</li><li>Standard colour:Grey</li><li>USB3.0-A speed:Gbps</li><li>USC:PD100W Transmission</li><li>speed:480Mbps</li></ul>
-            <div class="meta-row">
-              
-              <span class="source">PDF · P34</span>
-            </div>
-          </div>
-        </div>
-        <div class="product-card" style="--i: 7">
-          <div class="card-image">
-            <img src="assets/products-grid/dsh03-p34.webp" alt="Material:Recycled ABS plastic" loading="lazy"  style="aspect-ratio: 0.856;" />
-            <span class="page-pill">P34</span>
-          </div>
-          <div class="card-body">
-            <span class="sku">P34 · ITEM 03</span>
-            <h3 class="name">Material:Recycled ABS plastic</h3>
-            <ul class="spec spec-list"><li>Size:85x28x10mm</li><li>Cable length:125mm</li><li>Weight:23g</li><li>Standard colour:Black as the picture</li><li>USB C cable+3 x USB 2.0 ports+1 x</li><li>2.0 Type C port</li><li>transmission speed:480Mbps</li></ul>
-            <div class="meta-row">
-              
-              <span class="source">PDF · P34</span>
-            </div>
-          </div>
-        </div>
-        <div class="product-card" style="--i: 8">
-          <div class="card-image">
-            <img src="assets/products-grid/dsh04-p34.webp" alt="USB+TYPE C input" loading="lazy"  style="aspect-ratio: 0.975;" />
-            <span class="page-pill">P34</span>
-          </div>
-          <div class="card-body">
-            <span class="sku">P34 · ITEM 04</span>
-            <h3 class="name">USB+TYPE C input</h3>
-            <ul class="spec spec-list"><li>3*USB 2.0+1*USB 3.0</li></ul>
-            <div class="meta-row">
-              
-              <span class="source">PDF · P34</span>
-            </div>
-          </div>
-        </div>
-        <div class="product-card" style="--i: 9">
-          <div class="card-image">
-            <img src="assets/products-grid/dsh05-p34.webp" alt="adapter for" loading="lazy"  style="aspect-ratio: 1.882;" />
-            <span class="page-pill">P34</span>
-          </div>
-          <div class="card-body">
-            <span class="sku">P34 · ITEM 05</span>
-            <h3 class="name">adapter for</h3>
-            <ul class="spec spec-list"><li>TYPEC/4K/USB 3.0</li></ul>
-            <div class="meta-row">
-              
-              <span class="source">PDF · P34</span>
-            </div>
-          </div>
-        </div>
-        <div class="product-card" style="--i: 10">
-          <div class="card-image">
-            <img src="assets/products-grid/dsh06-p34.webp" alt="8 in 1 HUB" loading="lazy"  style="aspect-ratio: 0.946;" />
-            <span class="page-pill">P34</span>
-          </div>
-          <div class="card-body">
-            <span class="sku">P34 · ITEM 06</span>
-            <h3 class="name">8 in 1 HUB</h3>
-            <ul class="spec spec-list"><li>10*4.5*1cm</li><li>Aluminum material</li></ul>
-            <div class="meta-row">
-              
-              <span class="source">PDF · P34</span>
-            </div>
-          </div>
-        </div>
-        <div class="product-card" style="--i: 11">
-          <div class="card-image">
-            <img src="assets/products-grid/dsh07-p34.webp" alt="type c input" loading="lazy"  style="aspect-ratio: 0.618;" />
-            <span class="page-pill">P34</span>
-          </div>
-          <div class="card-body">
-            <span class="sku">P34 · ITEM 07</span>
-            <h3 class="name">type c input</h3>
-            <ul class="spec spec-list"><li>charging type c port PD 60W</li><li>3.5mm audio input</li><li>charging+music playing at same time</li></ul>
-            <div class="meta-row">
-              
-              <span class="source">PDF · P34</span>
-            </div>
-          </div>
-        </div>
         <div class="product-card" style="--i: 0">
           <div class="card-image">
-            <img src="assets/products-grid/dsh08-p34.webp" alt="TYPE C input" loading="lazy"  style="aspect-ratio: 0.569;" />
+            <img src="assets/products-grid/dsh01-p34.webp" alt="Material:Recycled Aluminium" loading="lazy" style="aspect-ratio: 1.056;" />
             <span class="page-pill">P34</span>
           </div>
           <div class="card-body">
-            <span class="sku">P34 · ITEM 08</span>
-            <h3 class="name">TYPE C input</h3>
-            <ul class="spec spec-list"><li>3*USB 2.0</li><li>aluminum+nylon material</li></ul>
+            <span class="sku">—</span>
+            <h3 class="name">Material:Recycled Aluminium</h3>
+            <ul class="spec spec-list"><li>HDMI 4k30hz+1*USB3.0+2*USB2.0+1*TF</li><li>card port+1*SD card port</li><li>Size:11.5*1.1*3cm</li><li>Net weight:42.6g</li><li>Cable length: 125mm</li></ul>
             <div class="meta-row">
-              
               <span class="source">PDF · P34</span>
             </div>
           </div>
         </div>
         <div class="product-card" style="--i: 1">
           <div class="card-image">
-            <img src="assets/products-grid/dsh09-p34.webp" alt="wireless charger HUB" loading="lazy"  style="aspect-ratio: 0.660;" />
+            <img src="assets/products-grid/dsh02-p34.webp" alt="Material:Recycled Aluminium" loading="lazy" style="aspect-ratio: 1.070;" />
+            <span class="page-pill">P34</span>
+          </div>
+          <div class="card-body">
+            <span class="sku">PD100W</span>
+            <h3 class="name">Material:Recycled Aluminium</h3>
+            <ul class="spec spec-list"><li>HDMI 4k30hz+1°USB3.0+1</li><li>*USB 2.0 1'USB C</li><li>Size:95x29*10mm</li><li>Cable length:145mm</li><li>Weight:35g</li></ul>
+            <div class="meta-row">
+              <span class="source">PDF · P34</span>
+            </div>
+          </div>
+        </div>
+        <div class="product-card" style="--i: 2">
+          <div class="card-image">
+            <img src="assets/products-grid/dsh03-p34.webp" alt="Material:Recycled ABS plastic" loading="lazy" style="aspect-ratio: 1.028;" />
+            <span class="page-pill">P34</span>
+          </div>
+          <div class="card-body">
+            <span class="sku">—</span>
+            <h3 class="name">Material:Recycled ABS plastic</h3>
+            <ul class="spec spec-list"><li>Size:85x28x10mm</li><li>Cable length:125mm</li><li>Weight:23g</li><li>Standard colour:Black as the picture</li><li>USB C cable+3 x USB 2.0 ports+1 x</li></ul>
+            <div class="meta-row">
+              <span class="source">PDF · P34</span>
+            </div>
+          </div>
+        </div>
+        <div class="product-card" style="--i: 3">
+          <div class="card-image">
+            <img src="assets/products-grid/dsh04-p34.webp" alt="USB+TYPE C input" loading="lazy" style="aspect-ratio: 1.056;" />
+            <span class="page-pill">P34</span>
+          </div>
+          <div class="card-body">
+            <span class="sku">—</span>
+            <h3 class="name">USB+TYPE C input</h3>
+            <ul class="spec spec-list"><li>3*USB 2.0+1*USB 3.0</li></ul>
+            <div class="meta-row">
+              <span class="source">PDF · P34</span>
+            </div>
+          </div>
+        </div>
+        <div class="product-card" style="--i: 4">
+          <div class="card-image">
+            <img src="assets/products-grid/dsh05-p34.webp" alt="adapter for" loading="lazy" style="aspect-ratio: 1.070;" />
+            <span class="page-pill">P34</span>
+          </div>
+          <div class="card-body">
+            <span class="sku">—</span>
+            <h3 class="name">adapter for</h3>
+            <ul class="spec spec-list"><li>TYPEC/4K/USB 3.0</li></ul>
+            <div class="meta-row">
+              <span class="source">PDF · P34</span>
+            </div>
+          </div>
+        </div>
+        <div class="product-card" style="--i: 5">
+          <div class="card-image">
+            <img src="assets/products-grid/dsh06-p34.webp" alt="8 in 1 HUB" loading="lazy" style="aspect-ratio: 1.028;" />
+            <span class="page-pill">P34</span>
+          </div>
+          <div class="card-body">
+            <span class="sku">—</span>
+            <h3 class="name">8 in 1 HUB</h3>
+            <ul class="spec spec-list"><li>10*4.5*1cm</li><li>Aluminum material</li></ul>
+            <div class="meta-row">
+              <span class="source">PDF · P34</span>
+            </div>
+          </div>
+        </div>
+        <div class="product-card" style="--i: 6">
+          <div class="card-image">
+            <img src="assets/products-grid/dsh07-p34.webp" alt="type c input" loading="lazy" style="aspect-ratio: 1.056;" />
+            <span class="page-pill">P34</span>
+          </div>
+          <div class="card-body">
+            <span class="sku">—</span>
+            <h3 class="name">type c input</h3>
+            <ul class="spec spec-list"><li>charging type c port PD 60W</li><li>3.5mm audio input</li><li>charging+music playing at same time</li></ul>
+            <div class="meta-row">
+              <span class="source">PDF · P34</span>
+            </div>
+          </div>
+        </div>
+        <div class="product-card" style="--i: 7">
+          <div class="card-image">
+            <img src="assets/products-grid/dsh08-p34.webp" alt="TYPE C input" loading="lazy" style="aspect-ratio: 1.070;" />
+            <span class="page-pill">P34</span>
+          </div>
+          <div class="card-body">
+            <span class="sku">—</span>
+            <h3 class="name">TYPE C input</h3>
+            <ul class="spec spec-list"><li>3*USB 2.0</li><li>aluminum+nylon material</li></ul>
+            <div class="meta-row">
+              <span class="source">PDF · P34</span>
+            </div>
+          </div>
+        </div>
+        <div class="product-card" style="--i: 8">
+          <div class="card-image">
+            <img src="assets/products-grid/dsh09-p34.webp" alt="wireless charger HUB" loading="lazy" style="aspect-ratio: 1.028;" />
             <span class="page-pill">P34</span>
           </div>
           <div class="card-body">
             <span class="sku">USB30SGbpa</span>
             <h3 class="name">wireless charger HUB</h3>
-            <ul class="spec spec-list"><li>product size 64.5*65.4*79.5mm</li><li>Aluminum+ABS material</li><li>wirelesscharger SW/7.SW/10W/15W</li><li>input type c</li><li>output TYPE C,</li><li>DMl: 40K/30z, 3+USB30SGbpa</li><li>PD 100W RJ45 1000Mbps</li><li>SD/TF card slot</li></ul>
+            <ul class="spec spec-list"><li>product size 64.5*65.4*79.5mm</li><li>Aluminum+ABS material</li><li>wirelesscharger SW/7.SW/10W/15W</li><li>input type c</li><li>output TYPE C,</li></ul>
             <div class="meta-row">
-              
               <span class="source">PDF · P34</span>
             </div>
           </div>
@@ -1625,7 +1608,7 @@ ul { margin: 0; padding: 0; list-style: none; }
     </div>
   </div>
 </section>
-<section class="subcat" data-od-id="catalog-subcategory" id="subcat-phone-holder-airtag">
+<section class="subcat" data-od-id="catalog-subcategory" id="sub-phone-holder-and-airtag">
   <div class="container">
     <header class="subcat-head">
       <div>
@@ -1639,152 +1622,142 @@ ul { margin: 0; padding: 0; list-style: none; }
       <span class="count">10 products</span>
     </div>
     <div class="product-grid">
-        <div class="product-card" style="--i: 2">
+        <div class="product-card" style="--i: 0">
           <div class="card-image">
-            <img src="assets/products-grid/dsbtm01-p35.webp" alt="Catalogue item · P35–01" loading="lazy"  style="aspect-ratio: 0.392;" />
+            <img src="assets/products-grid/dsbtm01-p35.webp" alt="—" loading="lazy" style="aspect-ratio: 0.761;" />
             <span class="page-pill">P35</span>
           </div>
           <div class="card-body">
-            <span class="sku">P35 · ITEM 01</span>
-            <h3 class="name">Catalogue item · P35–01</h3>
+            <span class="sku">—</span>
+            <h3 class="name">—</h3>
             <ul class="spec spec-list"><li>PDF does not provide a separately readable product description.</li></ul>
             <div class="meta-row">
-              
+              <span class="source">PDF · P35</span>
+            </div>
+          </div>
+        </div>
+        <div class="product-card" style="--i: 1">
+          <div class="card-image">
+            <img src="assets/products-grid/dsbtm02-p35.webp" alt="—" loading="lazy" style="aspect-ratio: 0.771;" />
+            <span class="page-pill">P35</span>
+          </div>
+          <div class="card-body">
+            <span class="sku">—</span>
+            <h3 class="name">—</h3>
+            <ul class="spec spec-list"><li>PDF does not provide a separately readable product description.</li></ul>
+            <div class="meta-row">
+              <span class="source">PDF · P35</span>
+            </div>
+          </div>
+        </div>
+        <div class="product-card" style="--i: 2">
+          <div class="card-image">
+            <img src="assets/products-grid/dsbtm03-p35.webp" alt="—" loading="lazy" style="aspect-ratio: 0.741;" />
+            <span class="page-pill">P35</span>
+          </div>
+          <div class="card-body">
+            <span class="sku">—</span>
+            <h3 class="name">—</h3>
+            <ul class="spec spec-list"><li>PDF does not provide a separately readable product description.</li></ul>
+            <div class="meta-row">
               <span class="source">PDF · P35</span>
             </div>
           </div>
         </div>
         <div class="product-card" style="--i: 3">
           <div class="card-image">
-            <img src="assets/products-grid/dsbtm02-p35.webp" alt="Catalogue item · P35–02" loading="lazy"  style="aspect-ratio: 0.720;" />
+            <img src="assets/products-grid/dsbtm04-p35.webp" alt="—" loading="lazy" style="aspect-ratio: 0.762;" />
             <span class="page-pill">P35</span>
           </div>
           <div class="card-body">
-            <span class="sku">P35 · ITEM 02</span>
-            <h3 class="name">Catalogue item · P35–02</h3>
+            <span class="sku">—</span>
+            <h3 class="name">—</h3>
             <ul class="spec spec-list"><li>PDF does not provide a separately readable product description.</li></ul>
             <div class="meta-row">
-              
               <span class="source">PDF · P35</span>
             </div>
           </div>
         </div>
         <div class="product-card" style="--i: 4">
           <div class="card-image">
-            <img src="assets/products-grid/dsbtm03-p35.webp" alt="Catalogue item · P35–03" loading="lazy"  style="aspect-ratio: 0.491;" />
+            <img src="assets/products-grid/dsm01-p35.webp" alt="Magnetic RFID card holder" loading="lazy" style="aspect-ratio: 0.772;" />
             <span class="page-pill">P35</span>
           </div>
           <div class="card-body">
-            <span class="sku">P35 · ITEM 03</span>
-            <h3 class="name">Catalogue item · P35–03</h3>
-            <ul class="spec spec-list"><li>PDF does not provide a separately readable product description.</li></ul>
+            <span class="sku">—</span>
+            <h3 class="name">Magnetic RFID card holder</h3>
+            <ul class="spec spec-list"><li>size 97*63*10mm</li><li>for 4-5pcs card</li></ul>
             <div class="meta-row">
-              
               <span class="source">PDF · P35</span>
             </div>
           </div>
         </div>
         <div class="product-card" style="--i: 5">
           <div class="card-image">
-            <img src="assets/products-grid/dsbtm04-p35.webp" alt="Catalogue item · P35–04" loading="lazy"  style="aspect-ratio: 0.803;" />
-            <span class="page-pill">P35</span>
+            <img src="assets/products-grid/dsm02-p36.webp" alt="—" loading="lazy" style="aspect-ratio: 0.761;" />
+            <span class="page-pill">P36</span>
           </div>
           <div class="card-body">
-            <span class="sku">P35 · ITEM 04</span>
-            <h3 class="name">Catalogue item · P35–04</h3>
+            <span class="sku">—</span>
+            <h3 class="name">—</h3>
             <ul class="spec spec-list"><li>PDF does not provide a separately readable product description.</li></ul>
             <div class="meta-row">
-              
-              <span class="source">PDF · P35</span>
+              <span class="source">PDF · P36</span>
             </div>
           </div>
         </div>
         <div class="product-card" style="--i: 6">
           <div class="card-image">
-            <img src="assets/products-grid/dsm01-p35.webp" alt="Magnetic RFID card holder" loading="lazy"  style="aspect-ratio: 1.009;" />
-            <span class="page-pill">P35</span>
+            <img src="assets/products-grid/airtag-card-with-wireless-charger-p36.webp" alt="Works with Android" loading="lazy" style="aspect-ratio: 0.771;" />
+            <span class="page-pill">P36</span>
           </div>
           <div class="card-body">
-            <span class="sku">P35 · ITEM 05</span>
-            <h3 class="name">Magnetic RFID card holder</h3>
-            <ul class="spec spec-list"><li>size 97*63*10mm</li><li>for 4-5pcs card</li></ul>
+            <span class="sku">—</span>
+            <h3 class="name">Works with Android</h3>
+            <ul class="spec spec-list"><li>Find My Device</li><li>works with</li><li>Apple Find My</li><li>air tag card</li><li>size 85*54*1.8mm</li></ul>
             <div class="meta-row">
-              
-              <span class="source">PDF · P35</span>
+              <span class="source">PDF · P36</span>
             </div>
           </div>
         </div>
         <div class="product-card" style="--i: 7">
           <div class="card-image">
-            <img src="assets/products-grid/dsm02-p36.webp" alt="Catalogue item · P36–01" loading="lazy"  style="aspect-ratio: 0.457;" />
+            <img src="assets/products-grid/round-ios-android-tracker-p36.webp" alt="Airtag for both IOS AND" loading="lazy" style="aspect-ratio: 0.741;" />
             <span class="page-pill">P36</span>
           </div>
           <div class="card-body">
-            <span class="sku">P36 · ITEM 01</span>
-            <h3 class="name">Catalogue item · P36–01</h3>
-            <ul class="spec spec-list"><li>PDF does not provide a separately readable product description.</li></ul>
+            <span class="sku">CR2032</span>
+            <h3 class="name">Airtag for both IOS AND</h3>
+            <ul class="spec spec-list"><li>android</li><li>size 38*38*7mm ABS</li><li>weight 9g only</li><li>battery CR2032 210mAh</li><li>color: white, black, orange, pink</li></ul>
             <div class="meta-row">
-              
               <span class="source">PDF · P36</span>
             </div>
           </div>
         </div>
         <div class="product-card" style="--i: 8">
           <div class="card-image">
-            <img src="assets/products-grid/airtag-card-with-wireless-charger-p36.webp" alt="Works with Android" loading="lazy"  style="aspect-ratio: 1.132;" />
+            <img src="assets/products-grid/luggage-tag-apple-findmy-p36.webp" alt="—" loading="lazy" style="aspect-ratio: 0.762;" />
             <span class="page-pill">P36</span>
           </div>
           <div class="card-body">
-            <span class="sku">P36 · ITEM 02</span>
-            <h3 class="name">Works with Android</h3>
-            <ul class="spec spec-list"><li>Find My Device</li><li>works with</li><li>Apple Find My</li><li>air tag card</li><li>size 85*54*1.8mm</li><li>battery 100mAh</li><li>support wireless charger</li></ul>
+            <span class="sku">—</span>
+            <h3 class="name">—</h3>
+            <ul class="spec spec-list"><li>PDF does not provide a separately readable product description.</li></ul>
             <div class="meta-row">
-              
               <span class="source">PDF · P36</span>
             </div>
           </div>
         </div>
         <div class="product-card" style="--i: 9">
           <div class="card-image">
-            <img src="assets/products-grid/round-ios-android-tracker-p36.webp" alt="Airtag for both IOS AND" loading="lazy"  style="aspect-ratio: 0.616;" />
+            <img src="assets/products-grid/compact-ios-android-tracker-p36.webp" alt="Airtag Luggage tag" loading="lazy" style="aspect-ratio: 0.772;" />
             <span class="page-pill">P36</span>
           </div>
           <div class="card-body">
-            <span class="sku">CR2032</span>
-            <h3 class="name">Airtag for both IOS AND</h3>
-            <ul class="spec spec-list"><li>android</li><li>size 38*38*7mm ABS</li><li>weight 9g only</li><li>battery CR2032 210mAh</li><li>color: white, black, orange, pink</li><li>dark blue</li></ul>
-            <div class="meta-row">
-              
-              <span class="source">PDF · P36</span>
-            </div>
-          </div>
-        </div>
-        <div class="product-card" style="--i: 10">
-          <div class="card-image">
-            <img src="assets/products-grid/luggage-tag-apple-findmy-p36.webp" alt="Catalogue item · P36–04" loading="lazy"  style="aspect-ratio: 0.296;" />
-            <span class="page-pill">P36</span>
-          </div>
-          <div class="card-body">
-            <span class="sku">P36 · ITEM 04</span>
-            <h3 class="name">Catalogue item · P36–04</h3>
-            <ul class="spec spec-list"><li>PDF does not provide a separately readable product description.</li></ul>
-            <div class="meta-row">
-              
-              <span class="source">PDF · P36</span>
-            </div>
-          </div>
-        </div>
-        <div class="product-card" style="--i: 11">
-          <div class="card-image">
-            <img src="assets/products-grid/compact-ios-android-tracker-p36.webp" alt="Airtag Luggage tag" loading="lazy"  style="aspect-ratio: 0.809;" />
-            <span class="page-pill">P36</span>
-          </div>
-          <div class="card-body">
-            <span class="sku">P36 · ITEM 05</span>
+            <span class="sku">—</span>
             <h3 class="name">Airtag Luggage tag</h3>
             <ul class="spec spec-list"><li>size 108.8*66*4.3mm</li><li>PU mterial battery 110mAh</li><li>works with APPLE FINDMY ONLY</li></ul>
             <div class="meta-row">
-              
               <span class="source">PDF · P36</span>
             </div>
           </div>
@@ -1792,44 +1765,474 @@ ul { margin: 0; padding: 0; list-style: none; }
     </div>
   </div>
 </section>
-<section class="explore-other" data-od-id="series-navigation">
+<section class="subcat" data-od-id="catalog-subcategory" id="sub-phone-holder-and-stand">
   <div class="container">
-    <div class="explore-other-head">
+    <header class="subcat-head">
       <div>
-        <h2>Explore the other series</h2>
-        <div class="sub">Jump across the full Ono Inspiration catalogue</div>
+        <span class="eyebrow">Sub-series 5</span>
+        <h2>Phone Holder & Stand</h2>
       </div>
-      <a class="btn btn-secondary" href="index.html">← All series</a>
+    </header>
+    <div class="subcat-summary">
+      <span class="label">Catalog pages</span>
+      <span class="source-pages"><a href="#page-46">P46</a> · <a href="#page-47">P47</a></span>
+      <span class="count">14 products</span>
     </div>
-    <div class="explore-grid">
-      <a class="explore-card" href="products-01-power-charging.html">
-        <span class="badge">01</span>
-        <div>
-          <div class="title">Power & Charging</div>
-          <div class="sub">60 products · P04-P41</div>
+    <div class="product-grid">
+        <div class="product-card" style="--i: 0">
+          <div class="card-image">
+            <img src="assets/products-grid/ph-tablet-p46.webp" alt="—" loading="lazy" style="aspect-ratio: 0.599;" />
+            <span class="page-pill">P46</span>
+          </div>
+          <div class="card-body">
+            <span class="sku">—</span>
+            <h3 class="name">—</h3>
+            <ul class="spec spec-list"><li>PDF does not provide a separately readable product description.</li></ul>
+            <div class="meta-row">
+              <span class="source">PDF · P46</span>
+            </div>
+          </div>
         </div>
-      </a>
-      <a class="explore-card muted" href="products-02-audio-mobile.html">
-        <span class="badge">02</span>
-        <div>
-          <div class="title">Audio & Smart Mobile</div>
-          <div class="sub">60 products · P28-P36</div>
+        <div class="product-card" style="--i: 1">
+          <div class="card-image">
+            <img src="assets/products-grid/ph-popsocket-p46.webp" alt="—" loading="lazy" style="aspect-ratio: 0.609;" />
+            <span class="page-pill">P46</span>
+          </div>
+          <div class="card-body">
+            <span class="sku">—</span>
+            <h3 class="name">—</h3>
+            <ul class="spec spec-list"><li>PDF does not provide a separately readable product description.</li></ul>
+            <div class="meta-row">
+              <span class="source">PDF · P46</span>
+            </div>
+          </div>
         </div>
-      </a>
-      <a class="explore-card" href="products-03-lifestyle-office.html">
-        <span class="badge">03</span>
-        <div>
-          <div class="title">Lifestyle & Office</div>
-          <div class="sub">86 products · P36-P51</div>
+        <div class="product-card" style="--i: 2">
+          <div class="card-image">
+            <img src="assets/products-grid/ph-popsocket-brand-p46.webp" alt="—" loading="lazy" style="aspect-ratio: 0.609;" />
+            <span class="page-pill">P46</span>
+          </div>
+          <div class="card-body">
+            <span class="sku">—</span>
+            <h3 class="name">—</h3>
+            <ul class="spec spec-list"><li>PDF does not provide a separately readable product description.</li></ul>
+            <div class="meta-row">
+              <span class="source">PDF · P46</span>
+            </div>
+          </div>
         </div>
-      </a>
-      <a class="explore-card" href="products-04-carry-customize.html">
-        <span class="badge">04</span>
-        <div>
-          <div class="title">Carry & Customize</div>
-          <div class="sub">50 products · P51-P58</div>
+        <div class="product-card" style="--i: 3">
+          <div class="card-image">
+            <img src="assets/products-grid/ph-silicone-slim-p46.webp" alt="silicon phone holde" loading="lazy" style="aspect-ratio: 0.578;" />
+            <span class="page-pill">P46</span>
+          </div>
+          <div class="card-body">
+            <span class="sku">—</span>
+            <h3 class="name">silicon phone holde</h3>
+            <ul class="spec spec-list"><li>43*72mm</li></ul>
+            <div class="meta-row">
+              <span class="source">PDF · P46</span>
+            </div>
+          </div>
         </div>
-      </a>
+        <div class="product-card" style="--i: 4">
+          <div class="card-image">
+            <img src="assets/products-grid/ph-pu-wallet-p46.webp" alt="PU leather phone holder" loading="lazy" style="aspect-ratio: 0.599;" />
+            <span class="page-pill">P46</span>
+          </div>
+          <div class="card-body">
+            <span class="sku">—</span>
+            <h3 class="name">PU leather phone holder</h3>
+            <ul class="spec spec-list"><li>65*100mm</li></ul>
+            <div class="meta-row">
+              <span class="source">PDF · P46</span>
+            </div>
+          </div>
+        </div>
+        <div class="product-card" style="--i: 5">
+          <div class="card-image">
+            <img src="assets/products-grid/ph-metal-ring-p46.webp" alt="phone holder" loading="lazy" style="aspect-ratio: 0.609;" />
+            <span class="page-pill">P46</span>
+          </div>
+          <div class="card-body">
+            <span class="sku">—</span>
+            <h3 class="name">phone holder</h3>
+            <ul class="spec spec-list"><li>29.25*29.25mm</li></ul>
+            <div class="meta-row">
+              <span class="source">PDF · P46</span>
+            </div>
+          </div>
+        </div>
+        <div class="product-card" style="--i: 6">
+          <div class="card-image">
+            <img src="assets/products-grid/ph-washable-p46.webp" alt="—" loading="lazy" style="aspect-ratio: 0.609;" />
+            <span class="page-pill">P46</span>
+          </div>
+          <div class="card-body">
+            <span class="sku">—</span>
+            <h3 class="name">—</h3>
+            <ul class="spec spec-list"><li>PDF does not provide a separately readable product description.</li></ul>
+            <div class="meta-row">
+              <span class="source">PDF · P46</span>
+            </div>
+          </div>
+        </div>
+        <div class="product-card" style="--i: 7">
+          <div class="card-image">
+            <img src="assets/products-grid/ph-silicone-suction-p47.webp" alt="Magnet phone holder for car" loading="lazy" style="aspect-ratio: 0.599;" />
+            <span class="page-pill">P47</span>
+          </div>
+          <div class="card-body">
+            <span class="sku">—</span>
+            <h3 class="name">Magnet phone holder for car</h3>
+            <ul class="spec spec-list"><li>37*56mm</li></ul>
+            <div class="meta-row">
+              <span class="source">PDF · P47</span>
+            </div>
+          </div>
+        </div>
+        <div class="product-card" style="--i: 8">
+          <div class="card-image">
+            <img src="assets/products-grid/ph-car-magnetic-p47.webp" alt="—" loading="lazy" style="aspect-ratio: 0.609;" />
+            <span class="page-pill">P47</span>
+          </div>
+          <div class="card-body">
+            <span class="sku">—</span>
+            <h3 class="name">—</h3>
+            <ul class="spec spec-list"><li>PDF does not provide a separately readable product description.</li></ul>
+            <div class="meta-row">
+              <span class="source">PDF · P47</span>
+            </div>
+          </div>
+        </div>
+        <div class="product-card" style="--i: 9">
+          <div class="card-image">
+            <img src="assets/products-grid/ph-bike-waterproof-p47.webp" alt="Water proof Phone holder for Bike" loading="lazy" style="aspect-ratio: 0.609;" />
+            <span class="page-pill">P47</span>
+          </div>
+          <div class="card-body">
+            <span class="sku">—</span>
+            <h3 class="name">Water proof Phone holder for Bike</h3>
+            <ul class="spec spec-list"><li>178*92*25mm</li><li>193*99.2*25mm</li></ul>
+            <div class="meta-row">
+              <span class="source">PDF · P47</span>
+            </div>
+          </div>
+        </div>
+        <div class="product-card" style="--i: 10">
+          <div class="card-image">
+            <img src="assets/products-grid/ph-bike-adjustable-p47.webp" alt="Min: 22mm" loading="lazy" style="aspect-ratio: 0.578;" />
+            <span class="page-pill">P47</span>
+          </div>
+          <div class="card-body">
+            <span class="sku">—</span>
+            <h3 class="name">Min: 22mm</h3>
+            <ul class="spec spec-list"><li>Max:</li></ul>
+            <div class="meta-row">
+              <span class="source">PDF · P47</span>
+            </div>
+          </div>
+        </div>
+        <div class="product-card" style="--i: 11">
+          <div class="card-image">
+            <img src="assets/products-grid/ph-bike-compass-p47.webp" alt="—" loading="lazy" style="aspect-ratio: 0.599;" />
+            <span class="page-pill">P47</span>
+          </div>
+          <div class="card-body">
+            <span class="sku">—</span>
+            <h3 class="name">—</h3>
+            <ul class="spec spec-list"><li>PDF does not provide a separately readable product description.</li></ul>
+            <div class="meta-row">
+              <span class="source">PDF · P47</span>
+            </div>
+          </div>
+        </div>
+        <div class="product-card" style="--i: 12">
+          <div class="card-image">
+            <img src="assets/products-grid/ph-silicone-bike-p47.webp" alt="—" loading="lazy" style="aspect-ratio: 0.609;" />
+            <span class="page-pill">P47</span>
+          </div>
+          <div class="card-body">
+            <span class="sku">—</span>
+            <h3 class="name">—</h3>
+            <ul class="spec spec-list"><li>PDF does not provide a separately readable product description.</li></ul>
+            <div class="meta-row">
+              <span class="source">PDF · P47</span>
+            </div>
+          </div>
+        </div>
+        <div class="product-card" style="--i: 13">
+          <div class="card-image">
+            <img src="assets/products-grid/ph-bike-clamp-p47.webp" alt="—" loading="lazy" style="aspect-ratio: 0.609;" />
+            <span class="page-pill">P47</span>
+          </div>
+          <div class="card-body">
+            <span class="sku">—</span>
+            <h3 class="name">—</h3>
+            <ul class="spec spec-list"><li>PDF does not provide a separately readable product description.</li></ul>
+            <div class="meta-row">
+              <span class="source">PDF · P47</span>
+            </div>
+          </div>
+        </div>
+    </div>
+  </div>
+</section>
+<section class="subcat" data-od-id="catalog-subcategory" id="sub-phone-case-and-mini-fan">
+  <div class="container">
+    <header class="subcat-head">
+      <div>
+        <span class="eyebrow">Sub-series 6</span>
+        <h2>Phone Case & Mini Fan</h2>
+      </div>
+    </header>
+    <div class="subcat-summary">
+      <span class="label">Catalog pages</span>
+      <span class="source-pages"><a href="#page-52">P52</a></span>
+      <span class="count">7 products</span>
+    </div>
+    <div class="product-grid">
+        <div class="product-card" style="--i: 0">
+          <div class="card-image">
+            <img src="assets/products-grid/pc-wood-p52.webp" alt="—" loading="lazy" style="aspect-ratio: 0.599;" />
+            <span class="page-pill">P52</span>
+          </div>
+          <div class="card-body">
+            <span class="sku">—</span>
+            <h3 class="name">—</h3>
+            <ul class="spec spec-list"><li>PDF does not provide a separately readable product description.</li></ul>
+            <div class="meta-row">
+              <span class="source">PDF · P52</span>
+            </div>
+          </div>
+        </div>
+        <div class="product-card" style="--i: 1">
+          <div class="card-image">
+            <img src="assets/products-grid/pc-siluv-p52.webp" alt="—" loading="lazy" style="aspect-ratio: 0.609;" />
+            <span class="page-pill">P52</span>
+          </div>
+          <div class="card-body">
+            <span class="sku">—</span>
+            <h3 class="name">—</h3>
+            <ul class="spec spec-list"><li>PDF does not provide a separately readable product description.</li></ul>
+            <div class="meta-row">
+              <span class="source">PDF · P52</span>
+            </div>
+          </div>
+        </div>
+        <div class="product-card" style="--i: 2">
+          <div class="card-image">
+            <img src="assets/products-grid/pc-wheat-p52.webp" alt="wood Phone case" loading="lazy" style="aspect-ratio: 0.609;" />
+            <span class="page-pill">P52</span>
+          </div>
+          <div class="card-body">
+            <span class="sku">—</span>
+            <h3 class="name">wood Phone case</h3>
+            <ul class="spec spec-list"><li>Iphone 5-lphone 12 all models</li><li>full size laser logo</li></ul>
+            <div class="meta-row">
+              <span class="source">PDF · P52</span>
+            </div>
+          </div>
+        </div>
+        <div class="product-card" style="--i: 3">
+          <div class="card-image">
+            <img src="assets/products-grid/fan-hand-p52.webp" alt="Wheat Straw Phone case" loading="lazy" style="aspect-ratio: 0.578;" />
+            <span class="page-pill">P52</span>
+          </div>
+          <div class="card-body">
+            <span class="sku">—</span>
+            <h3 class="name">Wheat Straw Phone case</h3>
+            <ul class="spec spec-list"><li>with lanyard</li></ul>
+            <div class="meta-row">
+              <span class="source">PDF · P52</span>
+            </div>
+          </div>
+        </div>
+        <div class="product-card" style="--i: 4">
+          <div class="card-image">
+            <img src="assets/products-grid/fan-usb-p52.webp" alt="—" loading="lazy" style="aspect-ratio: 0.599;" />
+            <span class="page-pill">P52</span>
+          </div>
+          <div class="card-body">
+            <span class="sku">—</span>
+            <h3 class="name">—</h3>
+            <ul class="spec spec-list"><li>PDF does not provide a separately readable product description.</li></ul>
+            <div class="meta-row">
+              <span class="source">PDF · P52</span>
+            </div>
+          </div>
+        </div>
+        <div class="product-card" style="--i: 5">
+          <div class="card-image">
+            <img src="assets/products-grid/fan-fold-p52.webp" alt="—" loading="lazy" style="aspect-ratio: 0.609;" />
+            <span class="page-pill">P52</span>
+          </div>
+          <div class="card-body">
+            <span class="sku">—</span>
+            <h3 class="name">—</h3>
+            <ul class="spec spec-list"><li>PDF does not provide a separately readable product description.</li></ul>
+            <div class="meta-row">
+              <span class="source">PDF · P52</span>
+            </div>
+          </div>
+        </div>
+        <div class="product-card" style="--i: 6">
+          <div class="card-image">
+            <img src="assets/products-grid/fan-display-p52.webp" alt="1200mah battery" loading="lazy" style="aspect-ratio: 0.609;" />
+            <span class="page-pill">P52</span>
+          </div>
+          <div class="card-body">
+            <span class="sku">—</span>
+            <h3 class="name">1200mah battery</h3>
+            <ul class="spec spec-list"><li>size 121.5*35*44mm</li><li>888</li></ul>
+            <div class="meta-row">
+              <span class="source">PDF · P52</span>
+            </div>
+          </div>
+        </div>
+    </div>
+  </div>
+</section>
+<section class="subcat" data-od-id="catalog-subcategory" id="sub-usb-flash-drive">
+  <div class="container">
+    <header class="subcat-head">
+      <div>
+        <span class="eyebrow">Sub-series 7</span>
+        <h2>USB Flash Drive</h2>
+      </div>
+    </header>
+    <div class="subcat-summary">
+      <span class="label">Catalog pages</span>
+      <span class="source-pages"><a href="#page-48">P48</a></span>
+      <span class="count">9 products</span>
+    </div>
+    <div class="product-grid">
+        <div class="product-card" style="--i: 0">
+          <div class="card-image">
+            <img src="assets/products-grid/usb-pen-p48.webp" alt="—" loading="lazy" style="aspect-ratio: 1.056;" />
+            <span class="page-pill">P48</span>
+          </div>
+          <div class="card-body">
+            <span class="sku">—</span>
+            <h3 class="name">—</h3>
+            <ul class="spec spec-list"><li>PDF does not provide a separately readable product description.</li></ul>
+            <div class="meta-row">
+              <span class="source">PDF · P48</span>
+            </div>
+          </div>
+        </div>
+        <div class="product-card" style="--i: 1">
+          <div class="card-image">
+            <img src="assets/products-grid/usb-key-p48.webp" alt="—" loading="lazy" style="aspect-ratio: 1.070;" />
+            <span class="page-pill">P48</span>
+          </div>
+          <div class="card-body">
+            <span class="sku">—</span>
+            <h3 class="name">—</h3>
+            <ul class="spec spec-list"><li>PDF does not provide a separately readable product description.</li></ul>
+            <div class="meta-row">
+              <span class="source">PDF · P48</span>
+            </div>
+          </div>
+        </div>
+        <div class="product-card" style="--i: 2">
+          <div class="card-image">
+            <img src="assets/products-grid/usb-wood-p48.webp" alt="—" loading="lazy" style="aspect-ratio: 1.028;" />
+            <span class="page-pill">P48</span>
+          </div>
+          <div class="card-body">
+            <span class="sku">—</span>
+            <h3 class="name">—</h3>
+            <ul class="spec spec-list"><li>PDF does not provide a separately readable product description.</li></ul>
+            <div class="meta-row">
+              <span class="source">PDF · P48</span>
+            </div>
+          </div>
+        </div>
+        <div class="product-card" style="--i: 3">
+          <div class="card-image">
+            <img src="assets/products-grid/usb-card-p48.webp" alt="—" loading="lazy" style="aspect-ratio: 1.056;" />
+            <span class="page-pill">P48</span>
+          </div>
+          <div class="card-body">
+            <span class="sku">—</span>
+            <h3 class="name">—</h3>
+            <ul class="spec spec-list"><li>PDF does not provide a separately readable product description.</li></ul>
+            <div class="meta-row">
+              <span class="source">PDF · P48</span>
+            </div>
+          </div>
+        </div>
+        <div class="product-card" style="--i: 4">
+          <div class="card-image">
+            <img src="assets/products-grid/usb-pvc-strawberry-p48.webp" alt="—" loading="lazy" style="aspect-ratio: 1.070;" />
+            <span class="page-pill">P48</span>
+          </div>
+          <div class="card-body">
+            <span class="sku">—</span>
+            <h3 class="name">—</h3>
+            <ul class="spec spec-list"><li>PDF does not provide a separately readable product description.</li></ul>
+            <div class="meta-row">
+              <span class="source">PDF · P48</span>
+            </div>
+          </div>
+        </div>
+        <div class="product-card" style="--i: 5">
+          <div class="card-image">
+            <img src="assets/products-grid/usb-pvc-car-p48.webp" alt="USB 3.1" loading="lazy" style="aspect-ratio: 1.028;" />
+            <span class="page-pill">P48</span>
+          </div>
+          <div class="card-body">
+            <span class="sku">—</span>
+            <h3 class="name">USB 3.1</h3>
+            <ul class="spec spec-list"><li>64GB, 128GB, 256GB</li><li>write 100-250MB</li><li>read 150-300MB</li></ul>
+            <div class="meta-row">
+              <span class="source">PDF · P48</span>
+            </div>
+          </div>
+        </div>
+        <div class="product-card" style="--i: 6">
+          <div class="card-image">
+            <img src="assets/products-grid/usb-pvc-truck-p48.webp" alt="—" loading="lazy" style="aspect-ratio: 1.056;" />
+            <span class="page-pill">P48</span>
+          </div>
+          <div class="card-body">
+            <span class="sku">—</span>
+            <h3 class="name">—</h3>
+            <ul class="spec spec-list"><li>PDF does not provide a separately readable product description.</li></ul>
+            <div class="meta-row">
+              <span class="source">PDF · P48</span>
+            </div>
+          </div>
+        </div>
+        <div class="product-card" style="--i: 7">
+          <div class="card-image">
+            <img src="assets/products-grid/usb-metal-p48.webp" alt="64GB/128GB/256GB" loading="lazy" style="aspect-ratio: 1.070;" />
+            <span class="page-pill">P48</span>
+          </div>
+          <div class="card-body">
+            <span class="sku">—</span>
+            <h3 class="name">64GB/128GB/256GB</h3>
+            <ul class="spec spec-list"><li>pecn</li><li>Aluminum material</li><li>with TYPE C PORT</li><li>write 100-250MB/S</li><li>read 150-300MB/S</li></ul>
+            <div class="meta-row">
+              <span class="source">PDF · P48</span>
+            </div>
+          </div>
+        </div>
+        <div class="product-card" style="--i: 8">
+          <div class="card-image">
+            <img src="assets/products-grid/usb-3-1-flash-drive-p48.webp" alt="WHITBY" loading="lazy" style="aspect-ratio: 1.028;" />
+            <span class="page-pill">P48</span>
+          </div>
+          <div class="card-body">
+            <span class="sku">—</span>
+            <h3 class="name">WHITBY</h3>
+            <ul class="spec spec-list"><li>seafoods</li></ul>
+            <div class="meta-row">
+              <span class="source">PDF · P48</span>
+            </div>
+          </div>
+        </div>
     </div>
   </div>
 </section>

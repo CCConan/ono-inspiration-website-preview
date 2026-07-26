@@ -294,6 +294,13 @@ ul { margin: 0; padding: 0; list-style: none; }
 
 /* Mobile topnav compaction (so menu-toggle fits alongside brand) */
 @media (max-width: 1024px) {
+  /* Avoid mobile Safari compositor dropout from sticky + backdrop-filter. */
+  .topnav {
+    position: relative;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    background: var(--bg);
+  }
   .topnav-inner { padding-block: 12px; gap: 10px; }
   .topnav .brand img { height: 40px; }
   .topnav .brand { gap: 8px; }
@@ -901,6 +908,217 @@ footer .footer-meta {
   }
   html { scroll-behavior: auto; }
 }
+
+/* ═══════════════════════════════════════════════════════════════════════
+   SUBCATEGORY OVERVIEW — quick-glance index of 25 subs
+   ═══════════════════════════════════════════════════════════════════════ */
+.subcat-overview-section {
+  padding-block: var(--section-y-desktop);
+  background: var(--bg);
+  position: relative;
+}
+.subcat-overview-section::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 1px;
+  background: linear-gradient(to right, transparent, var(--hair), transparent);
+}
+.subcat-head {
+  margin-bottom: var(--space-12);
+  max-width: 760px;
+}
+.subcat-section-title {
+  font-family: var(--font-display);
+  font-size: clamp(36px, 4.5vw, 60px);
+  font-weight: 500;
+  line-height: 1.05;
+  letter-spacing: -0.014em;
+  color: var(--ink);
+  margin-top: var(--space-3);
+}
+.subcat-section-sub {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 400;
+  font-size: clamp(16px, 1.3vw, 20px);
+  color: var(--ink-2);
+  margin-top: var(--space-4);
+  line-height: 1.4;
+}
+.subcat-group {
+  margin-block: var(--space-12);
+}
+.subcat-group-head {
+  display: grid;
+  grid-template-columns: minmax(180px, 240px) 1fr;
+  gap: var(--space-8);
+  align-items: end;
+  padding-bottom: var(--space-6);
+  border-bottom: 1px solid var(--hair);
+  margin-bottom: var(--space-8);
+}
+.subcat-cat-title {
+  font-family: var(--font-display);
+  font-size: clamp(28px, 3vw, 40px);
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+  line-height: 1.05;
+  margin: 0;
+}
+.subcat-cat-title a {
+  color: inherit;
+  border-bottom: 1px solid transparent;
+  transition: border-color var(--t-fast) var(--ease), color var(--t-fast) var(--ease);
+}
+.subcat-cat-title a:hover {
+  color: var(--brand);
+  border-bottom-color: var(--brand);
+}
+.subcat-cat-sub {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: clamp(15px, 1.2vw, 18px);
+  color: var(--muted);
+  line-height: 1.4;
+  margin: 0;
+  align-self: end;
+}
+.subcat-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: var(--space-5);
+}
+.subcat-card {
+  display: grid;
+  grid-template-columns: 88px 1fr;
+  gap: var(--space-4);
+  align-items: center;
+  padding: var(--space-4);
+  background: var(--surface);
+  border: 1px solid var(--hair-soft);
+  border-radius: var(--r-md);
+  text-decoration: none;
+  color: var(--ink);
+  transition: transform var(--t-base) var(--ease),
+              border-color var(--t-fast) var(--ease),
+              box-shadow var(--t-base) var(--ease),
+              background var(--t-fast) var(--ease);
+  position: relative;
+  overflow: hidden;
+}
+.subcat-card:hover {
+  transform: translateY(-2px);
+  border-color: var(--brand);
+  box-shadow: var(--elev-2);
+  background: var(--brand-tint);
+}
+.subcat-card-img {
+  position: relative;
+  width: 88px;
+  height: 88px;
+  background: var(--surface-2);
+  border-radius: var(--r-sm);
+  overflow: hidden;
+  flex-shrink: 0;
+}
+.subcat-card-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 600ms var(--ease);
+}
+.subcat-card:hover .subcat-card-img img {
+  transform: scale(1.08);
+}
+.subcat-cat-num {
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  background: var(--brand);
+  color: var(--bg);
+  font-family: var(--font-mono);
+  font-size: 9px;
+  font-weight: 600;
+  padding: 2px 6px;
+  border-radius: 2px;
+  letter-spacing: 0.06em;
+}
+.subcat-card-body {
+  min-width: 0;
+}
+.subcat-card-title {
+  font-family: var(--font-display);
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--ink);
+  margin: 0;
+  line-height: 1.25;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.subcat-card-meta {
+  display: flex;
+  gap: var(--space-3);
+  margin-top: 4px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--muted);
+}
+.subcat-card-meta .sku-count {
+  font-weight: 600;
+  color: var(--ink-2);
+}
+.subcat-card-meta .page-range {
+  color: var(--muted);
+}
+.subcat-card-sample {
+  margin-top: 6px;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  color: var(--muted);
+  letter-spacing: 0.04em;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.subcat-card-sample .sample-label {
+  color: var(--muted);
+  text-transform: uppercase;
+  margin-right: 4px;
+}
+.subcat-card-sample .sample-sku {
+  color: var(--brand);
+  font-weight: 500;
+}
+
+/* reveal animation */
+.subcat-card.reveal,
+.subcat-group-head.reveal {
+  opacity: 0;
+  transform: translateY(12px);
+  transition: opacity 600ms var(--ease), transform 600ms var(--ease);
+}
+.subcat-card.reveal.is-visible,
+.subcat-group-head.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.subcat-card.reveal { transition-delay: calc(var(--i, 0) * 30ms); }
+
+/* mobile */
+@media (max-width: 768px) {
+  .subcat-group-head {
+    grid-template-columns: 1fr;
+    gap: var(--space-3);
+  }
+  .subcat-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
 </style>
 </head>
 <body id="top">
@@ -921,28 +1139,43 @@ footer .footer-meta {
           <svg class="caret" width="10" height="6" viewBox="0 0 10 6" aria-hidden="true"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </button>
         <div class="dropdown-menu" id="products-menu" role="menu">
-          <a href="products-01-power-charging.html" role="menuitem">
+          <a href="products-01-power-charging.html#cat-01-power-energy" role="menuitem">
             <span class="dd-num">01</span>
-            <span class="dd-body"><span class="dd-title">Power & Charging</span><span class="dd-sub">60 SKUs · Powerbank · Wireless · Cable · Wall</span></span>
+            <span class="dd-body"><span class="dd-title">Power & Energy</span><span class="dd-sub">31 SKUs · Powerbank · Wall Charger  ·  P04–P12 · P40–P41</span></span>
           </a>
-          <a href="products-02-audio-mobile.html" role="menuitem">
+          <a href="products-01-power-charging.html#cat-02-wireless-cables" role="menuitem">
             <span class="dd-num">02</span>
-            <span class="dd-body"><span class="dd-title">Audio & Mobile</span><span class="dd-sub">60 SKUs · TWS · Speaker · Hub · AirTag</span></span>
+            <span class="dd-body"><span class="dd-title">Wireless & Cables</span><span class="dd-sub">29 SKUs · Wireless Charger · Charging Cable  ·  P13–P26</span></span>
           </a>
-          <a href="products-03-lifestyle-office.html" role="menuitem">
+          <a href="products-02-audio-mobile.html#cat-03-audio" role="menuitem">
             <span class="dd-num">03</span>
-            <span class="dd-body"><span class="dd-title">Lifestyle & Office</span><span class="dd-sub">86 SKUs · Home · Office · Personal · Sports</span></span>
+            <span class="dd-body"><span class="dd-title">Audio</span><span class="dd-sub">41 SKUs · TWS Earphones · Bluetooth Speaker  ·  P28–P33</span></span>
           </a>
-          <a href="products-04-carry-customize.html" role="menuitem">
+          <a href="products-02-audio-mobile.html#cat-04-mobile-tech" role="menuitem">
             <span class="dd-num">04</span>
-            <span class="dd-body"><span class="dd-title">Carry & Customize</span><span class="dd-sub">50 SKUs · Box · Bag · Apparel · OerForest</span></span>
+            <span class="dd-body"><span class="dd-title">Mobile & Tech Accessories</span><span class="dd-sub">49 SKUs · USB Hub · Phone Holder & AirTag · USB Flash Drive  ·  P34–P36 · P46–P48 · P52</span></span>
           </a>
-        </div>
+          <a href="products-03-lifestyle-office.html#cat-05-home-personal" role="menuitem">
+            <span class="dd-num">05</span>
+            <span class="dd-body"><span class="dd-title">Home & Personal Care</span><span class="dd-sub">36 SKUs · Humidifier & Air Purifier · Portable Blender & Bottle · Joy Life — Fitness & Lifestyle  ·  P37–P38 · P42–P43 · P50–P51</span></span>
+          </a>
+          <a href="products-03-lifestyle-office.html#cat-06-travel-office" role="menuitem">
+            <span class="dd-num">06</span>
+            <span class="dd-body"><span class="dd-title">Travel & Office</span><span class="dd-sub">27 SKUs · Travel Adapter & Universal Plug · Notebook & Stationery · Mouse & Mouse Pad  ·  P39 · P44–P45 · P49</span></span>
+          </a>
+          <a href="products-04-carry-customize.html#cat-07-bags-apparel" role="menuitem">
+            <span class="dd-num">07</span>
+            <span class="dd-body"><span class="dd-title">Bags & Apparel</span><span class="dd-sub">18 SKUs · Backpack & Laptop Bag · Felt & Burlap Bag · Apparel, Umbrella & Promo  ·  P54–P56</span></span>
+          </a>
+          <a href="products-04-carry-customize.html#cat-08-gifts-eco" role="menuitem">
+            <span class="dd-num">08</span>
+            <span class="dd-body"><span class="dd-title">Gifts, Boxes & Eco</span><span class="dd-sub">25 SKUs · Custom Box & Container · Custom Gift & Award · OerForest — Eco Line  ·  P53 · P57–P58</span></span>
+          </a>
+        </div></div>
       </div>
       <a href="#contact">Contact</a>
     </nav>
     <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="menu-drawer" aria-label="Menu"><span></span></button>
-  </div>
 </header>
 
   <div class="menu-drawer" data-drawer aria-hidden="true">
@@ -1122,101 +1355,610 @@ footer .footer-meta {
     </div>
 
     <div class="series-grid">
-      <!-- 01 — Power & Charging -->
       <a href="products-01-power-charging.html" class="series-card reveal">
         <div class="visual">
-          <img src="assets/catalog-soft/p04.webp" alt="Series 01 · Power &amp; Charging — powerbanks, wireless chargers, cables, wall chargers" />
-          <span class="ribbon">Series 01</span>
-          <span class="catalog-tag">Source pages 4–26 · 40–41</span>
+          <img src="assets/catalog-soft/p04.webp" alt="Power & Charging — Energy essentials — power banks, cables, wireless pads and wall chargers." />
+          <span class="ribbon">Page 01</span>
+          <span class="catalog-tag">Source pages P04–P26, P40–P41</span>
         </div>
         <div class="body">
           <div class="body-top">
-            <h3>Power &amp; Charging</h3>
+            <h3>Power & Charging</h3>
             <span class="count">60 items</span>
           </div>
-          <p class="lead">Energy solutions that keep devices running — pocket powerbanks, multi-device wireless stations, certified cables and travel-grade wall chargers.</p>
+          <p class="lead">Energy essentials — power banks, cables, wireless pads and wall chargers.</p>
           <ul class="subcats">
             <li>Powerbank</li>
+            <li>Wall Charger</li>
             <li>Wireless Charger</li>
             <li>Charging Cable</li>
-            <li>Wall Charger</li>
           </ul>
-          <span class="cta">Browse this series <span class="arrow">→</span></span>
+          <span class="cta">Browse this page <span class="arrow">→</span></span>
         </div>
       </a>
-
-      <!-- 02 — Audio & Mobile -->
       <a href="products-02-audio-mobile.html" class="series-card reveal">
         <div class="visual">
-          <img src="assets/catalog-soft/p28.webp" alt="Series 02 · Audio &amp; Mobile — TWS earphones, BT speakers, USB hubs, phone holders, AirTag" />
-          <span class="ribbon">Series 02</span>
-          <span class="catalog-tag">Source pages 28–36</span>
+          <img src="assets/catalog-soft/p28.webp" alt="Audio & Mobile Tech — Audio devices and the mobile & tech accessories that surround them." />
+          <span class="ribbon">Page 02</span>
+          <span class="catalog-tag">Source pages P28–P36, P46–P48</span>
         </div>
         <div class="body">
           <div class="body-top">
-            <h3>Audio &amp; Mobile</h3>
-            <span class="count">60 items</span>
+            <h3>Audio & Mobile Tech</h3>
+            <span class="count">90 items</span>
           </div>
-          <p class="lead">On-the-go audio, multi-port hubs, and everyday carry companions — TWS earphones, magnetic BT speakers, USB-C hubs and AirTag-compatible holders.</p>
+          <p class="lead">Audio devices and the mobile & tech accessories that surround them.</p>
           <ul class="subcats">
             <li>TWS Earphones</li>
-            <li>BT Speaker</li>
+            <li>Bluetooth Speaker</li>
             <li>USB Hub</li>
-            <li>Phone Holder</li>
+            <li>Phone Holder & AirTag</li>
+            <li>Phone Holder & Stand</li>
+            <li>Phone Case & Mini Fan</li>
+            <li>USB Flash Drive</li>
           </ul>
-          <span class="cta">Browse this series <span class="arrow">→</span></span>
+          <span class="cta">Browse this page <span class="arrow">→</span></span>
         </div>
       </a>
-
-      <!-- 03 — Lifestyle & Office -->
       <a href="products-03-lifestyle-office.html" class="series-card reveal">
         <div class="visual">
-          <img src="assets/catalog-soft/p37.webp" alt="Series 03 · Lifestyle &amp; Office — humidifiers, bottles, travel adapters, security, notebooks, phone holders, USB drives, mice, video cards, fitness" />
-          <span class="ribbon">Series 03</span>
-          <span class="catalog-tag">Source pages 37–51</span>
+          <img src="assets/catalog-soft/p37.webp" alt="Home, Personal & Office — Daily comforts, personal care, travel adapters and office stationery." />
+          <span class="ribbon">Page 03</span>
+          <span class="catalog-tag">Source pages P37–P51</span>
         </div>
         <div class="body">
           <div class="body-top">
-            <h3>Lifestyle &amp; Office</h3>
-            <span class="count">86 items</span>
+            <h3>Home, Personal & Office</h3>
+            <span class="count">63 items</span>
           </div>
-          <p class="lead">Home, desk and on-the-move essentials — humidifiers, smart bottles, travel adapters, RFID, stationery, phone stands, USB drives, mice and fitness gear.</p>
+          <p class="lead">Daily comforts, personal care, travel adapters and office stationery.</p>
           <ul class="subcats">
-            <li>Humidifier</li>
-            <li>Travel Adapter</li>
-            <li>Notebook</li>
-            <li>Fitness</li>
+            <li>Humidifier & Air Purifier</li>
+            <li>Portable Blender & Bottle</li>
+            <li>Personal Security</li>
+            <li>Video Card & Brochure</li>
+            <li>Joy Life — Fitness & Lifestyle</li>
+            <li>Travel Adapter & Universal Plug</li>
+            <li>Notebook & Stationery</li>
+            <li>Mouse & Mouse Pad</li>
           </ul>
-          <span class="cta">Browse this series <span class="arrow">→</span></span>
+          <span class="cta">Browse this page <span class="arrow">→</span></span>
         </div>
       </a>
-
-      <!-- 04 — Carry & Customize -->
       <a href="products-04-carry-customize.html" class="series-card reveal">
         <div class="visual">
-          <img src="assets/catalog-soft/p53.webp" alt="Series 04 · Carry &amp; Customize — boxes, bags, apparel, gifts, OerForest eco line" />
-          <span class="ribbon">Series 04</span>
-          <span class="catalog-tag">Source pages 52–58</span>
+          <img src="assets/catalog-soft/p53.webp" alt="Bags, Apparel & Gifts — Bags, apparel, custom gifts and the OerForest eco line." />
+          <span class="ribbon">Page 04</span>
+          <span class="catalog-tag">Source pages P53–P58</span>
         </div>
         <div class="body">
           <div class="body-top">
-            <h3>Carry &amp; Customize</h3>
-            <span class="count">50 items</span>
+            <h3>Bags, Apparel & Gifts</h3>
+            <span class="count">43 items</span>
           </div>
-          <p class="lead">Premium packaging, carry-alls, branded apparel, custom gifts and the OerForest eco line — cork-and-canvas materials with a real sustainability story.</p>
+          <p class="lead">Bags, apparel, custom gifts and the OerForest eco line.</p>
           <ul class="subcats">
-            <li>Box &amp; Container</li>
-            <li>Backpack</li>
-            <li>Apparel</li>
-            <li>Gift &amp; Award</li>
-            <li>OerForest</li>
+            <li>Backpack & Laptop Bag</li>
+            <li>Felt & Burlap Bag</li>
+            <li>Apparel, Umbrella & Promo</li>
+            <li>Custom Box & Container</li>
+            <li>Custom Gift & Award</li>
+            <li>OerForest — Eco Line</li>
           </ul>
-          <span class="cta">Browse this series <span class="arrow">→</span></span>
+          <span class="cta">Browse this page <span class="arrow">→</span></span>
         </div>
       </a>
     </div>
   </div>
 </section>
+<!-- ════════════════ SUBCATEGORY OVERVIEW ════════════════ -->
+<section class="subcat-overview-section" data-od-id="subcategory-index" id="subcategory-index">
+  <div class="container">
+    <div class="subcat-head">
+      <span class="eyebrow">All 25 subcategories · Quick-glance index</span>
+      <h2 class="subcat-section-title">Every product direction, one scroll away.</h2>
+      <p class="subcat-section-sub">Skip the guessing. Browse the full catalogue structure below — each card jumps straight to its product page and pinned subcategory.</p>
+    </div>
+<div class="subcat-group">
+        <header class="subcat-group-head">
+          <span class="eyebrow">Category 01</span>
+          <h3 class="subcat-cat-title"><a href="products-01-power-charging.html#cat-01-power-energy">Power & Energy</a></h3>
+          <p class="subcat-cat-sub">Power banks and wall chargers — the foundation of every charging kit.</p>
+        </header>
+        <div class="subcat-grid">
+                <a href="products-01-power-charging.html#sub-powerbank" class="subcat-card" style="--i: 0">
+            <div class="subcat-card-img">
+              <img src="assets/products-grid/dspbc1025-p04.webp" alt="Powerbank — representative product" loading="lazy" />
+              <span class="subcat-cat-num">01</span>
+            </div>
+            <div class="subcat-card-body">
+              <h4 class="subcat-card-title">Powerbank</h4>
+              <div class="subcat-card-meta">
+                <span class="sku-count">23 SKU</span>
+                <span class="page-range">P04–P12</span>
+              </div>
+              <div class="subcat-card-sample">
+                <span class="sample-label">Sample</span>
+                <span class="sample-sku">DSPBC1055</span>
+              </div>
+            </div>
+          </a>
+                <a href="products-01-power-charging.html#sub-wall-charger" class="subcat-card" style="--i: 1">
+            <div class="subcat-card-img">
+              <img src="assets/products-grid/dsj167-p40.webp" alt="Wall Charger — representative product" loading="lazy" />
+              <span class="subcat-cat-num">01</span>
+            </div>
+            <div class="subcat-card-body">
+              <h4 class="subcat-card-title">Wall Charger</h4>
+              <div class="subcat-card-meta">
+                <span class="sku-count">8 SKU</span>
+                <span class="page-range">P40–P41</span>
+              </div>
+              <div class="subcat-card-sample">
+                <span class="sample-label">Sample</span>
+                <span class="sample-sku">—</span>
+              </div>
+            </div>
+          </a>
+              </div>
+      </div>
+      <div class="subcat-group">
+        <header class="subcat-group-head">
+          <span class="eyebrow">Category 02</span>
+          <h3 class="subcat-cat-title"><a href="products-01-power-charging.html#cat-02-wireless-cables">Wireless & Cables</a></h3>
+          <p class="subcat-cat-sub">Wireless pads and charging cables — bridging the last inch.</p>
+        </header>
+        <div class="subcat-grid">
+                <a href="products-01-power-charging.html#sub-wireless-charger" class="subcat-card" style="--i: 2">
+            <div class="subcat-card-img">
+              <img src="assets/products-grid/dsw28-p13.webp" alt="Wireless Charger — representative product" loading="lazy" />
+              <span class="subcat-cat-num">02</span>
+            </div>
+            <div class="subcat-card-body">
+              <h4 class="subcat-card-title">Wireless Charger</h4>
+              <div class="subcat-card-meta">
+                <span class="sku-count">14 SKU</span>
+                <span class="page-range">P13–P19</span>
+              </div>
+              <div class="subcat-card-sample">
+                <span class="sample-label">Sample</span>
+                <span class="sample-sku">DSW28</span>
+              </div>
+            </div>
+          </a>
+                <a href="products-01-power-charging.html#sub-charging-cable" class="subcat-card" style="--i: 3">
+            <div class="subcat-card-img">
+              <img src="assets/products-grid/multi-color-led-light-cable-p20.webp" alt="Charging Cable — representative product" loading="lazy" />
+              <span class="subcat-cat-num">02</span>
+            </div>
+            <div class="subcat-card-body">
+              <h4 class="subcat-card-title">Charging Cable</h4>
+              <div class="subcat-card-meta">
+                <span class="sku-count">15 SKU</span>
+                <span class="page-range">P20–P26</span>
+              </div>
+              <div class="subcat-card-sample">
+                <span class="sample-label">Sample</span>
+                <span class="sample-sku">—</span>
+              </div>
+            </div>
+          </a>
+              </div>
+      </div>
+      <div class="subcat-group">
+        <header class="subcat-group-head">
+          <span class="eyebrow">Category 03</span>
+          <h3 class="subcat-cat-title"><a href="products-02-audio-mobile.html#cat-03-audio">Audio</a></h3>
+          <p class="subcat-cat-sub">TWS earphones and Bluetooth speakers for work, travel and play.</p>
+        </header>
+        <div class="subcat-grid">
+                <a href="products-02-audio-mobile.html#sub-tws-earphones" class="subcat-card" style="--i: 4">
+            <div class="subcat-card-img">
+              <img src="assets/products-grid/ds001-p28.webp" alt="TWS Earphones — representative product" loading="lazy" />
+              <span class="subcat-cat-num">03</span>
+            </div>
+            <div class="subcat-card-body">
+              <h4 class="subcat-card-title">TWS Earphones</h4>
+              <div class="subcat-card-meta">
+                <span class="sku-count">17 SKU</span>
+                <span class="page-range">P28–P29</span>
+              </div>
+              <div class="subcat-card-sample">
+                <span class="sample-label">Sample</span>
+                <span class="sample-sku">DSXY17</span>
+              </div>
+            </div>
+          </a>
+                <a href="products-02-audio-mobile.html#sub-bluetooth-speaker" class="subcat-card" style="--i: 5">
+            <div class="subcat-card-img">
+              <img src="assets/products-grid/dsb17-p30.webp" alt="Bluetooth Speaker — representative product" loading="lazy" />
+              <span class="subcat-cat-num">03</span>
+            </div>
+            <div class="subcat-card-body">
+              <h4 class="subcat-card-title">Bluetooth Speaker</h4>
+              <div class="subcat-card-meta">
+                <span class="sku-count">24 SKU</span>
+                <span class="page-range">P30–P33</span>
+              </div>
+              <div class="subcat-card-sample">
+                <span class="sample-label">Sample</span>
+                <span class="sample-sku">—</span>
+              </div>
+            </div>
+          </a>
+              </div>
+      </div>
+      <div class="subcat-group">
+        <header class="subcat-group-head">
+          <span class="eyebrow">Category 04</span>
+          <h3 class="subcat-cat-title"><a href="products-02-audio-mobile.html#cat-04-mobile-tech">Mobile & Tech Accessories</a></h3>
+          <p class="subcat-cat-sub">USB hubs, phone holders, phone cases, flash drives — all the small things that make tech work.</p>
+        </header>
+        <div class="subcat-grid">
+                <a href="products-02-audio-mobile.html#sub-usb-hub" class="subcat-card" style="--i: 6">
+            <div class="subcat-card-img">
+              <img src="assets/products-grid/dsh01-p34.webp" alt="USB Hub — representative product" loading="lazy" />
+              <span class="subcat-cat-num">04</span>
+            </div>
+            <div class="subcat-card-body">
+              <h4 class="subcat-card-title">USB Hub</h4>
+              <div class="subcat-card-meta">
+                <span class="sku-count">9 SKU</span>
+                <span class="page-range">P34</span>
+              </div>
+              <div class="subcat-card-sample">
+                <span class="sample-label">Sample</span>
+                <span class="sample-sku">—</span>
+              </div>
+            </div>
+          </a>
+                <a href="products-02-audio-mobile.html#sub-phone-holder-and-airtag" class="subcat-card" style="--i: 7">
+            <div class="subcat-card-img">
+              <img src="assets/products-grid/dsm01-p35.webp" alt="Phone Holder & AirTag — representative product" loading="lazy" />
+              <span class="subcat-cat-num">04</span>
+            </div>
+            <div class="subcat-card-body">
+              <h4 class="subcat-card-title">Phone Holder & AirTag</h4>
+              <div class="subcat-card-meta">
+                <span class="sku-count">10 SKU</span>
+                <span class="page-range">P35–P36</span>
+              </div>
+              <div class="subcat-card-sample">
+                <span class="sample-label">Sample</span>
+                <span class="sample-sku">—</span>
+              </div>
+            </div>
+          </a>
+                <a href="products-02-audio-mobile.html#sub-phone-holder-and-stand" class="subcat-card" style="--i: 8">
+            <div class="subcat-card-img">
+              <img src="assets/products-grid/ph-silicone-slim-p46.webp" alt="Phone Holder & Stand — representative product" loading="lazy" />
+              <span class="subcat-cat-num">04</span>
+            </div>
+            <div class="subcat-card-body">
+              <h4 class="subcat-card-title">Phone Holder & Stand</h4>
+              <div class="subcat-card-meta">
+                <span class="sku-count">14 SKU</span>
+                <span class="page-range">P46–P47</span>
+              </div>
+              <div class="subcat-card-sample">
+                <span class="sample-label">Sample</span>
+                <span class="sample-sku">—</span>
+              </div>
+            </div>
+          </a>
+                <a href="products-02-audio-mobile.html#sub-phone-case-and-mini-fan" class="subcat-card" style="--i: 9">
+            <div class="subcat-card-img">
+              <img src="assets/products-grid/pc-wheat-p52.webp" alt="Phone Case & Mini Fan — representative product" loading="lazy" />
+              <span class="subcat-cat-num">04</span>
+            </div>
+            <div class="subcat-card-body">
+              <h4 class="subcat-card-title">Phone Case & Mini Fan</h4>
+              <div class="subcat-card-meta">
+                <span class="sku-count">7 SKU</span>
+                <span class="page-range">P52</span>
+              </div>
+              <div class="subcat-card-sample">
+                <span class="sample-label">Sample</span>
+                <span class="sample-sku">—</span>
+              </div>
+            </div>
+          </a>
+                <a href="products-02-audio-mobile.html#sub-usb-flash-drive" class="subcat-card" style="--i: 10">
+            <div class="subcat-card-img">
+              <img src="assets/products-grid/usb-pvc-car-p48.webp" alt="USB Flash Drive — representative product" loading="lazy" />
+              <span class="subcat-cat-num">04</span>
+            </div>
+            <div class="subcat-card-body">
+              <h4 class="subcat-card-title">USB Flash Drive</h4>
+              <div class="subcat-card-meta">
+                <span class="sku-count">9 SKU</span>
+                <span class="page-range">P48</span>
+              </div>
+              <div class="subcat-card-sample">
+                <span class="sample-label">Sample</span>
+                <span class="sample-sku">—</span>
+              </div>
+            </div>
+          </a>
+              </div>
+      </div>
+      <div class="subcat-group">
+        <header class="subcat-group-head">
+          <span class="eyebrow">Category 05</span>
+          <h3 class="subcat-cat-title"><a href="products-03-lifestyle-office.html#cat-05-home-personal">Home & Personal Care</a></h3>
+          <p class="subcat-cat-sub">Humidifiers, bottles, security, video cards, fitness — life-improving gifts.</p>
+        </header>
+        <div class="subcat-grid">
+                <a href="products-03-lifestyle-office.html#sub-humidifier-and-air-purifier" class="subcat-card" style="--i: 11">
+            <div class="subcat-card-img">
+              <img src="assets/products-grid/wood-led-p37.webp" alt="Humidifier & Air Purifier — representative product" loading="lazy" />
+              <span class="subcat-cat-num">05</span>
+            </div>
+            <div class="subcat-card-body">
+              <h4 class="subcat-card-title">Humidifier & Air Purifier</h4>
+              <div class="subcat-card-meta">
+                <span class="sku-count">5 SKU</span>
+                <span class="page-range">P37</span>
+              </div>
+              <div class="subcat-card-sample">
+                <span class="sample-label">Sample</span>
+                <span class="sample-sku">—</span>
+              </div>
+            </div>
+          </a>
+                <a href="products-03-lifestyle-office.html#sub-portable-blender-and-bottle" class="subcat-card" style="--i: 12">
+            <div class="subcat-card-img">
+              <img src="assets/products-grid/hand-pressure-p38.webp" alt="Portable Blender & Bottle — representative product" loading="lazy" />
+              <span class="subcat-cat-num">05</span>
+            </div>
+            <div class="subcat-card-body">
+              <h4 class="subcat-card-title">Portable Blender & Bottle</h4>
+              <div class="subcat-card-meta">
+                <span class="sku-count">6 SKU</span>
+                <span class="page-range">P38</span>
+              </div>
+              <div class="subcat-card-sample">
+                <span class="sample-label">Sample</span>
+                <span class="sample-sku">—</span>
+              </div>
+            </div>
+          </a>
+                <a href="products-03-lifestyle-office.html#sub-personal-security" class="subcat-card" style="--i: 13">
+            <div class="subcat-card-img">
+              <img src="assets/products-grid/rfid-black-p42.webp" alt="Personal Security — representative product" loading="lazy" />
+              <span class="subcat-cat-num">05</span>
+            </div>
+            <div class="subcat-card-body">
+              <h4 class="subcat-card-title">Personal Security</h4>
+              <div class="subcat-card-meta">
+                <span class="sku-count">9 SKU</span>
+                <span class="page-range">P42–P43</span>
+              </div>
+              <div class="subcat-card-sample">
+                <span class="sample-label">Sample</span>
+                <span class="sample-sku">—</span>
+              </div>
+            </div>
+          </a>
+                <a href="products-03-lifestyle-office.html#sub-video-card-and-brochure" class="subcat-card" style="--i: 14">
+            <div class="subcat-card-img">
+              <img src="assets/products-grid/vc-box-p50.webp" alt="Video Card & Brochure — representative product" loading="lazy" />
+              <span class="subcat-cat-num">05</span>
+            </div>
+            <div class="subcat-card-body">
+              <h4 class="subcat-card-title">Video Card & Brochure</h4>
+              <div class="subcat-card-meta">
+                <span class="sku-count">6 SKU</span>
+                <span class="page-range">P50</span>
+              </div>
+              <div class="subcat-card-sample">
+                <span class="sample-label">Sample</span>
+                <span class="sample-sku">—</span>
+              </div>
+            </div>
+          </a>
+                <a href="products-03-lifestyle-office.html#sub-joy-life--fitness-and-lifestyle" class="subcat-card" style="--i: 15">
+            <div class="subcat-card-img">
+              <img src="assets/products-grid/jl-yogamat-p51.webp" alt="Joy Life — Fitness & Lifestyle — representative product" loading="lazy" />
+              <span class="subcat-cat-num">05</span>
+            </div>
+            <div class="subcat-card-body">
+              <h4 class="subcat-card-title">Joy Life — Fitness & Lifestyle</h4>
+              <div class="subcat-card-meta">
+                <span class="sku-count">10 SKU</span>
+                <span class="page-range">P51</span>
+              </div>
+              <div class="subcat-card-sample">
+                <span class="sample-label">Sample</span>
+                <span class="sample-sku">—</span>
+              </div>
+            </div>
+          </a>
+              </div>
+      </div>
+      <div class="subcat-group">
+        <header class="subcat-group-head">
+          <span class="eyebrow">Category 06</span>
+          <h3 class="subcat-cat-title"><a href="products-03-lifestyle-office.html#cat-06-travel-office">Travel & Office</a></h3>
+          <p class="subcat-cat-sub">Travel adapters, stationery and computer peripherals for the road and the desk.</p>
+        </header>
+        <div class="subcat-grid">
+                <a href="products-03-lifestyle-office.html#sub-travel-adapter-and-universal-plug" class="subcat-card" style="--i: 16">
+            <div class="subcat-card-img">
+              <img src="assets/products-grid/dsj167-p39.webp" alt="Travel Adapter & Universal Plug — representative product" loading="lazy" />
+              <span class="subcat-cat-num">06</span>
+            </div>
+            <div class="subcat-card-body">
+              <h4 class="subcat-card-title">Travel Adapter & Universal Plug</h4>
+              <div class="subcat-card-meta">
+                <span class="sku-count">4 SKU</span>
+                <span class="page-range">P39</span>
+              </div>
+              <div class="subcat-card-sample">
+                <span class="sample-label">Sample</span>
+                <span class="sample-sku">—</span>
+              </div>
+            </div>
+          </a>
+                <a href="products-03-lifestyle-office.html#sub-notebook-and-stationery" class="subcat-card" style="--i: 17">
+            <div class="subcat-card-img">
+              <img src="assets/products-grid/nb-felt-strap-p45.webp" alt="Notebook & Stationery — representative product" loading="lazy" />
+              <span class="subcat-cat-num">06</span>
+            </div>
+            <div class="subcat-card-body">
+              <h4 class="subcat-card-title">Notebook & Stationery</h4>
+              <div class="subcat-card-meta">
+                <span class="sku-count">15 SKU</span>
+                <span class="page-range">P44–P45</span>
+              </div>
+              <div class="subcat-card-sample">
+                <span class="sample-label">Sample</span>
+                <span class="sample-sku">—</span>
+              </div>
+            </div>
+          </a>
+                <a href="products-03-lifestyle-office.html#sub-mouse-and-mouse-pad" class="subcat-card" style="--i: 18">
+            <div class="subcat-card-img">
+              <img src="assets/products-grid/ms-rgb-p49.webp" alt="Mouse & Mouse Pad — representative product" loading="lazy" />
+              <span class="subcat-cat-num">06</span>
+            </div>
+            <div class="subcat-card-body">
+              <h4 class="subcat-card-title">Mouse & Mouse Pad</h4>
+              <div class="subcat-card-meta">
+                <span class="sku-count">8 SKU</span>
+                <span class="page-range">P49</span>
+              </div>
+              <div class="subcat-card-sample">
+                <span class="sample-label">Sample</span>
+                <span class="sample-sku">—</span>
+              </div>
+            </div>
+          </a>
+              </div>
+      </div>
+      <div class="subcat-group">
+        <header class="subcat-group-head">
+          <span class="eyebrow">Category 07</span>
+          <h3 class="subcat-cat-title"><a href="products-04-carry-customize.html#cat-07-bags-apparel">Bags & Apparel</a></h3>
+          <p class="subcat-cat-sub">Backpacks, totes, apparel and umbrellas — high-visibility brand surfaces.</p>
+        </header>
+        <div class="subcat-grid">
+                <a href="products-04-carry-customize.html#sub-backpack-and-laptop-bag" class="subcat-card" style="--i: 19">
+            <div class="subcat-card-img">
+              <img src="assets/products-grid/bag-bp-black-p54.webp" alt="Backpack & Laptop Bag — representative product" loading="lazy" />
+              <span class="subcat-cat-num">07</span>
+            </div>
+            <div class="subcat-card-body">
+              <h4 class="subcat-card-title">Backpack & Laptop Bag</h4>
+              <div class="subcat-card-meta">
+                <span class="sku-count">3 SKU</span>
+                <span class="page-range">P54</span>
+              </div>
+              <div class="subcat-card-sample">
+                <span class="sample-label">Sample</span>
+                <span class="sample-sku">—</span>
+              </div>
+            </div>
+          </a>
+                <a href="products-04-carry-customize.html#sub-felt-and-burlap-bag" class="subcat-card" style="--i: 20">
+            <div class="subcat-card-img">
+              <img src="assets/products-grid/bag-canvas-p55.webp" alt="Felt & Burlap Bag — representative product" loading="lazy" />
+              <span class="subcat-cat-num">07</span>
+            </div>
+            <div class="subcat-card-body">
+              <h4 class="subcat-card-title">Felt & Burlap Bag</h4>
+              <div class="subcat-card-meta">
+                <span class="sku-count">6 SKU</span>
+                <span class="page-range">P55</span>
+              </div>
+              <div class="subcat-card-sample">
+                <span class="sample-label">Sample</span>
+                <span class="sample-sku">—</span>
+              </div>
+            </div>
+          </a>
+                <a href="products-04-carry-customize.html#sub-apparel-umbrella-and-promo" class="subcat-card" style="--i: 21">
+            <div class="subcat-card-img">
+              <img src="assets/products-grid/app-polo-p56.webp" alt="Apparel, Umbrella & Promo — representative product" loading="lazy" />
+              <span class="subcat-cat-num">07</span>
+            </div>
+            <div class="subcat-card-body">
+              <h4 class="subcat-card-title">Apparel, Umbrella & Promo</h4>
+              <div class="subcat-card-meta">
+                <span class="sku-count">9 SKU</span>
+                <span class="page-range">P56</span>
+              </div>
+              <div class="subcat-card-sample">
+                <span class="sample-label">Sample</span>
+                <span class="sample-sku">—</span>
+              </div>
+            </div>
+          </a>
+              </div>
+      </div>
+      <div class="subcat-group">
+        <header class="subcat-group-head">
+          <span class="eyebrow">Category 08</span>
+          <h3 class="subcat-cat-title"><a href="products-04-carry-customize.html#cat-08-gifts-eco">Gifts, Boxes & Eco</a></h3>
+          <p class="subcat-cat-sub">Custom awards, presentation boxes and the OerForest eco line.</p>
+        </header>
+        <div class="subcat-grid">
+                <a href="products-04-carry-customize.html#sub-custom-box-and-container" class="subcat-card" style="--i: 22">
+            <div class="subcat-card-img">
+              <img src="assets/products-grid/box-frame-p53.webp" alt="Custom Box & Container — representative product" loading="lazy" />
+              <span class="subcat-cat-num">08</span>
+            </div>
+            <div class="subcat-card-body">
+              <h4 class="subcat-card-title">Custom Box & Container</h4>
+              <div class="subcat-card-meta">
+                <span class="sku-count">3 SKU</span>
+                <span class="page-range">P53</span>
+              </div>
+              <div class="subcat-card-sample">
+                <span class="sample-label">Sample</span>
+                <span class="sample-sku">—</span>
+              </div>
+            </div>
+          </a>
+                <a href="products-04-carry-customize.html#sub-custom-gift-and-award" class="subcat-card" style="--i: 23">
+            <div class="subcat-card-img">
+              <img src="assets/products-grid/gifts-cap-p57.webp" alt="Custom Gift & Award — representative product" loading="lazy" />
+              <span class="subcat-cat-num">08</span>
+            </div>
+            <div class="subcat-card-body">
+              <h4 class="subcat-card-title">Custom Gift & Award</h4>
+              <div class="subcat-card-meta">
+                <span class="sku-count">13 SKU</span>
+                <span class="page-range">P57</span>
+              </div>
+              <div class="subcat-card-sample">
+                <span class="sample-label">Sample</span>
+                <span class="sample-sku">—</span>
+              </div>
+            </div>
+          </a>
+                <a href="products-04-carry-customize.html#sub-oerforest--eco-line" class="subcat-card" style="--i: 24">
+            <div class="subcat-card-img">
+              <img src="assets/products-grid/slh24001-a3-p58-s0.webp" alt="OerForest — Eco Line — representative product" loading="lazy" />
+              <span class="subcat-cat-num">08</span>
+            </div>
+            <div class="subcat-card-body">
+              <h4 class="subcat-card-title">OerForest — Eco Line</h4>
+              <div class="subcat-card-meta">
+                <span class="sku-count">9 SKU</span>
+                <span class="page-range">P58</span>
+              </div>
+              <div class="subcat-card-sample">
+                <span class="sample-label">Sample</span>
+                <span class="sample-sku">SLH24001-A3</span>
+              </div>
+            </div>
+          </a>
+              </div>
+      </div>
+  </div>
+</section>
+
 
 <!-- ════════════════ PHILOSOPHY ════════════════ -->
 <section class="philosophy" data-od-id="philosophy">

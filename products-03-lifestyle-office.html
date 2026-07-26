@@ -3,8 +3,9 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<meta name="description" content="Lifestyle &amp; Office curated by ONO INSPIRATION COMPANY LIMITED. Vacuum Bottle · LED Light · Humidifier · Webcam Cover · RFID Wallet. Source-verified SKUs from the Ono Inspiration 2026 catalogue." />
-<title>Lifestyle &amp; Office · ONO INSPIRATION COMPANY LIMITED</title>
+<meta name="description" content="Power &amp; Charging curated by ONO INSPIRATION COMPANY LIMITED. Powerbank · Wireless Charger · Charging Cable · Wall Charger. Source-verified SKUs from the Ono Inspiration 2026 catalogue." />
+<title>Home, Personal & Office · Ono Inspiration</title>
+<script>document.documentElement.classList.add('js-loaded');</script>
 <link rel="icon" type="image/png" href="assets/source/logo_icon.png" />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -75,6 +76,15 @@ ul { margin: 0; padding: 0; list-style: none; }
 
 .topnav { position: sticky; top: 0; z-index: 50; background: rgba(247, 244, 238, 0.82); backdrop-filter: saturate(180%) blur(20px); -webkit-backdrop-filter: saturate(180%) blur(20px); border-bottom: 1px solid transparent; transition: border-color var(--t-base) var(--ease), background var(--t-base) var(--ease); }
 .topnav.scrolled { border-bottom-color: var(--hair); background: rgba(247, 244, 238, 0.94); }
+@media (max-width: 1024px) {
+  /* Avoid mobile Safari compositor dropout from sticky + backdrop-filter. */
+  .topnav {
+    position: relative;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    background: var(--bg);
+  }
+}
 .topnav-inner { display: flex; align-items: center; justify-content: space-between; padding-block: 22px; gap: 32px; }
 .topnav .brand { display: flex; align-items: center; gap: 14px; white-space: nowrap; }
 .topnav .brand img { display: block; height: 54px; width: auto; transition: transform var(--t-base) var(--ease); }
@@ -415,8 +425,6 @@ ul { margin: 0; padding: 0; list-style: none; }
   border: 1px solid var(--hair);
   border-radius: var(--r-md);
   overflow: hidden;
-  opacity: 0;
-  transform: translateY(28px) scale(0.985);
   transition:
     opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
     transform 0.7s cubic-bezier(0.16, 1, 0.3, 1),
@@ -424,6 +432,10 @@ ul { margin: 0; padding: 0; list-style: none; }
     border-color var(--t-fast) var(--ease);
   transition-delay: calc(var(--i, 0) * 70ms);
   will-change: opacity, transform;
+}
+.js-loaded .product-grid > .product-card {
+  opacity: 0;
+  transform: translateY(28px) scale(0.985);
 }
 .product-grid > .product-card.is-visible {
   opacity: 1;
@@ -771,7 +783,7 @@ ul { margin: 0; padding: 0; list-style: none; }
           <svg class="caret" width="10" height="6" viewBox="0 0 10 6" aria-hidden="true"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </button>
         <div class="dropdown-menu" id="products-menu" role="menu">
-          <a href="products-01-power-charging.html" role="menuitem">
+          <a href="products-01-power-charging.html" class="active" role="menuitem">
             <span class="dd-num">01</span>
             <span class="dd-body"><span class="dd-title">Power & Charging</span><span class="dd-sub">60 SKUs · Powerbank · Wireless · Cable · Wall</span></span>
           </a>
@@ -779,7 +791,7 @@ ul { margin: 0; padding: 0; list-style: none; }
             <span class="dd-num">02</span>
             <span class="dd-body"><span class="dd-title">Audio & Mobile</span><span class="dd-sub">60 SKUs · TWS · Speaker · Hub · AirTag</span></span>
           </a>
-          <a href="products-03-lifestyle-office.html" class="active" role="menuitem">
+          <a href="products-03-lifestyle-office.html" role="menuitem">
             <span class="dd-num">03</span>
             <span class="dd-body"><span class="dd-title">Lifestyle & Office</span><span class="dd-sub">86 SKUs · Home · Office · Personal · Sports</span></span>
           </a>
@@ -801,30 +813,40 @@ ul { margin: 0; padding: 0; list-style: none; }
     <div class="menu-drawer-panel" role="dialog" aria-modal="true" aria-label="Site navigation">
       <a class="md-link" href="index.html#series">Catalogue<span aria-hidden="true">→</span></a>
       <div class="md-label">Products</div>
-      <a href="products-01-power-charging.html" class="md-sub-link">01 · Power & Charging</a>
+      <a href="products-01-power-charging.html" class="md-sub-link active">01 · Power & Charging</a>
       <a href="products-02-audio-mobile.html" class="md-sub-link">02 · Audio & Mobile</a>
-      <a href="products-03-lifestyle-office.html" class="md-sub-link active">03 · Lifestyle & Office</a>
+      <a href="products-03-lifestyle-office.html" class="md-sub-link">03 · Lifestyle & Office</a>
       <a href="products-04-carry-customize.html" class="md-sub-link">04 · Carry & Customize</a>
       <a class="md-link" href="index.html#contact">Contact<span aria-hidden="true">→</span></a>
     </div>
   </div>
 
-<main>
-<section class="hero-series" data-od-id="catalog-hero">
+<main id="content">
+<section class="catalog-hero" data-od-id="catalog-hero">
   <div class="container">
-    <a class="back" href="index.html">← Back to launcher</a>
-    <span class="eyebrow">2026 Catalogue · Home / Personal / Sports</span>
-    <h1>Lifestyle & Office</h1>
-    <p class="lede">Speaker / LED light / humidifier / water bottle / travel adapter / Yoga products.</p>
-    <p class="lead">Product names and parameters below are transcribed from their printed catalogue pages.</p>
-    <div class="meta">
-      <span>86 catalogue cards</span>
-      <span class="dot">·</span>
-      <span>Pages P37–P51</span>
+    <div class="breadcrumb">
+      <a href="index.html">← Back to launcher</a>
+      <span class="breadcrumb-sep">/</span>
+      <span>2026 CATALOGUE</span>
+      <span class="breadcrumb-sep">/</span>
+      <span class="current">Home, Personal & Office</span>
+    </div>
+    <h1 class="catalog-title">Home, Personal & Office</h1>
+    <p class="catalog-sub">Home comforts, personal care, travel adapters and office stationery.</p>
+  </div>
+</section>
+<section class="cat-divider" data-od-id="catalog-category" id="cat-05-home-personal">
+  <div class="container">
+    <div class="cat-head">
+      <span class="eyebrow">Category 01</span>
+      <h2 class="cat-title">Home & Personal Care</h2>
+      <p class="cat-tagline">Daily comforts, built for the brand.</p>
+      <p class="cat-subtitle">Humidifiers, bottles, security, video cards, fitness — life-improving gifts.</p>
+      <div class="cat-subs"><a href="#sub-humidifier-and-air-purifier">Humidifier & Air Purifier</a> · <a href="#sub-portable-blender-and-bottle">Portable Blender & Bottle</a> · <a href="#sub-personal-security">Personal Security</a> · <a href="#sub-video-card-and-brochure">Video Card & Brochure</a> · <a href="#sub-joy-life--fitness-and-lifestyle">Joy Life — Fitness & Lifestyle</a></div>
     </div>
   </div>
 </section>
-<section class="subcat" data-od-id="catalog-subcategory" id="subcat-humidifier-air-purifier">
+<section class="subcat" data-od-id="catalog-subcategory" id="sub-humidifier-and-air-purifier">
   <div class="container">
     <header class="subcat-head">
       <div>
@@ -840,75 +862,70 @@ ul { margin: 0; padding: 0; list-style: none; }
     <div class="product-grid">
         <div class="product-card" style="--i: 0">
           <div class="card-image">
-            <img src="assets/products-grid/wood-led-p37.webp" alt="7 color LED change" loading="lazy"  style="aspect-ratio: 0.496;" />
+            <img src="assets/products-grid/wood-led-p37.webp" alt="7 color LED change" loading="lazy" style="aspect-ratio: 0.761;" />
             <span class="page-pill">P37</span>
           </div>
           <div class="card-body">
-            <span class="sku">P37 · ITEM 01</span>
+            <span class="sku">—</span>
             <h3 class="name">7 color LED change</h3>
-            <ul class="spec spec-list"><li>LED&amp;Mist works Separateh</li></ul>
+            <ul class="spec spec-list"><li>LED&Mist works Separateh</li></ul>
             <div class="meta-row">
-              
               <span class="source">PDF · P37</span>
             </div>
           </div>
         </div>
         <div class="product-card" style="--i: 1">
           <div class="card-image">
-            <img src="assets/products-grid/stick-led-p37.webp" alt="Huminidfier" loading="lazy"  style="aspect-ratio: 0.366;" />
+            <img src="assets/products-grid/stick-led-p37.webp" alt="Huminidfier" loading="lazy" style="aspect-ratio: 0.771;" />
             <span class="page-pill">P37</span>
           </div>
           <div class="card-body">
-            <span class="sku">P37 · ITEM 02</span>
+            <span class="sku">—</span>
             <h3 class="name">Huminidfier</h3>
             <ul class="spec spec-list"><li>78*78*115MM</li><li>water capacity 255mL</li></ul>
             <div class="meta-row">
-              
               <span class="source">PDF · P37</span>
             </div>
           </div>
         </div>
         <div class="product-card" style="--i: 2">
           <div class="card-image">
-            <img src="assets/products-grid/car-usb-p37.webp" alt="Humidifier" loading="lazy"  style="aspect-ratio: 0.463;" />
+            <img src="assets/products-grid/car-usb-p37.webp" alt="Humidifier" loading="lazy" style="aspect-ratio: 0.741;" />
             <span class="page-pill">P37</span>
           </div>
           <div class="card-body">
-            <span class="sku">P37 · ITEM 03</span>
+            <span class="sku">—</span>
             <h3 class="name">Humidifier</h3>
             <ul class="spec spec-list"><li>water capacity 250Ml</li><li>WITH 800MAH BATTERY</li><li>with LED light</li></ul>
             <div class="meta-row">
-              
               <span class="source">PDF · P37</span>
             </div>
           </div>
         </div>
         <div class="product-card" style="--i: 3">
           <div class="card-image">
-            <img src="assets/products-grid/animal-ear-p37.webp" alt="Catalogue item · P37–04" loading="lazy"  style="aspect-ratio: 1.104;" />
+            <img src="assets/products-grid/animal-ear-p37.webp" alt="—" loading="lazy" style="aspect-ratio: 0.762;" />
             <span class="page-pill">P37</span>
           </div>
           <div class="card-body">
-            <span class="sku">P37 · ITEM 04</span>
-            <h3 class="name">Catalogue item · P37–04</h3>
+            <span class="sku">—</span>
+            <h3 class="name">—</h3>
             <ul class="spec spec-list"><li>PDF does not provide a separately readable product description.</li></ul>
             <div class="meta-row">
-              
               <span class="source">PDF · P37</span>
             </div>
           </div>
         </div>
         <div class="product-card" style="--i: 4">
           <div class="card-image">
-            <img src="assets/products-grid/cylinder-p37.webp" alt="car air purifier" loading="lazy"  style="aspect-ratio: 0.769;" />
+            <img src="assets/products-grid/cylinder-p37.webp" alt="car air purifier" loading="lazy" style="aspect-ratio: 0.772;" />
             <span class="page-pill">P37</span>
           </div>
           <div class="card-body">
-            <span class="sku">P37 · ITEM 05</span>
+            <span class="sku">—</span>
             <h3 class="name">car air purifier</h3>
             <ul class="spec spec-list"><li>35*35*105mm</li><li>output 5V 2.1A</li></ul>
             <div class="meta-row">
-              
               <span class="source">PDF · P37</span>
             </div>
           </div>
@@ -916,7 +933,7 @@ ul { margin: 0; padding: 0; list-style: none; }
     </div>
   </div>
 </section>
-<section class="subcat" data-od-id="catalog-subcategory" id="subcat-portable-blender-bottle">
+<section class="subcat" data-od-id="catalog-subcategory" id="sub-portable-blender-and-bottle">
   <div class="container">
     <header class="subcat-head">
       <div>
@@ -930,181 +947,98 @@ ul { margin: 0; padding: 0; list-style: none; }
       <span class="count">6 products</span>
     </div>
     <div class="product-grid">
-        <div class="product-card" style="--i: 5">
+        <div class="product-card" style="--i: 0">
           <div class="card-image">
-            <img src="assets/products-grid/hand-pressure-p38.webp" alt="Hand Pressure Coffee Maker" loading="lazy"  style="aspect-ratio: 0.591;" />
+            <img src="assets/products-grid/hand-pressure-p38.webp" alt="Hand Pressure Coffee Maker" loading="lazy" style="aspect-ratio: 0.761;" />
             <span class="page-pill">P38</span>
           </div>
           <div class="card-body">
-            <span class="sku">P38 · ITEM 01</span>
+            <span class="sku">—</span>
             <h3 class="name">Hand Pressure Coffee Maker</h3>
             <ul class="spec spec-list"><li>size 75*100*23mm</li><li>portable and easy to use</li></ul>
             <div class="meta-row">
-              
               <span class="source">PDF · P38</span>
-            </div>
-          </div>
-        </div>
-        <div class="product-card" style="--i: 6">
-          <div class="card-image">
-            <img src="assets/products-grid/protein-400-p38.webp" alt="shakers" loading="lazy"  style="aspect-ratio: 0.758;" />
-            <span class="page-pill">P38</span>
-          </div>
-          <div class="card-body">
-            <span class="sku">P38 · ITEM 02</span>
-            <h3 class="name">shakers</h3>
-            <ul class="spec spec-list"><li>400ML</li><li>size 9*16.5cm</li><li>white/green/purple/blue/pink/orange</li></ul>
-            <div class="meta-row">
-              
-              <span class="source">PDF · P38</span>
-            </div>
-          </div>
-        </div>
-        <div class="product-card" style="--i: 7">
-          <div class="card-image">
-            <img src="assets/products-grid/filter-200-p38.webp" alt="200ML" loading="lazy"  style="aspect-ratio: 0.555;" />
-            <span class="page-pill">P38</span>
-          </div>
-          <div class="card-body">
-            <span class="sku">P38 · ITEM 03</span>
-            <h3 class="name">200ML</h3>
-            <ul class="spec spec-list"><li>silicon material</li><li>for outdoor</li></ul>
-            <div class="meta-row">
-              
-              <span class="source">PDF · P38</span>
-            </div>
-          </div>
-        </div>
-        <div class="product-card" style="--i: 8">
-          <div class="card-image">
-            <img src="assets/products-grid/usb-juice-p38.webp" alt="Portable Juice maker" loading="lazy"  style="aspect-ratio: 0.445;" />
-            <span class="page-pill">P38</span>
-          </div>
-          <div class="card-body">
-            <span class="sku">P38 · ITEM 04</span>
-            <h3 class="name">Portable Juice maker</h3>
-            <ul class="spec spec-list"><li>battery 1500mah</li><li>charging 2 hours</li><li>300ML</li><li>easy take and easy use</li></ul>
-            <div class="meta-row">
-              
-              <span class="source">PDF · P38</span>
-            </div>
-          </div>
-        </div>
-        <div class="product-card" style="--i: 9">
-          <div class="card-image">
-            <img src="assets/products-grid/smoothie-usb-p38.webp" alt="Portable smoothie Maker" loading="lazy"  style="aspect-ratio: 0.275;" />
-            <span class="page-pill">P38</span>
-          </div>
-          <div class="card-body">
-            <span class="sku">P38 · ITEM 05</span>
-            <h3 class="name">Portable smoothie Maker</h3>
-            <ul class="spec spec-list"><li>500ML</li><li>ABS+PCTG material</li><li>4000mah battery</li><li>different colors</li><li>moto speed:18000/min</li><li>charging 3-5 hours</li></ul>
-            <div class="meta-row">
-              
-              <span class="source">PDF · P38</span>
-            </div>
-          </div>
-        </div>
-        <div class="product-card" style="--i: 10">
-          <div class="card-image">
-            <img src="assets/products-grid/vacuum-thermos-p38.webp" alt="Thermos" loading="lazy"  style="aspect-ratio: 0.936;" />
-            <span class="page-pill">P38</span>
-          </div>
-          <div class="card-body">
-            <span class="sku">P38 · ITEM 06</span>
-            <h3 class="name">Thermos</h3>
-            <ul class="spec spec-list"><li>500ML</li><li>304 stainless steel</li><li>size 23*6.5cm</li><li>with smart temperature</li></ul>
-            <div class="meta-row">
-              
-              <span class="source">PDF · P38</span>
-            </div>
-          </div>
-        </div>
-    </div>
-  </div>
-</section>
-<section class="subcat" data-od-id="catalog-subcategory" id="subcat-travel-adapter-universal-plug">
-  <div class="container">
-    <header class="subcat-head">
-      <div>
-        <span class="eyebrow">Sub-series 3</span>
-        <h2>Travel Adapter & Universal Plug</h2>
-      </div>
-    </header>
-    <div class="subcat-summary">
-      <span class="label">Catalog pages</span>
-      <span class="source-pages"><a href="#page-39">P39</a></span>
-      <span class="count">4 products</span>
-    </div>
-    <div class="product-grid">
-        <div class="product-card" style="--i: 11">
-          <div class="card-image">
-            <img src="assets/products-grid/dsj167-p39.webp" alt="2USB+3 TYPE C output" loading="lazy"  style="aspect-ratio: 0.773;" />
-            <span class="page-pill">P39</span>
-          </div>
-          <div class="card-body">
-            <span class="sku">P39 · ITEM 01</span>
-            <h3 class="name">2USB+3 TYPE C output</h3>
-            <ul class="spec spec-list"><li>PD 65W max</li></ul>
-            <div class="meta-row">
-              
-              <span class="source">PDF · P39</span>
-            </div>
-          </div>
-        </div>
-        <div class="product-card" style="--i: 0">
-          <div class="card-image">
-            <img src="assets/products-grid/dsjy307-p39.webp" alt="Cubic EU Socket" loading="lazy"  style="aspect-ratio: 1.503;" />
-            <span class="page-pill">P39</span>
-          </div>
-          <div class="card-body">
-            <span class="sku">P39 · ITEM 02</span>
-            <h3 class="name">Cubic EU Socket</h3>
-            <ul class="spec spec-list"><li>5V 2.4A *2USB+5V ЗA*2 TYPE C port</li><li>size 75.6*75.6*75.6mm</li></ul>
-            <div class="meta-row">
-              
-              <span class="source">PDF · P39</span>
             </div>
           </div>
         </div>
         <div class="product-card" style="--i: 1">
           <div class="card-image">
-            <img src="assets/products-grid/uk-eu-au-p39.webp" alt="3 USB PORT and 2 TYPE C port" loading="lazy"  style="aspect-ratio: 1.010;" />
-            <span class="page-pill">P39</span>
+            <img src="assets/products-grid/protein-400-p38.webp" alt="shakers" loading="lazy" style="aspect-ratio: 0.771;" />
+            <span class="page-pill">P38</span>
           </div>
           <div class="card-body">
-            <span class="sku">DSJY307</span>
-            <h3 class="name">3 USB PORT and 2 TYPE C port</h3>
-            <ul class="spec spec-list"><li>support PD 20W and QC 3.0</li><li>fast charge</li></ul>
+            <span class="sku">—</span>
+            <h3 class="name">shakers</h3>
+            <ul class="spec spec-list"><li>400ML</li><li>size 9*16.5cm</li><li>white/green/purple/blue/pink/orange</li></ul>
             <div class="meta-row">
-              
-              <span class="source">PDF · P39</span>
+              <span class="source">PDF · P38</span>
             </div>
           </div>
         </div>
         <div class="product-card" style="--i: 2">
           <div class="card-image">
-            <img src="assets/products-grid/cubic-eu-p39.webp" alt="Wall socket with USB TYPE C" loading="lazy"  style="aspect-ratio: 0.494;" />
-            <span class="page-pill">P39</span>
+            <img src="assets/products-grid/filter-200-p38.webp" alt="200ML" loading="lazy" style="aspect-ratio: 0.741;" />
+            <span class="page-pill">P38</span>
           </div>
           <div class="card-body">
-            <span class="sku">P39 · ITEM 04</span>
-            <h3 class="name">Wall socket with USB TYPE C</h3>
-            <ul class="spec spec-list"><li>100-240V</li><li>USB otuput 3.4A</li><li>socket output 16A</li><li>PC material</li><li>37mm</li></ul>
+            <span class="sku">—</span>
+            <h3 class="name">200ML</h3>
+            <ul class="spec spec-list"><li>silicon material</li><li>for outdoor</li></ul>
             <div class="meta-row">
-              
-              <span class="source">PDF · P39</span>
+              <span class="source">PDF · P38</span>
+            </div>
+          </div>
+        </div>
+        <div class="product-card" style="--i: 3">
+          <div class="card-image">
+            <img src="assets/products-grid/usb-juice-p38.webp" alt="Portable Juice maker" loading="lazy" style="aspect-ratio: 0.762;" />
+            <span class="page-pill">P38</span>
+          </div>
+          <div class="card-body">
+            <span class="sku">—</span>
+            <h3 class="name">Portable Juice maker</h3>
+            <ul class="spec spec-list"><li>battery 1500mah</li><li>charging 2 hours</li><li>300ML</li><li>easy take and easy use</li></ul>
+            <div class="meta-row">
+              <span class="source">PDF · P38</span>
+            </div>
+          </div>
+        </div>
+        <div class="product-card" style="--i: 4">
+          <div class="card-image">
+            <img src="assets/products-grid/smoothie-usb-p38.webp" alt="Portable smoothie Maker" loading="lazy" style="aspect-ratio: 0.772;" />
+            <span class="page-pill">P38</span>
+          </div>
+          <div class="card-body">
+            <span class="sku">—</span>
+            <h3 class="name">Portable smoothie Maker</h3>
+            <ul class="spec spec-list"><li>500ML</li><li>ABS+PCTG material</li><li>4000mah battery</li><li>different colors</li><li>moto speed:18000/min</li></ul>
+            <div class="meta-row">
+              <span class="source">PDF · P38</span>
+            </div>
+          </div>
+        </div>
+        <div class="product-card" style="--i: 5">
+          <div class="card-image">
+            <img src="assets/products-grid/vacuum-thermos-p38.webp" alt="Thermos" loading="lazy" style="aspect-ratio: 0.742;" />
+            <span class="page-pill">P38</span>
+          </div>
+          <div class="card-body">
+            <span class="sku">—</span>
+            <h3 class="name">Thermos</h3>
+            <ul class="spec spec-list"><li>500ML</li><li>304 stainless steel</li><li>size 23*6.5cm</li><li>with smart temperature</li></ul>
+            <div class="meta-row">
+              <span class="source">PDF · P38</span>
             </div>
           </div>
         </div>
     </div>
   </div>
 </section>
-<section class="subcat" data-od-id="catalog-subcategory" id="subcat-personal-security">
+<section class="subcat" data-od-id="catalog-subcategory" id="sub-personal-security">
   <div class="container">
     <header class="subcat-head">
       <div>
-        <span class="eyebrow">Sub-series 4</span>
+        <span class="eyebrow">Sub-series 3</span>
         <h2>Personal Security</h2>
       </div>
     </header>
@@ -1114,137 +1048,128 @@ ul { margin: 0; padding: 0; list-style: none; }
       <span class="count">9 products</span>
     </div>
     <div class="product-grid">
-        <div class="product-card" style="--i: 3">
+        <div class="product-card" style="--i: 0">
           <div class="card-image">
-            <img src="assets/products-grid/rfid-black-p42.webp" alt="Catalogue item · P42–01" loading="lazy"  style="aspect-ratio: 1.255;" />
+            <img src="assets/products-grid/rfid-black-p42.webp" alt="—" loading="lazy" style="aspect-ratio: 0.761;" />
             <span class="page-pill">P42</span>
           </div>
           <div class="card-body">
-            <span class="sku">P42 · ITEM 01</span>
-            <h3 class="name">Catalogue item · P42–01</h3>
+            <span class="sku">—</span>
+            <h3 class="name">—</h3>
             <ul class="spec spec-list"><li>PDF does not provide a separately readable product description.</li></ul>
             <div class="meta-row">
-              
+              <span class="source">PDF · P42</span>
+            </div>
+          </div>
+        </div>
+        <div class="product-card" style="--i: 1">
+          <div class="card-image">
+            <img src="assets/products-grid/rfid-brown-p42.webp" alt="—" loading="lazy" style="aspect-ratio: 0.771;" />
+            <span class="page-pill">P42</span>
+          </div>
+          <div class="card-body">
+            <span class="sku">—</span>
+            <h3 class="name">—</h3>
+            <ul class="spec spec-list"><li>PDF does not provide a separately readable product description.</li></ul>
+            <div class="meta-row">
+              <span class="source">PDF · P42</span>
+            </div>
+          </div>
+        </div>
+        <div class="product-card" style="--i: 2">
+          <div class="card-image">
+            <img src="assets/products-grid/rfid-carbon-p42.webp" alt="—" loading="lazy" style="aspect-ratio: 0.741;" />
+            <span class="page-pill">P42</span>
+          </div>
+          <div class="card-body">
+            <span class="sku">—</span>
+            <h3 class="name">—</h3>
+            <ul class="spec spec-list"><li>PDF does not provide a separately readable product description.</li></ul>
+            <div class="meta-row">
+              <span class="source">PDF · P42</span>
+            </div>
+          </div>
+        </div>
+        <div class="product-card" style="--i: 3">
+          <div class="card-image">
+            <img src="assets/products-grid/rfid-mini-p42.webp" alt="—" loading="lazy" style="aspect-ratio: 0.762;" />
+            <span class="page-pill">P42</span>
+          </div>
+          <div class="card-body">
+            <span class="sku">—</span>
+            <h3 class="name">—</h3>
+            <ul class="spec spec-list"><li>PDF does not provide a separately readable product description.</li></ul>
+            <div class="meta-row">
               <span class="source">PDF · P42</span>
             </div>
           </div>
         </div>
         <div class="product-card" style="--i: 4">
           <div class="card-image">
-            <img src="assets/products-grid/rfid-brown-p42.webp" alt="Catalogue item · P42–02" loading="lazy"  style="aspect-ratio: 0.669;" />
+            <img src="assets/products-grid/rfid-card-p42.webp" alt="—" loading="lazy" style="aspect-ratio: 0.772;" />
             <span class="page-pill">P42</span>
           </div>
           <div class="card-body">
-            <span class="sku">P42 · ITEM 02</span>
-            <h3 class="name">Catalogue item · P42–02</h3>
+            <span class="sku">—</span>
+            <h3 class="name">—</h3>
             <ul class="spec spec-list"><li>PDF does not provide a separately readable product description.</li></ul>
             <div class="meta-row">
-              
               <span class="source">PDF · P42</span>
             </div>
           </div>
         </div>
         <div class="product-card" style="--i: 5">
           <div class="card-image">
-            <img src="assets/products-grid/rfid-carbon-p42.webp" alt="Catalogue item · P42–03" loading="lazy"  style="aspect-ratio: 2.132;" />
-            <span class="page-pill">P42</span>
+            <img src="assets/products-grid/rfid-color-p43.webp" alt="—" loading="lazy" style="aspect-ratio: 1.086;" />
+            <span class="page-pill">P43</span>
           </div>
           <div class="card-body">
-            <span class="sku">P42 · ITEM 03</span>
-            <h3 class="name">Catalogue item · P42–03</h3>
+            <span class="sku">—</span>
+            <h3 class="name">—</h3>
             <ul class="spec spec-list"><li>PDF does not provide a separately readable product description.</li></ul>
             <div class="meta-row">
-              
-              <span class="source">PDF · P42</span>
+              <span class="source">PDF · P43</span>
             </div>
           </div>
         </div>
         <div class="product-card" style="--i: 6">
           <div class="card-image">
-            <img src="assets/products-grid/rfid-mini-p42.webp" alt="Catalogue item · P42–04" loading="lazy"  style="aspect-ratio: 0.876;" />
-            <span class="page-pill">P42</span>
+            <img src="assets/products-grid/webcam-cover-p43.webp" alt="—" loading="lazy" style="aspect-ratio: 1.065;" />
+            <span class="page-pill">P43</span>
           </div>
           <div class="card-body">
-            <span class="sku">P42 · ITEM 04</span>
-            <h3 class="name">Catalogue item · P42–04</h3>
+            <span class="sku">—</span>
+            <h3 class="name">—</h3>
             <ul class="spec spec-list"><li>PDF does not provide a separately readable product description.</li></ul>
             <div class="meta-row">
-              
-              <span class="source">PDF · P42</span>
+              <span class="source">PDF · P43</span>
             </div>
           </div>
         </div>
         <div class="product-card" style="--i: 7">
           <div class="card-image">
-            <img src="assets/products-grid/rfid-card-p42.webp" alt="Catalogue item · P42–05" loading="lazy"  style="aspect-ratio: 1.353;" />
-            <span class="page-pill">P42</span>
+            <img src="assets/products-grid/webcam-animal-p43.webp" alt="—" loading="lazy" style="aspect-ratio: 1.087;" />
+            <span class="page-pill">P43</span>
           </div>
           <div class="card-body">
-            <span class="sku">P42 · ITEM 05</span>
-            <h3 class="name">Catalogue item · P42–05</h3>
+            <span class="sku">—</span>
+            <h3 class="name">—</h3>
             <ul class="spec spec-list"><li>PDF does not provide a separately readable product description.</li></ul>
             <div class="meta-row">
-              
-              <span class="source">PDF · P42</span>
+              <span class="source">PDF · P43</span>
             </div>
           </div>
         </div>
         <div class="product-card" style="--i: 8">
           <div class="card-image">
-            <img src="assets/products-grid/rfid-color-p43.webp" alt="Catalogue item · P43–01" loading="lazy"  style="aspect-ratio: 1.204;" />
+            <img src="assets/products-grid/usb-data-block-p43.webp" alt="—" loading="lazy" style="aspect-ratio: 1.067;" />
             <span class="page-pill">P43</span>
           </div>
           <div class="card-body">
-            <span class="sku">P43 · ITEM 01</span>
-            <h3 class="name">Catalogue item · P43–01</h3>
+            <span class="sku">—</span>
+            <h3 class="name">—</h3>
             <ul class="spec spec-list"><li>PDF does not provide a separately readable product description.</li></ul>
             <div class="meta-row">
-              
-              <span class="source">PDF · P43</span>
-            </div>
-          </div>
-        </div>
-        <div class="product-card" style="--i: 9">
-          <div class="card-image">
-            <img src="assets/products-grid/webcam-cover-p43.webp" alt="Catalogue item · P43–02" loading="lazy"  style="aspect-ratio: 1.338;" />
-            <span class="page-pill">P43</span>
-          </div>
-          <div class="card-body">
-            <span class="sku">P43 · ITEM 02</span>
-            <h3 class="name">Catalogue item · P43–02</h3>
-            <ul class="spec spec-list"><li>PDF does not provide a separately readable product description.</li></ul>
-            <div class="meta-row">
-              
-              <span class="source">PDF · P43</span>
-            </div>
-          </div>
-        </div>
-        <div class="product-card" style="--i: 10">
-          <div class="card-image">
-            <img src="assets/products-grid/webcam-animal-p43.webp" alt="Catalogue item · P43–03" loading="lazy"  style="aspect-ratio: 1.530;" />
-            <span class="page-pill">P43</span>
-          </div>
-          <div class="card-body">
-            <span class="sku">P43 · ITEM 03</span>
-            <h3 class="name">Catalogue item · P43–03</h3>
-            <ul class="spec spec-list"><li>PDF does not provide a separately readable product description.</li></ul>
-            <div class="meta-row">
-              
-              <span class="source">PDF · P43</span>
-            </div>
-          </div>
-        </div>
-        <div class="product-card" style="--i: 11">
-          <div class="card-image">
-            <img src="assets/products-grid/usb-data-block-p43.webp" alt="Catalogue item · P43–04" loading="lazy"  style="aspect-ratio: 0.979;" />
-            <span class="page-pill">P43</span>
-          </div>
-          <div class="card-body">
-            <span class="sku">P43 · ITEM 04</span>
-            <h3 class="name">Catalogue item · P43–04</h3>
-            <ul class="spec spec-list"><li>PDF does not provide a separately readable product description.</li></ul>
-            <div class="meta-row">
-              
               <span class="source">PDF · P43</span>
             </div>
           </div>
@@ -1252,11 +1177,353 @@ ul { margin: 0; padding: 0; list-style: none; }
     </div>
   </div>
 </section>
-<section class="subcat" data-od-id="catalog-subcategory" id="subcat-notebook-stationery">
+<section class="subcat" data-od-id="catalog-subcategory" id="sub-video-card-and-brochure">
+  <div class="container">
+    <header class="subcat-head">
+      <div>
+        <span class="eyebrow">Sub-series 4</span>
+        <h2>Video Card & Brochure</h2>
+      </div>
+    </header>
+    <div class="subcat-summary">
+      <span class="label">Catalog pages</span>
+      <span class="source-pages"><a href="#page-50">P50</a></span>
+      <span class="count">6 products</span>
+    </div>
+    <div class="product-grid">
+        <div class="product-card" style="--i: 0">
+          <div class="card-image">
+            <img src="assets/products-grid/vc-custom-p50.webp" alt="—" loading="lazy" style="aspect-ratio: 0.761;" />
+            <span class="page-pill">P50</span>
+          </div>
+          <div class="card-body">
+            <span class="sku">—</span>
+            <h3 class="name">—</h3>
+            <ul class="spec spec-list"><li>PDF does not provide a separately readable product description.</li></ul>
+            <div class="meta-row">
+              <span class="source">PDF · P50</span>
+            </div>
+          </div>
+        </div>
+        <div class="product-card" style="--i: 1">
+          <div class="card-image">
+            <img src="assets/products-grid/vc-popup-p50.webp" alt="KHALEY" loading="lazy" style="aspect-ratio: 0.771;" />
+            <span class="page-pill">P50</span>
+          </div>
+          <div class="card-body">
+            <span class="sku">—</span>
+            <h3 class="name">KHALEY</h3>
+            <ul class="spec spec-list"><li>(Jou 22</li></ul>
+            <div class="meta-row">
+              <span class="source">PDF · P50</span>
+            </div>
+          </div>
+        </div>
+        <div class="product-card" style="--i: 2">
+          <div class="card-image">
+            <img src="assets/products-grid/vc-luxury-p50.webp" alt="—" loading="lazy" style="aspect-ratio: 0.741;" />
+            <span class="page-pill">P50</span>
+          </div>
+          <div class="card-body">
+            <span class="sku">—</span>
+            <h3 class="name">—</h3>
+            <ul class="spec spec-list"><li>PDF does not provide a separately readable product description.</li></ul>
+            <div class="meta-row">
+              <span class="source">PDF · P50</span>
+            </div>
+          </div>
+        </div>
+        <div class="product-card" style="--i: 3">
+          <div class="card-image">
+            <img src="assets/products-grid/vc-customdesign-p50.webp" alt="—" loading="lazy" style="aspect-ratio: 0.762;" />
+            <span class="page-pill">P50</span>
+          </div>
+          <div class="card-body">
+            <span class="sku">—</span>
+            <h3 class="name">—</h3>
+            <ul class="spec spec-list"><li>PDF does not provide a separately readable product description.</li></ul>
+            <div class="meta-row">
+              <span class="source">PDF · P50</span>
+            </div>
+          </div>
+        </div>
+        <div class="product-card" style="--i: 4">
+          <div class="card-image">
+            <img src="assets/products-grid/vc-box-p50.webp" alt="IPS, HD display" loading="lazy" style="aspect-ratio: 0.772;" />
+            <span class="page-pill">P50</span>
+          </div>
+          <div class="card-body">
+            <span class="sku">—</span>
+            <h3 class="name">IPS, HD display</h3>
+            <ul class="spec spec-list"><li>2.4", 4" 7", 10" display</li></ul>
+            <div class="meta-row">
+              <span class="source">PDF · P50</span>
+            </div>
+          </div>
+        </div>
+        <div class="product-card" style="--i: 5">
+          <div class="card-image">
+            <img src="assets/products-grid/vc-folder-p50.webp" alt="—" loading="lazy" style="aspect-ratio: 0.742;" />
+            <span class="page-pill">P50</span>
+          </div>
+          <div class="card-body">
+            <span class="sku">—</span>
+            <h3 class="name">—</h3>
+            <ul class="spec spec-list"><li>PDF does not provide a separately readable product description.</li></ul>
+            <div class="meta-row">
+              <span class="source">PDF · P50</span>
+            </div>
+          </div>
+        </div>
+    </div>
+  </div>
+</section>
+<section class="subcat" data-od-id="catalog-subcategory" id="sub-joy-life--fitness-and-lifestyle">
   <div class="container">
     <header class="subcat-head">
       <div>
         <span class="eyebrow">Sub-series 5</span>
+        <h2>Joy Life — Fitness & Lifestyle</h2>
+      </div>
+    </header>
+    <div class="subcat-summary">
+      <span class="label">Catalog pages</span>
+      <span class="source-pages"><a href="#page-51">P51</a></span>
+      <span class="count">10 products</span>
+    </div>
+    <div class="product-grid">
+        <div class="product-card" style="--i: 0">
+          <div class="card-image">
+            <img src="assets/products-grid/jl-yogamat-p51.webp" alt="TPE YOGA PAD" loading="lazy" style="aspect-ratio: 0.501;" />
+            <span class="page-pill">P51</span>
+          </div>
+          <div class="card-body">
+            <span class="sku">—</span>
+            <h3 class="name">TPE YOGA PAD</h3>
+            <ul class="spec spec-list"><li>61*183cm</li><li>Laser logo</li></ul>
+            <div class="meta-row">
+              <span class="source">PDF · P51</span>
+            </div>
+          </div>
+        </div>
+        <div class="product-card" style="--i: 1">
+          <div class="card-image">
+            <img src="assets/products-grid/jl-yogaball-p51.webp" alt="—" loading="lazy" style="aspect-ratio: 0.511;" />
+            <span class="page-pill">P51</span>
+          </div>
+          <div class="card-body">
+            <span class="sku">—</span>
+            <h3 class="name">—</h3>
+            <ul class="spec spec-list"><li>PDF does not provide a separately readable product description.</li></ul>
+            <div class="meta-row">
+              <span class="source">PDF · P51</span>
+            </div>
+          </div>
+        </div>
+        <div class="product-card" style="--i: 2">
+          <div class="card-image">
+            <img src="assets/products-grid/jl-stress-p51.webp" alt="—" loading="lazy" style="aspect-ratio: 0.512;" />
+            <span class="page-pill">P51</span>
+          </div>
+          <div class="card-body">
+            <span class="sku">—</span>
+            <h3 class="name">—</h3>
+            <ul class="spec spec-list"><li>PDF does not provide a separately readable product description.</li></ul>
+            <div class="meta-row">
+              <span class="source">PDF · P51</span>
+            </div>
+          </div>
+        </div>
+        <div class="product-card" style="--i: 3">
+          <div class="card-image">
+            <img src="assets/products-grid/jl-resistance-p51.webp" alt="—" loading="lazy" style="aspect-ratio: 0.481;" />
+            <span class="page-pill">P51</span>
+          </div>
+          <div class="card-body">
+            <span class="sku">—</span>
+            <h3 class="name">—</h3>
+            <ul class="spec spec-list"><li>PDF does not provide a separately readable product description.</li></ul>
+            <div class="meta-row">
+              <span class="source">PDF · P51</span>
+            </div>
+          </div>
+        </div>
+        <div class="product-card" style="--i: 4">
+          <div class="card-image">
+            <img src="assets/products-grid/jl-beach-p51.webp" alt="Elastic Band" loading="lazy" style="aspect-ratio: 0.502;" />
+            <span class="page-pill">P51</span>
+          </div>
+          <div class="card-body">
+            <span class="sku">—</span>
+            <h3 class="name">Elastic Band</h3>
+            <ul class="spec spec-list"><li>differet color</li><li>different size</li><li>5IBS-230IBS</li><li>exercise anywhere</li></ul>
+            <div class="meta-row">
+              <span class="source">PDF · P51</span>
+            </div>
+          </div>
+        </div>
+        <div class="product-card" style="--i: 5">
+          <div class="card-image">
+            <img src="assets/products-grid/jl-bottle-p51.webp" alt="Beach Ball" loading="lazy" style="aspect-ratio: 0.512;" />
+            <span class="page-pill">P51</span>
+          </div>
+          <div class="card-body">
+            <span class="sku">—</span>
+            <h3 class="name">Beach Ball</h3>
+            <ul class="spec spec-list"><li>MDF material with customier print</li></ul>
+            <div class="meta-row">
+              <span class="source">PDF · P51</span>
+            </div>
+          </div>
+        </div>
+        <div class="product-card" style="--i: 6">
+          <div class="card-image">
+            <img src="assets/products-grid/jl-shoebelt-p51.webp" alt="—" loading="lazy" style="aspect-ratio: 0.512;" />
+            <span class="page-pill">P51</span>
+          </div>
+          <div class="card-body">
+            <span class="sku">—</span>
+            <h3 class="name">—</h3>
+            <ul class="spec spec-list"><li>PDF does not provide a separately readable product description.</li></ul>
+            <div class="meta-row">
+              <span class="source">PDF · P51</span>
+            </div>
+          </div>
+        </div>
+        <div class="product-card" style="--i: 7">
+          <div class="card-image">
+            <img src="assets/products-grid/jl-backclip-p51.webp" alt="—" loading="lazy" style="aspect-ratio: 0.481;" />
+            <span class="page-pill">P51</span>
+          </div>
+          <div class="card-body">
+            <span class="sku">—</span>
+            <h3 class="name">—</h3>
+            <ul class="spec spec-list"><li>PDF does not provide a separately readable product description.</li></ul>
+            <div class="meta-row">
+              <span class="source">PDF · P51</span>
+            </div>
+          </div>
+        </div>
+        <div class="product-card" style="--i: 8">
+          <div class="card-image">
+            <img src="assets/products-grid/jl-armband-p51.webp" alt="—" loading="lazy" style="aspect-ratio: 0.502;" />
+            <span class="page-pill">P51</span>
+          </div>
+          <div class="card-body">
+            <span class="sku">—</span>
+            <h3 class="name">—</h3>
+            <ul class="spec spec-list"><li>PDF does not provide a separately readable product description.</li></ul>
+            <div class="meta-row">
+              <span class="source">PDF · P51</span>
+            </div>
+          </div>
+        </div>
+        <div class="product-card" style="--i: 9">
+          <div class="card-image">
+            <img src="assets/products-grid/jl-bracelet-p51.webp" alt="—" loading="lazy" style="aspect-ratio: 0.512;" />
+            <span class="page-pill">P51</span>
+          </div>
+          <div class="card-body">
+            <span class="sku">—</span>
+            <h3 class="name">—</h3>
+            <ul class="spec spec-list"><li>PDF does not provide a separately readable product description.</li></ul>
+            <div class="meta-row">
+              <span class="source">PDF · P51</span>
+            </div>
+          </div>
+        </div>
+    </div>
+  </div>
+</section>
+<section class="cat-divider" data-od-id="catalog-category" id="cat-06-travel-office">
+  <div class="container">
+    <div class="cat-head">
+      <span class="eyebrow">Category 02</span>
+      <h2 class="cat-title">Travel & Office</h2>
+      <p class="cat-tagline">Wherever business goes.</p>
+      <p class="cat-subtitle">Travel adapters, stationery and computer peripherals for the road and the desk.</p>
+      <div class="cat-subs"><a href="#sub-travel-adapter-and-universal-plug">Travel Adapter & Universal Plug</a> · <a href="#sub-notebook-and-stationery">Notebook & Stationery</a> · <a href="#sub-mouse-and-mouse-pad">Mouse & Mouse Pad</a></div>
+    </div>
+  </div>
+</section>
+<section class="subcat" data-od-id="catalog-subcategory" id="sub-travel-adapter-and-universal-plug">
+  <div class="container">
+    <header class="subcat-head">
+      <div>
+        <span class="eyebrow">Sub-series 6</span>
+        <h2>Travel Adapter & Universal Plug</h2>
+      </div>
+    </header>
+    <div class="subcat-summary">
+      <span class="label">Catalog pages</span>
+      <span class="source-pages"><a href="#page-39">P39</a></span>
+      <span class="count">4 products</span>
+    </div>
+    <div class="product-grid">
+        <div class="product-card" style="--i: 0">
+          <div class="card-image">
+            <img src="assets/products-grid/dsj167-p39.webp" alt="2USB+3 TYPE C output" loading="lazy" style="aspect-ratio: 1.086;" />
+            <span class="page-pill">P39</span>
+          </div>
+          <div class="card-body">
+            <span class="sku">—</span>
+            <h3 class="name">2USB+3 TYPE C output</h3>
+            <ul class="spec spec-list"><li>PD 65W max</li></ul>
+            <div class="meta-row">
+              <span class="source">PDF · P39</span>
+            </div>
+          </div>
+        </div>
+        <div class="product-card" style="--i: 1">
+          <div class="card-image">
+            <img src="assets/products-grid/dsjy307-p39.webp" alt="Cubic EU Socket" loading="lazy" style="aspect-ratio: 1.065;" />
+            <span class="page-pill">P39</span>
+          </div>
+          <div class="card-body">
+            <span class="sku">—</span>
+            <h3 class="name">Cubic EU Socket</h3>
+            <ul class="spec spec-list"><li>5V 2.4A *2USB+5V ЗA*2 TYPE C port</li><li>size 75.6*75.6*75.6mm</li></ul>
+            <div class="meta-row">
+              <span class="source">PDF · P39</span>
+            </div>
+          </div>
+        </div>
+        <div class="product-card" style="--i: 2">
+          <div class="card-image">
+            <img src="assets/products-grid/uk-eu-au-p39.webp" alt="3 USB PORT and 2 TYPE C port" loading="lazy" style="aspect-ratio: 1.087;" />
+            <span class="page-pill">P39</span>
+          </div>
+          <div class="card-body">
+            <span class="sku">DSJY307</span>
+            <h3 class="name">3 USB PORT and 2 TYPE C port</h3>
+            <ul class="spec spec-list"><li>support PD 20W and QC 3.0</li><li>fast charge</li></ul>
+            <div class="meta-row">
+              <span class="source">PDF · P39</span>
+            </div>
+          </div>
+        </div>
+        <div class="product-card" style="--i: 3">
+          <div class="card-image">
+            <img src="assets/products-grid/cubic-eu-p39.webp" alt="Wall socket with USB TYPE C" loading="lazy" style="aspect-ratio: 1.067;" />
+            <span class="page-pill">P39</span>
+          </div>
+          <div class="card-body">
+            <span class="sku">—</span>
+            <h3 class="name">Wall socket with USB TYPE C</h3>
+            <ul class="spec spec-list"><li>100-240V</li><li>USB otuput 3.4A</li><li>socket output 16A</li><li>PC material</li><li>37mm</li></ul>
+            <div class="meta-row">
+              <span class="source">PDF · P39</span>
+            </div>
+          </div>
+        </div>
+    </div>
+  </div>
+</section>
+<section class="subcat" data-od-id="catalog-subcategory" id="sub-notebook-and-stationery">
+  <div class="container">
+    <header class="subcat-head">
+      <div>
+        <span class="eyebrow">Sub-series 7</span>
         <h2>Notebook & Stationery</h2>
       </div>
     </header>
@@ -1268,225 +1535,210 @@ ul { margin: 0; padding: 0; list-style: none; }
     <div class="product-grid">
         <div class="product-card" style="--i: 0">
           <div class="card-image">
-            <img src="assets/products-grid/nb-pu-blue-p44.webp" alt="Catalogue item · P44–01" loading="lazy"  style="aspect-ratio: 0.748;" />
+            <img src="assets/products-grid/nb-pu-blue-p44.webp" alt="—" loading="lazy" style="aspect-ratio: 0.599;" />
             <span class="page-pill">P44</span>
           </div>
           <div class="card-body">
-            <span class="sku">P44 · ITEM 01</span>
-            <h3 class="name">Catalogue item · P44–01</h3>
+            <span class="sku">—</span>
+            <h3 class="name">—</h3>
             <ul class="spec spec-list"><li>PDF does not provide a separately readable product description.</li></ul>
             <div class="meta-row">
-              
               <span class="source">PDF · P44</span>
             </div>
           </div>
         </div>
         <div class="product-card" style="--i: 1">
           <div class="card-image">
-            <img src="assets/products-grid/nb-pu-red-p44.webp" alt="Catalogue item · P44–02" loading="lazy"  style="aspect-ratio: 0.589;" />
+            <img src="assets/products-grid/nb-pu-red-p44.webp" alt="—" loading="lazy" style="aspect-ratio: 0.609;" />
             <span class="page-pill">P44</span>
           </div>
           <div class="card-body">
-            <span class="sku">P44 · ITEM 02</span>
-            <h3 class="name">Catalogue item · P44–02</h3>
+            <span class="sku">—</span>
+            <h3 class="name">—</h3>
             <ul class="spec spec-list"><li>PDF does not provide a separately readable product description.</li></ul>
             <div class="meta-row">
-              
               <span class="source">PDF · P44</span>
             </div>
           </div>
         </div>
         <div class="product-card" style="--i: 2">
           <div class="card-image">
-            <img src="assets/products-grid/nb-pu-pastel-p44.webp" alt="Catalogue item · P44–03" loading="lazy"  style="aspect-ratio: 0.684;" />
+            <img src="assets/products-grid/nb-pu-pastel-p44.webp" alt="—" loading="lazy" style="aspect-ratio: 0.609;" />
             <span class="page-pill">P44</span>
           </div>
           <div class="card-body">
-            <span class="sku">P44 · ITEM 03</span>
-            <h3 class="name">Catalogue item · P44–03</h3>
+            <span class="sku">—</span>
+            <h3 class="name">—</h3>
             <ul class="spec spec-list"><li>PDF does not provide a separately readable product description.</li></ul>
             <div class="meta-row">
-              
               <span class="source">PDF · P44</span>
             </div>
           </div>
         </div>
         <div class="product-card" style="--i: 3">
           <div class="card-image">
-            <img src="assets/products-grid/nb-pu-strap-p44.webp" alt="Catalogue item · P44–04" loading="lazy"  style="aspect-ratio: 0.899;" />
+            <img src="assets/products-grid/nb-pu-strap-p44.webp" alt="—" loading="lazy" style="aspect-ratio: 0.578;" />
             <span class="page-pill">P44</span>
           </div>
           <div class="card-body">
-            <span class="sku">P44 · ITEM 04</span>
-            <h3 class="name">Catalogue item · P44–04</h3>
+            <span class="sku">—</span>
+            <h3 class="name">—</h3>
             <ul class="spec spec-list"><li>PDF does not provide a separately readable product description.</li></ul>
             <div class="meta-row">
-              
               <span class="source">PDF · P44</span>
             </div>
           </div>
         </div>
         <div class="product-card" style="--i: 4">
           <div class="card-image">
-            <img src="assets/products-grid/nb-pu-pocket-p44.webp" alt="Catalogue item · P44–05" loading="lazy"  style="aspect-ratio: 0.737;" />
+            <img src="assets/products-grid/nb-pu-pocket-p44.webp" alt="—" loading="lazy" style="aspect-ratio: 0.599;" />
             <span class="page-pill">P44</span>
           </div>
           <div class="card-body">
-            <span class="sku">P44 · ITEM 05</span>
-            <h3 class="name">Catalogue item · P44–05</h3>
+            <span class="sku">—</span>
+            <h3 class="name">—</h3>
             <ul class="spec spec-list"><li>PDF does not provide a separately readable product description.</li></ul>
             <div class="meta-row">
-              
               <span class="source">PDF · P44</span>
             </div>
           </div>
         </div>
         <div class="product-card" style="--i: 5">
           <div class="card-image">
-            <img src="assets/products-grid/nb-pu-light-p44.webp" alt="Catalogue item · P44–06" loading="lazy"  style="aspect-ratio: 0.318;" />
+            <img src="assets/products-grid/nb-pu-light-p44.webp" alt="—" loading="lazy" style="aspect-ratio: 0.609;" />
             <span class="page-pill">P44</span>
           </div>
           <div class="card-body">
-            <span class="sku">P44 · ITEM 06</span>
-            <h3 class="name">Catalogue item · P44–06</h3>
+            <span class="sku">—</span>
+            <h3 class="name">—</h3>
             <ul class="spec spec-list"><li>PDF does not provide a separately readable product description.</li></ul>
             <div class="meta-row">
-              
               <span class="source">PDF · P44</span>
             </div>
           </div>
         </div>
         <div class="product-card" style="--i: 6">
           <div class="card-image">
-            <img src="assets/products-grid/nb-giftset-p44.webp" alt="Catalogue item · P44–07" loading="lazy"  style="aspect-ratio: 0.284;" />
+            <img src="assets/products-grid/nb-giftset-p44.webp" alt="—" loading="lazy" style="aspect-ratio: 0.609;" />
             <span class="page-pill">P44</span>
           </div>
           <div class="card-body">
-            <span class="sku">P44 · ITEM 07</span>
-            <h3 class="name">Catalogue item · P44–07</h3>
+            <span class="sku">—</span>
+            <h3 class="name">—</h3>
             <ul class="spec spec-list"><li>PDF does not provide a separately readable product description.</li></ul>
             <div class="meta-row">
-              
               <span class="source">PDF · P44</span>
             </div>
           </div>
         </div>
         <div class="product-card" style="--i: 7">
           <div class="card-image">
-            <img src="assets/products-grid/nb-pen21-p44.webp" alt="Catalogue item · P44–08" loading="lazy"  style="aspect-ratio: 0.668;" />
+            <img src="assets/products-grid/nb-pen21-p44.webp" alt="—" loading="lazy" style="aspect-ratio: 0.579;" />
             <span class="page-pill">P44</span>
           </div>
           <div class="card-body">
-            <span class="sku">P44 · ITEM 08</span>
-            <h3 class="name">Catalogue item · P44–08</h3>
+            <span class="sku">—</span>
+            <h3 class="name">—</h3>
             <ul class="spec spec-list"><li>PDF does not provide a separately readable product description.</li></ul>
             <div class="meta-row">
-              
               <span class="source">PDF · P44</span>
             </div>
           </div>
         </div>
         <div class="product-card" style="--i: 8">
           <div class="card-image">
-            <img src="assets/products-grid/nb-felt-strap-p45.webp" alt="3 in 1 note book" loading="lazy"  style="aspect-ratio: 1.294;" />
+            <img src="assets/products-grid/nb-felt-strap-p45.webp" alt="3 in 1 note book" loading="lazy" style="aspect-ratio: 0.599;" />
             <span class="page-pill">P45</span>
           </div>
           <div class="card-body">
-            <span class="sku">P45 · ITEM 01</span>
+            <span class="sku">—</span>
             <h3 class="name">3 in 1 note book</h3>
             <ul class="spec spec-list"><li>8000mah powerbank</li><li>wireless charging</li><li>USB 16GB</li><li>input 5V 1A</li><li>output 5V 1A</li></ul>
             <div class="meta-row">
-              
               <span class="source">PDF · P45</span>
             </div>
           </div>
         </div>
         <div class="product-card" style="--i: 9">
           <div class="card-image">
-            <img src="assets/products-grid/nb-felt-a5-p45.webp" alt="Catalogue item · P45–02" loading="lazy"  style="aspect-ratio: 1.119;" />
+            <img src="assets/products-grid/nb-felt-a5-p45.webp" alt="—" loading="lazy" style="aspect-ratio: 0.609;" />
             <span class="page-pill">P45</span>
           </div>
           <div class="card-body">
-            <span class="sku">P45 · ITEM 02</span>
-            <h3 class="name">Catalogue item · P45–02</h3>
+            <span class="sku">—</span>
+            <h3 class="name">—</h3>
             <ul class="spec spec-list"><li>PDF does not provide a separately readable product description.</li></ul>
             <div class="meta-row">
-              
               <span class="source">PDF · P45</span>
             </div>
           </div>
         </div>
         <div class="product-card" style="--i: 10">
           <div class="card-image">
-            <img src="assets/products-grid/nb-powerbank-p45.webp" alt="Finger print note book" loading="lazy"  style="aspect-ratio: 0.731;" />
+            <img src="assets/products-grid/nb-powerbank-p45.webp" alt="Finger print note book" loading="lazy" style="aspect-ratio: 0.609;" />
             <span class="page-pill">P45</span>
           </div>
           <div class="card-body">
-            <span class="sku">P45 · ITEM 03</span>
+            <span class="sku">—</span>
             <h3 class="name">Finger print note book</h3>
             <ul class="spec spec-list"><li>with powerbank and USB</li><li>8000mah</li></ul>
             <div class="meta-row">
-              
               <span class="source">PDF · P45</span>
             </div>
           </div>
         </div>
         <div class="product-card" style="--i: 11">
           <div class="card-image">
-            <img src="assets/products-grid/nb-fingerprint-p45.webp" alt="Note book" loading="lazy"  style="aspect-ratio: 1.236;" />
+            <img src="assets/products-grid/nb-fingerprint-p45.webp" alt="Note book" loading="lazy" style="aspect-ratio: 0.578;" />
             <span class="page-pill">P45</span>
           </div>
           <div class="card-body">
-            <span class="sku">P45 · ITEM 04</span>
+            <span class="sku">—</span>
             <h3 class="name">Note book</h3>
             <ul class="spec spec-list"><li>with powerbank and wireless</li><li>charger</li></ul>
             <div class="meta-row">
-              
               <span class="source">PDF · P45</span>
             </div>
           </div>
         </div>
-        <div class="product-card" style="--i: 0">
+        <div class="product-card" style="--i: 12">
           <div class="card-image">
-            <img src="assets/products-grid/nb-adidas-p45.webp" alt="Catalogue item · P45–05" loading="lazy"  style="aspect-ratio: 0.859;" />
+            <img src="assets/products-grid/nb-adidas-p45.webp" alt="—" loading="lazy" style="aspect-ratio: 0.599;" />
             <span class="page-pill">P45</span>
           </div>
           <div class="card-body">
-            <span class="sku">P45 · ITEM 05</span>
-            <h3 class="name">Catalogue item · P45–05</h3>
+            <span class="sku">—</span>
+            <h3 class="name">—</h3>
             <ul class="spec spec-list"><li>PDF does not provide a separately readable product description.</li></ul>
             <div class="meta-row">
-              
               <span class="source">PDF · P45</span>
             </div>
           </div>
         </div>
-        <div class="product-card" style="--i: 1">
+        <div class="product-card" style="--i: 13">
           <div class="card-image">
-            <img src="assets/products-grid/nb-pb-led-p45.webp" alt="Multifunction folder" loading="lazy"  style="aspect-ratio: 1.096;" />
+            <img src="assets/products-grid/nb-pb-led-p45.webp" alt="Multifunction folder" loading="lazy" style="aspect-ratio: 0.609;" />
             <span class="page-pill">P45</span>
           </div>
           <div class="card-body">
-            <span class="sku">P45 · ITEM 06</span>
+            <span class="sku">—</span>
             <h3 class="name">Multifunction folder</h3>
             <ul class="spec spec-list"><li>with 8000mah powrbank</li><li>with cable</li></ul>
             <div class="meta-row">
-              
               <span class="source">PDF · P45</span>
             </div>
           </div>
         </div>
-        <div class="product-card" style="--i: 2">
+        <div class="product-card" style="--i: 14">
           <div class="card-image">
-            <img src="assets/products-grid/nb-organizer-p45.webp" alt="Note book" loading="lazy"  style="aspect-ratio: 0.901;" />
+            <img src="assets/products-grid/nb-organizer-p45.webp" alt="Note book" loading="lazy" style="aspect-ratio: 0.609;" />
             <span class="page-pill">P45</span>
           </div>
           <div class="card-body">
-            <span class="sku">P45 · ITEM 07</span>
+            <span class="sku">—</span>
             <h3 class="name">Note book</h3>
             <ul class="spec spec-list"><li>8000mah powerbank</li><li>wireless charger and led light</li></ul>
             <div class="meta-row">
-              
               <span class="source">PDF · P45</span>
             </div>
           </div>
@@ -1494,386 +1746,7 @@ ul { margin: 0; padding: 0; list-style: none; }
     </div>
   </div>
 </section>
-<section class="subcat" data-od-id="catalog-subcategory" id="subcat-phone-holder-stand">
-  <div class="container">
-    <header class="subcat-head">
-      <div>
-        <span class="eyebrow">Sub-series 6</span>
-        <h2>Phone Holder & Stand</h2>
-      </div>
-    </header>
-    <div class="subcat-summary">
-      <span class="label">Catalog pages</span>
-      <span class="source-pages"><a href="#page-46">P46</a> · <a href="#page-47">P47</a></span>
-      <span class="count">14 products</span>
-    </div>
-    <div class="product-grid">
-        <div class="product-card" style="--i: 3">
-          <div class="card-image">
-            <img src="assets/products-grid/ph-tablet-p46.webp" alt="Catalogue item · P46–01" loading="lazy"  style="aspect-ratio: 1.074;" />
-            <span class="page-pill">P46</span>
-          </div>
-          <div class="card-body">
-            <span class="sku">P46 · ITEM 01</span>
-            <h3 class="name">Catalogue item · P46–01</h3>
-            <ul class="spec spec-list"><li>PDF does not provide a separately readable product description.</li></ul>
-            <div class="meta-row">
-              
-              <span class="source">PDF · P46</span>
-            </div>
-          </div>
-        </div>
-        <div class="product-card" style="--i: 4">
-          <div class="card-image">
-            <img src="assets/products-grid/ph-popsocket-p46.webp" alt="Catalogue item · P46–02" loading="lazy"  style="aspect-ratio: 0.555;" />
-            <span class="page-pill">P46</span>
-          </div>
-          <div class="card-body">
-            <span class="sku">P46 · ITEM 02</span>
-            <h3 class="name">Catalogue item · P46–02</h3>
-            <ul class="spec spec-list"><li>PDF does not provide a separately readable product description.</li></ul>
-            <div class="meta-row">
-              
-              <span class="source">PDF · P46</span>
-            </div>
-          </div>
-        </div>
-        <div class="product-card" style="--i: 5">
-          <div class="card-image">
-            <img src="assets/products-grid/ph-popsocket-brand-p46.webp" alt="Catalogue item · P46–03" loading="lazy"  style="aspect-ratio: 0.398;" />
-            <span class="page-pill">P46</span>
-          </div>
-          <div class="card-body">
-            <span class="sku">P46 · ITEM 03</span>
-            <h3 class="name">Catalogue item · P46–03</h3>
-            <ul class="spec spec-list"><li>PDF does not provide a separately readable product description.</li></ul>
-            <div class="meta-row">
-              
-              <span class="source">PDF · P46</span>
-            </div>
-          </div>
-        </div>
-        <div class="product-card" style="--i: 6">
-          <div class="card-image">
-            <img src="assets/products-grid/ph-silicone-slim-p46.webp" alt="silicon phone holde" loading="lazy"  style="aspect-ratio: 0.610;" />
-            <span class="page-pill">P46</span>
-          </div>
-          <div class="card-body">
-            <span class="sku">P46 · ITEM 04</span>
-            <h3 class="name">silicon phone holde</h3>
-            <ul class="spec spec-list"><li>43*72mm</li></ul>
-            <div class="meta-row">
-              
-              <span class="source">PDF · P46</span>
-            </div>
-          </div>
-        </div>
-        <div class="product-card" style="--i: 7">
-          <div class="card-image">
-            <img src="assets/products-grid/ph-pu-wallet-p46.webp" alt="PU leather phone holder" loading="lazy"  style="aspect-ratio: 1.058;" />
-            <span class="page-pill">P46</span>
-          </div>
-          <div class="card-body">
-            <span class="sku">P46 · ITEM 05</span>
-            <h3 class="name">PU leather phone holder</h3>
-            <ul class="spec spec-list"><li>65*100mm</li></ul>
-            <div class="meta-row">
-              
-              <span class="source">PDF · P46</span>
-            </div>
-          </div>
-        </div>
-        <div class="product-card" style="--i: 8">
-          <div class="card-image">
-            <img src="assets/products-grid/ph-metal-ring-p46.webp" alt="phone holder" loading="lazy"  style="aspect-ratio: 0.640;" />
-            <span class="page-pill">P46</span>
-          </div>
-          <div class="card-body">
-            <span class="sku">P46 · ITEM 06</span>
-            <h3 class="name">phone holder</h3>
-            <ul class="spec spec-list"><li>29.25*29.25mm</li></ul>
-            <div class="meta-row">
-              
-              <span class="source">PDF · P46</span>
-            </div>
-          </div>
-        </div>
-        <div class="product-card" style="--i: 9">
-          <div class="card-image">
-            <img src="assets/products-grid/ph-washable-p46.webp" alt="Catalogue item · P46–07" loading="lazy"  style="aspect-ratio: 0.872;" />
-            <span class="page-pill">P46</span>
-          </div>
-          <div class="card-body">
-            <span class="sku">P46 · ITEM 07</span>
-            <h3 class="name">Catalogue item · P46–07</h3>
-            <ul class="spec spec-list"><li>PDF does not provide a separately readable product description.</li></ul>
-            <div class="meta-row">
-              
-              <span class="source">PDF · P46</span>
-            </div>
-          </div>
-        </div>
-        <div class="product-card" style="--i: 10">
-          <div class="card-image">
-            <img src="assets/products-grid/ph-silicone-suction-p47.webp" alt="Magnet phone holder for car" loading="lazy"  style="aspect-ratio: 0.714;" />
-            <span class="page-pill">P47</span>
-          </div>
-          <div class="card-body">
-            <span class="sku">P47 · ITEM 01</span>
-            <h3 class="name">Magnet phone holder for car</h3>
-            <ul class="spec spec-list"><li>37*56mm</li></ul>
-            <div class="meta-row">
-              
-              <span class="source">PDF · P47</span>
-            </div>
-          </div>
-        </div>
-        <div class="product-card" style="--i: 11">
-          <div class="card-image">
-            <img src="assets/products-grid/ph-car-magnetic-p47.webp" alt="Catalogue item · P47–02" loading="lazy"  style="aspect-ratio: 1.182;" />
-            <span class="page-pill">P47</span>
-          </div>
-          <div class="card-body">
-            <span class="sku">P47 · ITEM 02</span>
-            <h3 class="name">Catalogue item · P47–02</h3>
-            <ul class="spec spec-list"><li>PDF does not provide a separately readable product description.</li></ul>
-            <div class="meta-row">
-              
-              <span class="source">PDF · P47</span>
-            </div>
-          </div>
-        </div>
-        <div class="product-card" style="--i: 0">
-          <div class="card-image">
-            <img src="assets/products-grid/ph-bike-waterproof-p47.webp" alt="Water proof Phone holder for Bike" loading="lazy"  style="aspect-ratio: 1.815;" />
-            <span class="page-pill">P47</span>
-          </div>
-          <div class="card-body">
-            <span class="sku">P47 · ITEM 03</span>
-            <h3 class="name">Water proof Phone holder for Bike</h3>
-            <ul class="spec spec-list"><li>178*92*25mm</li><li>193*99.2*25mm</li></ul>
-            <div class="meta-row">
-              
-              <span class="source">PDF · P47</span>
-            </div>
-          </div>
-        </div>
-        <div class="product-card" style="--i: 1">
-          <div class="card-image">
-            <img src="assets/products-grid/ph-bike-adjustable-p47.webp" alt="Min: 22mm" loading="lazy"  style="aspect-ratio: 0.565;" />
-            <span class="page-pill">P47</span>
-          </div>
-          <div class="card-body">
-            <span class="sku">P47 · ITEM 04</span>
-            <h3 class="name">Min: 22mm</h3>
-            <ul class="spec spec-list"><li>Max:</li></ul>
-            <div class="meta-row">
-              
-              <span class="source">PDF · P47</span>
-            </div>
-          </div>
-        </div>
-        <div class="product-card" style="--i: 2">
-          <div class="card-image">
-            <img src="assets/products-grid/ph-bike-compass-p47.webp" alt="Catalogue item · P47–05" loading="lazy"  style="aspect-ratio: 0.729;" />
-            <span class="page-pill">P47</span>
-          </div>
-          <div class="card-body">
-            <span class="sku">P47 · ITEM 05</span>
-            <h3 class="name">Catalogue item · P47–05</h3>
-            <ul class="spec spec-list"><li>PDF does not provide a separately readable product description.</li></ul>
-            <div class="meta-row">
-              
-              <span class="source">PDF · P47</span>
-            </div>
-          </div>
-        </div>
-        <div class="product-card" style="--i: 3">
-          <div class="card-image">
-            <img src="assets/products-grid/ph-silicone-bike-p47.webp" alt="Catalogue item · P47–06" loading="lazy"  style="aspect-ratio: 0.605;" />
-            <span class="page-pill">P47</span>
-          </div>
-          <div class="card-body">
-            <span class="sku">P47 · ITEM 06</span>
-            <h3 class="name">Catalogue item · P47–06</h3>
-            <ul class="spec spec-list"><li>PDF does not provide a separately readable product description.</li></ul>
-            <div class="meta-row">
-              
-              <span class="source">PDF · P47</span>
-            </div>
-          </div>
-        </div>
-        <div class="product-card" style="--i: 4">
-          <div class="card-image">
-            <img src="assets/products-grid/ph-bike-clamp-p47.webp" alt="Catalogue item · P47–07" loading="lazy"  style="aspect-ratio: 2.436;" />
-            <span class="page-pill">P47</span>
-          </div>
-          <div class="card-body">
-            <span class="sku">P47 · ITEM 07</span>
-            <h3 class="name">Catalogue item · P47–07</h3>
-            <ul class="spec spec-list"><li>PDF does not provide a separately readable product description.</li></ul>
-            <div class="meta-row">
-              
-              <span class="source">PDF · P47</span>
-            </div>
-          </div>
-        </div>
-    </div>
-  </div>
-</section>
-<section class="subcat" data-od-id="catalog-subcategory" id="subcat-usb-flash-drive">
-  <div class="container">
-    <header class="subcat-head">
-      <div>
-        <span class="eyebrow">Sub-series 7</span>
-        <h2>USB Flash Drive</h2>
-      </div>
-    </header>
-    <div class="subcat-summary">
-      <span class="label">Catalog pages</span>
-      <span class="source-pages"><a href="#page-48">P48</a></span>
-      <span class="count">9 products</span>
-    </div>
-    <div class="product-grid">
-        <div class="product-card" style="--i: 5">
-          <div class="card-image">
-            <img src="assets/products-grid/usb-pen-p48.webp" alt="Catalogue item · P48–01" loading="lazy"  style="aspect-ratio: 0.936;" />
-            <span class="page-pill">P48</span>
-          </div>
-          <div class="card-body">
-            <span class="sku">P48 · ITEM 01</span>
-            <h3 class="name">Catalogue item · P48–01</h3>
-            <ul class="spec spec-list"><li>PDF does not provide a separately readable product description.</li></ul>
-            <div class="meta-row">
-              
-              <span class="source">PDF · P48</span>
-            </div>
-          </div>
-        </div>
-        <div class="product-card" style="--i: 6">
-          <div class="card-image">
-            <img src="assets/products-grid/usb-key-p48.webp" alt="Catalogue item · P48–02" loading="lazy"  style="aspect-ratio: 1.568;" />
-            <span class="page-pill">P48</span>
-          </div>
-          <div class="card-body">
-            <span class="sku">P48 · ITEM 02</span>
-            <h3 class="name">Catalogue item · P48–02</h3>
-            <ul class="spec spec-list"><li>PDF does not provide a separately readable product description.</li></ul>
-            <div class="meta-row">
-              
-              <span class="source">PDF · P48</span>
-            </div>
-          </div>
-        </div>
-        <div class="product-card" style="--i: 7">
-          <div class="card-image">
-            <img src="assets/products-grid/usb-wood-p48.webp" alt="Catalogue item · P48–03" loading="lazy"  style="aspect-ratio: 1.841;" />
-            <span class="page-pill">P48</span>
-          </div>
-          <div class="card-body">
-            <span class="sku">P48 · ITEM 03</span>
-            <h3 class="name">Catalogue item · P48–03</h3>
-            <ul class="spec spec-list"><li>PDF does not provide a separately readable product description.</li></ul>
-            <div class="meta-row">
-              
-              <span class="source">PDF · P48</span>
-            </div>
-          </div>
-        </div>
-        <div class="product-card" style="--i: 8">
-          <div class="card-image">
-            <img src="assets/products-grid/usb-card-p48.webp" alt="Catalogue item · P48–04" loading="lazy"  style="aspect-ratio: 0.966;" />
-            <span class="page-pill">P48</span>
-          </div>
-          <div class="card-body">
-            <span class="sku">P48 · ITEM 04</span>
-            <h3 class="name">Catalogue item · P48–04</h3>
-            <ul class="spec spec-list"><li>PDF does not provide a separately readable product description.</li></ul>
-            <div class="meta-row">
-              
-              <span class="source">PDF · P48</span>
-            </div>
-          </div>
-        </div>
-        <div class="product-card" style="--i: 9">
-          <div class="card-image">
-            <img src="assets/products-grid/usb-pvc-strawberry-p48.webp" alt="Catalogue item · P48–05" loading="lazy"  style="aspect-ratio: 1.257;" />
-            <span class="page-pill">P48</span>
-          </div>
-          <div class="card-body">
-            <span class="sku">P48 · ITEM 05</span>
-            <h3 class="name">Catalogue item · P48–05</h3>
-            <ul class="spec spec-list"><li>PDF does not provide a separately readable product description.</li></ul>
-            <div class="meta-row">
-              
-              <span class="source">PDF · P48</span>
-            </div>
-          </div>
-        </div>
-        <div class="product-card" style="--i: 10">
-          <div class="card-image">
-            <img src="assets/products-grid/usb-pvc-car-p48.webp" alt="USB 3.1" loading="lazy"  style="aspect-ratio: 1.771;" />
-            <span class="page-pill">P48</span>
-          </div>
-          <div class="card-body">
-            <span class="sku">P48 · ITEM 06</span>
-            <h3 class="name">USB 3.1</h3>
-            <ul class="spec spec-list"><li>64GB, 128GB, 256GB</li><li>write 100-250MB</li><li>read 150-300MB</li></ul>
-            <div class="meta-row">
-              
-              <span class="source">PDF · P48</span>
-            </div>
-          </div>
-        </div>
-        <div class="product-card" style="--i: 11">
-          <div class="card-image">
-            <img src="assets/products-grid/usb-pvc-truck-p48.webp" alt="Catalogue item · P48–07" loading="lazy"  style="aspect-ratio: 0.801;" />
-            <span class="page-pill">P48</span>
-          </div>
-          <div class="card-body">
-            <span class="sku">P48 · ITEM 07</span>
-            <h3 class="name">Catalogue item · P48–07</h3>
-            <ul class="spec spec-list"><li>PDF does not provide a separately readable product description.</li></ul>
-            <div class="meta-row">
-              
-              <span class="source">PDF · P48</span>
-            </div>
-          </div>
-        </div>
-        <div class="product-card" style="--i: 0">
-          <div class="card-image">
-            <img src="assets/products-grid/usb-metal-p48.webp" alt="64GB/128GB/256GB" loading="lazy"  style="aspect-ratio: 1.469;" />
-            <span class="page-pill">P48</span>
-          </div>
-          <div class="card-body">
-            <span class="sku">P48 · ITEM 08</span>
-            <h3 class="name">64GB/128GB/256GB</h3>
-            <ul class="spec spec-list"><li>pecn</li><li>Aluminum material</li><li>with TYPE C PORT</li><li>write 100-250MB/S</li><li>read 150-300MB/S</li></ul>
-            <div class="meta-row">
-              
-              <span class="source">PDF · P48</span>
-            </div>
-          </div>
-        </div>
-        <div class="product-card" style="--i: 1">
-          <div class="card-image">
-            <img src="assets/products-grid/usb-3-1-flash-drive-p48.webp" alt="WHITBY" loading="lazy"  style="aspect-ratio: 2.111;" />
-            <span class="page-pill">P48</span>
-          </div>
-          <div class="card-body">
-            <span class="sku">P48 · ITEM 09</span>
-            <h3 class="name">WHITBY</h3>
-            <ul class="spec spec-list"><li>seafoods</li></ul>
-            <div class="meta-row">
-              
-              <span class="source">PDF · P48</span>
-            </div>
-          </div>
-        </div>
-    </div>
-  </div>
-</section>
-<section class="subcat" data-od-id="catalog-subcategory" id="subcat-mouse-mouse-pad">
+<section class="subcat" data-od-id="catalog-subcategory" id="sub-mouse-and-mouse-pad">
   <div class="container">
     <header class="subcat-head">
       <div>
@@ -1887,441 +1760,118 @@ ul { margin: 0; padding: 0; list-style: none; }
       <span class="count">8 products</span>
     </div>
     <div class="product-grid">
-        <div class="product-card" style="--i: 2">
+        <div class="product-card" style="--i: 0">
           <div class="card-image">
-            <img src="assets/products-grid/ms-rgb-p49.webp" alt="Slim Wireless mouse" loading="lazy"  style="aspect-ratio: 0.943;" />
+            <img src="assets/products-grid/ms-rgb-p49.webp" alt="Slim Wireless mouse" loading="lazy" style="aspect-ratio: 0.599;" />
             <span class="page-pill">P49</span>
           </div>
           <div class="card-body">
-            <span class="sku">P49 · ITEM 01</span>
+            <span class="sku">—</span>
             <h3 class="name">Slim Wireless mouse</h3>
             <ul class="spec spec-list"><li>LED light up logo</li><li>DP 800-1200-1000|</li></ul>
             <div class="meta-row">
-              
               <span class="source">PDF · P49</span>
-            </div>
-          </div>
-        </div>
-        <div class="product-card" style="--i: 3">
-          <div class="card-image">
-            <img src="assets/products-grid/ms-vertical-p49.webp" alt="Catalogue item · P49–02" loading="lazy"  style="aspect-ratio: 0.857;" />
-            <span class="page-pill">P49</span>
-          </div>
-          <div class="card-body">
-            <span class="sku">P49 · ITEM 02</span>
-            <h3 class="name">Catalogue item · P49–02</h3>
-            <ul class="spec spec-list"><li>PDF does not provide a separately readable product description.</li></ul>
-            <div class="meta-row">
-              
-              <span class="source">PDF · P49</span>
-            </div>
-          </div>
-        </div>
-        <div class="product-card" style="--i: 4">
-          <div class="card-image">
-            <img src="assets/products-grid/ms-silicone-p49.webp" alt="product size 99*60*39mm" loading="lazy"  style="aspect-ratio: 0.992;" />
-            <span class="page-pill">P49</span>
-          </div>
-          <div class="card-body">
-            <span class="sku">P49 · ITEM 03</span>
-            <h3 class="name">product size 99*60*39mm</h3>
-            <ul class="spec spec-list"><li>weight 75.2g</li><li>battery1*AA battery</li><li>color:black, red and blue</li></ul>
-            <div class="meta-row">
-              
-              <span class="source">PDF · P49</span>
-            </div>
-          </div>
-        </div>
-        <div class="product-card" style="--i: 5">
-          <div class="card-image">
-            <img src="assets/products-grid/ms-classic-p49.webp" alt="Foldable 2.4G wireless mouse" loading="lazy"  style="aspect-ratio: 1.843;" />
-            <span class="page-pill">P49</span>
-          </div>
-          <div class="card-body">
-            <span class="sku">P49 · ITEM 04</span>
-            <h3 class="name">Foldable 2.4G wireless mouse</h3>
-            <ul class="spec spec-list"><li>1000DPI</li></ul>
-            <div class="meta-row">
-              
-              <span class="source">PDF · P49</span>
-            </div>
-          </div>
-        </div>
-        <div class="product-card" style="--i: 6">
-          <div class="card-image">
-            <img src="assets/products-grid/ms-foldable-p49.webp" alt="Catalogue item · P49–05" loading="lazy"  style="aspect-ratio: 0.436;" />
-            <span class="page-pill">P49</span>
-          </div>
-          <div class="card-body">
-            <span class="sku">P49 · ITEM 05</span>
-            <h3 class="name">Catalogue item · P49–05</h3>
-            <ul class="spec spec-list"><li>PDF does not provide a separately readable product description.</li></ul>
-            <div class="meta-row">
-              
-              <span class="source">PDF · P49</span>
-            </div>
-          </div>
-        </div>
-        <div class="product-card" style="--i: 7">
-          <div class="card-image">
-            <img src="assets/products-grid/ms-white-p49.webp" alt="Soft Silicon 2.4G wireless" loading="lazy"  style="aspect-ratio: 0.473;" />
-            <span class="page-pill">P49</span>
-          </div>
-          <div class="card-body">
-            <span class="sku">P49 · ITEM 06</span>
-            <h3 class="name">Soft Silicon 2.4G wireless</h3>
-            <ul class="spec spec-list"><li>Mouse</li></ul>
-            <div class="meta-row">
-              
-              <span class="source">PDF · P49</span>
-            </div>
-          </div>
-        </div>
-        <div class="product-card" style="--i: 8">
-          <div class="card-image">
-            <img src="assets/products-grid/mp-round-p49.webp" alt="2.4G wireless mouse" loading="lazy"  style="aspect-ratio: 1.685;" />
-            <span class="page-pill">P49</span>
-          </div>
-          <div class="card-body">
-            <span class="sku">P49 · ITEM 07</span>
-            <h3 class="name">2.4G wireless mouse</h3>
-            <ul class="spec spec-list"><li>white pink and black color</li><li>1000DPI</li><li>104*55.5*27.5mm</li></ul>
-            <div class="meta-row">
-              
-              <span class="source">PDF · P49</span>
-            </div>
-          </div>
-        </div>
-        <div class="product-card" style="--i: 9">
-          <div class="card-image">
-            <img src="assets/products-grid/mp-custom-p49.webp" alt="Different type Mouse Pad" loading="lazy"  style="aspect-ratio: 0.761;" />
-            <span class="page-pill">P49</span>
-          </div>
-          <div class="card-body">
-            <span class="sku">P49 · ITEM 08</span>
-            <h3 class="name">Different type Mouse Pad</h3>
-            <ul class="spec spec-list"><li>with customied print</li><li>MOQ 100PCS</li></ul>
-            <div class="meta-row">
-              <span class="pill">Custom</span>
-              <span class="source">PDF · P49</span>
-            </div>
-          </div>
-        </div>
-    </div>
-  </div>
-</section>
-<section class="subcat" data-od-id="catalog-subcategory" id="subcat-video-card-brochure">
-  <div class="container">
-    <header class="subcat-head">
-      <div>
-        <span class="eyebrow">Sub-series 9</span>
-        <h2>Video Card & Brochure</h2>
-      </div>
-    </header>
-    <div class="subcat-summary">
-      <span class="label">Catalog pages</span>
-      <span class="source-pages"><a href="#page-50">P50</a></span>
-      <span class="count">6 products</span>
-    </div>
-    <div class="product-grid">
-        <div class="product-card" style="--i: 10">
-          <div class="card-image">
-            <img src="assets/products-grid/vc-custom-p50.webp" alt="Catalogue item · P50–01" loading="lazy"  style="aspect-ratio: 1.554;" />
-            <span class="page-pill">P50</span>
-          </div>
-          <div class="card-body">
-            <span class="sku">P50 · ITEM 01</span>
-            <h3 class="name">Catalogue item · P50–01</h3>
-            <ul class="spec spec-list"><li>PDF does not provide a separately readable product description.</li></ul>
-            <div class="meta-row">
-              
-              <span class="source">PDF · P50</span>
-            </div>
-          </div>
-        </div>
-        <div class="product-card" style="--i: 11">
-          <div class="card-image">
-            <img src="assets/products-grid/vc-popup-p50.webp" alt="KHALEY" loading="lazy"  style="aspect-ratio: 1.746;" />
-            <span class="page-pill">P50</span>
-          </div>
-          <div class="card-body">
-            <span class="sku">P50 · ITEM 02</span>
-            <h3 class="name">KHALEY</h3>
-            <ul class="spec spec-list"><li>(Jou 22</li></ul>
-            <div class="meta-row">
-              
-              <span class="source">PDF · P50</span>
-            </div>
-          </div>
-        </div>
-        <div class="product-card" style="--i: 0">
-          <div class="card-image">
-            <img src="assets/products-grid/vc-luxury-p50.webp" alt="Catalogue item · P50–03" loading="lazy"  style="aspect-ratio: 0.880;" />
-            <span class="page-pill">P50</span>
-          </div>
-          <div class="card-body">
-            <span class="sku">P50 · ITEM 03</span>
-            <h3 class="name">Catalogue item · P50–03</h3>
-            <ul class="spec spec-list"><li>PDF does not provide a separately readable product description.</li></ul>
-            <div class="meta-row">
-              
-              <span class="source">PDF · P50</span>
             </div>
           </div>
         </div>
         <div class="product-card" style="--i: 1">
           <div class="card-image">
-            <img src="assets/products-grid/vc-customdesign-p50.webp" alt="Catalogue item · P50–04" loading="lazy"  style="aspect-ratio: 1.065;" />
-            <span class="page-pill">P50</span>
+            <img src="assets/products-grid/ms-vertical-p49.webp" alt="—" loading="lazy" style="aspect-ratio: 0.609;" />
+            <span class="page-pill">P49</span>
           </div>
           <div class="card-body">
-            <span class="sku">P50 · ITEM 04</span>
-            <h3 class="name">Catalogue item · P50–04</h3>
+            <span class="sku">—</span>
+            <h3 class="name">—</h3>
             <ul class="spec spec-list"><li>PDF does not provide a separately readable product description.</li></ul>
             <div class="meta-row">
-              
-              <span class="source">PDF · P50</span>
+              <span class="source">PDF · P49</span>
             </div>
           </div>
         </div>
         <div class="product-card" style="--i: 2">
           <div class="card-image">
-            <img src="assets/products-grid/vc-box-p50.webp" alt="IPS, HD display" loading="lazy"  style="aspect-ratio: 0.741;" />
-            <span class="page-pill">P50</span>
+            <img src="assets/products-grid/ms-silicone-p49.webp" alt="product size 99*60*39mm" loading="lazy" style="aspect-ratio: 0.609;" />
+            <span class="page-pill">P49</span>
           </div>
           <div class="card-body">
-            <span class="sku">P50 · ITEM 05</span>
-            <h3 class="name">IPS, HD display</h3>
-            <ul class="spec spec-list"><li>2.4&quot;, 4&quot; 7&quot;, 10&quot; display</li></ul>
+            <span class="sku">—</span>
+            <h3 class="name">product size 99*60*39mm</h3>
+            <ul class="spec spec-list"><li>weight 75.2g</li><li>battery1*AA battery</li><li>color:black, red and blue</li></ul>
             <div class="meta-row">
-              
-              <span class="source">PDF · P50</span>
+              <span class="source">PDF · P49</span>
             </div>
           </div>
         </div>
         <div class="product-card" style="--i: 3">
           <div class="card-image">
-            <img src="assets/products-grid/vc-folder-p50.webp" alt="Catalogue item · P50–06" loading="lazy"  style="aspect-ratio: 0.857;" />
-            <span class="page-pill">P50</span>
+            <img src="assets/products-grid/ms-classic-p49.webp" alt="Foldable 2.4G wireless mouse" loading="lazy" style="aspect-ratio: 0.578;" />
+            <span class="page-pill">P49</span>
           </div>
           <div class="card-body">
-            <span class="sku">P50 · ITEM 06</span>
-            <h3 class="name">Catalogue item · P50–06</h3>
-            <ul class="spec spec-list"><li>PDF does not provide a separately readable product description.</li></ul>
+            <span class="sku">—</span>
+            <h3 class="name">Foldable 2.4G wireless mouse</h3>
+            <ul class="spec spec-list"><li>1000DPI</li></ul>
             <div class="meta-row">
-              
-              <span class="source">PDF · P50</span>
+              <span class="source">PDF · P49</span>
             </div>
           </div>
         </div>
-    </div>
-  </div>
-</section>
-<section class="subcat" data-od-id="catalog-subcategory" id="subcat-joy-life-fitness-lifestyle">
-  <div class="container">
-    <header class="subcat-head">
-      <div>
-        <span class="eyebrow">Sub-series 10</span>
-        <h2>Joy Life — Fitness & Lifestyle</h2>
-      </div>
-    </header>
-    <div class="subcat-summary">
-      <span class="label">Catalog pages</span>
-      <span class="source-pages"><a href="#page-51">P51</a></span>
-      <span class="count">10 products</span>
-    </div>
-    <div class="product-grid">
         <div class="product-card" style="--i: 4">
           <div class="card-image">
-            <img src="assets/products-grid/jl-yogamat-p51.webp" alt="TPE YOGA PAD" loading="lazy"  style="aspect-ratio: 1.438;" />
-            <span class="page-pill">P51</span>
+            <img src="assets/products-grid/ms-foldable-p49.webp" alt="—" loading="lazy" style="aspect-ratio: 0.599;" />
+            <span class="page-pill">P49</span>
           </div>
           <div class="card-body">
-            <span class="sku">P51 · ITEM 01</span>
-            <h3 class="name">TPE YOGA PAD</h3>
-            <ul class="spec spec-list"><li>61*183cm</li><li>Laser logo</li></ul>
+            <span class="sku">—</span>
+            <h3 class="name">—</h3>
+            <ul class="spec spec-list"><li>PDF does not provide a separately readable product description.</li></ul>
             <div class="meta-row">
-              
-              <span class="source">PDF · P51</span>
+              <span class="source">PDF · P49</span>
             </div>
           </div>
         </div>
         <div class="product-card" style="--i: 5">
           <div class="card-image">
-            <img src="assets/products-grid/jl-yogaball-p51.webp" alt="Catalogue item · P51–02" loading="lazy"  style="aspect-ratio: 0.746;" />
-            <span class="page-pill">P51</span>
+            <img src="assets/products-grid/ms-white-p49.webp" alt="Soft Silicon 2.4G wireless" loading="lazy" style="aspect-ratio: 0.609;" />
+            <span class="page-pill">P49</span>
           </div>
           <div class="card-body">
-            <span class="sku">P51 · ITEM 02</span>
-            <h3 class="name">Catalogue item · P51–02</h3>
-            <ul class="spec spec-list"><li>PDF does not provide a separately readable product description.</li></ul>
+            <span class="sku">—</span>
+            <h3 class="name">Soft Silicon 2.4G wireless</h3>
+            <ul class="spec spec-list"><li>Mouse</li></ul>
             <div class="meta-row">
-              
-              <span class="source">PDF · P51</span>
+              <span class="source">PDF · P49</span>
             </div>
           </div>
         </div>
         <div class="product-card" style="--i: 6">
           <div class="card-image">
-            <img src="assets/products-grid/jl-stress-p51.webp" alt="Catalogue item · P51–03" loading="lazy"  style="aspect-ratio: 0.900;" />
-            <span class="page-pill">P51</span>
+            <img src="assets/products-grid/mp-round-p49.webp" alt="2.4G wireless mouse" loading="lazy" style="aspect-ratio: 0.609;" />
+            <span class="page-pill">P49</span>
           </div>
           <div class="card-body">
-            <span class="sku">P51 · ITEM 03</span>
-            <h3 class="name">Catalogue item · P51–03</h3>
-            <ul class="spec spec-list"><li>PDF does not provide a separately readable product description.</li></ul>
+            <span class="sku">—</span>
+            <h3 class="name">2.4G wireless mouse</h3>
+            <ul class="spec spec-list"><li>white pink and black color</li><li>1000DPI</li><li>104*55.5*27.5mm</li></ul>
             <div class="meta-row">
-              
-              <span class="source">PDF · P51</span>
+              <span class="source">PDF · P49</span>
             </div>
           </div>
         </div>
         <div class="product-card" style="--i: 7">
           <div class="card-image">
-            <img src="assets/products-grid/jl-resistance-p51.webp" alt="Catalogue item · P51–04" loading="lazy"  style="aspect-ratio: 0.945;" />
-            <span class="page-pill">P51</span>
+            <img src="assets/products-grid/mp-custom-p49.webp" alt="Different type Mouse Pad" loading="lazy" style="aspect-ratio: 0.579;" />
+            <span class="page-pill">P49</span>
           </div>
           <div class="card-body">
-            <span class="sku">P51 · ITEM 04</span>
-            <h3 class="name">Catalogue item · P51–04</h3>
-            <ul class="spec spec-list"><li>PDF does not provide a separately readable product description.</li></ul>
+            <span class="sku">—</span>
+            <h3 class="name">Different type Mouse Pad</h3>
+            <ul class="spec spec-list"><li>with customied print</li><li>MOQ 100PCS</li></ul>
             <div class="meta-row">
-              
-              <span class="source">PDF · P51</span>
+              <span class="source">PDF · P49</span>
             </div>
           </div>
         </div>
-        <div class="product-card" style="--i: 8">
-          <div class="card-image">
-            <img src="assets/products-grid/jl-beach-p51.webp" alt="Elastic Band" loading="lazy"  style="aspect-ratio: 2.529;" />
-            <span class="page-pill">P51</span>
-          </div>
-          <div class="card-body">
-            <span class="sku">P51 · ITEM 05</span>
-            <h3 class="name">Elastic Band</h3>
-            <ul class="spec spec-list"><li>differet color</li><li>different size</li><li>5IBS-230IBS</li><li>exercise anywhere</li></ul>
-            <div class="meta-row">
-              
-              <span class="source">PDF · P51</span>
-            </div>
-          </div>
-        </div>
-        <div class="product-card" style="--i: 9">
-          <div class="card-image">
-            <img src="assets/products-grid/jl-bottle-p51.webp" alt="Beach Ball" loading="lazy"  style="aspect-ratio: 0.890;" />
-            <span class="page-pill">P51</span>
-          </div>
-          <div class="card-body">
-            <span class="sku">P51 · ITEM 06</span>
-            <h3 class="name">Beach Ball</h3>
-            <ul class="spec spec-list"><li>MDF material with customier print</li></ul>
-            <div class="meta-row">
-              <span class="pill">Custom</span>
-              <span class="source">PDF · P51</span>
-            </div>
-          </div>
-        </div>
-        <div class="product-card" style="--i: 10">
-          <div class="card-image">
-            <img src="assets/products-grid/jl-shoebelt-p51.webp" alt="Catalogue item · P51–07" loading="lazy"  style="aspect-ratio: 0.370;" />
-            <span class="page-pill">P51</span>
-          </div>
-          <div class="card-body">
-            <span class="sku">P51 · ITEM 07</span>
-            <h3 class="name">Catalogue item · P51–07</h3>
-            <ul class="spec spec-list"><li>PDF does not provide a separately readable product description.</li></ul>
-            <div class="meta-row">
-              
-              <span class="source">PDF · P51</span>
-            </div>
-          </div>
-        </div>
-        <div class="product-card" style="--i: 11">
-          <div class="card-image">
-            <img src="assets/products-grid/jl-backclip-p51.webp" alt="Catalogue item · P51–08" loading="lazy"  style="aspect-ratio: 0.763;" />
-            <span class="page-pill">P51</span>
-          </div>
-          <div class="card-body">
-            <span class="sku">P51 · ITEM 08</span>
-            <h3 class="name">Catalogue item · P51–08</h3>
-            <ul class="spec spec-list"><li>PDF does not provide a separately readable product description.</li></ul>
-            <div class="meta-row">
-              
-              <span class="source">PDF · P51</span>
-            </div>
-          </div>
-        </div>
-        <div class="product-card" style="--i: 0">
-          <div class="card-image">
-            <img src="assets/products-grid/jl-armband-p51.webp" alt="Catalogue item · P51–09" loading="lazy"  style="aspect-ratio: 0.995;" />
-            <span class="page-pill">P51</span>
-          </div>
-          <div class="card-body">
-            <span class="sku">P51 · ITEM 09</span>
-            <h3 class="name">Catalogue item · P51–09</h3>
-            <ul class="spec spec-list"><li>PDF does not provide a separately readable product description.</li></ul>
-            <div class="meta-row">
-              
-              <span class="source">PDF · P51</span>
-            </div>
-          </div>
-        </div>
-        <div class="product-card" style="--i: 1">
-          <div class="card-image">
-            <img src="assets/products-grid/jl-bracelet-p51.webp" alt="Catalogue item · P51–10" loading="lazy"  style="aspect-ratio: 0.721;" />
-            <span class="page-pill">P51</span>
-          </div>
-          <div class="card-body">
-            <span class="sku">P51 · ITEM 10</span>
-            <h3 class="name">Catalogue item · P51–10</h3>
-            <ul class="spec spec-list"><li>PDF does not provide a separately readable product description.</li></ul>
-            <div class="meta-row">
-              
-              <span class="source">PDF · P51</span>
-            </div>
-          </div>
-        </div>
-    </div>
-  </div>
-</section>
-<section class="explore-other" data-od-id="series-navigation">
-  <div class="container">
-    <div class="explore-other-head">
-      <div>
-        <h2>Explore the other series</h2>
-        <div class="sub">Jump across the full Ono Inspiration catalogue</div>
-      </div>
-      <a class="btn btn-secondary" href="index.html">← All series</a>
-    </div>
-    <div class="explore-grid">
-      <a class="explore-card" href="products-01-power-charging.html">
-        <span class="badge">01</span>
-        <div>
-          <div class="title">Power & Charging</div>
-          <div class="sub">60 products · P04-P41</div>
-        </div>
-      </a>
-      <a class="explore-card" href="products-02-audio-mobile.html">
-        <span class="badge">02</span>
-        <div>
-          <div class="title">Audio & Smart Mobile</div>
-          <div class="sub">60 products · P28-P36</div>
-        </div>
-      </a>
-      <a class="explore-card muted" href="products-03-lifestyle-office.html">
-        <span class="badge">03</span>
-        <div>
-          <div class="title">Lifestyle & Office</div>
-          <div class="sub">86 products · P36-P51</div>
-        </div>
-      </a>
-      <a class="explore-card" href="products-04-carry-customize.html">
-        <span class="badge">04</span>
-        <div>
-          <div class="title">Carry & Customize</div>
-          <div class="sub">50 products · P51-P58</div>
-        </div>
-      </a>
     </div>
   </div>
 </section>

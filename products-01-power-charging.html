@@ -4,7 +4,8 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <meta name="description" content="Power &amp; Charging curated by ONO INSPIRATION COMPANY LIMITED. Powerbank · Wireless Charger · Charging Cable · Wall Charger. Source-verified SKUs from the Ono Inspiration 2026 catalogue." />
-<title>Power &amp; Charging · ONO INSPIRATION COMPANY LIMITED</title>
+<title>Power & Charging · Ono Inspiration</title>
+<script>document.documentElement.classList.add('js-loaded');</script>
 <link rel="icon" type="image/png" href="assets/source/logo_icon.png" />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -75,6 +76,15 @@ ul { margin: 0; padding: 0; list-style: none; }
 
 .topnav { position: sticky; top: 0; z-index: 50; background: rgba(247, 244, 238, 0.82); backdrop-filter: saturate(180%) blur(20px); -webkit-backdrop-filter: saturate(180%) blur(20px); border-bottom: 1px solid transparent; transition: border-color var(--t-base) var(--ease), background var(--t-base) var(--ease); }
 .topnav.scrolled { border-bottom-color: var(--hair); background: rgba(247, 244, 238, 0.94); }
+@media (max-width: 1024px) {
+  /* Avoid mobile Safari compositor dropout from sticky + backdrop-filter. */
+  .topnav {
+    position: relative;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    background: var(--bg);
+  }
+}
 .topnav-inner { display: flex; align-items: center; justify-content: space-between; padding-block: 22px; gap: 32px; }
 .topnav .brand { display: flex; align-items: center; gap: 14px; white-space: nowrap; }
 .topnav .brand img { display: block; height: 54px; width: auto; transition: transform var(--t-base) var(--ease); }
@@ -415,8 +425,6 @@ ul { margin: 0; padding: 0; list-style: none; }
   border: 1px solid var(--hair);
   border-radius: var(--r-md);
   overflow: hidden;
-  opacity: 0;
-  transform: translateY(28px) scale(0.985);
   transition:
     opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
     transform 0.7s cubic-bezier(0.16, 1, 0.3, 1),
@@ -424,6 +432,10 @@ ul { margin: 0; padding: 0; list-style: none; }
     border-color var(--t-fast) var(--ease);
   transition-delay: calc(var(--i, 0) * 70ms);
   will-change: opacity, transform;
+}
+.js-loaded .product-grid > .product-card {
+  opacity: 0;
+  transform: translateY(28px) scale(0.985);
 }
 .product-grid > .product-card.is-visible {
   opacity: 1;
@@ -809,22 +821,32 @@ ul { margin: 0; padding: 0; list-style: none; }
     </div>
   </div>
 
-<main>
-<section class="hero-series" data-od-id="catalog-hero">
+<main id="content">
+<section class="catalog-hero" data-od-id="catalog-hero">
   <div class="container">
-    <a class="back" href="index.html">← Back to launcher</a>
-    <span class="eyebrow">2026 Catalogue · Power & Charging</span>
-    <h1>Power & Charging</h1>
-    <p class="lede">Phone case / powerbank / cables / phone holder / wireless charger.</p>
-    <p class="lead">Product names and parameters below are transcribed from their printed catalogue pages.</p>
-    <div class="meta">
-      <span>60 catalogue cards</span>
-      <span class="dot">·</span>
-      <span>Pages P04–P41</span>
+    <div class="breadcrumb">
+      <a href="index.html">← Back to launcher</a>
+      <span class="breadcrumb-sep">/</span>
+      <span>2026 CATALOGUE</span>
+      <span class="breadcrumb-sep">/</span>
+      <span class="current">Power & Charging</span>
+    </div>
+    <h1 class="catalog-title">Power & Charging</h1>
+    <p class="catalog-sub">Power banks, cables, wireless & wall chargers — all the energy essentials.</p>
+  </div>
+</section>
+<section class="cat-divider" data-od-id="catalog-category" id="cat-01-power-energy">
+  <div class="container">
+    <div class="cat-head">
+      <span class="eyebrow">Category 01</span>
+      <h2 class="cat-title">Power & Energy</h2>
+      <p class="cat-tagline">Plug in. Charge up. Stay moving.</p>
+      <p class="cat-subtitle">Power banks and wall chargers — the foundation of every charging kit.</p>
+      <div class="cat-subs"><a href="#sub-powerbank">Powerbank</a> · <a href="#sub-wall-charger">Wall Charger</a></div>
     </div>
   </div>
 </section>
-<section class="subcat" data-od-id="catalog-subcategory" id="subcat-powerbank">
+<section class="subcat" data-od-id="catalog-subcategory" id="sub-powerbank">
   <div class="container">
     <header class="subcat-head">
       <div>
@@ -834,13 +856,13 @@ ul { margin: 0; padding: 0; list-style: none; }
     </header>
     <div class="subcat-summary">
       <span class="label">Catalog pages</span>
-      <span class="source-pages"><a href="#page-04">P04</a> · <a href="#page-05">P05</a> · <a href="#page-06">P06</a> · <a href="#page-07">P07</a> · <a href="#page-08">P08</a> · <a href="#page-09">P09</a> · <a href="#page-10">P10</a> · <a href="#page-11">P11</a> <span class="muted">+1</span></span>
+      <span class="source-pages"><a href="#page-4">P04</a> · <a href="#page-5">P05</a> · <a href="#page-6">P06</a> · <a href="#page-7">P07</a> · <a href="#page-8">P08</a> · <a href="#page-9">P09</a> · <a href="#page-10">P10</a> · <a href="#page-11">P11</a> · <a href="#page-12">P12</a></span>
       <span class="count">23 products</span>
     </div>
     <div class="product-grid">
         <div class="product-card" style="--i: 0">
           <div class="card-image">
-            <img src="assets/products-grid/dspbc1025-p04.webp" alt="DSPBC1055" loading="lazy"  style="aspect-ratio: 0.555;" />
+            <img src="assets/products-grid/dspbc1025-p04.webp" alt="DSPBC1055" loading="lazy" style="aspect-ratio: 1.479;" />
             <span class="page-pill">P04</span>
           </div>
           <div class="card-body">
@@ -848,14 +870,13 @@ ul { margin: 0; padding: 0; list-style: none; }
             <h3 class="name">DSPBC1055</h3>
             <ul class="spec spec-list"><li>10000mAh(38.5Wh)</li><li>size 105.5*68.5*22mm</li></ul>
             <div class="meta-row">
-              
               <span class="source">PDF · P04</span>
             </div>
           </div>
         </div>
         <div class="product-card" style="--i: 1">
           <div class="card-image">
-            <img src="assets/products-grid/dspbc1055-p04.webp" alt="DSPBCK02" loading="lazy"  style="aspect-ratio: 1.283;" />
+            <img src="assets/products-grid/dspbc1055-p04.webp" alt="DSPBCK02" loading="lazy" style="aspect-ratio: 1.507;" />
             <span class="page-pill">P04</span>
           </div>
           <div class="card-body">
@@ -863,29 +884,27 @@ ul { margin: 0; padding: 0; list-style: none; }
             <h3 class="name">DSPBCK02</h3>
             <ul class="spec spec-list"><li>5000/10000mAh</li><li>size 104*66*14mm</li><li>Magnetic</li><li>Luminous Logo</li></ul>
             <div class="meta-row">
-              
               <span class="source">PDF · P04</span>
             </div>
           </div>
         </div>
         <div class="product-card" style="--i: 2">
           <div class="card-image">
-            <img src="assets/products-grid/dspbc1029-p04.webp" alt="Magsafe Powerbank+iwatch charger 2 in 1" loading="lazy"  style="aspect-ratio: 0.560;" />
+            <img src="assets/products-grid/dspbc1029-p04.webp" alt="Magsafe Powerbank+iwatch charger 2 in 1" loading="lazy" style="aspect-ratio: 1.479;" />
             <span class="page-pill">P04</span>
           </div>
           <div class="card-body">
-            <span class="sku">P04 · ITEM 03</span>
+            <span class="sku">—</span>
             <h3 class="name">Magsafe Powerbank+iwatch charger 2 in 1</h3>
-            <ul class="spec spec-list"><li>PD 3.0 20W/QC4+18W</li><li>10000mah</li><li>input: lightning 5V 2A</li><li>type c1/2 5V 2A, 9V 2A, 12V 1.5A</li><li>Output: TYPE C 1/2 5V 3A, 9V 2.22A, 12V 1.67A</li><li>wireless charger 5W/7.5W/10W/15W</li><li>iwatch output 2.5W</li><li>112.9*69*21.8mm</li></ul>
+            <ul class="spec spec-list"><li>PD 3.0 20W/QC4+18W</li><li>10000mah</li><li>input: lightning 5V 2A</li><li>type c1/2 5V 2A, 9V 2A, 12V 1.5A</li><li>Output: TYPE C 1/2 5V 3A, 9V 2.22A, 12V 1.67A</li></ul>
             <div class="meta-row">
-              
               <span class="source">PDF · P04</span>
             </div>
           </div>
         </div>
         <div class="product-card" style="--i: 3">
           <div class="card-image">
-            <img src="assets/products-grid/dspb1050-p05.webp" alt="10000mah" loading="lazy"  style="aspect-ratio: 0.896;" />
+            <img src="assets/products-grid/dspb1050-p05.webp" alt="10000mah" loading="lazy" style="aspect-ratio: 1.507;" />
             <span class="page-pill">P05</span>
           </div>
           <div class="card-body">
@@ -893,14 +912,13 @@ ul { margin: 0; padding: 0; list-style: none; }
             <h3 class="name">10000mah</h3>
             <ul class="spec spec-list"><li>129.5*69.8*16mm</li><li>fast charging</li></ul>
             <div class="meta-row">
-              
               <span class="source">PDF · P05</span>
             </div>
           </div>
         </div>
         <div class="product-card" style="--i: 4">
           <div class="card-image">
-            <img src="assets/products-grid/dspbc1007-p05.webp" alt="10000mAh" loading="lazy"  style="aspect-ratio: 0.802;" />
+            <img src="assets/products-grid/dspbc1007-p05.webp" alt="10000mAh" loading="lazy" style="aspect-ratio: 1.479;" />
             <span class="page-pill">P05</span>
           </div>
           <div class="card-body">
@@ -908,14 +926,13 @@ ul { margin: 0; padding: 0; list-style: none; }
             <h3 class="name">10000mAh</h3>
             <ul class="spec spec-list"><li>size 74*63*23.8mm</li></ul>
             <div class="meta-row">
-              
               <span class="source">PDF · P05</span>
             </div>
           </div>
         </div>
         <div class="product-card" style="--i: 5">
           <div class="card-image">
-            <img src="assets/products-grid/dspbc1061-p05.webp" alt="10000mAh" loading="lazy"  style="aspect-ratio: 0.625;" />
+            <img src="assets/products-grid/dspbc1061-p05.webp" alt="10000mAh" loading="lazy" style="aspect-ratio: 1.479;" />
             <span class="page-pill">P05</span>
           </div>
           <div class="card-body">
@@ -923,29 +940,27 @@ ul { margin: 0; padding: 0; list-style: none; }
             <h3 class="name">10000mAh</h3>
             <ul class="spec spec-list"><li>size 144.5*68*17mm</li></ul>
             <div class="meta-row">
-              
               <span class="source">PDF · P05</span>
             </div>
           </div>
         </div>
         <div class="product-card" style="--i: 6">
           <div class="card-image">
-            <img src="assets/products-grid/dspbc1001-p06.webp" alt="10000mah" loading="lazy"  style="aspect-ratio: 1.545;" />
+            <img src="assets/products-grid/dspbc1001-p06.webp" alt="10000mah" loading="lazy" style="aspect-ratio: 1.479;" />
             <span class="page-pill">P06</span>
           </div>
           <div class="card-body">
             <span class="sku">DSPBC1001</span>
             <h3 class="name">10000mah</h3>
-            <ul class="spec spec-list"><li>MICRO+TYPE C input</li><li>USB+TYPE C output</li><li>PD20W&amp;QC18W</li><li>131*70*15.7mm</li></ul>
+            <ul class="spec spec-list"><li>MICRO+TYPE C input</li><li>USB+TYPE C output</li><li>PD20W&QC18W</li><li>131*70*15.7mm</li></ul>
             <div class="meta-row">
-              
               <span class="source">PDF · P06</span>
             </div>
           </div>
         </div>
         <div class="product-card" style="--i: 7">
           <div class="card-image">
-            <img src="assets/products-grid/dspbc2006q-p06.webp" alt="20000mah fast charging" loading="lazy"  style="aspect-ratio: 0.566;" />
+            <img src="assets/products-grid/dspbc2006q-p06.webp" alt="20000mah fast charging" loading="lazy" style="aspect-ratio: 1.507;" />
             <span class="page-pill">P06</span>
           </div>
           <div class="card-body">
@@ -953,29 +968,27 @@ ul { margin: 0; padding: 0; list-style: none; }
             <h3 class="name">20000mah fast charging</h3>
             <ul class="spec spec-list"><li>144.5*68+29.4mm</li></ul>
             <div class="meta-row">
-              
               <span class="source">PDF · P06</span>
             </div>
           </div>
         </div>
         <div class="product-card" style="--i: 8">
           <div class="card-image">
-            <img src="assets/products-grid/dspbc1018w-p07.webp" alt="iOS Cable" loading="lazy"  style="aspect-ratio: 1.345;" />
+            <img src="assets/products-grid/dspbc1018w-p07.webp" alt="iOS Cable" loading="lazy" style="aspect-ratio: 1.479;" />
             <span class="page-pill">P07</span>
           </div>
           <div class="card-body">
-            <span class="sku">P07 · ITEM 01</span>
+            <span class="sku">—</span>
             <h3 class="name">iOS Cable</h3>
             <ul class="spec spec-list"><li>USB-A Port</li></ul>
             <div class="meta-row">
-              
               <span class="source">PDF · P07</span>
             </div>
           </div>
         </div>
         <div class="product-card" style="--i: 9">
           <div class="card-image">
-            <img src="assets/products-grid/dspb8k337-p07.webp" alt="High power two-way fast charge," loading="lazy"  style="aspect-ratio: 1.592;" />
+            <img src="assets/products-grid/dspb8k337-p07.webp" alt="High power two-way fast charge," loading="lazy" style="aspect-ratio: 1.479;" />
             <span class="page-pill">P07</span>
           </div>
           <div class="card-body">
@@ -983,29 +996,27 @@ ul { margin: 0; padding: 0; list-style: none; }
             <h3 class="name">High power two-way fast charge,</h3>
             <ul class="spec spec-list"><li>PD65W Fast Charging</li><li>Type-C input and output are 65W</li><li>fast chargingwhich greatly reduces the charging time</li></ul>
             <div class="meta-row">
-              
               <span class="source">PDF · P07</span>
             </div>
           </div>
         </div>
         <div class="product-card" style="--i: 10">
           <div class="card-image">
-            <img src="assets/products-grid/dspb2061-p07.webp" alt="POWEBAN ORAPOPPD65W" loading="lazy"  style="aspect-ratio: 1.507;" />
+            <img src="assets/products-grid/dspb2061-p07.webp" alt="POWEBAN ORAPOPPD65W" loading="lazy" style="aspect-ratio: 1.479;" />
             <span class="page-pill">P07</span>
           </div>
           <div class="card-body">
             <span class="sku">DSPBE2</span>
             <h3 class="name">POWEBAN ORAPOPPD65W</h3>
-            <ul class="spec spec-list"><li>size 140*65*29mm</li><li>build in type c cable+2 USB OUTPUT+1TYPE C input &amp; Output</li></ul>
+            <ul class="spec spec-list"><li>size 140*65*29mm</li><li>build in type c cable+2 USB OUTPUT+1TYPE C input & Output</li></ul>
             <div class="meta-row">
-              
               <span class="source">PDF · P07</span>
             </div>
           </div>
         </div>
         <div class="product-card" style="--i: 11">
           <div class="card-image">
-            <img src="assets/products-grid/dswp08-p08.webp" alt="2000mAh keychain style" loading="lazy"  style="aspect-ratio: 0.700;" />
+            <img src="assets/products-grid/dswp08-p08.webp" alt="2000mAh keychain style" loading="lazy" style="aspect-ratio: 1.479;" />
             <span class="page-pill">P08</span>
           </div>
           <div class="card-body">
@@ -1013,74 +1024,69 @@ ul { margin: 0; padding: 0; list-style: none; }
             <h3 class="name">2000mAh keychain style</h3>
             <ul class="spec spec-list"><li>size71*45*15mm</li></ul>
             <div class="meta-row">
-              
               <span class="source">PDF · P08</span>
             </div>
           </div>
         </div>
-        <div class="product-card" style="--i: 0">
+        <div class="product-card" style="--i: 12">
           <div class="card-image">
-            <img src="assets/products-grid/dspbp007-p08.webp" alt="Capacity 8000mah Li battery" loading="lazy"  style="aspect-ratio: 1.017;" />
+            <img src="assets/products-grid/dspbp007-p08.webp" alt="Capacity 8000mah Li battery" loading="lazy" style="aspect-ratio: 1.479;" />
             <span class="page-pill">P08</span>
           </div>
           <div class="card-body">
-            <span class="sku">P08 · ITEM 02</span>
+            <span class="sku">—</span>
             <h3 class="name">Capacity 8000mah Li battery</h3>
             <ul class="spec spec-list"><li>Input Micro + TYPE C 5V 2.1A,</li><li>Output USB + TYPE C 5V 2.1A</li><li>aluminum material</li><li>Size 150*74*12mm</li><li>Color: silver, golden, blue, rose pink and black</li></ul>
             <div class="meta-row">
-              
               <span class="source">PDF · P08</span>
             </div>
           </div>
         </div>
-        <div class="product-card" style="--i: 1">
+        <div class="product-card" style="--i: 13">
           <div class="card-image">
-            <img src="assets/products-grid/dspb02-p09.webp" alt="Note booke with powerbank" loading="lazy"  style="aspect-ratio: 2.009;" />
+            <img src="assets/products-grid/dspb02-p09.webp" alt="Note booke with powerbank" loading="lazy" style="aspect-ratio: 1.479;" />
             <span class="page-pill">P09</span>
           </div>
           <div class="card-body">
-            <span class="sku">P09 · ITEM 01</span>
+            <span class="sku">—</span>
             <h3 class="name">Note booke with powerbank</h3>
             <ul class="spec spec-list"><li>8000mAh+5W wireless charger</li><li>Led light up logo white led</li><li>size 240*196*42mm</li><li>with 160pages notebook</li><li>with 3 in 1 cable</li></ul>
             <div class="meta-row">
-              
               <span class="source">PDF · P09</span>
             </div>
           </div>
         </div>
-        <div class="product-card" style="--i: 2">
+        <div class="product-card" style="--i: 14">
           <div class="card-image">
-            <img src="assets/products-grid/dspb207-p09.webp" alt="Wallet Powerbank for 6 cards" loading="lazy"  style="aspect-ratio: 2.290;" />
+            <img src="assets/products-grid/dspb207-p09.webp" alt="Wallet Powerbank for 6 cards" loading="lazy" style="aspect-ratio: 1.479;" />
             <span class="page-pill">P09</span>
           </div>
           <div class="card-body">
-            <span class="sku">P09 · ITEM 02</span>
+            <span class="sku">—</span>
             <h3 class="name">Wallet Powerbank for 6 cards</h3>
             <ul class="spec spec-list"><li>5000mAh+5W wireless charger</li><li>with lightning cable and TYPE C</li><li>adapter</li><li>size 178*98*19mm</li><li>black color only</li></ul>
             <div class="meta-row">
-              
               <span class="source">PDF · P09</span>
             </div>
           </div>
         </div>
-        <div class="product-card" style="--i: 3">
+        <div class="product-card" style="--i: 15">
           <div class="card-image">
-            <img src="assets/products-grid/dspb113-p09.webp" alt="Passport Holder Powerbank" loading="lazy"  style="aspect-ratio: 1.235;" />
+            <img src="assets/products-grid/dspb113-p09.webp" alt="Passport Holder Powerbank" loading="lazy" style="aspect-ratio: 1.479;" />
             <span class="page-pill">P09</span>
           </div>
           <div class="card-body">
-            <span class="sku">P09 · ITEM 03</span>
+            <span class="sku">—</span>
             <h3 class="name">Passport Holder Powerbank</h3>
             <ul class="spec spec-list"><li>4000mAh</li><li>Anti lost function</li><li>work with Apple Findmy</li></ul>
             <div class="meta-row">
-              
               <span class="source">PDF · P09</span>
             </div>
           </div>
         </div>
-        <div class="product-card" style="--i: 4">
+        <div class="product-card" style="--i: 16">
           <div class="card-image">
-            <img src="assets/products-grid/dspbc1010-p10.webp" alt="5000mAh" loading="lazy"  style="aspect-ratio: 1.291;" />
+            <img src="assets/products-grid/dspbc1010-p10.webp" alt="5000mAh" loading="lazy" style="aspect-ratio: 1.507;" />
             <span class="page-pill">P10</span>
           </div>
           <div class="card-body">
@@ -1088,29 +1094,27 @@ ul { margin: 0; padding: 0; list-style: none; }
             <h3 class="name">5000mAh</h3>
             <ul class="spec spec-list"><li>Input: 5V/1A</li><li>Output: 5V/1A</li><li>size: 145*75*13.6mm</li></ul>
             <div class="meta-row">
-              
               <span class="source">PDF · P10</span>
             </div>
           </div>
         </div>
-        <div class="product-card" style="--i: 5">
+        <div class="product-card" style="--i: 17">
           <div class="card-image">
-            <img src="assets/products-grid/dspb050-p10.webp" alt="Solar Powerbank Li Polymer battery" loading="lazy"  style="aspect-ratio: 1.042;" />
+            <img src="assets/products-grid/dspb050-p10.webp" alt="Solar Powerbank Li Polymer battery" loading="lazy" style="aspect-ratio: 1.507;" />
             <span class="page-pill">P10</span>
           </div>
           <div class="card-body">
-            <span class="sku">P10 · ITEM 02</span>
+            <span class="sku">—</span>
             <h3 class="name">Solar Powerbank Li Polymer battery</h3>
             <ul class="spec spec-list"><li>5000mah/8000mah</li><li>Product size 78*160*9mm</li></ul>
             <div class="meta-row">
-              
               <span class="source">PDF · P10</span>
             </div>
           </div>
         </div>
-        <div class="product-card" style="--i: 6">
+        <div class="product-card" style="--i: 18">
           <div class="card-image">
-            <img src="assets/products-grid/dspb8543-p11.webp" alt="Solar Powerbank" loading="lazy"  style="aspect-ratio: 1.338;" />
+            <img src="assets/products-grid/dspb8543-p11.webp" alt="Solar Powerbank" loading="lazy" style="aspect-ratio: 1.507;" />
             <span class="page-pill">P11</span>
           </div>
           <div class="card-body">
@@ -1118,67 +1122,62 @@ ul { margin: 0; padding: 0; list-style: none; }
             <h3 class="name">Solar Powerbank</h3>
             <ul class="spec spec-list"><li>20000mAh 3.7V 74WH</li><li>size 173.2*88.3*42.2mm</li><li>MAX PD 20W</li></ul>
             <div class="meta-row">
-              
               <span class="source">PDF · P11</span>
             </div>
           </div>
         </div>
-        <div class="product-card" style="--i: 7">
+        <div class="product-card" style="--i: 19">
           <div class="card-image">
-            <img src="assets/products-grid/dspb132-p11.webp" alt="Catalogue item · P11–02" loading="lazy"  style="aspect-ratio: 1.678;" />
+            <img src="assets/products-grid/dspb132-p11.webp" alt="—" loading="lazy" style="aspect-ratio: 1.507;" />
             <span class="page-pill">P11</span>
           </div>
           <div class="card-body">
-            <span class="sku">P11 · ITEM 02</span>
-            <h3 class="name">Catalogue item · P11–02</h3>
+            <span class="sku">—</span>
+            <h3 class="name">—</h3>
             <ul class="spec spec-list"><li>PDF does not provide a separately readable product description.</li></ul>
             <div class="meta-row">
-              
               <span class="source">PDF · P11</span>
             </div>
           </div>
         </div>
-        <div class="product-card" style="--i: 8">
+        <div class="product-card" style="--i: 20">
           <div class="card-image">
-            <img src="assets/products-grid/dsb4202-p11.webp" alt="Solar Powerbank with wireless charger" loading="lazy"  style="aspect-ratio: 0.625;" />
+            <img src="assets/products-grid/dsb4202-p11.webp" alt="Solar Powerbank with wireless charger" loading="lazy" style="aspect-ratio: 1.507;" />
             <span class="page-pill">P11</span>
           </div>
           <div class="card-body">
-            <span class="sku">P11 · ITEM 03</span>
+            <span class="sku">—</span>
             <h3 class="name">Solar Powerbank with wireless charger</h3>
             <ul class="spec spec-list"><li>Li Polymer battery</li><li>10000mAH(3.7V 37W)</li><li>Product size 171*84*22mm</li></ul>
             <div class="meta-row">
-              
               <span class="source">PDF · P11</span>
             </div>
           </div>
         </div>
-        <div class="product-card" style="--i: 9">
+        <div class="product-card" style="--i: 21">
           <div class="card-image">
-            <img src="assets/products-grid/dsb4119-p12.webp" alt="6000mah+5WWC" loading="lazy"  style="aspect-ratio: 1.135;" />
+            <img src="assets/products-grid/dsb4119-p12.webp" alt="6000mah+5WWC" loading="lazy" style="aspect-ratio: 1.479;" />
             <span class="page-pill">P12</span>
           </div>
           <div class="card-body">
-            <span class="sku">P12 · ITEM 01</span>
+            <span class="sku">—</span>
             <h3 class="name">6000mah+5WWC</h3>
             <ul class="spec spec-list"><li>size 127*71*14mm</li><li>wheat straw+cork material</li></ul>
             <div class="meta-row">
-              
               <span class="source">PDF · P12</span>
             </div>
           </div>
         </div>
-        <div class="product-card" style="--i: 10">
+        <div class="product-card" style="--i: 22">
           <div class="card-image">
-            <img src="assets/products-grid/passport-wallet-powerbank-p12.webp" alt="5000mah+5W WC" loading="lazy"  style="aspect-ratio: 1.236;" />
+            <img src="assets/products-grid/passport-wallet-powerbank-p12.webp" alt="5000mah+5W WC" loading="lazy" style="aspect-ratio: 1.479;" />
             <span class="page-pill">P12</span>
           </div>
           <div class="card-body">
-            <span class="sku">P12 · ITEM 02</span>
+            <span class="sku">—</span>
             <h3 class="name">5000mah+5W WC</h3>
             <ul class="spec spec-list"><li>magnetic powerbank</li><li>size 100*63*16mm</li><li>input 5V 2A, output 5V 2A</li></ul>
             <div class="meta-row">
-              
               <span class="source">PDF · P12</span>
             </div>
           </div>
@@ -1186,480 +1185,11 @@ ul { margin: 0; padding: 0; list-style: none; }
     </div>
   </div>
 </section>
-<section class="subcat" data-od-id="catalog-subcategory" id="subcat-wireless-charger">
+<section class="subcat" data-od-id="catalog-subcategory" id="sub-wall-charger">
   <div class="container">
     <header class="subcat-head">
       <div>
         <span class="eyebrow">Sub-series 2</span>
-        <h2>Wireless Charger</h2>
-      </div>
-    </header>
-    <div class="subcat-summary">
-      <span class="label">Catalog pages</span>
-      <span class="source-pages"><a href="#page-13">P13</a> · <a href="#page-14">P14</a> · <a href="#page-15">P15</a> · <a href="#page-16">P16</a> · <a href="#page-17">P17</a> · <a href="#page-18">P18</a> · <a href="#page-19">P19</a></span>
-      <span class="count">14 products</span>
-    </div>
-    <div class="product-grid">
-        <div class="product-card" style="--i: 11">
-          <div class="card-image">
-            <img src="assets/products-grid/dsw28-p13.webp" alt="wireless charger wood material," loading="lazy"  style="aspect-ratio: 0.919;" />
-            <span class="page-pill">P13</span>
-          </div>
-          <div class="card-body">
-            <span class="sku">DSW28</span>
-            <h3 class="name">wireless charger wood material,</h3>
-            <ul class="spec spec-list"><li>product size 100*7.5mm 10W</li></ul>
-            <div class="meta-row">
-              
-              <span class="source">PDF · P13</span>
-            </div>
-          </div>
-        </div>
-        <div class="product-card" style="--i: 0">
-          <div class="card-image">
-            <img src="assets/products-grid/dsw31-p13.webp" alt="Bamboo" loading="lazy"  style="aspect-ratio: 0.528;" />
-            <span class="page-pill">P13</span>
-          </div>
-          <div class="card-body">
-            <span class="sku">P13 · ITEM 02</span>
-            <h3 class="name">Bamboo</h3>
-            <ul class="spec spec-list"><li>Input 9V 2A/5V 2A</li><li>Ontput 15W/10W/5W</li><li>Product size 70*72*113MM</li></ul>
-            <div class="meta-row">
-              
-              <span class="source">PDF · P13</span>
-            </div>
-          </div>
-        </div>
-        <div class="product-card" style="--i: 1">
-          <div class="card-image">
-            <img src="assets/products-grid/dsw16-p14.webp" alt="itiii" loading="lazy"  style="aspect-ratio: 1.370;" />
-            <span class="page-pill">P14</span>
-          </div>
-          <div class="card-body">
-            <span class="sku">P14 · ITEM 01</span>
-            <h3 class="name">itiii</h3>
-            <ul class="spec spec-list"><li>2022</li></ul>
-            <div class="meta-row">
-              
-              <span class="source">PDF · P14</span>
-            </div>
-          </div>
-        </div>
-        <div class="product-card" style="--i: 2">
-          <div class="card-image">
-            <img src="assets/products-grid/dswcb03-p14.webp" alt="Bamboo wireless charger with LED light up logo" loading="lazy"  style="aspect-ratio: 1.386;" />
-            <span class="page-pill">P14</span>
-          </div>
-          <div class="card-body">
-            <span class="sku">P14 · ITEM 02</span>
-            <h3 class="name">Bamboo wireless charger with LED light up logo</h3>
-            <ul class="spec spec-list"><li>bamboo</li><li>Input 9V 2.4A</li><li>Output 10W/5W</li><li>Product size 92*92*9mm</li></ul>
-            <div class="meta-row">
-              
-              <span class="source">PDF · P14</span>
-            </div>
-          </div>
-        </div>
-        <div class="product-card" style="--i: 3">
-          <div class="card-image">
-            <img src="assets/products-grid/dsw37-p15.webp" alt="product size 70*85*100mm" loading="lazy"  style="aspect-ratio: 0.777;" />
-            <span class="page-pill">P15</span>
-          </div>
-          <div class="card-body">
-            <span class="sku">DSW16</span>
-            <h3 class="name">product size 70*85*100mm</h3>
-            <ul class="spec spec-list"><li>input 5V 2A</li><li>output 5V 1A</li></ul>
-            <div class="meta-row">
-              
-              <span class="source">PDF · P15</span>
-            </div>
-          </div>
-        </div>
-        <div class="product-card" style="--i: 4">
-          <div class="card-image">
-            <img src="assets/products-grid/ds1299-p15.webp" alt="Magnetic Wireless charger" loading="lazy"  style="aspect-ratio: 0.750;" />
-            <span class="page-pill">P15</span>
-          </div>
-          <div class="card-body">
-            <span class="sku">DSWCB03</span>
-            <h3 class="name">Magnetic Wireless charger</h3>
-            <ul class="spec spec-list"><li>Luminuous logo</li><li>output 5W/7.5W/10W/15W</li><li>size 70*9.5mm</li></ul>
-            <div class="meta-row">
-              
-              <span class="source">PDF · P15</span>
-            </div>
-          </div>
-        </div>
-        <div class="product-card" style="--i: 5">
-          <div class="card-image">
-            <img src="assets/products-grid/foldable-3-in-1-wireless-charger-p16.webp" alt="Foldable wireless charger" loading="lazy"  style="aspect-ratio: 0.690;" />
-            <span class="page-pill">P16</span>
-          </div>
-          <div class="card-body">
-            <span class="sku">P16 · ITEM 01</span>
-            <h3 class="name">Foldable wireless charger</h3>
-            <ul class="spec spec-list"><li>for celphone, airpods,</li><li>i watch</li><li>folded sizse 70*70*26.8mm</li></ul>
-            <div class="meta-row">
-              
-              <span class="source">PDF · P16</span>
-            </div>
-          </div>
-        </div>
-        <div class="product-card" style="--i: 6">
-          <div class="card-image">
-            <img src="assets/products-grid/magnetic-3-in-1-wireless-charger-p16.webp" alt="wireless charger with speaker" loading="lazy"  style="aspect-ratio: 0.894;" />
-            <span class="page-pill">P16</span>
-          </div>
-          <div class="card-body">
-            <span class="sku">P16 · ITEM 02</span>
-            <h3 class="name">wireless charger with speaker</h3>
-            <ul class="spec spec-list"><li>BT 5.0,</li><li>wireless charger max 15W</li><li>battery 1000mah</li><li>size 115.5*79*91mm</li><li>ABS material</li></ul>
-            <div class="meta-row">
-              
-              <span class="source">PDF · P16</span>
-            </div>
-          </div>
-        </div>
-        <div class="product-card" style="--i: 7">
-          <div class="card-image">
-            <img src="assets/products-grid/magsafe-wireless-charger-for-car-p17.webp" alt="Magsafe wireless charger for Car" loading="lazy"  style="aspect-ratio: 1.127;" />
-            <span class="page-pill">P17</span>
-          </div>
-          <div class="card-body">
-            <span class="sku">P17 · ITEM 01</span>
-            <h3 class="name">Magsafe wireless charger for Car</h3>
-            <ul class="spec spec-list"><li>max 15W ABS material</li></ul>
-            <div class="meta-row">
-              
-              <span class="source">PDF · P17</span>
-            </div>
-          </div>
-        </div>
-        <div class="product-card" style="--i: 8">
-          <div class="card-image">
-            <img src="assets/products-grid/qc-3-0-magsafe-wireless-charger-p17.webp" alt="Wireless charger for car" loading="lazy"  style="aspect-ratio: 0.676;" />
-            <span class="page-pill">P17</span>
-          </div>
-          <div class="card-body">
-            <span class="sku">P17 · ITEM 02</span>
-            <h3 class="name">Wireless charger for car</h3>
-            <ul class="spec spec-list"><li>15Wmax output</li><li>size 105*5*87.5mm</li><li>ABS material</li></ul>
-            <div class="meta-row">
-              
-              <span class="source">PDF · P17</span>
-            </div>
-          </div>
-        </div>
-        <div class="product-card" style="--i: 9">
-          <div class="card-image">
-            <img src="assets/products-grid/2-in-1-magsafe-wireless-charger-p18.webp" alt="Wireless charger+BT speaker+Clock+LEd light+FM" loading="lazy"  style="aspect-ratio: 1.478;" />
-            <span class="page-pill">P18</span>
-          </div>
-          <div class="card-body">
-            <span class="sku">P18 · ITEM 01</span>
-            <h3 class="name">Wireless charger+BT speaker+Clock+LEd light+FM</h3>
-            <ul class="spec spec-list"><li>15W/10W/7.5W/5W</li><li>input 5V 2A</li><li>size 230*116*89mm</li><li>battery 1800mah</li><li>BT 5.0</li></ul>
-            <div class="meta-row">
-              
-              <span class="source">PDF · P18</span>
-            </div>
-          </div>
-        </div>
-        <div class="product-card" style="--i: 10">
-          <div class="card-image">
-            <img src="assets/products-grid/wireless-charger-led-light-box-p18.webp" alt="Stylish multifunctional wireless charger" loading="lazy"  style="aspect-ratio: 0.908;" />
-            <span class="page-pill">P18</span>
-          </div>
-          <div class="card-body">
-            <span class="sku">P18 · ITEM 02</span>
-            <h3 class="name">Stylish multifunctional wireless charger</h3>
-            <ul class="spec spec-list"><li>ABS material</li><li>Wireless charger 10W, input 12V 1.67A,</li><li>Led model 2835*6pcs, power 16.5W, color temperature 2900-3100K</li><li>Product size 151*105*180mm, net weight 438g</li><li>Function: Wireless charger/2 group clock/time, date, temperature show</li></ul>
-            <div class="meta-row">
-              
-              <span class="source">PDF · P18</span>
-            </div>
-          </div>
-        </div>
-        <div class="product-card" style="--i: 11">
-          <div class="card-image">
-            <img src="assets/products-grid/wireless-charger-bt-speaker-clock-p19.webp" alt="Wireless charger 10W max," loading="lazy"  style="aspect-ratio: 1.017;" />
-            <span class="page-pill">P19</span>
-          </div>
-          <div class="card-body">
-            <span class="sku">P19 · ITEM 01</span>
-            <h3 class="name">Wireless charger 10W max,</h3>
-            <ul class="spec spec-list"><li>ABS material , led 2835*54pcs, input 12v 1.5A</li><li>130lm, color temperature 3500+500k</li><li>Product size 143*102*235mm</li><li>Product net weight 380g</li><li>Function: time, clock, adjustable led light,</li></ul>
-            <div class="meta-row">
-              
-              <span class="source">PDF · P19</span>
-            </div>
-          </div>
-        </div>
-        <div class="product-card" style="--i: 0">
-          <div class="card-image">
-            <img src="assets/products-grid/wireless-charger-light-with-handle-p19.webp" alt="Wooden wireless charger with light painting" loading="lazy"  style="aspect-ratio: 0.462;" />
-            <span class="page-pill">P19</span>
-          </div>
-          <div class="card-body">
-            <span class="sku">P19 · ITEM 02</span>
-            <h3 class="name">Wooden wireless charger with light painting</h3>
-            <ul class="spec spec-list"><li>Input TYPE C 9V 1.67A, output max 15W, light 2.5w</li><li>Size 266*90*72mm, net weight 410g</li><li>Touch button to adjust the light</li><li>Suitable for home, office and gift for all people</li></ul>
-            <div class="meta-row">
-              
-              <span class="source">PDF · P19</span>
-            </div>
-          </div>
-        </div>
-    </div>
-  </div>
-</section>
-<section class="subcat" data-od-id="catalog-subcategory" id="subcat-charging-cable">
-  <div class="container">
-    <header class="subcat-head">
-      <div>
-        <span class="eyebrow">Sub-series 3</span>
-        <h2>Charging Cable</h2>
-      </div>
-    </header>
-    <div class="subcat-summary">
-      <span class="label">Catalog pages</span>
-      <span class="source-pages"><a href="#page-20">P20</a> · <a href="#page-21">P21</a> · <a href="#page-22">P22</a> · <a href="#page-23">P23</a> · <a href="#page-24">P24</a> · <a href="#page-25">P25</a> · <a href="#page-26">P26</a></span>
-      <span class="count">15 products</span>
-    </div>
-    <div class="product-grid">
-        <div class="product-card" style="--i: 1">
-          <div class="card-image">
-            <img src="assets/products-grid/luminous-logo-3-in-1-cable-p20.webp" alt="Catalogue item · P20–01" loading="lazy"  style="aspect-ratio: 0.587;" />
-            <span class="page-pill">P20</span>
-          </div>
-          <div class="card-body">
-            <span class="sku">P20 · ITEM 01</span>
-            <h3 class="name">Catalogue item · P20–01</h3>
-            <ul class="spec spec-list"><li>PDF does not provide a separately readable product description.</li></ul>
-            <div class="meta-row">
-              
-              <span class="source">PDF · P20</span>
-            </div>
-          </div>
-        </div>
-        <div class="product-card" style="--i: 2">
-          <div class="card-image">
-            <img src="assets/products-grid/luminous-logo-6-in-1-cable-p20.webp" alt="Catalogue item · P20–02" loading="lazy"  style="aspect-ratio: 0.812;" />
-            <span class="page-pill">P20</span>
-          </div>
-          <div class="card-body">
-            <span class="sku">P20 · ITEM 02</span>
-            <h3 class="name">Catalogue item · P20–02</h3>
-            <ul class="spec spec-list"><li>PDF does not provide a separately readable product description.</li></ul>
-            <div class="meta-row">
-              
-              <span class="source">PDF · P20</span>
-            </div>
-          </div>
-        </div>
-        <div class="product-card" style="--i: 3">
-          <div class="card-image">
-            <img src="assets/products-grid/multi-color-led-light-cable-p20.webp" alt="6 in 1 LED cable" loading="lazy"  style="aspect-ratio: 0.468;" />
-            <span class="page-pill">P20</span>
-          </div>
-          <div class="card-body">
-            <span class="sku">P20 · ITEM 03</span>
-            <h3 class="name">6 in 1 LED cable</h3>
-            <ul class="spec spec-list"><li>input USB+TYPE C</li><li>Output MICRO, LIGHTNING AND TYPE C</li></ul>
-            <div class="meta-row">
-              
-              <span class="source">PDF · P20</span>
-            </div>
-          </div>
-        </div>
-        <div class="product-card" style="--i: 4">
-          <div class="card-image">
-            <img src="assets/products-grid/luminous-wireless-charging-cable-p21.webp" alt="USB+TYPE C" loading="lazy"  style="aspect-ratio: 0.760;" />
-            <span class="page-pill">P21</span>
-          </div>
-          <div class="card-body">
-            <span class="sku">P21 · ITEM 01</span>
-            <h3 class="name">USB+TYPE C</h3>
-            <ul class="spec spec-list"><li>dual input</li></ul>
-            <div class="meta-row">
-              
-              <span class="source">PDF · P21</span>
-            </div>
-          </div>
-        </div>
-        <div class="product-card" style="--i: 5">
-          <div class="card-image">
-            <img src="assets/products-grid/magnetic-3-in-1-charging-cable-p21.webp" alt="magnetic cable" loading="lazy"  style="aspect-ratio: 0.992;" />
-            <span class="page-pill">P21</span>
-          </div>
-          <div class="card-body">
-            <span class="sku">P21 · ITEM 02</span>
-            <h3 class="name">magnetic cable</h3>
-            <ul class="spec spec-list"><li>USB-TYPE C</li><li>TYPE C-TYPE С</li><li>TYPE C-LIGHTNING</li><li>cable length 1m</li><li>both charging and data transfer</li></ul>
-            <div class="meta-row">
-              
-              <span class="source">PDF · P21</span>
-            </div>
-          </div>
-        </div>
-        <div class="product-card" style="--i: 6">
-          <div class="card-image">
-            <img src="assets/products-grid/eco-bamboo-3-in-1-keychain-cable-p22.webp" alt="Eco 3 in 1 cable" loading="lazy"  style="aspect-ratio: 0.360;" />
-            <span class="page-pill">P22</span>
-          </div>
-          <div class="card-body">
-            <span class="sku">P22 · ITEM 01</span>
-            <h3 class="name">Eco 3 in 1 cable</h3>
-            <ul class="spec spec-list"><li>bamboo+wheat straw cable</li><li>input USB</li><li>output MICRO, lightning andtype C</li><li>keychain style</li></ul>
-            <div class="meta-row">
-              
-              <span class="source">PDF · P22</span>
-            </div>
-          </div>
-        </div>
-        <div class="product-card" style="--i: 7">
-          <div class="card-image">
-            <img src="assets/products-grid/eco-wheat-straw-3-in-1-cable-p22.webp" alt="3 in 1 Extension cable" loading="lazy"  style="aspect-ratio: 0.536;" />
-            <span class="page-pill">P22</span>
-          </div>
-          <div class="card-body">
-            <span class="sku">P22 · ITEM 02</span>
-            <h3 class="name">3 in 1 Extension cable</h3>
-            <ul class="spec spec-list"><li>Bamboo+ABS</li><li>black color</li></ul>
-            <div class="meta-row">
-              
-              <span class="source">PDF · P22</span>
-            </div>
-          </div>
-        </div>
-        <div class="product-card" style="--i: 8">
-          <div class="card-image">
-            <img src="assets/products-grid/60w-retractable-cable-p23.webp" alt="Catalogue item · P23–01" loading="lazy"  style="aspect-ratio: 0.690;" />
-            <span class="page-pill">P23</span>
-          </div>
-          <div class="card-body">
-            <span class="sku">P23 · ITEM 01</span>
-            <h3 class="name">Catalogue item · P23–01</h3>
-            <ul class="spec spec-list"><li>PDF does not provide a separately readable product description.</li></ul>
-            <div class="meta-row">
-              
-              <span class="source">PDF · P23</span>
-            </div>
-          </div>
-        </div>
-        <div class="product-card" style="--i: 9">
-          <div class="card-image">
-            <img src="assets/products-grid/65w-pd-retractable-cable-p23.webp" alt="3 in 1 or 6 in 1 bamboo + LED logo" loading="lazy"  style="aspect-ratio: 0.707;" />
-            <span class="page-pill">P23</span>
-          </div>
-          <div class="card-body">
-            <span class="sku">P23 · ITEM 02</span>
-            <h3 class="name">3 in 1 or 6 in 1 bamboo + LED logo</h3>
-            <ul class="spec spec-list"><li>long led cable</li><li>Cable color: black, white, red, blue</li><li>Led color, white, red, green, blue, red and orange</li><li>Input USB+type c Output Micro, lightning and type c</li><li>Only charging 5V 2A</li></ul>
-            <div class="meta-row">
-              
-              <span class="source">PDF · P23</span>
-            </div>
-          </div>
-        </div>
-        <div class="product-card" style="--i: 10">
-          <div class="card-image">
-            <img src="assets/products-grid/3a-60w-usb-c-keychain-cable-p24.webp" alt="ABS+TPE material" loading="lazy"  style="aspect-ratio: 0.900;" />
-            <span class="page-pill">P24</span>
-          </div>
-          <div class="card-body">
-            <span class="sku">P24 · ITEM 01</span>
-            <h3 class="name">ABS+TPE material</h3>
-            <ul class="spec spec-list"><li>input USB+TYPE C</li><li>output TYPEC, lightning</li><li>TYPE C max 65W, lightning PD 20W</li></ul>
-            <div class="meta-row">
-              
-              <span class="source">PDF · P24</span>
-            </div>
-          </div>
-        </div>
-        <div class="product-card" style="--i: 11">
-          <div class="card-image">
-            <img src="assets/products-grid/6-in-1-60w-foldable-cable-p24.webp" alt="Type-C" loading="lazy"  style="aspect-ratio: 1.053;" />
-            <span class="page-pill">P24</span>
-          </div>
-          <div class="card-body">
-            <span class="sku">P24 · ITEM 02</span>
-            <h3 class="name">Type-C</h3>
-            <ul class="spec spec-list"><li>USB</li></ul>
-            <div class="meta-row">
-              
-              <span class="source">PDF · P24</span>
-            </div>
-          </div>
-        </div>
-        <div class="product-card" style="--i: 0">
-          <div class="card-image">
-            <img src="assets/products-grid/3-in-1-lanyard-cable-p25.webp" alt="6 in 1 cable" loading="lazy"  style="aspect-ratio: 0.928;" />
-            <span class="page-pill">P25</span>
-          </div>
-          <div class="card-body">
-            <span class="sku">P25 · ITEM 01</span>
-            <h3 class="name">6 in 1 cable</h3>
-            <ul class="spec spec-list"><li>input USB+TYPE C</li><li>output MICRO, LIGHTNING AND TYPE C</li><li>charging and data transfer</li><li>5V 2A</li><li>cable length 14cm</li><li>white/black/red/blue/green/orange</li></ul>
-            <div class="meta-row">
-              
-              <span class="source">PDF · P25</span>
-            </div>
-          </div>
-        </div>
-        <div class="product-card" style="--i: 1">
-          <div class="card-image">
-            <img src="assets/products-grid/4-in-1-lanyard-cable-p25.webp" alt="6 in 1 Nylon cable" loading="lazy"  style="aspect-ratio: 0.704;" />
-            <span class="page-pill">P25</span>
-          </div>
-          <div class="card-body">
-            <span class="sku">P25 · ITEM 02</span>
-            <h3 class="name">6 in 1 Nylon cable</h3>
-            <ul class="spec spec-list"><li>input USB+TYPE C</li><li>output Micro, lightning and type C</li><li>5V 3A max.</li><li>black/red/blue color</li><li>cable length 1.2m</li></ul>
-            <div class="meta-row">
-              
-              <span class="source">PDF · P25</span>
-            </div>
-          </div>
-        </div>
-        <div class="product-card" style="--i: 2">
-          <div class="card-image">
-            <img src="assets/products-grid/bottle-opener-60w-cable-p26.webp" alt="bottle opener cable" loading="lazy"  style="aspect-ratio: 0.890;" />
-            <span class="page-pill">P26</span>
-          </div>
-          <div class="card-body">
-            <span class="sku">P26 · ITEM 01</span>
-            <h3 class="name">bottle opener cable</h3>
-            <ul class="spec spec-list"><li>input USB+TYPE C</li><li>output LIGHTNING AND TYPE C</li><li>ЗA 60W</li><li>both charging and data transfer</li><li>length 30cm for cable</li><li>OTG TypeC</li></ul>
-            <div class="meta-row">
-              
-              <span class="source">PDF · P26</span>
-            </div>
-          </div>
-        </div>
-        <div class="product-card" style="--i: 3">
-          <div class="card-image">
-            <img src="assets/products-grid/6-in-1-60w-charging-cable-p26.webp" alt="3 in 1 colorful extension cable" loading="lazy"  style="aspect-ratio: 1.103;" />
-            <span class="page-pill">P26</span>
-          </div>
-          <div class="card-body">
-            <span class="sku">P26 · ITEM 02</span>
-            <h3 class="name">3 in 1 colorful extension cable</h3>
-            <ul class="spec spec-list"><li>cable length 1.2m</li><li>5V 2A</li></ul>
-            <div class="meta-row">
-              
-              <span class="source">PDF · P26</span>
-            </div>
-          </div>
-        </div>
-    </div>
-  </div>
-</section>
-<section class="subcat" data-od-id="catalog-subcategory" id="subcat-wall-charger">
-  <div class="container">
-    <header class="subcat-head">
-      <div>
-        <span class="eyebrow">Sub-series 4</span>
         <h2>Wall Charger</h2>
       </div>
     </header>
@@ -1669,122 +1199,114 @@ ul { margin: 0; padding: 0; list-style: none; }
       <span class="count">8 products</span>
     </div>
     <div class="product-grid">
-        <div class="product-card" style="--i: 4">
+        <div class="product-card" style="--i: 0">
           <div class="card-image">
-            <img src="assets/products-grid/dsj167-p40.webp" alt="EU Charging Plug PD 20W + QC 3.0" loading="lazy"  style="aspect-ratio: 0.907;" />
+            <img src="assets/products-grid/dsj167-p40.webp" alt="EU Charging Plug PD 20W + QC 3.0" loading="lazy" style="aspect-ratio: 1.507;" />
             <span class="page-pill">P40</span>
           </div>
           <div class="card-body">
-            <span class="sku">P40 · ITEM 01</span>
+            <span class="sku">—</span>
             <h3 class="name">EU Charging Plug PD 20W + QC 3.0</h3>
-            <ul class="spec spec-list"><li>white color</li><li>input 100-240V 50/60HZ 0.5A Max</li><li>output TYPE C 5V 3A 9V 2.22A, 12V 1.67A</li><li>USB 5V 3A, 9V 2A, 12V 1.5A</li><li>Dual outputTYPE C+USB 5V3A MAX</li><li>product size 27*42.5*66mm product weight 50g</li><li>PC material</li></ul>
+            <ul class="spec spec-list"><li>white color</li><li>input 100-240V 50/60HZ 0.5A Max</li><li>output TYPE C 5V 3A 9V 2.22A, 12V 1.67A</li><li>USB 5V 3A, 9V 2A, 12V 1.5A</li><li>Dual outputTYPE C+USB 5V3A MAX</li></ul>
             <div class="meta-row">
-              
               <span class="source">PDF · P40</span>
+            </div>
+          </div>
+        </div>
+        <div class="product-card" style="--i: 1">
+          <div class="card-image">
+            <img src="assets/products-grid/dsjy307-p40.webp" alt="EU Charging Plug 20W" loading="lazy" style="aspect-ratio: 1.479;" />
+            <span class="page-pill">P40</span>
+          </div>
+          <div class="card-body">
+            <span class="sku">—</span>
+            <h3 class="name">EU Charging Plug 20W</h3>
+            <ul class="spec spec-list"><li>white or black color</li><li>input: 100-240V 50/60HZ 0.8A Max</li><li>Output: TYPE C 5V 3A, 9V 2.22A, 12V 1.67A</li><li>Output: USB A 5V 3A, 9V 2A, 12V 1.5A</li><li>TYPE C+USB: 5V 3.4A MAX</li></ul>
+            <div class="meta-row">
+              <span class="source">PDF · P40</span>
+            </div>
+          </div>
+        </div>
+        <div class="product-card" style="--i: 2">
+          <div class="card-image">
+            <img src="assets/products-grid/eu-20w-pd-qc-3-0-charger-p40.webp" alt="EU Charging Plug 30W" loading="lazy" style="aspect-ratio: 1.507;" />
+            <span class="page-pill">P40</span>
+          </div>
+          <div class="card-body">
+            <span class="sku">—</span>
+            <h3 class="name">EU Charging Plug 30W</h3>
+            <ul class="spec spec-list"><li>white or black color</li><li>input: 100-240V 50/60HZ 0.8A Max</li><li>Output: TYPE C 5V 3A, 9V 3A, 12V 2.5A, 15V 2A,</li><li>20V 1.5A(30W MAXX)</li><li>Output: USB A 5V 3A, 9V 3A, 12V 2.5A, 20V 1.5A</li></ul>
+            <div class="meta-row">
+              <span class="source">PDF · P40</span>
+            </div>
+          </div>
+        </div>
+        <div class="product-card" style="--i: 3">
+          <div class="card-image">
+            <img src="assets/products-grid/eu-35w-dual-type-c-charger-p40.webp" alt="EU Charging Plug GaN 45W" loading="lazy" style="aspect-ratio: 1.479;" />
+            <span class="page-pill">P40</span>
+          </div>
+          <div class="card-body">
+            <span class="sku">—</span>
+            <h3 class="name">EU Charging Plug GaN 45W</h3>
+            <ul class="spec spec-list"><li>white or black color</li><li>input: 100-240V 50/60HZ 1.8A Max</li><li>Output: PD 5V 3A, 9V 3A, 12V 3A, 15V 3A,</li><li>20V 2.25A</li><li>Output: QC 3.0 5V 3A, 9V 2A, 12V 1.5A</li></ul>
+            <div class="meta-row">
+              <span class="source">PDF · P40</span>
+            </div>
+          </div>
+        </div>
+        <div class="product-card" style="--i: 4">
+          <div class="card-image">
+            <img src="assets/products-grid/eu-45w-gan-charger-p41.webp" alt="input 100-240V 50/60HZ 1.8A Max" loading="lazy" style="aspect-ratio: 1.086;" />
+            <span class="page-pill">P41</span>
+          </div>
+          <div class="card-body">
+            <span class="sku">—</span>
+            <h3 class="name">input 100-240V 50/60HZ 1.8A Max</h3>
+            <ul class="spec spec-list"><li>output USB 4.5V 5A, 5V 4.5A,5V 3A, 9V 2A, 12V</li><li>TYPE C 5V 3A 9V 3A, 12V 3A, 15V 3A, 20V 3.25A</li><li>Single output USB 22.5W, TYPE C 65W</li><li>Dual Output 2*TYPE C 63W, TYPE C 1+USB 63W, TYPE</li><li>3 Ports output TYPE C 60W MAX 1(45W)+TYEP C</li></ul>
+            <div class="meta-row">
+              <span class="source">PDF · P41</span>
             </div>
           </div>
         </div>
         <div class="product-card" style="--i: 5">
           <div class="card-image">
-            <img src="assets/products-grid/dsjy307-p40.webp" alt="EU Charging Plug 20W" loading="lazy"  style="aspect-ratio: 0.886;" />
-            <span class="page-pill">P40</span>
+            <img src="assets/products-grid/eu-65w-gan-charger-p41.webp" alt="EU Charging Plug GaN 65W" loading="lazy" style="aspect-ratio: 1.065;" />
+            <span class="page-pill">P41</span>
           </div>
           <div class="card-body">
-            <span class="sku">P40 · ITEM 02</span>
-            <h3 class="name">EU Charging Plug 20W</h3>
-            <ul class="spec spec-list"><li>white or black color</li><li>input: 100-240V 50/60HZ 0.8A Max</li><li>Output: TYPE C 5V 3A, 9V 2.22A, 12V 1.67A</li><li>Output: USB A 5V 3A, 9V 2A, 12V 1.5A</li><li>TYPE C+USB: 5V 3.4A MAX</li><li>product size 43*42*30mm</li><li>PC material</li><li>product weight 85g</li></ul>
+            <span class="sku">—</span>
+            <h3 class="name">EU Charging Plug GaN 65W</h3>
+            <ul class="spec spec-list"><li>white or black color</li><li>input 100-240V 50/60HZ 1.6A Max</li><li>Output: TYPE C 5V 3A, 9V 3A, 12V 3A,</li><li>15V 3A, 20V 3.25A(65W MAX)</li><li>USB OUTPUT 5V 3A, 9V 2A, 12V 1.5A</li></ul>
             <div class="meta-row">
-              
-              <span class="source">PDF · P40</span>
+              <span class="source">PDF · P41</span>
             </div>
           </div>
         </div>
         <div class="product-card" style="--i: 6">
           <div class="card-image">
-            <img src="assets/products-grid/eu-20w-pd-qc-3-0-charger-p40.webp" alt="EU Charging Plug 30W" loading="lazy"  style="aspect-ratio: 0.889;" />
-            <span class="page-pill">P40</span>
+            <img src="assets/products-grid/gan-100w-multi-plug-charger-p41.webp" alt="GAN 100W" loading="lazy" style="aspect-ratio: 1.087;" />
+            <span class="page-pill">P41</span>
           </div>
           <div class="card-body">
-            <span class="sku">P40 · ITEM 03</span>
-            <h3 class="name">EU Charging Plug 30W</h3>
-            <ul class="spec spec-list"><li>white or black color</li><li>input: 100-240V 50/60HZ 0.8A Max</li><li>Output: TYPE C 5V 3A, 9V 3A, 12V 2.5A, 15V 2A,</li><li>20V 1.5A(30W MAXX)</li><li>Output: USB A 5V 3A, 9V 3A, 12V 2.5A, 20V 1.5A</li><li>Pps:Ddc 3.3-11V/3a,</li><li>TYPE C+USB: 5V 3.4A MAX</li><li>product size 43*42*30mm product weight 85g</li><li>PC material</li></ul>
+            <span class="sku">—</span>
+            <h3 class="name">GAN 100W</h3>
+            <ul class="spec spec-list"><li>110-240V, 50/60HZ, 1.5W</li><li>Type c 1 5V 3A, 9V 3A, 12V 3A, 15V</li><li>3A. 20V 5A</li><li>Type c 2 5V 3A, 9V 3A, 12V 2.5A,</li><li>15V 2A, 20V 1.5A</li></ul>
             <div class="meta-row">
-              
-              <span class="source">PDF · P40</span>
+              <span class="source">PDF · P41</span>
             </div>
           </div>
         </div>
         <div class="product-card" style="--i: 7">
           <div class="card-image">
-            <img src="assets/products-grid/eu-35w-dual-type-c-charger-p40.webp" alt="EU Charging Plug GaN 45W" loading="lazy"  style="aspect-ratio: 1.054;" />
-            <span class="page-pill">P40</span>
-          </div>
-          <div class="card-body">
-            <span class="sku">P40 · ITEM 04</span>
-            <h3 class="name">EU Charging Plug GaN 45W</h3>
-            <ul class="spec spec-list"><li>white or black color</li><li>input: 100-240V 50/60HZ 1.8A Max</li><li>Output: PD 5V 3A, 9V 3A, 12V 3A, 15V 3A,</li><li>20V 2.25A</li><li>Output: QC 3.0 5V 3A, 9V 2A, 12V 1.5A</li><li>PD+QC 3.0=30W+18W MAX</li><li>product size 80*65*20mm</li></ul>
-            <div class="meta-row">
-              
-              <span class="source">PDF · P40</span>
-            </div>
-          </div>
-        </div>
-        <div class="product-card" style="--i: 8">
-          <div class="card-image">
-            <img src="assets/products-grid/eu-45w-gan-charger-p41.webp" alt="input 100-240V 50/60HZ 1.8A Max" loading="lazy"  style="aspect-ratio: 0.966;" />
+            <img src="assets/products-grid/130w-p41.webp" alt="USB-C Charger" loading="lazy" style="aspect-ratio: 1.067;" />
             <span class="page-pill">P41</span>
           </div>
           <div class="card-body">
-            <span class="sku">P41 · ITEM 01</span>
-            <h3 class="name">input 100-240V 50/60HZ 1.8A Max</h3>
-            <ul class="spec spec-list"><li>output USB 4.5V 5A, 5V 4.5A,5V 3A, 9V 2A, 12V</li><li>TYPE C 5V 3A 9V 3A, 12V 3A, 15V 3A, 20V 3.25A</li><li>Single output USB 22.5W, TYPE C 65W</li><li>Dual Output 2*TYPE C 63W, TYPE C 1+USB 63W, TYPE</li><li>3 Ports output TYPE C 60W MAX 1(45W)+TYEP C</li><li>2(7.5W)+USB 7.5W</li></ul>
-            <div class="meta-row">
-              
-              <span class="source">PDF · P41</span>
-            </div>
-          </div>
-        </div>
-        <div class="product-card" style="--i: 9">
-          <div class="card-image">
-            <img src="assets/products-grid/eu-65w-gan-charger-p41.webp" alt="EU Charging Plug GaN 65W" loading="lazy"  style="aspect-ratio: 0.939;" />
-            <span class="page-pill">P41</span>
-          </div>
-          <div class="card-body">
-            <span class="sku">P41 · ITEM 02</span>
-            <h3 class="name">EU Charging Plug GaN 65W</h3>
-            <ul class="spec spec-list"><li>white or black color</li><li>input 100-240V 50/60HZ 1.6A Max</li><li>Output: TYPE C 5V 3A, 9V 3A, 12V 3A,</li><li>15V 3A, 20V 3.25A(65W MAX)</li><li>USB OUTPUT 5V 3A, 9V 2A, 12V 1.5A</li><li>18W MAX</li><li>USB+TYPE C 45W+18W MAX</li><li>product size 40.5*29.2*100mm</li><li>PC material</li></ul>
-            <div class="meta-row">
-              
-              <span class="source">PDF · P41</span>
-            </div>
-          </div>
-        </div>
-        <div class="product-card" style="--i: 10">
-          <div class="card-image">
-            <img src="assets/products-grid/gan-100w-multi-plug-charger-p41.webp" alt="GAN 100W" loading="lazy"  style="aspect-ratio: 0.730;" />
-            <span class="page-pill">P41</span>
-          </div>
-          <div class="card-body">
-            <span class="sku">P41 · ITEM 03</span>
-            <h3 class="name">GAN 100W</h3>
-            <ul class="spec spec-list"><li>110-240V, 50/60HZ, 1.5W</li><li>Type c 1 5V 3A, 9V 3A, 12V 3A, 15V</li><li>3A. 20V 5A</li><li>Type c 2 5V 3A, 9V 3A, 12V 2.5A,</li><li>15V 2A, 20V 1.5A</li><li>USB output 5V 3A, 9V 2A, 12V 1.5A</li></ul>
-            <div class="meta-row">
-              
-              <span class="source">PDF · P41</span>
-            </div>
-          </div>
-        </div>
-        <div class="product-card" style="--i: 11">
-          <div class="card-image">
-            <img src="assets/products-grid/130w-p41.webp" alt="USB-C Charger" loading="lazy"  style="aspect-ratio: 0.813;" />
-            <span class="page-pill">P41</span>
-          </div>
-          <div class="card-body">
-            <span class="sku">P41 · ITEM 04</span>
+            <span class="sku">—</span>
             <h3 class="name">USB-C Charger</h3>
             <ul class="spec spec-list"><li>130W</li></ul>
             <div class="meta-row">
-              
               <span class="source">PDF · P41</span>
             </div>
           </div>
@@ -1792,44 +1314,454 @@ ul { margin: 0; padding: 0; list-style: none; }
     </div>
   </div>
 </section>
-<section class="explore-other" data-od-id="series-navigation">
+<section class="cat-divider" data-od-id="catalog-category" id="cat-02-wireless-cables">
   <div class="container">
-    <div class="explore-other-head">
-      <div>
-        <h2>Explore the other series</h2>
-        <div class="sub">Jump across the full Ono Inspiration catalogue</div>
-      </div>
-      <a class="btn btn-secondary" href="index.html">← All series</a>
+    <div class="cat-head">
+      <span class="eyebrow">Category 02</span>
+      <h2 class="cat-title">Wireless & Cables</h2>
+      <p class="cat-tagline">Connect. Carry. Charge any way.</p>
+      <p class="cat-subtitle">Wireless pads and charging cables — bridging the last inch.</p>
+      <div class="cat-subs"><a href="#sub-wireless-charger">Wireless Charger</a> · <a href="#sub-charging-cable">Charging Cable</a></div>
     </div>
-    <div class="explore-grid">
-      <a class="explore-card muted" href="products-01-power-charging.html">
-        <span class="badge">01</span>
-        <div>
-          <div class="title">Power & Charging</div>
-          <div class="sub">60 products · P04-P41</div>
+  </div>
+</section>
+<section class="subcat" data-od-id="catalog-subcategory" id="sub-wireless-charger">
+  <div class="container">
+    <header class="subcat-head">
+      <div>
+        <span class="eyebrow">Sub-series 3</span>
+        <h2>Wireless Charger</h2>
+      </div>
+    </header>
+    <div class="subcat-summary">
+      <span class="label">Catalog pages</span>
+      <span class="source-pages"><a href="#page-13">P13</a> · <a href="#page-14">P14</a> · <a href="#page-15">P15</a> · <a href="#page-16">P16</a> · <a href="#page-17">P17</a> · <a href="#page-18">P18</a> · <a href="#page-19">P19</a></span>
+      <span class="count">14 products</span>
+    </div>
+    <div class="product-grid">
+        <div class="product-card" style="--i: 0">
+          <div class="card-image">
+            <img src="assets/products-grid/dsw28-p13.webp" alt="wireless charger wood material," loading="lazy" style="aspect-ratio: 1.507;" />
+            <span class="page-pill">P13</span>
+          </div>
+          <div class="card-body">
+            <span class="sku">DSW28</span>
+            <h3 class="name">wireless charger wood material,</h3>
+            <ul class="spec spec-list"><li>product size 100*7.5mm 10W</li></ul>
+            <div class="meta-row">
+              <span class="source">PDF · P13</span>
+            </div>
+          </div>
         </div>
-      </a>
-      <a class="explore-card" href="products-02-audio-mobile.html">
-        <span class="badge">02</span>
-        <div>
-          <div class="title">Audio & Smart Mobile</div>
-          <div class="sub">60 products · P28-P36</div>
+        <div class="product-card" style="--i: 1">
+          <div class="card-image">
+            <img src="assets/products-grid/dsw31-p13.webp" alt="Bamboo" loading="lazy" style="aspect-ratio: 1.507;" />
+            <span class="page-pill">P13</span>
+          </div>
+          <div class="card-body">
+            <span class="sku">—</span>
+            <h3 class="name">Bamboo</h3>
+            <ul class="spec spec-list"><li>Input 9V 2A/5V 2A</li><li>Ontput 15W/10W/5W</li><li>Product size 70*72*113MM</li></ul>
+            <div class="meta-row">
+              <span class="source">PDF · P13</span>
+            </div>
+          </div>
         </div>
-      </a>
-      <a class="explore-card" href="products-03-lifestyle-office.html">
-        <span class="badge">03</span>
-        <div>
-          <div class="title">Lifestyle & Office</div>
-          <div class="sub">86 products · P36-P51</div>
+        <div class="product-card" style="--i: 2">
+          <div class="card-image">
+            <img src="assets/products-grid/dsw16-p14.webp" alt="itiii" loading="lazy" style="aspect-ratio: 1.479;" />
+            <span class="page-pill">P14</span>
+          </div>
+          <div class="card-body">
+            <span class="sku">—</span>
+            <h3 class="name">itiii</h3>
+            <ul class="spec spec-list"><li>2022</li></ul>
+            <div class="meta-row">
+              <span class="source">PDF · P14</span>
+            </div>
+          </div>
         </div>
-      </a>
-      <a class="explore-card" href="products-04-carry-customize.html">
-        <span class="badge">04</span>
-        <div>
-          <div class="title">Carry & Customize</div>
-          <div class="sub">50 products · P51-P58</div>
+        <div class="product-card" style="--i: 3">
+          <div class="card-image">
+            <img src="assets/products-grid/dswcb03-p14.webp" alt="Bamboo wireless charger with LED light up logo" loading="lazy" style="aspect-ratio: 1.479;" />
+            <span class="page-pill">P14</span>
+          </div>
+          <div class="card-body">
+            <span class="sku">—</span>
+            <h3 class="name">Bamboo wireless charger with LED light up logo</h3>
+            <ul class="spec spec-list"><li>bamboo</li><li>Input 9V 2.4A</li><li>Output 10W/5W</li><li>Product size 92*92*9mm</li></ul>
+            <div class="meta-row">
+              <span class="source">PDF · P14</span>
+            </div>
+          </div>
         </div>
-      </a>
+        <div class="product-card" style="--i: 4">
+          <div class="card-image">
+            <img src="assets/products-grid/dsw37-p15.webp" alt="product size 70*85*100mm" loading="lazy" style="aspect-ratio: 1.479;" />
+            <span class="page-pill">P15</span>
+          </div>
+          <div class="card-body">
+            <span class="sku">DSW16</span>
+            <h3 class="name">product size 70*85*100mm</h3>
+            <ul class="spec spec-list"><li>input 5V 2A</li><li>output 5V 1A</li></ul>
+            <div class="meta-row">
+              <span class="source">PDF · P15</span>
+            </div>
+          </div>
+        </div>
+        <div class="product-card" style="--i: 5">
+          <div class="card-image">
+            <img src="assets/products-grid/ds1299-p15.webp" alt="Magnetic Wireless charger" loading="lazy" style="aspect-ratio: 1.507;" />
+            <span class="page-pill">P15</span>
+          </div>
+          <div class="card-body">
+            <span class="sku">DSWCB03</span>
+            <h3 class="name">Magnetic Wireless charger</h3>
+            <ul class="spec spec-list"><li>Luminuous logo</li><li>output 5W/7.5W/10W/15W</li><li>size 70*9.5mm</li></ul>
+            <div class="meta-row">
+              <span class="source">PDF · P15</span>
+            </div>
+          </div>
+        </div>
+        <div class="product-card" style="--i: 6">
+          <div class="card-image">
+            <img src="assets/products-grid/foldable-3-in-1-wireless-charger-p16.webp" alt="Foldable wireless charger" loading="lazy" style="aspect-ratio: 1.507;" />
+            <span class="page-pill">P16</span>
+          </div>
+          <div class="card-body">
+            <span class="sku">—</span>
+            <h3 class="name">Foldable wireless charger</h3>
+            <ul class="spec spec-list"><li>for celphone, airpods,</li><li>i watch</li><li>folded sizse 70*70*26.8mm</li></ul>
+            <div class="meta-row">
+              <span class="source">PDF · P16</span>
+            </div>
+          </div>
+        </div>
+        <div class="product-card" style="--i: 7">
+          <div class="card-image">
+            <img src="assets/products-grid/magnetic-3-in-1-wireless-charger-p16.webp" alt="wireless charger with speaker" loading="lazy" style="aspect-ratio: 1.479;" />
+            <span class="page-pill">P16</span>
+          </div>
+          <div class="card-body">
+            <span class="sku">—</span>
+            <h3 class="name">wireless charger with speaker</h3>
+            <ul class="spec spec-list"><li>BT 5.0,</li><li>wireless charger max 15W</li><li>battery 1000mah</li><li>size 115.5*79*91mm</li><li>ABS material</li></ul>
+            <div class="meta-row">
+              <span class="source">PDF · P16</span>
+            </div>
+          </div>
+        </div>
+        <div class="product-card" style="--i: 8">
+          <div class="card-image">
+            <img src="assets/products-grid/magsafe-wireless-charger-for-car-p17.webp" alt="Magsafe wireless charger for Car" loading="lazy" style="aspect-ratio: 1.507;" />
+            <span class="page-pill">P17</span>
+          </div>
+          <div class="card-body">
+            <span class="sku">—</span>
+            <h3 class="name">Magsafe wireless charger for Car</h3>
+            <ul class="spec spec-list"><li>max 15W ABS material</li></ul>
+            <div class="meta-row">
+              <span class="source">PDF · P17</span>
+            </div>
+          </div>
+        </div>
+        <div class="product-card" style="--i: 9">
+          <div class="card-image">
+            <img src="assets/products-grid/qc-3-0-magsafe-wireless-charger-p17.webp" alt="Wireless charger for car" loading="lazy" style="aspect-ratio: 1.479;" />
+            <span class="page-pill">P17</span>
+          </div>
+          <div class="card-body">
+            <span class="sku">—</span>
+            <h3 class="name">Wireless charger for car</h3>
+            <ul class="spec spec-list"><li>15Wmax output</li><li>size 105*5*87.5mm</li><li>ABS material</li></ul>
+            <div class="meta-row">
+              <span class="source">PDF · P17</span>
+            </div>
+          </div>
+        </div>
+        <div class="product-card" style="--i: 10">
+          <div class="card-image">
+            <img src="assets/products-grid/2-in-1-magsafe-wireless-charger-p18.webp" alt="Wireless charger+BT speaker+Clock+LEd light+FM" loading="lazy" style="aspect-ratio: 1.507;" />
+            <span class="page-pill">P18</span>
+          </div>
+          <div class="card-body">
+            <span class="sku">—</span>
+            <h3 class="name">Wireless charger+BT speaker+Clock+LEd light+FM</h3>
+            <ul class="spec spec-list"><li>15W/10W/7.5W/5W</li><li>input 5V 2A</li><li>size 230*116*89mm</li><li>battery 1800mah</li><li>BT 5.0</li></ul>
+            <div class="meta-row">
+              <span class="source">PDF · P18</span>
+            </div>
+          </div>
+        </div>
+        <div class="product-card" style="--i: 11">
+          <div class="card-image">
+            <img src="assets/products-grid/wireless-charger-led-light-box-p18.webp" alt="Stylish multifunctional wireless charger" loading="lazy" style="aspect-ratio: 1.479;" />
+            <span class="page-pill">P18</span>
+          </div>
+          <div class="card-body">
+            <span class="sku">—</span>
+            <h3 class="name">Stylish multifunctional wireless charger</h3>
+            <ul class="spec spec-list"><li>ABS material</li><li>Wireless charger 10W, input 12V 1.67A,</li><li>Led model 2835*6pcs, power 16.5W, color temperature 2900-3100K</li><li>Product size 151*105*180mm, net weight 438g</li><li>Function: Wireless charger/2 group clock/time, date, temperature show</li></ul>
+            <div class="meta-row">
+              <span class="source">PDF · P18</span>
+            </div>
+          </div>
+        </div>
+        <div class="product-card" style="--i: 12">
+          <div class="card-image">
+            <img src="assets/products-grid/wireless-charger-bt-speaker-clock-p19.webp" alt="Wireless charger 10W max," loading="lazy" style="aspect-ratio: 1.479;" />
+            <span class="page-pill">P19</span>
+          </div>
+          <div class="card-body">
+            <span class="sku">—</span>
+            <h3 class="name">Wireless charger 10W max,</h3>
+            <ul class="spec spec-list"><li>ABS material , led 2835*54pcs, input 12v 1.5A</li><li>130lm, color temperature 3500+500k</li><li>Product size 143*102*235mm</li><li>Product net weight 380g</li><li>Function: time, clock, adjustable led light,</li></ul>
+            <div class="meta-row">
+              <span class="source">PDF · P19</span>
+            </div>
+          </div>
+        </div>
+        <div class="product-card" style="--i: 13">
+          <div class="card-image">
+            <img src="assets/products-grid/wireless-charger-light-with-handle-p19.webp" alt="Wooden wireless charger with light painting" loading="lazy" style="aspect-ratio: 1.479;" />
+            <span class="page-pill">P19</span>
+          </div>
+          <div class="card-body">
+            <span class="sku">—</span>
+            <h3 class="name">Wooden wireless charger with light painting</h3>
+            <ul class="spec spec-list"><li>Input TYPE C 9V 1.67A, output max 15W, light 2.5w</li><li>Size 266*90*72mm, net weight 410g</li><li>Touch button to adjust the light</li><li>Suitable for home, office and gift for all people</li></ul>
+            <div class="meta-row">
+              <span class="source">PDF · P19</span>
+            </div>
+          </div>
+        </div>
+    </div>
+  </div>
+</section>
+<section class="subcat" data-od-id="catalog-subcategory" id="sub-charging-cable">
+  <div class="container">
+    <header class="subcat-head">
+      <div>
+        <span class="eyebrow">Sub-series 4</span>
+        <h2>Charging Cable</h2>
+      </div>
+    </header>
+    <div class="subcat-summary">
+      <span class="label">Catalog pages</span>
+      <span class="source-pages"><a href="#page-20">P20</a> · <a href="#page-21">P21</a> · <a href="#page-22">P22</a> · <a href="#page-23">P23</a> · <a href="#page-24">P24</a> · <a href="#page-25">P25</a> · <a href="#page-26">P26</a></span>
+      <span class="count">15 products</span>
+    </div>
+    <div class="product-grid">
+        <div class="product-card" style="--i: 0">
+          <div class="card-image">
+            <img src="assets/products-grid/luminous-logo-3-in-1-cable-p20.webp" alt="—" loading="lazy" style="aspect-ratio: 1.479;" />
+            <span class="page-pill">P20</span>
+          </div>
+          <div class="card-body">
+            <span class="sku">—</span>
+            <h3 class="name">—</h3>
+            <ul class="spec spec-list"><li>PDF does not provide a separately readable product description.</li></ul>
+            <div class="meta-row">
+              <span class="source">PDF · P20</span>
+            </div>
+          </div>
+        </div>
+        <div class="product-card" style="--i: 1">
+          <div class="card-image">
+            <img src="assets/products-grid/luminous-logo-6-in-1-cable-p20.webp" alt="—" loading="lazy" style="aspect-ratio: 1.507;" />
+            <span class="page-pill">P20</span>
+          </div>
+          <div class="card-body">
+            <span class="sku">—</span>
+            <h3 class="name">—</h3>
+            <ul class="spec spec-list"><li>PDF does not provide a separately readable product description.</li></ul>
+            <div class="meta-row">
+              <span class="source">PDF · P20</span>
+            </div>
+          </div>
+        </div>
+        <div class="product-card" style="--i: 2">
+          <div class="card-image">
+            <img src="assets/products-grid/multi-color-led-light-cable-p20.webp" alt="6 in 1 LED cable" loading="lazy" style="aspect-ratio: 1.507;" />
+            <span class="page-pill">P20</span>
+          </div>
+          <div class="card-body">
+            <span class="sku">—</span>
+            <h3 class="name">6 in 1 LED cable</h3>
+            <ul class="spec spec-list"><li>input USB+TYPE C</li><li>Output MICRO, LIGHTNING AND TYPE C</li></ul>
+            <div class="meta-row">
+              <span class="source">PDF · P20</span>
+            </div>
+          </div>
+        </div>
+        <div class="product-card" style="--i: 3">
+          <div class="card-image">
+            <img src="assets/products-grid/luminous-wireless-charging-cable-p21.webp" alt="USB+TYPE C" loading="lazy" style="aspect-ratio: 1.507;" />
+            <span class="page-pill">P21</span>
+          </div>
+          <div class="card-body">
+            <span class="sku">—</span>
+            <h3 class="name">USB+TYPE C</h3>
+            <ul class="spec spec-list"><li>dual input</li></ul>
+            <div class="meta-row">
+              <span class="source">PDF · P21</span>
+            </div>
+          </div>
+        </div>
+        <div class="product-card" style="--i: 4">
+          <div class="card-image">
+            <img src="assets/products-grid/magnetic-3-in-1-charging-cable-p21.webp" alt="magnetic cable" loading="lazy" style="aspect-ratio: 1.507;" />
+            <span class="page-pill">P21</span>
+          </div>
+          <div class="card-body">
+            <span class="sku">—</span>
+            <h3 class="name">magnetic cable</h3>
+            <ul class="spec spec-list"><li>USB-TYPE C</li><li>TYPE C-TYPE С</li><li>TYPE C-LIGHTNING</li><li>cable length 1m</li><li>both charging and data transfer</li></ul>
+            <div class="meta-row">
+              <span class="source">PDF · P21</span>
+            </div>
+          </div>
+        </div>
+        <div class="product-card" style="--i: 5">
+          <div class="card-image">
+            <img src="assets/products-grid/eco-bamboo-3-in-1-keychain-cable-p22.webp" alt="Eco 3 in 1 cable" loading="lazy" style="aspect-ratio: 1.507;" />
+            <span class="page-pill">P22</span>
+          </div>
+          <div class="card-body">
+            <span class="sku">—</span>
+            <h3 class="name">Eco 3 in 1 cable</h3>
+            <ul class="spec spec-list"><li>bamboo+wheat straw cable</li><li>input USB</li><li>output MICRO, lightning andtype C</li><li>keychain style</li></ul>
+            <div class="meta-row">
+              <span class="source">PDF · P22</span>
+            </div>
+          </div>
+        </div>
+        <div class="product-card" style="--i: 6">
+          <div class="card-image">
+            <img src="assets/products-grid/eco-wheat-straw-3-in-1-cable-p22.webp" alt="3 in 1 Extension cable" loading="lazy" style="aspect-ratio: 1.479;" />
+            <span class="page-pill">P22</span>
+          </div>
+          <div class="card-body">
+            <span class="sku">—</span>
+            <h3 class="name">3 in 1 Extension cable</h3>
+            <ul class="spec spec-list"><li>Bamboo+ABS</li><li>black color</li></ul>
+            <div class="meta-row">
+              <span class="source">PDF · P22</span>
+            </div>
+          </div>
+        </div>
+        <div class="product-card" style="--i: 7">
+          <div class="card-image">
+            <img src="assets/products-grid/60w-retractable-cable-p23.webp" alt="—" loading="lazy" style="aspect-ratio: 1.507;" />
+            <span class="page-pill">P23</span>
+          </div>
+          <div class="card-body">
+            <span class="sku">—</span>
+            <h3 class="name">—</h3>
+            <ul class="spec spec-list"><li>PDF does not provide a separately readable product description.</li></ul>
+            <div class="meta-row">
+              <span class="source">PDF · P23</span>
+            </div>
+          </div>
+        </div>
+        <div class="product-card" style="--i: 8">
+          <div class="card-image">
+            <img src="assets/products-grid/65w-pd-retractable-cable-p23.webp" alt="3 in 1 or 6 in 1 bamboo + LED logo" loading="lazy" style="aspect-ratio: 1.507;" />
+            <span class="page-pill">P23</span>
+          </div>
+          <div class="card-body">
+            <span class="sku">—</span>
+            <h3 class="name">3 in 1 or 6 in 1 bamboo + LED logo</h3>
+            <ul class="spec spec-list"><li>long led cable</li><li>Cable color: black, white, red, blue</li><li>Led color, white, red, green, blue, red and orange</li><li>Input USB+type c Output Micro, lightning and type c</li><li>Only charging 5V 2A</li></ul>
+            <div class="meta-row">
+              <span class="source">PDF · P23</span>
+            </div>
+          </div>
+        </div>
+        <div class="product-card" style="--i: 9">
+          <div class="card-image">
+            <img src="assets/products-grid/3a-60w-usb-c-keychain-cable-p24.webp" alt="ABS+TPE material" loading="lazy" style="aspect-ratio: 1.479;" />
+            <span class="page-pill">P24</span>
+          </div>
+          <div class="card-body">
+            <span class="sku">—</span>
+            <h3 class="name">ABS+TPE material</h3>
+            <ul class="spec spec-list"><li>input USB+TYPE C</li><li>output TYPEC, lightning</li><li>TYPE C max 65W, lightning PD 20W</li></ul>
+            <div class="meta-row">
+              <span class="source">PDF · P24</span>
+            </div>
+          </div>
+        </div>
+        <div class="product-card" style="--i: 10">
+          <div class="card-image">
+            <img src="assets/products-grid/6-in-1-60w-foldable-cable-p24.webp" alt="Type-C" loading="lazy" style="aspect-ratio: 1.479;" />
+            <span class="page-pill">P24</span>
+          </div>
+          <div class="card-body">
+            <span class="sku">—</span>
+            <h3 class="name">Type-C</h3>
+            <ul class="spec spec-list"><li>USB</li></ul>
+            <div class="meta-row">
+              <span class="source">PDF · P24</span>
+            </div>
+          </div>
+        </div>
+        <div class="product-card" style="--i: 11">
+          <div class="card-image">
+            <img src="assets/products-grid/3-in-1-lanyard-cable-p25.webp" alt="6 in 1 cable" loading="lazy" style="aspect-ratio: 1.507;" />
+            <span class="page-pill">P25</span>
+          </div>
+          <div class="card-body">
+            <span class="sku">—</span>
+            <h3 class="name">6 in 1 cable</h3>
+            <ul class="spec spec-list"><li>input USB+TYPE C</li><li>output MICRO, LIGHTNING AND TYPE C</li><li>charging and data transfer</li><li>5V 2A</li><li>cable length 14cm</li></ul>
+            <div class="meta-row">
+              <span class="source">PDF · P25</span>
+            </div>
+          </div>
+        </div>
+        <div class="product-card" style="--i: 12">
+          <div class="card-image">
+            <img src="assets/products-grid/4-in-1-lanyard-cable-p25.webp" alt="6 in 1 Nylon cable" loading="lazy" style="aspect-ratio: 1.479;" />
+            <span class="page-pill">P25</span>
+          </div>
+          <div class="card-body">
+            <span class="sku">—</span>
+            <h3 class="name">6 in 1 Nylon cable</h3>
+            <ul class="spec spec-list"><li>input USB+TYPE C</li><li>output Micro, lightning and type C</li><li>5V 3A max.</li><li>black/red/blue color</li><li>cable length 1.2m</li></ul>
+            <div class="meta-row">
+              <span class="source">PDF · P25</span>
+            </div>
+          </div>
+        </div>
+        <div class="product-card" style="--i: 13">
+          <div class="card-image">
+            <img src="assets/products-grid/bottle-opener-60w-cable-p26.webp" alt="bottle opener cable" loading="lazy" style="aspect-ratio: 1.479;" />
+            <span class="page-pill">P26</span>
+          </div>
+          <div class="card-body">
+            <span class="sku">—</span>
+            <h3 class="name">bottle opener cable</h3>
+            <ul class="spec spec-list"><li>input USB+TYPE C</li><li>output LIGHTNING AND TYPE C</li><li>ЗA 60W</li><li>both charging and data transfer</li><li>length 30cm for cable</li></ul>
+            <div class="meta-row">
+              <span class="source">PDF · P26</span>
+            </div>
+          </div>
+        </div>
+        <div class="product-card" style="--i: 14">
+          <div class="card-image">
+            <img src="assets/products-grid/6-in-1-60w-charging-cable-p26.webp" alt="3 in 1 colorful extension cable" loading="lazy" style="aspect-ratio: 1.479;" />
+            <span class="page-pill">P26</span>
+          </div>
+          <div class="card-body">
+            <span class="sku">—</span>
+            <h3 class="name">3 in 1 colorful extension cable</h3>
+            <ul class="spec spec-list"><li>cable length 1.2m</li><li>5V 2A</li></ul>
+            <div class="meta-row">
+              <span class="source">PDF · P26</span>
+            </div>
+          </div>
+        </div>
     </div>
   </div>
 </section>

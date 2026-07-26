@@ -3,8 +3,9 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<meta name="description" content="Carry &amp; Customize curated by ONO INSPIRATION COMPANY LIMITED. Phone Case · Box &amp; Tin · Backpack · Felt Bag · Apparel · Custom Gift · OerForest Eco. Source-verified SKUs from the Ono Inspiration 2026 catalogue." />
-<title>Carry &amp; Customize · ONO INSPIRATION COMPANY LIMITED</title>
+<meta name="description" content="Power &amp; Charging curated by ONO INSPIRATION COMPANY LIMITED. Powerbank · Wireless Charger · Charging Cable · Wall Charger. Source-verified SKUs from the Ono Inspiration 2026 catalogue." />
+<title>Bags, Apparel & Gifts · Ono Inspiration</title>
+<script>document.documentElement.classList.add('js-loaded');</script>
 <link rel="icon" type="image/png" href="assets/source/logo_icon.png" />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -75,6 +76,15 @@ ul { margin: 0; padding: 0; list-style: none; }
 
 .topnav { position: sticky; top: 0; z-index: 50; background: rgba(247, 244, 238, 0.82); backdrop-filter: saturate(180%) blur(20px); -webkit-backdrop-filter: saturate(180%) blur(20px); border-bottom: 1px solid transparent; transition: border-color var(--t-base) var(--ease), background var(--t-base) var(--ease); }
 .topnav.scrolled { border-bottom-color: var(--hair); background: rgba(247, 244, 238, 0.94); }
+@media (max-width: 1024px) {
+  /* Avoid mobile Safari compositor dropout from sticky + backdrop-filter. */
+  .topnav {
+    position: relative;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    background: var(--bg);
+  }
+}
 .topnav-inner { display: flex; align-items: center; justify-content: space-between; padding-block: 22px; gap: 32px; }
 .topnav .brand { display: flex; align-items: center; gap: 14px; white-space: nowrap; }
 .topnav .brand img { display: block; height: 54px; width: auto; transition: transform var(--t-base) var(--ease); }
@@ -415,8 +425,6 @@ ul { margin: 0; padding: 0; list-style: none; }
   border: 1px solid var(--hair);
   border-radius: var(--r-md);
   overflow: hidden;
-  opacity: 0;
-  transform: translateY(28px) scale(0.985);
   transition:
     opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
     transform 0.7s cubic-bezier(0.16, 1, 0.3, 1),
@@ -424,6 +432,10 @@ ul { margin: 0; padding: 0; list-style: none; }
     border-color var(--t-fast) var(--ease);
   transition-delay: calc(var(--i, 0) * 70ms);
   will-change: opacity, transform;
+}
+.js-loaded .product-grid > .product-card {
+  opacity: 0;
+  transform: translateY(28px) scale(0.985);
 }
 .product-grid > .product-card.is-visible {
   opacity: 1;
@@ -771,7 +783,7 @@ ul { margin: 0; padding: 0; list-style: none; }
           <svg class="caret" width="10" height="6" viewBox="0 0 10 6" aria-hidden="true"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </button>
         <div class="dropdown-menu" id="products-menu" role="menu">
-          <a href="products-01-power-charging.html" role="menuitem">
+          <a href="products-01-power-charging.html" class="active" role="menuitem">
             <span class="dd-num">01</span>
             <span class="dd-body"><span class="dd-title">Power & Charging</span><span class="dd-sub">60 SKUs · Powerbank · Wireless · Cable · Wall</span></span>
           </a>
@@ -783,7 +795,7 @@ ul { margin: 0; padding: 0; list-style: none; }
             <span class="dd-num">03</span>
             <span class="dd-body"><span class="dd-title">Lifestyle & Office</span><span class="dd-sub">86 SKUs · Home · Office · Personal · Sports</span></span>
           </a>
-          <a href="products-04-carry-customize.html" class="active" role="menuitem">
+          <a href="products-04-carry-customize.html" role="menuitem">
             <span class="dd-num">04</span>
             <span class="dd-body"><span class="dd-title">Carry & Customize</span><span class="dd-sub">50 SKUs · Box · Bag · Apparel · OerForest</span></span>
           </a>
@@ -801,218 +813,44 @@ ul { margin: 0; padding: 0; list-style: none; }
     <div class="menu-drawer-panel" role="dialog" aria-modal="true" aria-label="Site navigation">
       <a class="md-link" href="index.html#series">Catalogue<span aria-hidden="true">→</span></a>
       <div class="md-label">Products</div>
-      <a href="products-01-power-charging.html" class="md-sub-link">01 · Power & Charging</a>
+      <a href="products-01-power-charging.html" class="md-sub-link active">01 · Power & Charging</a>
       <a href="products-02-audio-mobile.html" class="md-sub-link">02 · Audio & Mobile</a>
       <a href="products-03-lifestyle-office.html" class="md-sub-link">03 · Lifestyle & Office</a>
-      <a href="products-04-carry-customize.html" class="md-sub-link active">04 · Carry & Customize</a>
+      <a href="products-04-carry-customize.html" class="md-sub-link">04 · Carry & Customize</a>
       <a class="md-link" href="index.html#contact">Contact<span aria-hidden="true">→</span></a>
     </div>
   </div>
 
-<main>
-<section class="hero-series" data-od-id="catalog-hero">
+<main id="content">
+<section class="catalog-hero" data-od-id="catalog-hero">
   <div class="container">
-    <a class="back" href="index.html">← Back to launcher</a>
-    <span class="eyebrow">2026 Catalogue · Packages / Gift and Promotional Items</span>
-    <h1>Carry & Customize</h1>
-    <p class="lede">Customized box / fashionable bags / umbrellas / water bottle / key chains / towel.</p>
-    <p class="lead">OerForest is a line of bags primarily made from environmentally friendly materials.</p>
-    <div class="meta">
-      <span>50 catalogue cards</span>
-      <span class="dot">·</span>
-      <span>Pages P52–P58</span>
+    <div class="breadcrumb">
+      <a href="index.html">← Back to launcher</a>
+      <span class="breadcrumb-sep">/</span>
+      <span>2026 CATALOGUE</span>
+      <span class="breadcrumb-sep">/</span>
+      <span class="current">Bags, Apparel & Gifts</span>
+    </div>
+    <h1 class="catalog-title">Bags, Apparel & Gifts</h1>
+    <p class="catalog-sub">Bags, apparel, custom gifts and the OerForest eco line.</p>
+  </div>
+</section>
+<section class="cat-divider" data-od-id="catalog-category" id="cat-07-bags-apparel">
+  <div class="container">
+    <div class="cat-head">
+      <span class="eyebrow">Category 01</span>
+      <h2 class="cat-title">Bags & Apparel</h2>
+      <p class="cat-tagline">Carry. Wear. Promote.</p>
+      <p class="cat-subtitle">Backpacks, totes, apparel and umbrellas — high-visibility brand surfaces.</p>
+      <div class="cat-subs"><a href="#sub-backpack-and-laptop-bag">Backpack & Laptop Bag</a> · <a href="#sub-felt-and-burlap-bag">Felt & Burlap Bag</a> · <a href="#sub-apparel-umbrella-and-promo">Apparel, Umbrella & Promo</a></div>
     </div>
   </div>
 </section>
-<section class="subcat" data-od-id="catalog-subcategory" id="subcat-phone-case-mini-fan">
+<section class="subcat" data-od-id="catalog-subcategory" id="sub-backpack-and-laptop-bag">
   <div class="container">
     <header class="subcat-head">
       <div>
         <span class="eyebrow">Sub-series 1</span>
-        <h2>Phone Case & Mini Fan</h2>
-      </div>
-    </header>
-    <div class="subcat-summary">
-      <span class="label">Catalog pages</span>
-      <span class="source-pages"><a href="#page-52">P52</a></span>
-      <span class="count">7 products</span>
-    </div>
-    <div class="product-grid">
-        <div class="product-card" style="--i: 0">
-          <div class="card-image">
-            <img src="assets/products-grid/pc-wood-p52.webp" alt="Catalogue item · P52–01" loading="lazy"  style="aspect-ratio: 0.802;" />
-            <span class="page-pill">P52</span>
-          </div>
-          <div class="card-body">
-            <span class="sku">P52 · ITEM 01</span>
-            <h3 class="name">Catalogue item · P52–01</h3>
-            <ul class="spec spec-list"><li>PDF does not provide a separately readable product description.</li></ul>
-            <div class="meta-row">
-              
-              <span class="source">PDF · P52</span>
-            </div>
-          </div>
-        </div>
-        <div class="product-card" style="--i: 1">
-          <div class="card-image">
-            <img src="assets/products-grid/pc-siluv-p52.webp" alt="Catalogue item · P52–02" loading="lazy"  style="aspect-ratio: 1.128;" />
-            <span class="page-pill">P52</span>
-          </div>
-          <div class="card-body">
-            <span class="sku">P52 · ITEM 02</span>
-            <h3 class="name">Catalogue item · P52–02</h3>
-            <ul class="spec spec-list"><li>PDF does not provide a separately readable product description.</li></ul>
-            <div class="meta-row">
-              
-              <span class="source">PDF · P52</span>
-            </div>
-          </div>
-        </div>
-        <div class="product-card" style="--i: 2">
-          <div class="card-image">
-            <img src="assets/products-grid/pc-wheat-p52.webp" alt="wood Phone case" loading="lazy"  style="aspect-ratio: 0.380;" />
-            <span class="page-pill">P52</span>
-          </div>
-          <div class="card-body">
-            <span class="sku">P52 · ITEM 03</span>
-            <h3 class="name">wood Phone case</h3>
-            <ul class="spec spec-list"><li>Iphone 5-lphone 12 all models</li><li>full size laser logo</li></ul>
-            <div class="meta-row">
-              
-              <span class="source">PDF · P52</span>
-            </div>
-          </div>
-        </div>
-        <div class="product-card" style="--i: 3">
-          <div class="card-image">
-            <img src="assets/products-grid/fan-hand-p52.webp" alt="Wheat Straw Phone case" loading="lazy"  style="aspect-ratio: 0.478;" />
-            <span class="page-pill">P52</span>
-          </div>
-          <div class="card-body">
-            <span class="sku">P52 · ITEM 04</span>
-            <h3 class="name">Wheat Straw Phone case</h3>
-            <ul class="spec spec-list"><li>with lanyard</li></ul>
-            <div class="meta-row">
-              
-              <span class="source">PDF · P52</span>
-            </div>
-          </div>
-        </div>
-        <div class="product-card" style="--i: 4">
-          <div class="card-image">
-            <img src="assets/products-grid/fan-usb-p52.webp" alt="Catalogue item · P52–05" loading="lazy"  style="aspect-ratio: 1.013;" />
-            <span class="page-pill">P52</span>
-          </div>
-          <div class="card-body">
-            <span class="sku">P52 · ITEM 05</span>
-            <h3 class="name">Catalogue item · P52–05</h3>
-            <ul class="spec spec-list"><li>PDF does not provide a separately readable product description.</li></ul>
-            <div class="meta-row">
-              
-              <span class="source">PDF · P52</span>
-            </div>
-          </div>
-        </div>
-        <div class="product-card" style="--i: 5">
-          <div class="card-image">
-            <img src="assets/products-grid/fan-fold-p52.webp" alt="Catalogue item · P52–06" loading="lazy"  style="aspect-ratio: 0.981;" />
-            <span class="page-pill">P52</span>
-          </div>
-          <div class="card-body">
-            <span class="sku">P52 · ITEM 06</span>
-            <h3 class="name">Catalogue item · P52–06</h3>
-            <ul class="spec spec-list"><li>PDF does not provide a separately readable product description.</li></ul>
-            <div class="meta-row">
-              
-              <span class="source">PDF · P52</span>
-            </div>
-          </div>
-        </div>
-        <div class="product-card" style="--i: 6">
-          <div class="card-image">
-            <img src="assets/products-grid/fan-display-p52.webp" alt="1200mah battery" loading="lazy"  style="aspect-ratio: 0.750;" />
-            <span class="page-pill">P52</span>
-          </div>
-          <div class="card-body">
-            <span class="sku">P52 · ITEM 07</span>
-            <h3 class="name">1200mah battery</h3>
-            <ul class="spec spec-list"><li>size 121.5*35*44mm</li><li>888</li></ul>
-            <div class="meta-row">
-              
-              <span class="source">PDF · P52</span>
-            </div>
-          </div>
-        </div>
-    </div>
-  </div>
-</section>
-<section class="subcat" data-od-id="catalog-subcategory" id="subcat-custom-box-container">
-  <div class="container">
-    <header class="subcat-head">
-      <div>
-        <span class="eyebrow">Sub-series 2</span>
-        <h2>Custom Box & Container</h2>
-      </div>
-    </header>
-    <div class="subcat-summary">
-      <span class="label">Catalog pages</span>
-      <span class="source-pages"><a href="#page-53">P53</a></span>
-      <span class="count">3 products</span>
-    </div>
-    <div class="product-grid">
-        <div class="product-card" style="--i: 7">
-          <div class="card-image">
-            <img src="assets/products-grid/box-frame-p53.webp" alt="FRAME BOX" loading="lazy"  style="aspect-ratio: 1.085;" />
-            <span class="page-pill">P53</span>
-          </div>
-          <div class="card-body">
-            <span class="sku">P53 · ITEM 01</span>
-            <h3 class="name">FRAME BOX</h3>
-            <ul class="spec spec-list"><li>DIFFERENT SIZE</li></ul>
-            <div class="meta-row">
-              
-              <span class="source">PDF · P53</span>
-            </div>
-          </div>
-        </div>
-        <div class="product-card" style="--i: 8">
-          <div class="card-image">
-            <img src="assets/products-grid/box-acrylic-p53.webp" alt="Catalogue item · P53–02" loading="lazy"  style="aspect-ratio: 0.703;" />
-            <span class="page-pill">P53</span>
-          </div>
-          <div class="card-body">
-            <span class="sku">P53 · ITEM 02</span>
-            <h3 class="name">Catalogue item · P53–02</h3>
-            <ul class="spec spec-list"><li>PDF does not provide a separately readable product description.</li></ul>
-            <div class="meta-row">
-              
-              <span class="source">PDF · P53</span>
-            </div>
-          </div>
-        </div>
-        <div class="product-card" style="--i: 9">
-          <div class="card-image">
-            <img src="assets/products-grid/box-metal-p53.webp" alt="Catalogue item · P53–03" loading="lazy"  style="aspect-ratio: 1.126;" />
-            <span class="page-pill">P53</span>
-          </div>
-          <div class="card-body">
-            <span class="sku">P53 · ITEM 03</span>
-            <h3 class="name">Catalogue item · P53–03</h3>
-            <ul class="spec spec-list"><li>PDF does not provide a separately readable product description.</li></ul>
-            <div class="meta-row">
-              
-              <span class="source">PDF · P53</span>
-            </div>
-          </div>
-        </div>
-    </div>
-  </div>
-</section>
-<section class="subcat" data-od-id="catalog-subcategory" id="subcat-backpack-laptop-bag">
-  <div class="container">
-    <header class="subcat-head">
-      <div>
-        <span class="eyebrow">Sub-series 3</span>
         <h2>Backpack & Laptop Bag</h2>
       </div>
     </header>
@@ -1022,47 +860,44 @@ ul { margin: 0; padding: 0; list-style: none; }
       <span class="count">3 products</span>
     </div>
     <div class="product-grid">
-        <div class="product-card" style="--i: 10">
-          <div class="card-image">
-            <img src="assets/products-grid/bag-bp-black-p54.webp" alt="Catalogue item · P54–01" loading="lazy"  style="aspect-ratio: 0.723;" />
-            <span class="page-pill">P54</span>
-          </div>
-          <div class="card-body">
-            <span class="sku">P54 · ITEM 01</span>
-            <h3 class="name">Catalogue item · P54–01</h3>
-            <ul class="spec spec-list"><li>PDF does not provide a separately readable product description.</li></ul>
-            <div class="meta-row">
-              
-              <span class="source">PDF · P54</span>
-            </div>
-          </div>
-        </div>
-        <div class="product-card" style="--i: 11">
-          <div class="card-image">
-            <img src="assets/products-grid/bag-bp-laptop-p54.webp" alt="Catalogue item · P54–02" loading="lazy"  style="aspect-ratio: 0.980;" />
-            <span class="page-pill">P54</span>
-          </div>
-          <div class="card-body">
-            <span class="sku">P54 · ITEM 02</span>
-            <h3 class="name">Catalogue item · P54–02</h3>
-            <ul class="spec spec-list"><li>PDF does not provide a separately readable product description.</li></ul>
-            <div class="meta-row">
-              
-              <span class="source">PDF · P54</span>
-            </div>
-          </div>
-        </div>
         <div class="product-card" style="--i: 0">
           <div class="card-image">
-            <img src="assets/products-grid/bag-felt-laptop-p54.webp" alt="Catalogue item · P54–03" loading="lazy"  style="aspect-ratio: 1.050;" />
+            <img src="assets/products-grid/bag-bp-black-p54.webp" alt="—" loading="lazy" style="aspect-ratio: 0.414;" />
             <span class="page-pill">P54</span>
           </div>
           <div class="card-body">
-            <span class="sku">P54 · ITEM 03</span>
-            <h3 class="name">Catalogue item · P54–03</h3>
+            <span class="sku">—</span>
+            <h3 class="name">—</h3>
             <ul class="spec spec-list"><li>PDF does not provide a separately readable product description.</li></ul>
             <div class="meta-row">
-              
+              <span class="source">PDF · P54</span>
+            </div>
+          </div>
+        </div>
+        <div class="product-card" style="--i: 1">
+          <div class="card-image">
+            <img src="assets/products-grid/bag-bp-laptop-p54.webp" alt="—" loading="lazy" style="aspect-ratio: 0.403;" />
+            <span class="page-pill">P54</span>
+          </div>
+          <div class="card-body">
+            <span class="sku">—</span>
+            <h3 class="name">—</h3>
+            <ul class="spec spec-list"><li>PDF does not provide a separately readable product description.</li></ul>
+            <div class="meta-row">
+              <span class="source">PDF · P54</span>
+            </div>
+          </div>
+        </div>
+        <div class="product-card" style="--i: 2">
+          <div class="card-image">
+            <img src="assets/products-grid/bag-felt-laptop-p54.webp" alt="—" loading="lazy" style="aspect-ratio: 0.420;" />
+            <span class="page-pill">P54</span>
+          </div>
+          <div class="card-body">
+            <span class="sku">—</span>
+            <h3 class="name">—</h3>
+            <ul class="spec spec-list"><li>PDF does not provide a separately readable product description.</li></ul>
+            <div class="meta-row">
               <span class="source">PDF · P54</span>
             </div>
           </div>
@@ -1070,11 +905,11 @@ ul { margin: 0; padding: 0; list-style: none; }
     </div>
   </div>
 </section>
-<section class="subcat" data-od-id="catalog-subcategory" id="subcat-felt-burlap-bag">
+<section class="subcat" data-od-id="catalog-subcategory" id="sub-felt-and-burlap-bag">
   <div class="container">
     <header class="subcat-head">
       <div>
-        <span class="eyebrow">Sub-series 4</span>
+        <span class="eyebrow">Sub-series 2</span>
         <h2>Felt & Burlap Bag</h2>
       </div>
     </header>
@@ -1084,92 +919,86 @@ ul { margin: 0; padding: 0; list-style: none; }
       <span class="count">6 products</span>
     </div>
     <div class="product-grid">
-        <div class="product-card" style="--i: 1">
+        <div class="product-card" style="--i: 0">
           <div class="card-image">
-            <img src="assets/products-grid/bag-felt-tote-p55.webp" alt="Catalogue item · P55–01" loading="lazy"  style="aspect-ratio: 0.364;" />
+            <img src="assets/products-grid/bag-felt-tote-p55.webp" alt="—" loading="lazy" style="aspect-ratio: 0.761;" />
             <span class="page-pill">P55</span>
           </div>
           <div class="card-body">
-            <span class="sku">P55 · ITEM 01</span>
-            <h3 class="name">Catalogue item · P55–01</h3>
+            <span class="sku">—</span>
+            <h3 class="name">—</h3>
             <ul class="spec spec-list"><li>PDF does not provide a separately readable product description.</li></ul>
             <div class="meta-row">
-              
+              <span class="source">PDF · P55</span>
+            </div>
+          </div>
+        </div>
+        <div class="product-card" style="--i: 1">
+          <div class="card-image">
+            <img src="assets/products-grid/bag-felt-bucket-p55.webp" alt="—" loading="lazy" style="aspect-ratio: 0.771;" />
+            <span class="page-pill">P55</span>
+          </div>
+          <div class="card-body">
+            <span class="sku">—</span>
+            <h3 class="name">—</h3>
+            <ul class="spec spec-list"><li>PDF does not provide a separately readable product description.</li></ul>
+            <div class="meta-row">
               <span class="source">PDF · P55</span>
             </div>
           </div>
         </div>
         <div class="product-card" style="--i: 2">
           <div class="card-image">
-            <img src="assets/products-grid/bag-felt-bucket-p55.webp" alt="Catalogue item · P55–02" loading="lazy"  style="aspect-ratio: 0.844;" />
+            <img src="assets/products-grid/bag-felt-pouch-p55.webp" alt="—" loading="lazy" style="aspect-ratio: 0.741;" />
             <span class="page-pill">P55</span>
           </div>
           <div class="card-body">
-            <span class="sku">P55 · ITEM 02</span>
-            <h3 class="name">Catalogue item · P55–02</h3>
+            <span class="sku">—</span>
+            <h3 class="name">—</h3>
             <ul class="spec spec-list"><li>PDF does not provide a separately readable product description.</li></ul>
             <div class="meta-row">
-              
               <span class="source">PDF · P55</span>
             </div>
           </div>
         </div>
         <div class="product-card" style="--i: 3">
           <div class="card-image">
-            <img src="assets/products-grid/bag-felt-pouch-p55.webp" alt="Catalogue item · P55–03" loading="lazy"  style="aspect-ratio: 0.756;" />
+            <img src="assets/products-grid/bag-burlap-p55.webp" alt="—" loading="lazy" style="aspect-ratio: 0.762;" />
             <span class="page-pill">P55</span>
           </div>
           <div class="card-body">
-            <span class="sku">P55 · ITEM 03</span>
-            <h3 class="name">Catalogue item · P55–03</h3>
-            <ul class="spec spec-list"><li>PDF does not provide a separately readable product description.</li></ul>
+            <span class="sku">—</span>
+            <h3 class="name">—</h3>
+            <ul class="spec spec-list"><li>L0YS</li><li>Swed</li></ul>
             <div class="meta-row">
-              
               <span class="source">PDF · P55</span>
             </div>
           </div>
         </div>
         <div class="product-card" style="--i: 4">
           <div class="card-image">
-            <img src="assets/products-grid/bag-burlap-p55.webp" alt="Catalogue item · P55–04" loading="lazy"  style="aspect-ratio: 0.831;" />
+            <img src="assets/products-grid/bag-canvas-p55.webp" alt="1 Bes" loading="lazy" style="aspect-ratio: 0.772;" />
             <span class="page-pill">P55</span>
           </div>
           <div class="card-body">
-            <span class="sku">P55 · ITEM 04</span>
-            <h3 class="name">Catalogue item · P55–04</h3>
-            <ul class="spec spec-list"><li>L0YS</li><li>Swed</li></ul>
+            <span class="sku">—</span>
+            <h3 class="name">1 Bes</h3>
+            <ul class="spec spec-list"><li>%° Tell:</li><li>OЛly</li><li>friendy</li></ul>
             <div class="meta-row">
-              
               <span class="source">PDF · P55</span>
             </div>
           </div>
         </div>
         <div class="product-card" style="--i: 5">
           <div class="card-image">
-            <img src="assets/products-grid/bag-canvas-p55.webp" alt="1 Bes" loading="lazy"  style="aspect-ratio: 0.781;" />
+            <img src="assets/products-grid/bag-burlap-pencil-p55.webp" alt="—" loading="lazy" style="aspect-ratio: 0.742;" />
             <span class="page-pill">P55</span>
           </div>
           <div class="card-body">
-            <span class="sku">P55 · ITEM 05</span>
-            <h3 class="name">1 Bes</h3>
-            <ul class="spec spec-list"><li>%° Tell:</li><li>OЛly</li><li>friendy</li></ul>
-            <div class="meta-row">
-              
-              <span class="source">PDF · P55</span>
-            </div>
-          </div>
-        </div>
-        <div class="product-card" style="--i: 6">
-          <div class="card-image">
-            <img src="assets/products-grid/bag-burlap-pencil-p55.webp" alt="Catalogue item · P55–06" loading="lazy"  style="aspect-ratio: 0.728;" />
-            <span class="page-pill">P55</span>
-          </div>
-          <div class="card-body">
-            <span class="sku">P55 · ITEM 06</span>
-            <h3 class="name">Catalogue item · P55–06</h3>
+            <span class="sku">—</span>
+            <h3 class="name">—</h3>
             <ul class="spec spec-list"><li>PDF does not provide a separately readable product description.</li></ul>
             <div class="meta-row">
-              
               <span class="source">PDF · P55</span>
             </div>
           </div>
@@ -1177,11 +1006,11 @@ ul { margin: 0; padding: 0; list-style: none; }
     </div>
   </div>
 </section>
-<section class="subcat" data-od-id="catalog-subcategory" id="subcat-apparel-umbrella-promo">
+<section class="subcat" data-od-id="catalog-subcategory" id="sub-apparel-umbrella-and-promo">
   <div class="container">
     <header class="subcat-head">
       <div>
-        <span class="eyebrow">Sub-series 5</span>
+        <span class="eyebrow">Sub-series 3</span>
         <h2>Apparel, Umbrella & Promo</h2>
       </div>
     </header>
@@ -1191,137 +1020,128 @@ ul { margin: 0; padding: 0; list-style: none; }
       <span class="count">9 products</span>
     </div>
     <div class="product-grid">
-        <div class="product-card" style="--i: 7">
-          <div class="card-image">
-            <img src="assets/products-grid/app-polo-p56.webp" alt="Catalogue item · P56–01" loading="lazy"  style="aspect-ratio: 0.710;" />
-            <span class="page-pill">P56</span>
-          </div>
-          <div class="card-body">
-            <span class="sku">P56 · ITEM 01</span>
-            <h3 class="name">Catalogue item · P56–01</h3>
-            <ul class="spec spec-list"><li>PDF does not provide a separately readable product description.</li></ul>
-            <div class="meta-row">
-              
-              <span class="source">PDF · P56</span>
-            </div>
-          </div>
-        </div>
-        <div class="product-card" style="--i: 8">
-          <div class="card-image">
-            <img src="assets/products-grid/app-jacket-p56.webp" alt="Catalogue item · P56–02" loading="lazy"  style="aspect-ratio: 0.653;" />
-            <span class="page-pill">P56</span>
-          </div>
-          <div class="card-body">
-            <span class="sku">P56 · ITEM 02</span>
-            <h3 class="name">Catalogue item · P56–02</h3>
-            <ul class="spec spec-list"><li>PDF does not provide a separately readable product description.</li></ul>
-            <div class="meta-row">
-              
-              <span class="source">PDF · P56</span>
-            </div>
-          </div>
-        </div>
-        <div class="product-card" style="--i: 9">
-          <div class="card-image">
-            <img src="assets/products-grid/umb-folding-p56.webp" alt="Catalogue item · P56–03" loading="lazy"  style="aspect-ratio: 0.870;" />
-            <span class="page-pill">P56</span>
-          </div>
-          <div class="card-body">
-            <span class="sku">P56 · ITEM 03</span>
-            <h3 class="name">Catalogue item · P56–03</h3>
-            <ul class="spec spec-list"><li>PDF does not provide a separately readable product description.</li></ul>
-            <div class="meta-row">
-              
-              <span class="source">PDF · P56</span>
-            </div>
-          </div>
-        </div>
-        <div class="product-card" style="--i: 10">
-          <div class="card-image">
-            <img src="assets/products-grid/umb-golf-p56.webp" alt="Catalogue item · P56–04" loading="lazy"  style="aspect-ratio: 0.609;" />
-            <span class="page-pill">P56</span>
-          </div>
-          <div class="card-body">
-            <span class="sku">P56 · ITEM 04</span>
-            <h3 class="name">Catalogue item · P56–04</h3>
-            <ul class="spec spec-list"><li>PDF does not provide a separately readable product description.</li></ul>
-            <div class="meta-row">
-              
-              <span class="source">PDF · P56</span>
-            </div>
-          </div>
-        </div>
-        <div class="product-card" style="--i: 11">
-          <div class="card-image">
-            <img src="assets/products-grid/gifts-bottle-p56.webp" alt="Catalogue item · P56–05" loading="lazy"  style="aspect-ratio: 0.514;" />
-            <span class="page-pill">P56</span>
-          </div>
-          <div class="card-body">
-            <span class="sku">P56 · ITEM 05</span>
-            <h3 class="name">Catalogue item · P56–05</h3>
-            <ul class="spec spec-list"><li>PDF does not provide a separately readable product description.</li></ul>
-            <div class="meta-row">
-              
-              <span class="source">PDF · P56</span>
-            </div>
-          </div>
-        </div>
         <div class="product-card" style="--i: 0">
           <div class="card-image">
-            <img src="assets/products-grid/gifts-pen-p56.webp" alt="Catalogue item · P56–06" loading="lazy"  style="aspect-ratio: 1.190;" />
+            <img src="assets/products-grid/app-polo-p56.webp" alt="—" loading="lazy" style="aspect-ratio: 1.056;" />
             <span class="page-pill">P56</span>
           </div>
           <div class="card-body">
-            <span class="sku">P56 · ITEM 06</span>
-            <h3 class="name">Catalogue item · P56–06</h3>
+            <span class="sku">—</span>
+            <h3 class="name">—</h3>
             <ul class="spec spec-list"><li>PDF does not provide a separately readable product description.</li></ul>
             <div class="meta-row">
-              
               <span class="source">PDF · P56</span>
             </div>
           </div>
         </div>
         <div class="product-card" style="--i: 1">
           <div class="card-image">
-            <img src="assets/products-grid/gifts-towel-p56.webp" alt="Catalogue item · P56–07" loading="lazy"  style="aspect-ratio: 0.580;" />
+            <img src="assets/products-grid/app-jacket-p56.webp" alt="—" loading="lazy" style="aspect-ratio: 1.070;" />
             <span class="page-pill">P56</span>
           </div>
           <div class="card-body">
-            <span class="sku">P56 · ITEM 07</span>
-            <h3 class="name">Catalogue item · P56–07</h3>
+            <span class="sku">—</span>
+            <h3 class="name">—</h3>
             <ul class="spec spec-list"><li>PDF does not provide a separately readable product description.</li></ul>
             <div class="meta-row">
-              
               <span class="source">PDF · P56</span>
             </div>
           </div>
         </div>
         <div class="product-card" style="--i: 2">
           <div class="card-image">
-            <img src="assets/products-grid/gifts-tote-p56.webp" alt="Catalogue item · P56–08" loading="lazy"  style="aspect-ratio: 0.598;" />
+            <img src="assets/products-grid/umb-folding-p56.webp" alt="—" loading="lazy" style="aspect-ratio: 1.028;" />
             <span class="page-pill">P56</span>
           </div>
           <div class="card-body">
-            <span class="sku">P56 · ITEM 08</span>
-            <h3 class="name">Catalogue item · P56–08</h3>
+            <span class="sku">—</span>
+            <h3 class="name">—</h3>
             <ul class="spec spec-list"><li>PDF does not provide a separately readable product description.</li></ul>
             <div class="meta-row">
-              
               <span class="source">PDF · P56</span>
             </div>
           </div>
         </div>
         <div class="product-card" style="--i: 3">
           <div class="card-image">
-            <img src="assets/products-grid/gifts-lanyard-p56.webp" alt="Catalogue item · P56–09" loading="lazy"  style="aspect-ratio: 0.343;" />
+            <img src="assets/products-grid/umb-golf-p56.webp" alt="—" loading="lazy" style="aspect-ratio: 1.056;" />
             <span class="page-pill">P56</span>
           </div>
           <div class="card-body">
-            <span class="sku">P56 · ITEM 09</span>
-            <h3 class="name">Catalogue item · P56–09</h3>
+            <span class="sku">—</span>
+            <h3 class="name">—</h3>
             <ul class="spec spec-list"><li>PDF does not provide a separately readable product description.</li></ul>
             <div class="meta-row">
-              
+              <span class="source">PDF · P56</span>
+            </div>
+          </div>
+        </div>
+        <div class="product-card" style="--i: 4">
+          <div class="card-image">
+            <img src="assets/products-grid/gifts-bottle-p56.webp" alt="—" loading="lazy" style="aspect-ratio: 1.070;" />
+            <span class="page-pill">P56</span>
+          </div>
+          <div class="card-body">
+            <span class="sku">—</span>
+            <h3 class="name">—</h3>
+            <ul class="spec spec-list"><li>PDF does not provide a separately readable product description.</li></ul>
+            <div class="meta-row">
+              <span class="source">PDF · P56</span>
+            </div>
+          </div>
+        </div>
+        <div class="product-card" style="--i: 5">
+          <div class="card-image">
+            <img src="assets/products-grid/gifts-pen-p56.webp" alt="—" loading="lazy" style="aspect-ratio: 1.028;" />
+            <span class="page-pill">P56</span>
+          </div>
+          <div class="card-body">
+            <span class="sku">—</span>
+            <h3 class="name">—</h3>
+            <ul class="spec spec-list"><li>PDF does not provide a separately readable product description.</li></ul>
+            <div class="meta-row">
+              <span class="source">PDF · P56</span>
+            </div>
+          </div>
+        </div>
+        <div class="product-card" style="--i: 6">
+          <div class="card-image">
+            <img src="assets/products-grid/gifts-towel-p56.webp" alt="—" loading="lazy" style="aspect-ratio: 1.056;" />
+            <span class="page-pill">P56</span>
+          </div>
+          <div class="card-body">
+            <span class="sku">—</span>
+            <h3 class="name">—</h3>
+            <ul class="spec spec-list"><li>PDF does not provide a separately readable product description.</li></ul>
+            <div class="meta-row">
+              <span class="source">PDF · P56</span>
+            </div>
+          </div>
+        </div>
+        <div class="product-card" style="--i: 7">
+          <div class="card-image">
+            <img src="assets/products-grid/gifts-tote-p56.webp" alt="—" loading="lazy" style="aspect-ratio: 1.070;" />
+            <span class="page-pill">P56</span>
+          </div>
+          <div class="card-body">
+            <span class="sku">—</span>
+            <h3 class="name">—</h3>
+            <ul class="spec spec-list"><li>PDF does not provide a separately readable product description.</li></ul>
+            <div class="meta-row">
+              <span class="source">PDF · P56</span>
+            </div>
+          </div>
+        </div>
+        <div class="product-card" style="--i: 8">
+          <div class="card-image">
+            <img src="assets/products-grid/gifts-lanyard-p56.webp" alt="—" loading="lazy" style="aspect-ratio: 1.028;" />
+            <span class="page-pill">P56</span>
+          </div>
+          <div class="card-body">
+            <span class="sku">—</span>
+            <h3 class="name">—</h3>
+            <ul class="spec spec-list"><li>PDF does not provide a separately readable product description.</li></ul>
+            <div class="meta-row">
               <span class="source">PDF · P56</span>
             </div>
           </div>
@@ -1329,11 +1149,81 @@ ul { margin: 0; padding: 0; list-style: none; }
     </div>
   </div>
 </section>
-<section class="subcat" data-od-id="catalog-subcategory" id="subcat-custom-gift-award">
+<section class="cat-divider" data-od-id="catalog-category" id="cat-08-gifts-eco">
+  <div class="container">
+    <div class="cat-head">
+      <span class="eyebrow">Category 02</span>
+      <h2 class="cat-title">Gifts, Boxes & Eco</h2>
+      <p class="cat-tagline">Make it theirs. Make it green.</p>
+      <p class="cat-subtitle">Custom awards, presentation boxes and the OerForest eco line.</p>
+      <div class="cat-subs"><a href="#sub-custom-box-and-container">Custom Box & Container</a> · <a href="#sub-custom-gift-and-award">Custom Gift & Award</a> · <a href="#sub-oerforest--eco-line">OerForest — Eco Line</a></div>
+    </div>
+  </div>
+</section>
+<section class="subcat" data-od-id="catalog-subcategory" id="sub-custom-box-and-container">
   <div class="container">
     <header class="subcat-head">
       <div>
-        <span class="eyebrow">Sub-series 6</span>
+        <span class="eyebrow">Sub-series 4</span>
+        <h2>Custom Box & Container</h2>
+      </div>
+    </header>
+    <div class="subcat-summary">
+      <span class="label">Catalog pages</span>
+      <span class="source-pages"><a href="#page-53">P53</a></span>
+      <span class="count">3 products</span>
+    </div>
+    <div class="product-grid">
+        <div class="product-card" style="--i: 0">
+          <div class="card-image">
+            <img src="assets/products-grid/box-frame-p53.webp" alt="FRAME BOX" loading="lazy" style="aspect-ratio: 0.414;" />
+            <span class="page-pill">P53</span>
+          </div>
+          <div class="card-body">
+            <span class="sku">—</span>
+            <h3 class="name">FRAME BOX</h3>
+            <ul class="spec spec-list"><li>DIFFERENT SIZE</li></ul>
+            <div class="meta-row">
+              <span class="source">PDF · P53</span>
+            </div>
+          </div>
+        </div>
+        <div class="product-card" style="--i: 1">
+          <div class="card-image">
+            <img src="assets/products-grid/box-acrylic-p53.webp" alt="—" loading="lazy" style="aspect-ratio: 0.403;" />
+            <span class="page-pill">P53</span>
+          </div>
+          <div class="card-body">
+            <span class="sku">—</span>
+            <h3 class="name">—</h3>
+            <ul class="spec spec-list"><li>PDF does not provide a separately readable product description.</li></ul>
+            <div class="meta-row">
+              <span class="source">PDF · P53</span>
+            </div>
+          </div>
+        </div>
+        <div class="product-card" style="--i: 2">
+          <div class="card-image">
+            <img src="assets/products-grid/box-metal-p53.webp" alt="—" loading="lazy" style="aspect-ratio: 0.403;" />
+            <span class="page-pill">P53</span>
+          </div>
+          <div class="card-body">
+            <span class="sku">—</span>
+            <h3 class="name">—</h3>
+            <ul class="spec spec-list"><li>PDF does not provide a separately readable product description.</li></ul>
+            <div class="meta-row">
+              <span class="source">PDF · P53</span>
+            </div>
+          </div>
+        </div>
+    </div>
+  </div>
+</section>
+<section class="subcat" data-od-id="catalog-subcategory" id="sub-custom-gift-and-award">
+  <div class="container">
+    <header class="subcat-head">
+      <div>
+        <span class="eyebrow">Sub-series 5</span>
         <h2>Custom Gift & Award</h2>
       </div>
     </header>
@@ -1343,197 +1233,184 @@ ul { margin: 0; padding: 0; list-style: none; }
       <span class="count">13 products</span>
     </div>
     <div class="product-grid">
-        <div class="product-card" style="--i: 4">
-          <div class="card-image">
-            <img src="assets/products-grid/gifts-keypad-p57.webp" alt="Catalogue item · P57–01" loading="lazy"  style="aspect-ratio: 0.624;" />
-            <span class="page-pill">P57</span>
-          </div>
-          <div class="card-body">
-            <span class="sku">P57 · ITEM 01</span>
-            <h3 class="name">Catalogue item · P57–01</h3>
-            <ul class="spec spec-list"><li>PDF does not provide a separately readable product description.</li></ul>
-            <div class="meta-row">
-              
-              <span class="source">PDF · P57</span>
-            </div>
-          </div>
-        </div>
-        <div class="product-card" style="--i: 5">
-          <div class="card-image">
-            <img src="assets/products-grid/gifts-tote-large-p57.webp" alt="Catalogue item · P57–02" loading="lazy"  style="aspect-ratio: 0.693;" />
-            <span class="page-pill">P57</span>
-          </div>
-          <div class="card-body">
-            <span class="sku">P57 · ITEM 02</span>
-            <h3 class="name">Catalogue item · P57–02</h3>
-            <ul class="spec spec-list"><li>PDF does not provide a separately readable product description.</li></ul>
-            <div class="meta-row">
-              
-              <span class="source">PDF · P57</span>
-            </div>
-          </div>
-        </div>
-        <div class="product-card" style="--i: 6">
-          <div class="card-image">
-            <img src="assets/products-grid/gifts-keychain-p57.webp" alt="Catalogue item · P57–03" loading="lazy"  style="aspect-ratio: 0.331;" />
-            <span class="page-pill">P57</span>
-          </div>
-          <div class="card-body">
-            <span class="sku">P57 · ITEM 03</span>
-            <h3 class="name">Catalogue item · P57–03</h3>
-            <ul class="spec spec-list"><li>PDF does not provide a separately readable product description.</li></ul>
-            <div class="meta-row">
-              
-              <span class="source">PDF · P57</span>
-            </div>
-          </div>
-        </div>
-        <div class="product-card" style="--i: 7">
-          <div class="card-image">
-            <img src="assets/products-grid/gifts-badge-p57.webp" alt="Catalogue item · P57–04" loading="lazy"  style="aspect-ratio: 0.391;" />
-            <span class="page-pill">P57</span>
-          </div>
-          <div class="card-body">
-            <span class="sku">P57 · ITEM 04</span>
-            <h3 class="name">Catalogue item · P57–04</h3>
-            <ul class="spec spec-list"><li>PDF does not provide a separately readable product description.</li></ul>
-            <div class="meta-row">
-              
-              <span class="source">PDF · P57</span>
-            </div>
-          </div>
-        </div>
-        <div class="product-card" style="--i: 8">
-          <div class="card-image">
-            <img src="assets/products-grid/gifts-buckle-p57.webp" alt="Catalogue item · P57–05" loading="lazy"  style="aspect-ratio: 0.975;" />
-            <span class="page-pill">P57</span>
-          </div>
-          <div class="card-body">
-            <span class="sku">P57 · ITEM 05</span>
-            <h3 class="name">Catalogue item · P57–05</h3>
-            <ul class="spec spec-list"><li>PDF does not provide a separately readable product description.</li></ul>
-            <div class="meta-row">
-              
-              <span class="source">PDF · P57</span>
-            </div>
-          </div>
-        </div>
-        <div class="product-card" style="--i: 9">
-          <div class="card-image">
-            <img src="assets/products-grid/gifts-pin-p57.webp" alt="Catalogue item · P57–06" loading="lazy"  style="aspect-ratio: 0.244;" />
-            <span class="page-pill">P57</span>
-          </div>
-          <div class="card-body">
-            <span class="sku">P57 · ITEM 06</span>
-            <h3 class="name">Catalogue item · P57–06</h3>
-            <ul class="spec spec-list"><li>PDF does not provide a separately readable product description.</li></ul>
-            <div class="meta-row">
-              
-              <span class="source">PDF · P57</span>
-            </div>
-          </div>
-        </div>
-        <div class="product-card" style="--i: 10">
-          <div class="card-image">
-            <img src="assets/products-grid/gifts-thermos-p57.webp" alt="PRt4A" loading="lazy"  style="aspect-ratio: 0.508;" />
-            <span class="page-pill">P57</span>
-          </div>
-          <div class="card-body">
-            <span class="sku">P57 · ITEM 07</span>
-            <h3 class="name">PRt4A</h3>
-            <ul class="spec spec-list"><li>ENZE+</li></ul>
-            <div class="meta-row">
-              
-              <span class="source">PDF · P57</span>
-            </div>
-          </div>
-        </div>
-        <div class="product-card" style="--i: 11">
-          <div class="card-image">
-            <img src="assets/products-grid/gifts-mug-p57.webp" alt="Catalogue item · P57–08" loading="lazy"  style="aspect-ratio: 1.379;" />
-            <span class="page-pill">P57</span>
-          </div>
-          <div class="card-body">
-            <span class="sku">P57 · ITEM 08</span>
-            <h3 class="name">Catalogue item · P57–08</h3>
-            <ul class="spec spec-list"><li>PDF does not provide a separately readable product description.</li></ul>
-            <div class="meta-row">
-              
-              <span class="source">PDF · P57</span>
-            </div>
-          </div>
-        </div>
         <div class="product-card" style="--i: 0">
           <div class="card-image">
-            <img src="assets/products-grid/gifts-award-p57.webp" alt="Catalogue item · P57–09" loading="lazy"  style="aspect-ratio: 0.417;" />
+            <img src="assets/products-grid/gifts-keypad-p57.webp" alt="—" loading="lazy" style="aspect-ratio: 0.696;" />
             <span class="page-pill">P57</span>
           </div>
           <div class="card-body">
-            <span class="sku">P57 · ITEM 09</span>
-            <h3 class="name">Catalogue item · P57–09</h3>
+            <span class="sku">—</span>
+            <h3 class="name">—</h3>
             <ul class="spec spec-list"><li>PDF does not provide a separately readable product description.</li></ul>
             <div class="meta-row">
-              
               <span class="source">PDF · P57</span>
             </div>
           </div>
         </div>
         <div class="product-card" style="--i: 1">
           <div class="card-image">
-            <img src="assets/products-grid/gifts-cap-p57.webp" alt="SMUEL" loading="lazy"  style="aspect-ratio: 0.737;" />
+            <img src="assets/products-grid/gifts-tote-large-p57.webp" alt="—" loading="lazy" style="aspect-ratio: 0.710;" />
             <span class="page-pill">P57</span>
           </div>
           <div class="card-body">
-            <span class="sku">P57 · ITEM 10</span>
-            <h3 class="name">SMUEL</h3>
-            <ul class="spec spec-list"><li>27</li><li>L ATHLETES AR</li><li>BUT WE DO IT FOR AN ETERNAL PRIZE.</li></ul>
+            <span class="sku">—</span>
+            <h3 class="name">—</h3>
+            <ul class="spec spec-list"><li>PDF does not provide a separately readable product description.</li></ul>
             <div class="meta-row">
-              
               <span class="source">PDF · P57</span>
             </div>
           </div>
         </div>
         <div class="product-card" style="--i: 2">
           <div class="card-image">
-            <img src="assets/products-grid/gifts-tissue-p57.webp" alt="Catalogue item · P57–11" loading="lazy"  style="aspect-ratio: 0.623;" />
+            <img src="assets/products-grid/gifts-keychain-p57.webp" alt="—" loading="lazy" style="aspect-ratio: 0.709;" />
             <span class="page-pill">P57</span>
           </div>
           <div class="card-body">
-            <span class="sku">P57 · ITEM 11</span>
-            <h3 class="name">Catalogue item · P57–11</h3>
+            <span class="sku">—</span>
+            <h3 class="name">—</h3>
             <ul class="spec spec-list"><li>PDF does not provide a separately readable product description.</li></ul>
             <div class="meta-row">
-              
               <span class="source">PDF · P57</span>
             </div>
           </div>
         </div>
         <div class="product-card" style="--i: 3">
           <div class="card-image">
-            <img src="assets/products-grid/gifts-medal-p57.webp" alt="Catalogue item · P57–12" loading="lazy"  style="aspect-ratio: 0.493;" />
+            <img src="assets/products-grid/gifts-badge-p57.webp" alt="—" loading="lazy" style="aspect-ratio: 0.710;" />
             <span class="page-pill">P57</span>
           </div>
           <div class="card-body">
-            <span class="sku">P57 · ITEM 12</span>
-            <h3 class="name">Catalogue item · P57–12</h3>
+            <span class="sku">—</span>
+            <h3 class="name">—</h3>
             <ul class="spec spec-list"><li>PDF does not provide a separately readable product description.</li></ul>
             <div class="meta-row">
-              
               <span class="source">PDF · P57</span>
             </div>
           </div>
         </div>
         <div class="product-card" style="--i: 4">
           <div class="card-image">
-            <img src="assets/products-grid/gifts-jersey-p57.webp" alt="Catalogue item · P57–13" loading="lazy"  style="aspect-ratio: 0.871;" />
+            <img src="assets/products-grid/gifts-buckle-p57.webp" alt="—" loading="lazy" style="aspect-ratio: 0.668;" />
             <span class="page-pill">P57</span>
           </div>
           <div class="card-body">
-            <span class="sku">P57 · ITEM 13</span>
-            <h3 class="name">Catalogue item · P57–13</h3>
+            <span class="sku">—</span>
+            <h3 class="name">—</h3>
             <ul class="spec spec-list"><li>PDF does not provide a separately readable product description.</li></ul>
             <div class="meta-row">
-              
+              <span class="source">PDF · P57</span>
+            </div>
+          </div>
+        </div>
+        <div class="product-card" style="--i: 5">
+          <div class="card-image">
+            <img src="assets/products-grid/gifts-pin-p57.webp" alt="—" loading="lazy" style="aspect-ratio: 0.696;" />
+            <span class="page-pill">P57</span>
+          </div>
+          <div class="card-body">
+            <span class="sku">—</span>
+            <h3 class="name">—</h3>
+            <ul class="spec spec-list"><li>PDF does not provide a separately readable product description.</li></ul>
+            <div class="meta-row">
+              <span class="source">PDF · P57</span>
+            </div>
+          </div>
+        </div>
+        <div class="product-card" style="--i: 6">
+          <div class="card-image">
+            <img src="assets/products-grid/gifts-thermos-p57.webp" alt="PRt4A" loading="lazy" style="aspect-ratio: 0.710;" />
+            <span class="page-pill">P57</span>
+          </div>
+          <div class="card-body">
+            <span class="sku">—</span>
+            <h3 class="name">PRt4A</h3>
+            <ul class="spec spec-list"><li>ENZE+</li></ul>
+            <div class="meta-row">
+              <span class="source">PDF · P57</span>
+            </div>
+          </div>
+        </div>
+        <div class="product-card" style="--i: 7">
+          <div class="card-image">
+            <img src="assets/products-grid/gifts-mug-p57.webp" alt="—" loading="lazy" style="aspect-ratio: 0.709;" />
+            <span class="page-pill">P57</span>
+          </div>
+          <div class="card-body">
+            <span class="sku">—</span>
+            <h3 class="name">—</h3>
+            <ul class="spec spec-list"><li>PDF does not provide a separately readable product description.</li></ul>
+            <div class="meta-row">
+              <span class="source">PDF · P57</span>
+            </div>
+          </div>
+        </div>
+        <div class="product-card" style="--i: 8">
+          <div class="card-image">
+            <img src="assets/products-grid/gifts-award-p57.webp" alt="—" loading="lazy" style="aspect-ratio: 0.710;" />
+            <span class="page-pill">P57</span>
+          </div>
+          <div class="card-body">
+            <span class="sku">—</span>
+            <h3 class="name">—</h3>
+            <ul class="spec spec-list"><li>PDF does not provide a separately readable product description.</li></ul>
+            <div class="meta-row">
+              <span class="source">PDF · P57</span>
+            </div>
+          </div>
+        </div>
+        <div class="product-card" style="--i: 9">
+          <div class="card-image">
+            <img src="assets/products-grid/gifts-cap-p57.webp" alt="SMUEL" loading="lazy" style="aspect-ratio: 0.668;" />
+            <span class="page-pill">P57</span>
+          </div>
+          <div class="card-body">
+            <span class="sku">—</span>
+            <h3 class="name">SMUEL</h3>
+            <ul class="spec spec-list"><li>27</li><li>L ATHLETES AR</li><li>BUT WE DO IT FOR AN ETERNAL PRIZE.</li></ul>
+            <div class="meta-row">
+              <span class="source">PDF · P57</span>
+            </div>
+          </div>
+        </div>
+        <div class="product-card" style="--i: 10">
+          <div class="card-image">
+            <img src="assets/products-grid/gifts-tissue-p57.webp" alt="—" loading="lazy" style="aspect-ratio: 0.696;" />
+            <span class="page-pill">P57</span>
+          </div>
+          <div class="card-body">
+            <span class="sku">—</span>
+            <h3 class="name">—</h3>
+            <ul class="spec spec-list"><li>PDF does not provide a separately readable product description.</li></ul>
+            <div class="meta-row">
+              <span class="source">PDF · P57</span>
+            </div>
+          </div>
+        </div>
+        <div class="product-card" style="--i: 11">
+          <div class="card-image">
+            <img src="assets/products-grid/gifts-medal-p57.webp" alt="—" loading="lazy" style="aspect-ratio: 0.710;" />
+            <span class="page-pill">P57</span>
+          </div>
+          <div class="card-body">
+            <span class="sku">—</span>
+            <h3 class="name">—</h3>
+            <ul class="spec spec-list"><li>PDF does not provide a separately readable product description.</li></ul>
+            <div class="meta-row">
+              <span class="source">PDF · P57</span>
+            </div>
+          </div>
+        </div>
+        <div class="product-card" style="--i: 12">
+          <div class="card-image">
+            <img src="assets/products-grid/gifts-jersey-p57.webp" alt="—" loading="lazy" style="aspect-ratio: 0.709;" />
+            <span class="page-pill">P57</span>
+          </div>
+          <div class="card-body">
+            <span class="sku">—</span>
+            <h3 class="name">—</h3>
+            <ul class="spec spec-list"><li>PDF does not provide a separately readable product description.</li></ul>
+            <div class="meta-row">
               <span class="source">PDF · P57</span>
             </div>
           </div>
@@ -1541,11 +1418,11 @@ ul { margin: 0; padding: 0; list-style: none; }
     </div>
   </div>
 </section>
-<section class="subcat" data-od-id="catalog-subcategory" id="subcat-oerforest-eco-line">
+<section class="subcat" data-od-id="catalog-subcategory" id="sub-oerforest--eco-line">
   <div class="container">
     <header class="subcat-head">
       <div>
-        <span class="eyebrow">Sub-series 7</span>
+        <span class="eyebrow">Sub-series 6</span>
         <h2>OerForest — Eco Line</h2>
       </div>
     </header>
@@ -1555,9 +1432,9 @@ ul { margin: 0; padding: 0; list-style: none; }
       <span class="count">9 products</span>
     </div>
     <div class="product-grid">
-        <div class="product-card" style="--i: 5">
+        <div class="product-card" style="--i: 0">
           <div class="card-image">
-            <img src="assets/products-grid/slh24001-a3-p58-s0.webp" alt="Canvas Cork Series" loading="lazy"  style="aspect-ratio: 1.211;" />
+            <img src="assets/products-grid/slh24001-a3-p58-s0.webp" alt="Canvas Cork Series" loading="lazy" style="aspect-ratio: 0.636;" />
             <span class="page-pill">P58</span>
           </div>
           <div class="card-body">
@@ -1565,14 +1442,13 @@ ul { margin: 0; padding: 0; list-style: none; }
             <h3 class="name">Canvas Cork Series</h3>
             <ul class="spec spec-list"><li>Canvas Cork Series</li></ul>
             <div class="meta-row">
-              
               <span class="source">PDF · P58</span>
             </div>
           </div>
         </div>
-        <div class="product-card" style="--i: 6">
+        <div class="product-card" style="--i: 1">
           <div class="card-image">
-            <img src="assets/products-grid/slh24001-a4-p58-s1.webp" alt="Canvas Cork Series" loading="lazy"  style="aspect-ratio: 3.154;" />
+            <img src="assets/products-grid/slh24001-a4-p58-s1.webp" alt="Canvas Cork Series" loading="lazy" style="aspect-ratio: 0.705;" />
             <span class="page-pill">P58</span>
           </div>
           <div class="card-body">
@@ -1580,14 +1456,13 @@ ul { margin: 0; padding: 0; list-style: none; }
             <h3 class="name">Canvas Cork Series</h3>
             <ul class="spec spec-list"><li>Canvas Cork Series</li></ul>
             <div class="meta-row">
-              
               <span class="source">PDF · P58</span>
             </div>
           </div>
         </div>
-        <div class="product-card" style="--i: 7">
+        <div class="product-card" style="--i: 2">
           <div class="card-image">
-            <img src="assets/products-grid/slh24001-a4-p58-s2.webp" alt="Canvas Cork Series" loading="lazy"  style="aspect-ratio: 2.865;" />
+            <img src="assets/products-grid/slh24001-a4-p58-s2.webp" alt="Canvas Cork Series" loading="lazy" style="aspect-ratio: 0.636;" />
             <span class="page-pill">P58</span>
           </div>
           <div class="card-body">
@@ -1595,14 +1470,13 @@ ul { margin: 0; padding: 0; list-style: none; }
             <h3 class="name">Canvas Cork Series</h3>
             <ul class="spec spec-list"><li>Canvas Cork Series</li></ul>
             <div class="meta-row">
-              
               <span class="source">PDF · P58</span>
             </div>
           </div>
         </div>
-        <div class="product-card" style="--i: 8">
+        <div class="product-card" style="--i: 3">
           <div class="card-image">
-            <img src="assets/products-grid/slh24001-a6-p58-s3.webp" alt="Canvas Cork Series" loading="lazy"  style="aspect-ratio: 1.691;" />
+            <img src="assets/products-grid/slh24001-a6-p58-s3.webp" alt="Canvas Cork Series" loading="lazy" style="aspect-ratio: 0.636;" />
             <span class="page-pill">P58</span>
           </div>
           <div class="card-body">
@@ -1610,14 +1484,13 @@ ul { margin: 0; padding: 0; list-style: none; }
             <h3 class="name">Canvas Cork Series</h3>
             <ul class="spec spec-list"><li>Canvas Cork Series</li></ul>
             <div class="meta-row">
-              
               <span class="source">PDF · P58</span>
             </div>
           </div>
         </div>
-        <div class="product-card" style="--i: 9">
+        <div class="product-card" style="--i: 4">
           <div class="card-image">
-            <img src="assets/products-grid/slh24002-a4-p58-s4.webp" alt="Waterproof Polyester Series" loading="lazy"  style="aspect-ratio: 1.391;" />
+            <img src="assets/products-grid/slh24002-a4-p58-s4.webp" alt="Waterproof Polyester Series" loading="lazy" style="aspect-ratio: 0.705;" />
             <span class="page-pill">P58</span>
           </div>
           <div class="card-body">
@@ -1625,14 +1498,13 @@ ul { margin: 0; padding: 0; list-style: none; }
             <h3 class="name">Waterproof Polyester Series</h3>
             <ul class="spec spec-list"><li>Waterproof Polyester Series</li></ul>
             <div class="meta-row">
-              
               <span class="source">PDF · P58</span>
             </div>
           </div>
         </div>
-        <div class="product-card" style="--i: 10">
+        <div class="product-card" style="--i: 5">
           <div class="card-image">
-            <img src="assets/products-grid/slh24002-a3-p58-s5.webp" alt="Waterproof Polyester Series" loading="lazy"  style="aspect-ratio: 1.500;" />
+            <img src="assets/products-grid/slh24002-a3-p58-s5.webp" alt="Waterproof Polyester Series" loading="lazy" style="aspect-ratio: 0.636;" />
             <span class="page-pill">P58</span>
           </div>
           <div class="card-body">
@@ -1640,14 +1512,13 @@ ul { margin: 0; padding: 0; list-style: none; }
             <h3 class="name">Waterproof Polyester Series</h3>
             <ul class="spec spec-list"><li>Waterproof Polyester Series</li></ul>
             <div class="meta-row">
-              
               <span class="source">PDF · P58</span>
             </div>
           </div>
         </div>
-        <div class="product-card" style="--i: 11">
+        <div class="product-card" style="--i: 6">
           <div class="card-image">
-            <img src="assets/products-grid/slh24002-a2-p58-s6.webp" alt="Waterproof Polyester Series" loading="lazy"  style="aspect-ratio: 1.116;" />
+            <img src="assets/products-grid/slh24002-a2-p58-s6.webp" alt="Waterproof Polyester Series" loading="lazy" style="aspect-ratio: 0.561;" />
             <span class="page-pill">P58</span>
           </div>
           <div class="card-body">
@@ -1655,14 +1526,13 @@ ul { margin: 0; padding: 0; list-style: none; }
             <h3 class="name">Waterproof Polyester Series</h3>
             <ul class="spec spec-list"><li>Waterproof Polyester Series</li></ul>
             <div class="meta-row">
-              
               <span class="source">PDF · P58</span>
             </div>
           </div>
         </div>
-        <div class="product-card" style="--i: 0">
+        <div class="product-card" style="--i: 7">
           <div class="card-image">
-            <img src="assets/products-grid/slh24002-a2-p58-s7.webp" alt="Waterproof Polyester Series" loading="lazy"  style="aspect-ratio: 0.991;" />
+            <img src="assets/products-grid/slh24002-a2-p58-s7.webp" alt="Waterproof Polyester Series" loading="lazy" style="aspect-ratio: 0.634;" />
             <span class="page-pill">P58</span>
           </div>
           <div class="card-body">
@@ -1670,14 +1540,13 @@ ul { margin: 0; padding: 0; list-style: none; }
             <h3 class="name">Waterproof Polyester Series</h3>
             <ul class="spec spec-list"><li>Waterproof Polyester Series</li></ul>
             <div class="meta-row">
-              
               <span class="source">PDF · P58</span>
             </div>
           </div>
         </div>
-        <div class="product-card" style="--i: 1">
+        <div class="product-card" style="--i: 8">
           <div class="card-image">
-            <img src="assets/products-grid/slh24002-a6-p58-s8.webp" alt="Waterproof Polyester Series" loading="lazy"  style="aspect-ratio: 1.298;" />
+            <img src="assets/products-grid/slh24002-a6-p58-s8.webp" alt="Waterproof Polyester Series" loading="lazy" style="aspect-ratio: 0.561;" />
             <span class="page-pill">P58</span>
           </div>
           <div class="card-body">
@@ -1685,52 +1554,10 @@ ul { margin: 0; padding: 0; list-style: none; }
             <h3 class="name">Waterproof Polyester Series</h3>
             <ul class="spec spec-list"><li>Waterproof Polyester Series</li></ul>
             <div class="meta-row">
-              
               <span class="source">PDF · P58</span>
             </div>
           </div>
         </div>
-    </div>
-  </div>
-</section>
-<section class="explore-other" data-od-id="series-navigation">
-  <div class="container">
-    <div class="explore-other-head">
-      <div>
-        <h2>Explore the other series</h2>
-        <div class="sub">Jump across the full Ono Inspiration catalogue</div>
-      </div>
-      <a class="btn btn-secondary" href="index.html">← All series</a>
-    </div>
-    <div class="explore-grid">
-      <a class="explore-card" href="products-01-power-charging.html">
-        <span class="badge">01</span>
-        <div>
-          <div class="title">Power & Charging</div>
-          <div class="sub">60 products · P04-P41</div>
-        </div>
-      </a>
-      <a class="explore-card" href="products-02-audio-mobile.html">
-        <span class="badge">02</span>
-        <div>
-          <div class="title">Audio & Smart Mobile</div>
-          <div class="sub">60 products · P28-P36</div>
-        </div>
-      </a>
-      <a class="explore-card" href="products-03-lifestyle-office.html">
-        <span class="badge">03</span>
-        <div>
-          <div class="title">Lifestyle & Office</div>
-          <div class="sub">86 products · P36-P51</div>
-        </div>
-      </a>
-      <a class="explore-card muted" href="products-04-carry-customize.html">
-        <span class="badge">04</span>
-        <div>
-          <div class="title">Carry & Customize</div>
-          <div class="sub">50 products · P51-P58</div>
-        </div>
-      </a>
     </div>
   </div>
 </section>
